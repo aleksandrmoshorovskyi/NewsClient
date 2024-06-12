@@ -8,37 +8,58 @@
 import Foundation
 
 typealias NewsCompletion = ((DMNewsModel?, Error?) -> ())
+typealias NewParametrs = (category: Category?, keyword: String?, pageSize: Int?, page: Int?)
 
 protocol NetworkServiceNews {
 
-    func loadTopNews(for country: Country, completion: @escaping NewsCompletion)
+    func loadTopNewsFor(country: Country, category: Category?, keyword: String?, pageSize: Int?, page: Int?, completion: @escaping NewsCompletion)
+    func loadSearchedNewsFor(keyword: String, pageSize: Int?, page: Int?, completion: @escaping NewsCompletion)
 }
 
 extension NetworkService: NetworkServiceProtocol {
-    
-    func loadTopNews(for country: Country, completion: @escaping NewsCompletion) {
-        let urlString = APIConstant.topNewsUrl() + "?" + "country=\(country.rawValue)" + "&" + "apiKey=\(APIConstant.APIkey)"
+        
+    func loadTopNewsFor(country: Country, category: Category?, keyword: String?, pageSize: Int?, page: Int?, completion: @escaping NewsCompletion) {
+        
+        let urlString = APIConstant.topNewsUrl() + "?" + "country=\(country.rawValue)"
+        
+        let urlStringWithParametrs = addParametrs((category, keyword, pageSize, page), for: urlString)
 
-        loadData(for: urlString, completion: completion)
+        loadData(for: urlStringWithParametrs, completion: completion)
+    }
+    
+    func loadSearchedNewsFor(keyword: String, pageSize: Int?, page: Int?, completion: @escaping NewsCompletion) {
+        
+        let urlString = APIConstant.searchNewsUrl() + "?" + "q=\(keyword)"
+        
+        let urlStringWithParametrs = addParametrs((nil, nil, pageSize, page), for: urlString)
+
+        loadData(for: urlStringWithParametrs, completion: completion)
     }
      
-    //common methods
-    /*
-    private func addParametrs(_ params: WeatherParametrs, for urlString: String) -> String {
+    private func addParametrs(_ params: NewParametrs, for urlString: String) -> String {
         
         var tempUrlString = urlString
         
-        if let units = params.units {
-            tempUrlString += "&units=\(units)"
+        if let category = params.category {
+            tempUrlString.append("&category=\(category)")
         }
         
-        if let lang = params.lang {
-            tempUrlString += "&lang=\(lang)"
+        if let keyword = params.keyword {
+            tempUrlString.append("&q=\(keyword)")
         }
+        
+        if let pageSize = params.pageSize {
+            tempUrlString.append("&pageSize=\(pageSize)")
+        }
+        
+        if let page = params.page {
+            tempUrlString.append("&page=\(page)")
+        }
+        
+        tempUrlString.append("&apiKey=\(APIConstant.APIkey)")
         
         return tempUrlString
     }
-     */
     
     private func loadData<T: Decodable>(for urlString: String, completion: @escaping (T?, Error?) -> ()) {
         let url = URL(string: urlString)!

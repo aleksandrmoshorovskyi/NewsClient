@@ -10,10 +10,10 @@ import Foundation
 //Common
 enum Country: String {
     case UAE = "ae"
-    case ukraine = "ua"
-    case unitedKingdom = "gb"
-    case unitedStates = "us"
-    case venuzuela = "ve"
+    case Ukraine = "ua"
+    case UnitedKingdom = "gb"
+    case UnitedStates = "us"
+    case Venuzuela = "ve"
 }
 
 enum Category: String {

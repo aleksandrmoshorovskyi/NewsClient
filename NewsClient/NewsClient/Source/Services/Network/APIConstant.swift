@@ -30,11 +30,3 @@ struct APIConstant {
         return baseNewsUrl() + dataPathSearch
     }
 }
-
-/*
- //Get curated breaking news headlines
- https://newsapi.org /v2/ top-headlines ?country=ua & apiKey=c3494c6294fc41dc8cca8fcf13d5987b
- 
- //Searching for news articles
- https://newsapi.org /v2/ everything ?q=tesla & from=2024-05-05 & apiKey=c3494c6294fc41dc8cca8fcf13d5987b
- */

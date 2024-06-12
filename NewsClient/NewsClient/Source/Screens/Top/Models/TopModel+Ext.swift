@@ -11,7 +11,8 @@ extension TopModel: TopModelProtocol {
     
     func loadData() {
         
-        networkService.loadTopNews(for: Country.ukraine) { [weak self] newsData, error in
+        //networkService.loadSearchedNewsFor(keyword: "Intel", pageSize: 10, page: 1) { [weak self] newsData, error in
+        networkService.loadTopNewsFor(country: Country.Ukraine, category: nil, keyword: nil, pageSize: nil, page: nil) { [weak self] newsData, error in
 
             if let err = error {
                 debugPrint("\(err.localizedDescription)")

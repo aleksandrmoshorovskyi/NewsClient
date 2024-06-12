@@ -11,6 +11,6 @@ extension TopViewController: TopModelDelegate {
     
     func dataDidLoad() {
         
-        debugPrint("TopViewController - dataDidLoad")
+        //debugPrint("TopViewController - dataDidLoad")
     }
 }
