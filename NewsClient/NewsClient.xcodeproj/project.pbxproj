@@ -13,6 +13,21 @@
 		A823EE7E2C10651F001BF6A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A823EE7D2C10651F001BF6A6 /* Assets.xcassets */; };
 		A823EE812C10651F001BF6A6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A823EE802C10651F001BF6A6 /* Base */; };
 		A823EE8B2C107171001BF6A6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EE8A2C107171001BF6A6 /* MainTabBarController.swift */; };
+		A823EE942C109651001BF6A6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EE932C109651001BF6A6 /* NetworkService.swift */; };
+		A823EE962C1096BE001BF6A6 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EE952C1096BE001BF6A6 /* APIConstant.swift */; };
+		A823EE982C109AE7001BF6A6 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EE972C109AE7001BF6A6 /* NetworkServiceProtocol.swift */; };
+		A823EE9A2C109B23001BF6A6 /* NetworkService+News.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EE992C109B23001BF6A6 /* NetworkService+News.swift */; };
+		A823EE9C2C10A004001BF6A6 /* APIParametrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EE9B2C10A004001BF6A6 /* APIParametrs.swift */; };
+		A823EEA02C10A34E001BF6A6 /* DMNewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EE9F2C10A34E001BF6A6 /* DMNewsModel.swift */; };
+		A823EEA42C10A73F001BF6A6 /* TopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEA32C10A73F001BF6A6 /* TopModel.swift */; };
+		A823EEA62C10A787001BF6A6 /* TopModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEA52C10A787001BF6A6 /* TopModelDelegate.swift */; };
+		A823EEA82C10A796001BF6A6 /* MainModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEA72C10A796001BF6A6 /* MainModelProtocol.swift */; };
+		A823EEAB2C10A84D001BF6A6 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEAA2C10A84D001BF6A6 /* ServiceProvider.swift */; };
+		A823EEAD2C10A8B0001BF6A6 /* TopModel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEAC2C10A8B0001BF6A6 /* TopModel+Ext.swift */; };
+		A823EEAF2C10AB03001BF6A6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEAE2C10AB03001BF6A6 /* BaseViewController.swift */; };
+		A823EEB22C10AB60001BF6A6 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEB12C10AB60001BF6A6 /* TopViewController.swift */; };
+		A823EEB42C10AC07001BF6A6 /* TopViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEB32C10AC07001BF6A6 /* TopViewController+Ext.swift */; };
+		A823EEB62C10B041001BF6A6 /* DMNewsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEB52C10B041001BF6A6 /* DMNewsError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +39,21 @@
 		A823EE802C10651F001BF6A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A823EE822C10651F001BF6A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A823EE8A2C107171001BF6A6 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		A823EE932C109651001BF6A6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		A823EE952C1096BE001BF6A6 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
+		A823EE972C109AE7001BF6A6 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		A823EE992C109B23001BF6A6 /* NetworkService+News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService+News.swift"; sourceTree = "<group>"; };
+		A823EE9B2C10A004001BF6A6 /* APIParametrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParametrs.swift; sourceTree = "<group>"; };
+		A823EE9F2C10A34E001BF6A6 /* DMNewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMNewsModel.swift; sourceTree = "<group>"; };
+		A823EEA32C10A73F001BF6A6 /* TopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopModel.swift; sourceTree = "<group>"; };
+		A823EEA52C10A787001BF6A6 /* TopModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopModelDelegate.swift; sourceTree = "<group>"; };
+		A823EEA72C10A796001BF6A6 /* MainModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModelProtocol.swift; sourceTree = "<group>"; };
+		A823EEAA2C10A84D001BF6A6 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		A823EEAC2C10A8B0001BF6A6 /* TopModel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopModel+Ext.swift"; sourceTree = "<group>"; };
+		A823EEAE2C10AB03001BF6A6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A823EEB12C10AB60001BF6A6 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
+		A823EEB32C10AC07001BF6A6 /* TopViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopViewController+Ext.swift"; sourceTree = "<group>"; };
+		A823EEB52C10B041001BF6A6 /* DMNewsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMNewsError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +106,9 @@
 		A823EE8D2C1072A1001BF6A6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A823EE9D2C10A2FE001BF6A6 /* Models */,
 				A823EE8E2C1072C5001BF6A6 /* Screens */,
+				A823EE912C1095EC001BF6A6 /* Services */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -84,8 +116,9 @@
 		A823EE8E2C1072C5001BF6A6 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				A823EE902C1072D7001BF6A6 /* Main */,
 				A823EE8F2C1072CE001BF6A6 /* App */,
+				A823EE902C1072D7001BF6A6 /* Main */,
+				A823EEA12C10A705001BF6A6 /* Top */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -103,8 +136,84 @@
 			isa = PBXGroup;
 			children = (
 				A823EE8A2C107171001BF6A6 /* MainTabBarController.swift */,
+				A823EEAE2C10AB03001BF6A6 /* BaseViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		A823EE912C1095EC001BF6A6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A823EEA92C10A838001BF6A6 /* Common */,
+				A823EE922C109627001BF6A6 /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A823EE922C109627001BF6A6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A823EE932C109651001BF6A6 /* NetworkService.swift */,
+				A823EE972C109AE7001BF6A6 /* NetworkServiceProtocol.swift */,
+				A823EE952C1096BE001BF6A6 /* APIConstant.swift */,
+				A823EE9B2C10A004001BF6A6 /* APIParametrs.swift */,
+				A823EE992C109B23001BF6A6 /* NetworkService+News.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A823EE9D2C10A2FE001BF6A6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A823EE9E2C10A33B001BF6A6 /* API */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A823EE9E2C10A33B001BF6A6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A823EE9F2C10A34E001BF6A6 /* DMNewsModel.swift */,
+				A823EEB52C10B041001BF6A6 /* DMNewsError.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		A823EEA12C10A705001BF6A6 /* Top */ = {
+			isa = PBXGroup;
+			children = (
+				A823EEB02C10AB41001BF6A6 /* Controllers */,
+				A823EEA22C10A72C001BF6A6 /* Models */,
+			);
+			path = Top;
+			sourceTree = "<group>";
+		};
+		A823EEA22C10A72C001BF6A6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A823EEAC2C10A8B0001BF6A6 /* TopModel+Ext.swift */,
+				A823EEA32C10A73F001BF6A6 /* TopModel.swift */,
+				A823EEA52C10A787001BF6A6 /* TopModelDelegate.swift */,
+				A823EEA72C10A796001BF6A6 /* MainModelProtocol.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A823EEA92C10A838001BF6A6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A823EEAA2C10A84D001BF6A6 /* ServiceProvider.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A823EEB02C10AB41001BF6A6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A823EEB32C10AC07001BF6A6 /* TopViewController+Ext.swift */,
+				A823EEB12C10AB60001BF6A6 /* TopViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,10 +286,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A823EE942C109651001BF6A6 /* NetworkService.swift in Sources */,
 				A823EE722C10651E001BF6A6 /* AppDelegate.swift in Sources */,
+				A823EEAB2C10A84D001BF6A6 /* ServiceProvider.swift in Sources */,
+				A823EEB62C10B041001BF6A6 /* DMNewsError.swift in Sources */,
+				A823EE962C1096BE001BF6A6 /* APIConstant.swift in Sources */,
+				A823EEA82C10A796001BF6A6 /* MainModelProtocol.swift in Sources */,
+				A823EEA42C10A73F001BF6A6 /* TopModel.swift in Sources */,
+				A823EEAD2C10A8B0001BF6A6 /* TopModel+Ext.swift in Sources */,
+				A823EEA62C10A787001BF6A6 /* TopModelDelegate.swift in Sources */,
+				A823EEB42C10AC07001BF6A6 /* TopViewController+Ext.swift in Sources */,
+				A823EEA02C10A34E001BF6A6 /* DMNewsModel.swift in Sources */,
+				A823EE982C109AE7001BF6A6 /* NetworkServiceProtocol.swift in Sources */,
+				A823EE9C2C10A004001BF6A6 /* APIParametrs.swift in Sources */,
 				A823EE742C10651E001BF6A6 /* SceneDelegate.swift in Sources */,
+				A823EEB22C10AB60001BF6A6 /* TopViewController.swift in Sources */,
 				A823EE8B2C107171001BF6A6 /* MainTabBarController.swift in Sources */,
+				A823EEAF2C10AB03001BF6A6 /* BaseViewController.swift in Sources */,
 				A823EE7C2C10651E001BF6A6 /* NewsClientData.xcdatamodeld in Sources */,
+				A823EE9A2C109B23001BF6A6 /* NetworkService+News.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
