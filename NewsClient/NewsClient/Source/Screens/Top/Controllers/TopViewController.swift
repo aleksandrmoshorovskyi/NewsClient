@@ -13,7 +13,16 @@ class TopViewController: BaseViewController {
     
     var model: TopModelProtocol!
     
-    //var contentView: TopViewProtocol!
+    var contentView: TopViewProtocol!
+    
+    override func loadView() {
+        
+        let topView = TopView()
+        topView.delegate = self
+        
+        contentView = topView
+        view = topView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

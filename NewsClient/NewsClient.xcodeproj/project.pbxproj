@@ -32,6 +32,15 @@
 		A823EEBB2C19992C001BF6A6 /* CoreDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEBA2C19992C001BF6A6 /* CoreDataServiceProtocol.swift */; };
 		A823EEBD2C1999CB001BF6A6 /* CoreDataService+News.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEBC2C1999CB001BF6A6 /* CoreDataService+News.swift */; };
 		A85AB6DD2C19E04100FE1829 /* ArticleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6DC2C19E04100FE1829 /* ArticleDataModel.swift */; };
+		A85AB6DF2C19E6D100FE1829 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6DE2C19E6D100FE1829 /* Constants.swift */; };
+		A85AB6E22C19EB2700FE1829 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6E12C19EB2700FE1829 /* TopView.swift */; };
+		A85AB6E42C19EB5D00FE1829 /* TopViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6E32C19EB5D00FE1829 /* TopViewDelegate.swift */; };
+		A85AB6E62C19EB6800FE1829 /* TopViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6E52C19EB6800FE1829 /* TopViewProtocol.swift */; };
+		A85AB6E82C19EBF100FE1829 /* TopView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6E72C19EBF100FE1829 /* TopView+Ext.swift */; };
+		A85AB6EA2C19F00500FE1829 /* TopViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6E92C19F00500FE1829 /* TopViewControllerDelegate.swift */; };
+		A85AB6EC2C19F17900FE1829 /* TopView+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6EB2C19F17900FE1829 /* TopView+CollectionView.swift */; };
+		A85AB6EF2C19F35B00FE1829 /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6EE2C19F35B00FE1829 /* ArticleCollectionViewCell.swift */; };
+		A85AB6F22C19F53300FE1829 /* UICollectionViewCell+Idintifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6F12C19F53300FE1829 /* UICollectionViewCell+Idintifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +71,15 @@
 		A823EEBA2C19992C001BF6A6 /* CoreDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceProtocol.swift; sourceTree = "<group>"; };
 		A823EEBC2C1999CB001BF6A6 /* CoreDataService+News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataService+News.swift"; sourceTree = "<group>"; };
 		A85AB6DC2C19E04100FE1829 /* ArticleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDataModel.swift; sourceTree = "<group>"; };
+		A85AB6DE2C19E6D100FE1829 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A85AB6E12C19EB2700FE1829 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		A85AB6E32C19EB5D00FE1829 /* TopViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewDelegate.swift; sourceTree = "<group>"; };
+		A85AB6E52C19EB6800FE1829 /* TopViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewProtocol.swift; sourceTree = "<group>"; };
+		A85AB6E72C19EBF100FE1829 /* TopView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopView+Ext.swift"; sourceTree = "<group>"; };
+		A85AB6E92C19F00500FE1829 /* TopViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewControllerDelegate.swift; sourceTree = "<group>"; };
+		A85AB6EB2C19F17900FE1829 /* TopView+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopView+CollectionView.swift"; sourceTree = "<group>"; };
+		A85AB6EE2C19F35B00FE1829 /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
+		A85AB6F12C19F53300FE1829 /* UICollectionViewCell+Idintifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Idintifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +112,8 @@
 		A823EE702C10651E001BF6A6 /* NewsClient */ = {
 			isa = PBXGroup;
 			children = (
+				A85AB6F02C19F51900FE1829 /* Extensions */,
+				A823EEA92C10A838001BF6A6 /* Common */,
 				A823EE8C2C107207001BF6A6 /* Resource */,
 				A823EE8D2C1072A1001BF6A6 /* Source */,
 			);
@@ -153,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				A823EEB72C19987A001BF6A6 /* CoreData */,
-				A823EEA92C10A838001BF6A6 /* Common */,
 				A823EE922C109627001BF6A6 /* Network */,
 			);
 			path = Services;
@@ -192,8 +211,10 @@
 		A823EEA12C10A705001BF6A6 /* Top */ = {
 			isa = PBXGroup;
 			children = (
-				A823EEB02C10AB41001BF6A6 /* Controllers */,
+				A85AB6ED2C19F31900FE1829 /* Cells */,
 				A823EEA22C10A72C001BF6A6 /* Models */,
+				A85AB6E02C19E8C900FE1829 /* Views */,
+				A823EEB02C10AB41001BF6A6 /* Controllers */,
 			);
 			path = Top;
 			sourceTree = "<group>";
@@ -213,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				A823EEAA2C10A84D001BF6A6 /* ServiceProvider.swift */,
+				A85AB6DE2C19E6D100FE1829 /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -222,6 +244,7 @@
 			children = (
 				A823EEB32C10AC07001BF6A6 /* TopViewController+Ext.swift */,
 				A823EEB12C10AB60001BF6A6 /* TopViewController.swift */,
+				A85AB6E92C19F00500FE1829 /* TopViewControllerDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -242,6 +265,34 @@
 				A85AB6DC2C19E04100FE1829 /* ArticleDataModel.swift */,
 			);
 			path = DataModel;
+			sourceTree = "<group>";
+		};
+		A85AB6E02C19E8C900FE1829 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A85AB6EB2C19F17900FE1829 /* TopView+CollectionView.swift */,
+				A85AB6E12C19EB2700FE1829 /* TopView.swift */,
+				A85AB6E72C19EBF100FE1829 /* TopView+Ext.swift */,
+				A85AB6E32C19EB5D00FE1829 /* TopViewDelegate.swift */,
+				A85AB6E52C19EB6800FE1829 /* TopViewProtocol.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A85AB6ED2C19F31900FE1829 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A85AB6EE2C19F35B00FE1829 /* ArticleCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A85AB6F02C19F51900FE1829 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A85AB6F12C19F53300FE1829 /* UICollectionViewCell+Idintifier.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,15 +366,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A823EE942C109651001BF6A6 /* NetworkService.swift in Sources */,
+				A85AB6E22C19EB2700FE1829 /* TopView.swift in Sources */,
 				A823EE722C10651E001BF6A6 /* AppDelegate.swift in Sources */,
 				A823EEAB2C10A84D001BF6A6 /* ServiceProvider.swift in Sources */,
 				A85AB6DD2C19E04100FE1829 /* ArticleDataModel.swift in Sources */,
 				A823EEB62C10B041001BF6A6 /* DMNewsError.swift in Sources */,
+				A85AB6E82C19EBF100FE1829 /* TopView+Ext.swift in Sources */,
+				A85AB6EF2C19F35B00FE1829 /* ArticleCollectionViewCell.swift in Sources */,
 				A823EE962C1096BE001BF6A6 /* APIConstant.swift in Sources */,
+				A85AB6E42C19EB5D00FE1829 /* TopViewDelegate.swift in Sources */,
 				A823EEA82C10A796001BF6A6 /* MainModelProtocol.swift in Sources */,
 				A823EEA42C10A73F001BF6A6 /* TopModel.swift in Sources */,
 				A823EEBD2C1999CB001BF6A6 /* CoreDataService+News.swift in Sources */,
 				A823EEAD2C10A8B0001BF6A6 /* TopModel+Ext.swift in Sources */,
+				A85AB6EC2C19F17900FE1829 /* TopView+CollectionView.swift in Sources */,
 				A823EEA62C10A787001BF6A6 /* TopModelDelegate.swift in Sources */,
 				A823EEB42C10AC07001BF6A6 /* TopViewController+Ext.swift in Sources */,
 				A823EEA02C10A34E001BF6A6 /* DMNewsModel.swift in Sources */,
@@ -331,12 +387,16 @@
 				A823EEB92C19989B001BF6A6 /* CoreDataService.swift in Sources */,
 				A823EEBB2C19992C001BF6A6 /* CoreDataServiceProtocol.swift in Sources */,
 				A823EE9C2C10A004001BF6A6 /* APIParametrs.swift in Sources */,
+				A85AB6E62C19EB6800FE1829 /* TopViewProtocol.swift in Sources */,
+				A85AB6F22C19F53300FE1829 /* UICollectionViewCell+Idintifier.swift in Sources */,
+				A85AB6EA2C19F00500FE1829 /* TopViewControllerDelegate.swift in Sources */,
 				A823EE742C10651E001BF6A6 /* SceneDelegate.swift in Sources */,
 				A823EEB22C10AB60001BF6A6 /* TopViewController.swift in Sources */,
 				A823EE8B2C107171001BF6A6 /* MainTabBarController.swift in Sources */,
 				A823EEAF2C10AB03001BF6A6 /* BaseViewController.swift in Sources */,
 				A823EE7C2C10651E001BF6A6 /* NewsClientData.xcdatamodeld in Sources */,
 				A823EE9A2C109B23001BF6A6 /* NetworkService+News.swift in Sources */,
+				A85AB6DF2C19E6D100FE1829 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

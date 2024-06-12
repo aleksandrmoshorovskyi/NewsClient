@@ -9,6 +9,5 @@ import Foundation
 
 protocol TopModelDelegate: AnyObject {
     
-    func dataDidLoad()
-    //func dataDidLoad(with data: [])
+    func dataDidLoad(with data: [ArticleDataModel])
 }

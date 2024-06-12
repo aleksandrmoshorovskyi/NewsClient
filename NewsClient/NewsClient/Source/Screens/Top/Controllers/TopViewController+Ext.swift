@@ -7,10 +7,18 @@
 
 import UIKit
 
+//TopModelDelegate
 extension TopViewController: TopModelDelegate {
     
-    func dataDidLoad() {
-        
-        //debugPrint("TopViewController - dataDidLoad")
+    func dataDidLoad(with data: [ArticleDataModel]) {
+        contentView.setupNews(data: data)
+    }
+}
+
+//TopViewDelegate
+extension TopViewController: TopViewDelegate {
+    
+    func addToFavoriteDidTap() {
+        //code
     }
 }
