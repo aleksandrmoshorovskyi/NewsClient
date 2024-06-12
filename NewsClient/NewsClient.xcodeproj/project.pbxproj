@@ -31,6 +31,7 @@
 		A823EEB92C19989B001BF6A6 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEB82C19989B001BF6A6 /* CoreDataService.swift */; };
 		A823EEBB2C19992C001BF6A6 /* CoreDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEBA2C19992C001BF6A6 /* CoreDataServiceProtocol.swift */; };
 		A823EEBD2C1999CB001BF6A6 /* CoreDataService+News.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEBC2C1999CB001BF6A6 /* CoreDataService+News.swift */; };
+		A85AB6DD2C19E04100FE1829 /* ArticleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6DC2C19E04100FE1829 /* ArticleDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		A823EEB82C19989B001BF6A6 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		A823EEBA2C19992C001BF6A6 /* CoreDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceProtocol.swift; sourceTree = "<group>"; };
 		A823EEBC2C1999CB001BF6A6 /* CoreDataService+News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataService+News.swift"; sourceTree = "<group>"; };
+		A85AB6DC2C19E04100FE1829 /* ArticleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 		A823EE9D2C10A2FE001BF6A6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A85AB6DB2C19DFA900FE1829 /* DataModel */,
 				A823EE9E2C10A33B001BF6A6 /* API */,
 			);
 			path = Models;
@@ -231,6 +234,14 @@
 				A823EEBC2C1999CB001BF6A6 /* CoreDataService+News.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		A85AB6DB2C19DFA900FE1829 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				A85AB6DC2C19E04100FE1829 /* ArticleDataModel.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +317,7 @@
 				A823EE942C109651001BF6A6 /* NetworkService.swift in Sources */,
 				A823EE722C10651E001BF6A6 /* AppDelegate.swift in Sources */,
 				A823EEAB2C10A84D001BF6A6 /* ServiceProvider.swift in Sources */,
+				A85AB6DD2C19E04100FE1829 /* ArticleDataModel.swift in Sources */,
 				A823EEB62C10B041001BF6A6 /* DMNewsError.swift in Sources */,
 				A823EE962C1096BE001BF6A6 /* APIConstant.swift in Sources */,
 				A823EEA82C10A796001BF6A6 /* MainModelProtocol.swift in Sources */,
