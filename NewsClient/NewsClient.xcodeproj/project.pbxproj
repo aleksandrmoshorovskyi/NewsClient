@@ -28,6 +28,9 @@
 		A823EEB22C10AB60001BF6A6 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEB12C10AB60001BF6A6 /* TopViewController.swift */; };
 		A823EEB42C10AC07001BF6A6 /* TopViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEB32C10AC07001BF6A6 /* TopViewController+Ext.swift */; };
 		A823EEB62C10B041001BF6A6 /* DMNewsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEB52C10B041001BF6A6 /* DMNewsError.swift */; };
+		A823EEB92C19989B001BF6A6 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEB82C19989B001BF6A6 /* CoreDataService.swift */; };
+		A823EEBB2C19992C001BF6A6 /* CoreDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEBA2C19992C001BF6A6 /* CoreDataServiceProtocol.swift */; };
+		A823EEBD2C1999CB001BF6A6 /* CoreDataService+News.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEBC2C1999CB001BF6A6 /* CoreDataService+News.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		A823EEB12C10AB60001BF6A6 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		A823EEB32C10AC07001BF6A6 /* TopViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopViewController+Ext.swift"; sourceTree = "<group>"; };
 		A823EEB52C10B041001BF6A6 /* DMNewsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMNewsError.swift; sourceTree = "<group>"; };
+		A823EEB82C19989B001BF6A6 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		A823EEBA2C19992C001BF6A6 /* CoreDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceProtocol.swift; sourceTree = "<group>"; };
+		A823EEBC2C1999CB001BF6A6 /* CoreDataService+News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataService+News.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +150,7 @@
 		A823EE912C1095EC001BF6A6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A823EEB72C19987A001BF6A6 /* CoreData */,
 				A823EEA92C10A838001BF6A6 /* Common */,
 				A823EE922C109627001BF6A6 /* Network */,
 			);
@@ -214,6 +221,16 @@
 				A823EEB12C10AB60001BF6A6 /* TopViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A823EEB72C19987A001BF6A6 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				A823EEB82C19989B001BF6A6 /* CoreDataService.swift */,
+				A823EEBA2C19992C001BF6A6 /* CoreDataServiceProtocol.swift */,
+				A823EEBC2C1999CB001BF6A6 /* CoreDataService+News.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,11 +310,14 @@
 				A823EE962C1096BE001BF6A6 /* APIConstant.swift in Sources */,
 				A823EEA82C10A796001BF6A6 /* MainModelProtocol.swift in Sources */,
 				A823EEA42C10A73F001BF6A6 /* TopModel.swift in Sources */,
+				A823EEBD2C1999CB001BF6A6 /* CoreDataService+News.swift in Sources */,
 				A823EEAD2C10A8B0001BF6A6 /* TopModel+Ext.swift in Sources */,
 				A823EEA62C10A787001BF6A6 /* TopModelDelegate.swift in Sources */,
 				A823EEB42C10AC07001BF6A6 /* TopViewController+Ext.swift in Sources */,
 				A823EEA02C10A34E001BF6A6 /* DMNewsModel.swift in Sources */,
 				A823EE982C109AE7001BF6A6 /* NetworkServiceProtocol.swift in Sources */,
+				A823EEB92C19989B001BF6A6 /* CoreDataService.swift in Sources */,
+				A823EEBB2C19992C001BF6A6 /* CoreDataServiceProtocol.swift in Sources */,
 				A823EE9C2C10A004001BF6A6 /* APIParametrs.swift in Sources */,
 				A823EE742C10651E001BF6A6 /* SceneDelegate.swift in Sources */,
 				A823EEB22C10AB60001BF6A6 /* TopViewController.swift in Sources */,
