@@ -1,5 +1,10 @@
+//
+//  NetworkService.swift
+//  NewsClient
+//
+//  Created by Aleksandr Moroshovskyi on 05.06.2024.
+//
 
-//NetworkService
 import Foundation
 
 class NetworkService {

@@ -12,11 +12,11 @@ class TopModel {
     weak var delegate: TopModelDelegate?
     
     let networkService: NetworkServiceProtocol
-    //let storageService: CoreDataService
+    let storageService: CoreDataServiceProtocol
     
     init(delegate: TopModelDelegate? = nil) {
         self.delegate = delegate
         self.networkService = ServiceProvider.networkService()
-        //self.storageService = ServiceProvider.coreDataService()
+        self.storageService = ServiceProvider.coreDataService()
     }
 }

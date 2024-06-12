@@ -17,11 +17,17 @@ struct DMNewsModel: Decodable {
     //}
     
     let totalResults: Int?
-    let articles: [Articles]?
+    let articles: [Article]?
     
-    struct Articles: Decodable {
+    struct Article: Decodable, Hashable {
         
-        let source: Source?
+        var id: Int {
+            get {
+                hashValue
+            }
+        }
+        
+        //let source: Source?
         let author: String?
         let title: String?
         let description: String?
@@ -30,9 +36,9 @@ struct DMNewsModel: Decodable {
         let publishedAt: String?
         let content: String?
         
-        struct Source: Decodable {
-            let id: String?
-            let name: String?
-        }
+//        struct Source: Decodable {
+//            let id: String?
+//            let name: String?
+//        }
     }
 }
