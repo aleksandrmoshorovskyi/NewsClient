@@ -41,6 +41,7 @@
 		A85AB6EC2C19F17900FE1829 /* TopView+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6EB2C19F17900FE1829 /* TopView+CollectionView.swift */; };
 		A85AB6EF2C19F35B00FE1829 /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6EE2C19F35B00FE1829 /* ArticleCollectionViewCell.swift */; };
 		A85AB6F22C19F53300FE1829 /* UICollectionViewCell+Idintifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6F12C19F53300FE1829 /* UICollectionViewCell+Idintifier.swift */; };
+		A85AB6F42C1C8DA500FE1829 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6F32C1C8DA500FE1829 /* UIImageView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		A85AB6EB2C19F17900FE1829 /* TopView+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopView+CollectionView.swift"; sourceTree = "<group>"; };
 		A85AB6EE2C19F35B00FE1829 /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		A85AB6F12C19F53300FE1829 /* UICollectionViewCell+Idintifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Idintifier.swift"; sourceTree = "<group>"; };
+		A85AB6F32C1C8DA500FE1829 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				A85AB6F12C19F53300FE1829 /* UICollectionViewCell+Idintifier.swift */,
+				A85AB6F32C1C8DA500FE1829 /* UIImageView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A85AB6F42C1C8DA500FE1829 /* UIImageView+Ext.swift in Sources */,
 				A823EE942C109651001BF6A6 /* NetworkService.swift in Sources */,
 				A85AB6E22C19EB2700FE1829 /* TopView.swift in Sources */,
 				A823EE722C10651E001BF6A6 /* AppDelegate.swift in Sources */,

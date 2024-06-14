@@ -10,6 +10,7 @@ import UIKit
 class ArticleCollectionViewCell: UICollectionViewCell {
     
     var containerView: UIView!
+    var imageView: UIImageView!
     var titleLabel: UILabel!
     
     override init(frame: CGRect) {
@@ -30,42 +31,66 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         
         //contentView setup
         contentView.layer.cornerRadius = Constants.articleCellCornerRadius
-        contentView.backgroundColor = Constants.contentViewColor
-        contentView.alpha = Constants.contentViewAlpha
-        
-        //titleLabel setup
-        titleLabel = UILabel()
+        contentView.backgroundColor = .white //Constants.contentViewColor
+        //contentView.alpha = Constants.contentViewAlpha
         
         //containerView setup
         containerView = UIView()
-        containerView.backgroundColor = Constants.containerViewColor
+        containerView.layer.cornerRadius = Constants.articleCellCornerRadius
+        containerView.backgroundColor = .white //Constants.containerViewColor
+        
+        //imageView
+        imageView = UIImageView()
+        imageView.layer.cornerRadius = Constants.articleCellCornerRadius
+        imageView.layer.masksToBounds = true
+        imageView.backgroundColor = .gray
+        //imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        
+        //titleLabel setup
+        titleLabel = UILabel()
+        titleLabel.numberOfLines = 0
     }
     
     func setupBaseLayout() {
         
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        //.alpha = 0.5
-        contentView.addSubview(titleLabel)
         contentView.addSubview(containerView)
         
-        //.alpha = 1
-        //addSubview(titleLabel)
-        //addSubview(containerView)
+        containerView.addSubview(imageView)
+        containerView.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
-            // MARK: titleLabel constraints
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .zero),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.titleLabelSideOffset),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.titleLabelSideOffset),
-            titleLabel.heightAnchor.constraint(equalToConstant: Constants.titleLabelHeight),
+            //collectionView constraints
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10.0),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10.0),
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10.0),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10.0),
             
-            // MARK: collectionView constraints
-            containerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .zero),
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .zero),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: .zero),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: .zero)
+            //imageView
+            imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .zero),
+            imageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: .zero),
+            imageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: .zero),
+            //imageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: .zero),
+            imageView.heightAnchor.constraint(equalToConstant: 200.0),
+            
+            //titleLabel constraints
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10.0),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10.0),
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10.0),
+            titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10.0)
         ])
+    }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        
+        titleLabel.preferredMaxLayoutWidth = layoutAttributes.size.width - contentView.layoutMargins.left - contentView.layoutMargins.left
+        
+        layoutAttributes.bounds.size.height = systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+        
+        return layoutAttributes
     }
 }

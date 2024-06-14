@@ -44,16 +44,25 @@ class TopView: UIView {
         //collectionView setup
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.estimatedItemSize = .zero
+        //layout.estimatedItemSize = .zero
+        //layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        //layout.sectionInsetReference = .fromLayoutMargins
     
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.contentInsetAdjustmentBehavior = .never
+        //collectionView.contentInsetAdjustmentBehavior = .never
+        //collectionView.contentInsetAdjustmentBehavior = .always
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.backgroundColor = .systemTeal
+        collectionView.backgroundColor = .systemGray5
         //collectionView.isPagingEnabled = true
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        /*
+        (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).sectionInsetReference = .fromLayoutMargins
+         */
     }
     
     func setupLayout() {
@@ -63,10 +72,22 @@ class TopView: UIView {
 
         NSLayoutConstraint.activate([
             //collectionView constraints
-            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: .zero),
-            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: .zero),
-            collectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: .zero),
-            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: .zero)
+            collectionView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: .zero),
+            collectionView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: .zero),
+            collectionView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: .zero),
+            collectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: .zero)
         ])
     }
 }
+
+/*
+ safeAreaInsets
+ The insets that you use to determine the safe area for this view.
+ Вставки, які ви використовуєте для визначення безпечної зони для цього перегляду.
+ 
+ safeAreaLayoutGuide
+ The layout guide representing the portion of your view that is unobscured by bars and
+ other content.
+ Посібник макета, який представляє частину вашого перегляду, яка не закрита смужками та
+ інший вміст.
+ */
