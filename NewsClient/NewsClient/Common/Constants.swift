@@ -24,4 +24,32 @@ enum Constants {
     static let containerViewColor: UIColor = .clear
     static let titleLabelHeight: CGFloat = 35.0
     static let titleLabelSideOffset: CGFloat = 10.0
+    
+    //news
+    static let newsTitleFont: UIFont = .boldSystemFont(ofSize: 17)
+    static let dtTitleFont: UIFont = .systemFont(ofSize: 13)
+    //static let dtTitleTextColor: UIColor = UI
 }
+
+/*
+ 
+ ELEMENT TYPE    STYLE
+ 
+ Page title (unscrolled)    34pt bold #000
+ 
+ Page title (scrolled)    17pt medium #000
+ 
+ Paragraph text,
+ List item titles,
+ Links                      17pt regular #000
+ 
+ Secondary text    15pt regular #3C3C43 at 60% opacity
+ 
+ Tertiary text,
+ Captions    13pt regular #3C3C43 at 60% opacity
+ 
+ Buttons,
+ Text input controls    17pt normal, various colors
+ 
+ Action bar labels    10pt regular #8A8A8E
+ */

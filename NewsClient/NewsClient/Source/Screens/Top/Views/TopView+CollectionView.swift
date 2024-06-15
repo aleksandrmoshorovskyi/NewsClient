@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 // MARK: UICollectionView - DataSource
 extension TopView: UICollectionViewDataSource {
@@ -25,20 +26,23 @@ extension TopView: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        //if let data = dataSource {
-            cell.titleLabel.text = dataSource[indexPath.row].title
-        //}
+//        //if let data = dataSource {
+//            cell.titleLabel.text = dataSource[indexPath.row].title
+//        //}
+//        
+//        if let urlToImage = dataSource[indexPath.row].urlToImage {
+//            if let url = URL(string: urlToImage) {
+//                //cell.imageView.load(url: url)
+//                cell.imageView.kf.setImage(with: url)
+//            } else {
+//                //debugPrint("no url")
+//            }
+//        } else {
+//            //debugPrint("no urlToImage")
+//            cell.imageView.image = nil
+//        }
         
-        if let urlToImage = dataSource[indexPath.row].urlToImage {
-            if let url = URL(string: urlToImage) {
-                cell.imageView.load(url: url)
-            } else {
-                //debugPrint("no url")
-            }
-        } else {
-            //debugPrint("no urlToImage")
-            cell.imageView.image = nil
-        }
+        cell.configure(with: dataSource[indexPath.row])
         
         return cell
     }
@@ -78,7 +82,7 @@ extension TopView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     
-        let referenceHeight: CGFloat = 200 // Approximate height of your cell
+        let referenceHeight: CGFloat = 250 // Approximate height of your cell
         let referenceWidth = collectionView.frame.width - 20.0
         
         return CGSize(width: referenceWidth, height: referenceHeight)
