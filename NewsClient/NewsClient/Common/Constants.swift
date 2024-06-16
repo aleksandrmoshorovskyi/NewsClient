@@ -10,6 +10,8 @@ import UIKit
 
 enum Constants {
     
+    static let pageSizeDefaultValue: Int = 20
+    
     //Main Tab Bar
     static let MainTabBarViewBG: UIColor = .systemBackground
     static let MainTabBarBG: UIColor = .systemGray

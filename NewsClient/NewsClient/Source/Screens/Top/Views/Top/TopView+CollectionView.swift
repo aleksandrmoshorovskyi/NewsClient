@@ -8,6 +8,21 @@
 import UIKit
 import Kingfisher
 
+// MARK: UICollectionView - UICollectionViewDataSourcePrefetching
+extension TopView: UICollectionViewDataSourcePrefetching {
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+        debugPrint("prefetchItemsAt")
+        
+        for indexPath in indexPaths {
+            //let model = models[indexPath.row]
+            //asyncFetcher.fetchAsync(model.identifier)
+            debugPrint("prefetchItemsAt - \(indexPath.row)")
+        }
+    }
+}
+
 // MARK: UICollectionView - DataSource
 extension TopView: UICollectionViewDataSource {
     
@@ -51,6 +66,50 @@ extension TopView: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegate
 extension TopView: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        //print("\(indexPath.row)")
+        
+        let indexPathRow = indexPath.row
+        
+        if indexPathRow > 0 {
+            if Double(Constants.pageSizeDefaultValue) / Double(indexPath.row) <= 2.0 {
+                print("\(indexPath.row)")
+                //add next page
+            }
+        }
+        
+        //pageIndicator.currentPage = indexPath.row
+        
+        //НЕ ПРАЦЮЄ - вивидоть 0, потім одразу 1,2, далі нормально - ???
+        //довелось використовувати - scrollViewDidEndDecelerating
+    }
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//
+//        //let scrollPosition = scrollView.contentOffset.x / scrollView.bounds.width
+//        
+//        let scrollPosition = scrollView.contentOffset.y / scrollView.bounds.height
+//        
+//        let currentPosition = scrollPosition.isNaN ? 0 : Int(round(scrollPosition))
+//        
+//        debugPrint("currentPosition - \(currentPosition)")
+//    }
+    
+    /*
+     // MARK: - UIPageControl
+     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+         //print("\(indexPath.row)")
+         //pageIndicator.currentPage = indexPath.row
+         
+         //НЕ ПРАЦЮЄ - вивидоть 0, потім одразу 1,2, далі нормально - ???
+         //довелось використовувати - scrollViewDidEndDecelerating
+     }
+     
+     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+         let scrollPosition = scrollView.contentOffset.x / view.frame.width
+         pageIndicator.currentPage = Int( round(scrollPosition) )
+     }
+     */
 }
 
 // MARK: UICollectionViewDelegateFlowLayout

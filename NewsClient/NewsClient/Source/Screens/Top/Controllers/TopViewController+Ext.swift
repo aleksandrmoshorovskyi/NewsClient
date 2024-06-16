@@ -18,6 +18,15 @@ extension TopViewController: TopModelDelegate {
 //TopViewDelegate
 extension TopViewController: TopViewDelegate {
     
+    func categoryDidChange(_ item: Category?) {
+        
+        if currentCategory != item {
+            model.loadDataFor(item)
+        }
+        
+        currentCategory = item
+    }
+    
     func addToFavoriteDidTap() {
         //code
     }

@@ -9,12 +9,14 @@ import Foundation
 
 extension TopModel: TopModelProtocol {
     
-    func loadData() {
+    func loadDataFor(_ category: Category? = nil) {
+        
+        //debugPrint("\(category)")
         
         var articles: [ArticleDataModel] = []
         
         //networkService.loadSearchedNewsFor(keyword: "Intel", pageSize: 10, page: 1) { [weak self] newsData, error in
-        networkService.loadTopNewsFor(country: Country.Ukraine, category: nil, keyword: nil, pageSize: nil, page: nil) { [weak self] newsData, error in
+        networkService.loadTopNewsFor(country: Country.Ukraine, category: category, keyword: nil, pageSize: nil, page: nil) { [weak self] newsData, error in
 
             if let err = error {
                 debugPrint("\(err.localizedDescription)")

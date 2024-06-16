@@ -16,3 +16,10 @@ extension TopView: TopViewProtocol {
         collectionView.reloadData()
     }
 }
+
+extension TopView: CategoryViewDelegate {
+    
+    func categoryDidTap(_ item: Category?) {
+        delegate?.categoryDidChange(item)
+    }
+}

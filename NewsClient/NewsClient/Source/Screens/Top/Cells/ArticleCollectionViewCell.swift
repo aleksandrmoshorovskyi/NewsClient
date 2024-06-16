@@ -42,7 +42,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         
         //contentView setup
         contentView.layer.cornerRadius = Constants.articleCellCornerRadius
-        contentView.backgroundColor = .white //Constants.contentViewColor
+        contentView.backgroundColor = .systemBackground //.white //Constants.contentViewColor
         //contentView.alpha = Constants.contentViewAlpha
         
         //containerView setup

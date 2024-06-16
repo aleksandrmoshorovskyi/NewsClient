@@ -9,5 +9,5 @@ import Foundation
 
 protocol TopModelProtocol {
     
-    func loadData()
+    func loadDataFor(_ category: Category?)
 }

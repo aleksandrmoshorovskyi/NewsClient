@@ -10,4 +10,5 @@ import Foundation
 protocol TopViewDelegate: AnyObject {
     
     func addToFavoriteDidTap()
+    func categoryDidChange(_ item: Category?)
 }

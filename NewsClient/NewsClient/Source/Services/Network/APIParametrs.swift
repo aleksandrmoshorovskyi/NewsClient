@@ -16,6 +16,7 @@ enum Country: String {
     case Venuzuela = "ve"
 }
 
+/*
 enum Category: String {
     case business = "business"
     case entertainment = "entertainment"
@@ -25,3 +26,32 @@ enum Category: String {
     case sports = "sports"
     case technology = "technology"
 }
+ */
+
+enum Category: String, CaseIterable {
+    case business = "business"
+    case entertainment = "entertainment"
+    case general = "general"
+    case health = "health"
+    case science = "science"
+    case sports = "sports"
+    case technology = "technology"
+    
+//    static func allValues() -> [String] {
+//        return [All, Genre, Author].map({$0.description})
+//    }
+//
+//    public var description: String {
+//        switch self {
+//        case .All:
+//            return "All"
+//        case .Genre:
+//            return "Genre"
+//        case .Author:
+//            return "Author"
+//        }
+//    }
+}
+
+//let dfd = Category.AllCases.first
+

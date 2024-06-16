@@ -11,7 +11,12 @@ class TopView: UIView {
     
     weak var delegate: TopViewDelegate?
     
+    //var dataSourceCategory: [String] = ["All", "Science", "Health"]
     var dataSource: [ArticleDataModel] = []
+    
+    //var collectionViewCategory: UICollectionView!
+    
+    var categoryView: CategoryView!
     
     var collectionView: UICollectionView!
     var addToFavoriteButton: UIButton!
@@ -41,6 +46,10 @@ class TopView: UIView {
         //self setup
         backgroundColor = Constants.BaseViewBG
         
+        //categoryView setup
+        categoryView = CategoryView()
+        categoryView.delegate = self
+        
         //collectionView setup
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -58,6 +67,7 @@ class TopView: UIView {
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.prefetchDataSource = self
         
         /*
         (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).estimatedItemSize = UICollectionViewFlowLayout.automaticSize
@@ -68,13 +78,23 @@ class TopView: UIView {
     func setupLayout() {
 
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        categoryView.translatesAutoresizingMaskIntoConstraints = false
+        
         addSubview(collectionView)
+        addSubview(categoryView)
 
         NSLayoutConstraint.activate([
+            //categoryView constraints
+            categoryView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: .zero),
+            categoryView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: .zero),
+            categoryView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: .zero),
+            categoryView.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: .zero),
+            categoryView.heightAnchor.constraint(equalToConstant: 58.0),
+            
             //collectionView constraints
             collectionView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: .zero),
             collectionView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: .zero),
-            collectionView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: .zero),
+            //collectionView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: .zero),
             collectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: .zero)
         ])
     }
