@@ -49,7 +49,9 @@ extension CategoryView: UICollectionViewDelegate {
 
         selectedIndex = indexPath.row
         
-        delegate?.categoryDidTap(dataSource[indexPath.row].category)
+        //delegate?.categoryDidTap(dataSource[indexPath.row].category)
+        
+        delegate?.categoryAtIndexDidTap(indexPath.row)
         
         collectionView.reloadData()
     }

@@ -5,13 +5,17 @@
 //  Created by Aleksandr Moroshovskyi on 16.06.2024.
 //
 
-import Foundation
+import UIKit
 
 extension CategoryView: CategoryViewProtocol {
     
-    func setupCategory(data: [String]) {
+    func scrollToCategory(indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
+    }
+    
+    func setupCategory(index: Int) {
         
-        //dataSource = data
+        selectedIndex = index
         
         collectionView.reloadData()
     }

@@ -19,6 +19,11 @@ extension TopView: TopViewProtocol {
 
 extension TopView: CategoryViewDelegate {
     
+    func categoryAtIndexDidTap(_ index: Int) {
+        //code
+    }
+    
+    
     func categoryDidTap(_ item: Category?) {
         delegate?.categoryDidChange(item)
     }

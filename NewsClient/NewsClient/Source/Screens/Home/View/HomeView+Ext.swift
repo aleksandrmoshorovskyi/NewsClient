@@ -1,0 +1,37 @@
+//
+//  HomeView+Ext.swift
+//  NewsClient
+//
+//  Created by Aleksandr Moroshovskyi on 17.06.2024.
+//
+
+import UIKit
+
+extension HomeView: HomeViewProtocol {
+    
+    func scrollToViewController(index: Int) {
+        
+        let indexPath = IndexPath(row: index, section: 0)
+        
+        collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
+    }
+
+    func setupViewControllers(data: [NewsViewController]) {
+        
+        dataSource = data
+        
+        collectionView.reloadData()
+    }
+}
+
+extension HomeView: CategoryViewDelegate {
+    
+    func categoryAtIndexDidTap(_ index: Int) {
+        delegate?.categoryDidChange(index)
+    }
+    
+    
+    func categoryDidTap(_ item: Category?) {
+        //delegate?.categoryDidChange(item)
+    }
+}
