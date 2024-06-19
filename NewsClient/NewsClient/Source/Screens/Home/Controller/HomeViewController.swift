@@ -31,7 +31,7 @@ class HomeViewController: BaseViewController {
         
         setupInitialState()
         setupUI()
-        model.loadData() //For(currentCategory)
+        model.loadDataFor(self) //For(currentCategory)
     }
     
     private func setupInitialState() {

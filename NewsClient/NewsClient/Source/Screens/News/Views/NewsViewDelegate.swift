@@ -12,4 +12,5 @@ protocol NewsViewDelegate: AnyObject {
     func addToFavoriteDidTap()
     //func categoryDidChange(_ item: Category?)
     func categoryDidChange(_ index: Int)
+    func newsRowDidTapAt(_ article: ArticleDataModel)
 }

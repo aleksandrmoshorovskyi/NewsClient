@@ -66,6 +66,13 @@ extension NewsView: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegate
 extension NewsView: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        delegate?.newsRowDidTapAt(dataSource[indexPath.row])
+    }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         //print("\(indexPath.row)")
         

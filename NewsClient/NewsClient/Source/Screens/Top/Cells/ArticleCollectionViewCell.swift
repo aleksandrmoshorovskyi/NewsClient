@@ -284,12 +284,14 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     
     private func generatePullDownMenu() -> UIMenu {
         
+        /*
         let shareAction = UIAction(
             title: "Share",
             image: UIImage(systemName: "square.and.arrow.up")
         ) { _ in
             self.shareButtonDidTap()
         }
+         */
         
         let safariAction = UIAction(
             title: "Open in Safari",

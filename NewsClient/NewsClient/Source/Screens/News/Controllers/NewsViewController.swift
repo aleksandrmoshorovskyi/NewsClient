@@ -9,7 +9,7 @@ import UIKit
 
 class NewsViewController: BaseViewController {
     
-    //weak var delegate: NewsViewControllerDelegate?
+    weak var delegate: NewsViewControllerDelegate?
     
     //var resultsTableController: UITableViewController!
     var currentCategory: Category? // = nil

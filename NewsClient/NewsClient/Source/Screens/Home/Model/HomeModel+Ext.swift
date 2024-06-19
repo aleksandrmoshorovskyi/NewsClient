@@ -5,11 +5,11 @@
 //  Created by Aleksandr Moroshovskyi on 17.06.2024.
 //
 
-import Foundation
+import UIKit
 
 extension HomeModel: HomeModelProtocol {
     
-    func loadData() {
+    func loadDataFor(_ vc: NewsViewControllerDelegate) {
         
         var categoryVC: [NewsViewController] = []
         
@@ -28,6 +28,7 @@ extension HomeModel: HomeModelProtocol {
                 
                 let VC = NewsViewController()
                 VC.currentCategory = $0.category
+                VC.delegate = vc
                 
                 //VC.loadWeatherData(for: $0)
                 

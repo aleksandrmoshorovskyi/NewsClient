@@ -5,10 +5,10 @@
 //  Created by Aleksandr Moroshovskyi on 17.06.2024.
 //
 
-import Foundation
+import UIKit
 
 protocol HomeModelProtocol {
     
-    func loadData()
+    func loadDataFor(_ vc: NewsViewControllerDelegate)
 }
 

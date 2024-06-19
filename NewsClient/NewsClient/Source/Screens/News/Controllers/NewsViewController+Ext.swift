@@ -18,6 +18,11 @@ extension NewsViewController: NewsModelDelegate {
 //NewsViewDelegate
 extension NewsViewController: NewsViewDelegate {
     
+    func newsRowDidTapAt(_ article: ArticleDataModel) {
+        
+        delegate?.newsDidTap(article)
+    }
+
     func categoryDidChange(_ index: Int) {
         //code
     }
