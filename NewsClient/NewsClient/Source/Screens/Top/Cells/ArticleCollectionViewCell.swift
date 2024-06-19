@@ -12,6 +12,8 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     
     //weak var delegate: ArticleCollectionViewCellDelegate?
     
+    var urlToArticle: String!
+    
     var containerView: UIView!
     var imageView: UIImageView!
     var titleLabel: UILabel!
@@ -254,10 +256,26 @@ class ArticleCollectionViewCell: UICollectionViewCell {
                 self.imageView.kf.setImage(with: url)
             }
         }
+        
+        self.urlToArticle = data.url
     }
     
     private func shareButtonDidTap() {
         debugPrint("shareButtonDidTap")
+    }
+    
+    private func openInSafariButtonDidTap() {
+        //debugPrint("openInSafariButtonDidTap")
+        
+        //MARK: TODO - add qustion here
+        
+        if let urlToArticle = self.urlToArticle {
+            if let url = URL(string: urlToArticle) {
+                UIApplication.shared.open(url) {_ in
+                    //code
+                }
+            }
+        }
     }
     
     private func addToFavoriteButtonDidTap() {
@@ -273,6 +291,13 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             self.shareButtonDidTap()
         }
         
+        let safariAction = UIAction(
+            title: "Open in Safari",
+            image: UIImage(systemName: "safari")
+        ) { _ in
+            self.openInSafariButtonDidTap()
+        }
+        
         let saveAction = UIAction(
             title: "Save",
             image: UIImage(systemName: "bookmark")
@@ -282,7 +307,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
          
         let subMenu = UIMenu(
             options: .displayInline,
-            children: [shareAction, saveAction]
+            children: [safariAction, saveAction]
         )
          
         let settingsMenu = UIMenu(
