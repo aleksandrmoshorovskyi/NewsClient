@@ -17,16 +17,17 @@ extension FavoriteModel: FavoriteModelProtocol {
         
         articles = storedArticles.compactMap() {
             ArticleDataModel(
-                id: Int($0.id), 
-                idStr: $0.idStr,
                 isFavorite: true,
+                id: $0.id ?? "",
                 author: $0.author,
                 title: $0.title,
-                //description: $0.description,
+                descriptionString: $0.description,
                 url: $0.url,
                 urlToImage: $0.urlToImage,
-                publishedAt: $0.publishedAt)//,
-                //content: $0.content)
+                publishedAt: $0.publishedAt,
+                content: $0.content)//,
+                //addToFavoriteActionCompletion: nil,
+                //deleteFromFavoriteActionCompletion: deleteFavorite)
         }
         
         self.delegate?.dataDidLoad(with: articles)
@@ -35,5 +36,10 @@ extension FavoriteModel: FavoriteModelProtocol {
     func deleteFavorite(article: ArticleDataModel) {
         
         self.storageService.deleteArticle(article: article)
+    }
+    
+    func addToFavorite(article: ArticleDataModel) {
+        
+        self.storageService.insertArticle(article: article)
     }
 }

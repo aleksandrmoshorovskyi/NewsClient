@@ -28,15 +28,14 @@ extension CoreDataService: CoreDataNews {
             return
         }
         
-        articleCityEntity.id = Int64(article.id)
-        articleCityEntity.idStr = article.idStr
+        articleCityEntity.id = article.id
         articleCityEntity.author = article.author
         articleCityEntity.title = article.title
-        //articleCityEntity.desc = article.description
+        articleCityEntity.desc = article.descriptionString
         articleCityEntity.url = article.url
         articleCityEntity.urlToImage = article.urlToImage
         articleCityEntity.publishedAt = article.publishedAt
-        //articleCityEntity.content = article.content
+        articleCityEntity.content = article.content
         
         save(context: context)
     }
@@ -55,7 +54,7 @@ extension CoreDataService: CoreDataNews {
         
         let fetchRequest = CDArticle.fetchRequest()
         fetchRequest.predicate = NSPredicate(
-            format: "id == %ld", article.id
+            format: "id == %@", article.id
         )
         
         deleteRecords(CDArticle.self, fetchRequest: fetchRequest)

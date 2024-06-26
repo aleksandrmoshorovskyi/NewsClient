@@ -23,10 +23,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     var dtLabel: UILabel!
     var menuButton: UIButton!
     
-    @objc func menuButtonDidTap() {
-        //delegate?.addButtonDidTap()
-        debugPrint("menuButtonDidTap")
-    }
+    //var openInSafariActionCompletion: (() -> ())?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -154,9 +151,12 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             //controlsView constraints/
             controlsView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .zero),
             controlsView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: .zero),
-            controlsView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10.0),
-            controlsView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10.0),
-            controlsView.heightAnchor.constraint(equalToConstant: 20.0),
+            controlsView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .zero),
+            controlsView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: .zero),
+            controlsView.heightAnchor.constraint(equalToConstant: 40.0),
+//            controlsView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10.0),
+//            controlsView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10.0),
+//            controlsView.heightAnchor.constraint(equalToConstant: 20.0),
             
             //dtLabel setup
             dtLabel.leadingAnchor.constraint(equalTo: controlsView.leadingAnchor, constant: .zero),
@@ -165,10 +165,13 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             dtLabel.bottomAnchor.constraint(equalTo: controlsView.bottomAnchor, constant: .zero),
             
             //menuButton setup
-            menuButton.leadingAnchor.constraint(lessThanOrEqualTo: dtLabel.trailingAnchor, constant: 10.0),
-            menuButton.trailingAnchor.constraint(equalTo: controlsView.trailingAnchor, constant: -10.0),
+            //menuButton.leadingAnchor.constraint(lessThanOrEqualTo: dtLabel.trailingAnchor, constant: 10.0),
+            //menuButton.trailingAnchor.constraint(equalTo: controlsView.trailingAnchor, constant: -10.0),
+            menuButton.leadingAnchor.constraint(lessThanOrEqualTo: dtLabel.trailingAnchor, constant: .zero),
+            menuButton.trailingAnchor.constraint(equalTo: controlsView.trailingAnchor, constant: .zero),
             menuButton.topAnchor.constraint(equalTo: controlsView.topAnchor, constant: .zero),
-            menuButton.bottomAnchor.constraint(equalTo: controlsView.bottomAnchor, constant: .zero)
+            menuButton.bottomAnchor.constraint(equalTo: controlsView.bottomAnchor, constant: .zero),
+            menuButton.widthAnchor.constraint(equalToConstant: 50.0)
         ])
     }
     
@@ -262,6 +265,16 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         //self.urlToArticle = data.url
         self.articleDataSource = data
         
+//        self.openInSafariActionCompletion = {
+//            if let urlToArticle = self.articleDataSource.url {
+//                if let url = URL(string: urlToArticle) {
+//                    UIApplication.shared.open(url) {_ in
+//                        //code
+//                    }
+//                }
+//            }
+//        }
+        
         let settingsMenu = generatePullDownMenu()
         menuButton.menu = settingsMenu
     }
@@ -282,6 +295,8 @@ class ArticleCollectionViewCell: UICollectionViewCell {
                 }
             }
         }
+        
+        //openInSafariActionCompletion?()
     }
     
     private func addToFavoriteButtonDidTap() {

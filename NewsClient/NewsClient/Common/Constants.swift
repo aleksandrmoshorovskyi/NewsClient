@@ -11,7 +11,8 @@ import UIKit
 enum Constants {
     
     //Notifications
-    static let deleteFromFavoriteNotification = Notification.Name("DeleteFromFavoriteNotification")
+    static let addedToFavoriteNotification = Notification.Name("AddedToFavoriteNotification")
+    static let deletedFromFavoriteNotification = Notification.Name("DeleteFromFavoriteNotification")
     
     static let pageSizeDefaultValue: Int = 20
     

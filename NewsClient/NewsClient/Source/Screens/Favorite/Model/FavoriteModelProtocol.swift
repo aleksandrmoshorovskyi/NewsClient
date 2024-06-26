@@ -11,4 +11,5 @@ protocol FavoriteModelProtocol {
     
     func loadData()
     func deleteFavorite(article: ArticleDataModel)
+    func addToFavorite(article: ArticleDataModel)
 }

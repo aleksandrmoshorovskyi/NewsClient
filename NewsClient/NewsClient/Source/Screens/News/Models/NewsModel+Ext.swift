@@ -28,7 +28,7 @@ extension NewsModel: NewsModelProtocol {
         var articlesArray = articles
         
         articlesArray.enumerated().forEach { index, item in
-            if !storedArticles.filter({ item.idStr == $0.idStr }).isEmpty {
+            if !storedArticles.filter({ item.id == $0.id }).isEmpty {
                 articlesArray[index].isFavorite = true
             }
         }
@@ -38,11 +38,24 @@ extension NewsModel: NewsModelProtocol {
     
     func addFavorite(article: ArticleDataModel) {
         self.storageService.insertArticle(article: article)
-        //self.updateFavorites()
+        self.updateFavorites()
+        
+        NotificationCenter.default.post(
+            name: Constants.addedToFavoriteNotification,
+            object: article,
+            userInfo: nil
+        )
     }
     
     func deleteFavorite(article: ArticleDataModel) {
         self.storageService.deleteArticle(article: article)
+        self.updateFavorites()
+        
+        NotificationCenter.default.post(
+            name: Constants.deletedFromFavoriteNotification,
+            object: article,
+            userInfo: nil
+        )
     }
     
     
@@ -71,16 +84,18 @@ extension NewsModel: NewsModelProtocol {
                     if let dataArticles = data.articles {
                         self?.articles = dataArticles.compactMap() {
                             ArticleDataModel(
-                                id: $0.id,
-                                idStr: ($0.author ?? "") + ($0.title ?? "") + ($0.url ?? ""),
                                 isFavorite: false,
+                                id: $0.id,
                                 author: $0.author,
                                 title: $0.title,
-                                //description: $0.description,
+                                descriptionString: $0.description,
                                 url: $0.url,
                                 urlToImage: $0.urlToImage,
-                                publishedAt: $0.publishedAt)//,
-                                //content: $0.content)
+                                publishedAt: $0.publishedAt,
+                                content: $0.content,
+                                addToFavoriteActionCompletion: self?.addFavorite,
+                                deleteFromFavoriteActionCompletion: self?.deleteFavorite
+                            )
                         }
                     }
                     

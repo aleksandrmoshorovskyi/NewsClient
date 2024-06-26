@@ -9,5 +9,7 @@ import Foundation
 
 protocol NewsDetailsViewControllerDelegate: AnyObject {
 
-    //func newsDidTap(_ article: ArticleDataModel)
+    //func addButtonDidTap(_ article: ArticleDataModel)
+    func addToFavorite(article: ArticleDataModel)
+    func deleteFromFavorite(article: ArticleDataModel)
 }

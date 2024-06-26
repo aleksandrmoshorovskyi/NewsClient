@@ -9,14 +9,16 @@ import Foundation
 
 struct ArticleDataModel {
     
-    var id: Int
-    let idStr: String?
     var isFavorite: Bool
+    let id: String
     let author: String?
     let title: String?
-    //let description: String?
+    let descriptionString: String?
     let url: String?
     let urlToImage: String?
     let publishedAt: String?
-    //let content: String?
+    let content: String?
+    
+    var addToFavoriteActionCompletion: ((ArticleDataModel) -> ())?
+    var deleteFromFavoriteActionCompletion: ((ArticleDataModel) -> ())?
 }

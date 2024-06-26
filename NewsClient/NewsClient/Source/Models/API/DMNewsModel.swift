@@ -11,35 +11,31 @@ struct DMNewsModel: Decodable {
     
     let status: String?
     
-    // for error {
+    //for error
     let code: String?
     let message: String?
-    //}
     
     let totalResults: Int?
     let articles: [Article]?
     
-    struct Article: Decodable, Hashable {
+    struct Article: Decodable {
         
-        var id: Int {
-            get {
-                hashValue
-            }
+        var id: String {
+            return "\(author ?? "") \(title ?? "") \(url ?? "") \(urlToImage ?? "")"
         }
-        //let idStr: String
         
-        //let source: Source?
+        let source: Source?
         let author: String?
         let title: String?
-        //let description: String?
+        let description: String?
         let url: String?
         let urlToImage: String?
         let publishedAt: String?
-//        let content: String?
+        let content: String?
         
-//        struct Source: Decodable {
-//            let id: String?
-//            let name: String?
-//        }
+        struct Source: Decodable {
+            let id: String?
+            let name: String?
+        }
     }
 }

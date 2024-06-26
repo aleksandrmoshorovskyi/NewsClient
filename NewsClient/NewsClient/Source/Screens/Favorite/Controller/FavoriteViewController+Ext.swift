@@ -19,7 +19,14 @@ extension FavoriteViewController: FavoriteModelDelegate {
 extension FavoriteViewController: NewsViewDelegate {
     
     func addToFavorite(article: ArticleDataModel) {
-        //
+        model.addToFavorite(article: article)
+        model.loadData()
+        
+        NotificationCenter.default.post(
+            name: Constants.addedToFavoriteNotification,
+            object: article,
+            userInfo: nil
+        )
     }
     
     func deleteFromFavorite(article: ArticleDataModel) {
@@ -27,9 +34,9 @@ extension FavoriteViewController: NewsViewDelegate {
         model.loadData()
         
         NotificationCenter.default.post(
-            name: Constants.deleteFromFavoriteNotification,
+            name: Constants.deletedFromFavoriteNotification,
             object: article,
-            userInfo: nil //["message": "Hello World"]
+            userInfo: nil
         )
     }
     
@@ -43,6 +50,8 @@ extension FavoriteViewController: NewsViewDelegate {
             
             let newsDetailsViewController = NewsDetailsViewController()
             newsDetailsViewController.dataModel = article
+            newsDetailsViewController.dataModel.addToFavoriteActionCompletion = addToFavorite
+            newsDetailsViewController.dataModel.deleteFromFavoriteActionCompletion = deleteFromFavorite
               
             nc.pushViewController(newsDetailsViewController, animated: true)
         }

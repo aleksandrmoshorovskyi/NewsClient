@@ -39,18 +39,17 @@ class NewsViewController: BaseViewController {
         let newsModel = NewsModel(delegate: self)
         model = newsModel
         
-        //currentCategory = nil
-//      
-//        NotificationCenter.default.addObserver(
-//            self,
-//            selector: #selector(notificationReceiver),
-//            name: Constants.deleteFromFavoriteNotification,
-//            object: nil)
         NotificationCenter.default.addObserver(
-            forName: Constants.deleteFromFavoriteNotification,
+            forName: Constants.addedToFavoriteNotification,
             object: nil,
             queue: nil) { [self] (notification) in
-                //print(notification.userInfo?["message"] ?? "")
+                notificationReceiver(notification)
+            }
+        
+        NotificationCenter.default.addObserver(
+            forName: Constants.deletedFromFavoriteNotification,
+            object: nil,
+            queue: nil) { [self] (notification) in
                 notificationReceiver(notification)
             }
     }
@@ -88,7 +87,7 @@ class NewsViewController: BaseViewController {
     func notificationReceiver(_ notification: Notification) {
         
         if let object = notification.object as? ArticleDataModel {
-            debugPrint("\(object.idStr ?? "")")
+            debugPrint("\(object.id)")
             model.updateFavorites()
         }
     }

@@ -13,7 +13,8 @@ extension HomeModel: HomeModelProtocol {
         
         var categoryVC: [NewsViewController] = []
         
-        var categories: [Category] = Category.allCases
+        //var categories: [Category] = []
+        let categories: [Category] = Category.allCases
         
         //var dataSource: [(descriptionString: String, category: Category?)] = []
         
