@@ -22,7 +22,8 @@ class NewsView: UIView {
     var addToFavoriteButton: UIButton!
     
     @objc func addToFavoriteButtonClicked() {
-        delegate?.addToFavoriteDidTap()
+        //delegate?.addToFavoriteDidTap()
+        //delegate?.addToFavorite(article: T##ArticleDataModel)
     }
     
     override init(frame: CGRect) {

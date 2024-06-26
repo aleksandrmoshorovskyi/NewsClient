@@ -60,4 +60,10 @@ class NewsViewController: BaseViewController {
 //            nc.navigationBar.shadowImage = UIImage()
 //        }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        model.updateFavorites()
+    }
 }

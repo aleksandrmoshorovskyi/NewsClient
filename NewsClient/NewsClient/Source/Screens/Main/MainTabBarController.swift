@@ -38,7 +38,7 @@ class MainTabBarController: UITabBarController {
         
         //FAVORITE
         let favoriteNavigationController = UINavigationController()
-        let favoriteViewController = UIViewController()
+        let favoriteViewController = FavoriteViewController()
         favoriteViewController.tabBarItem.title = "Favorite"
         favoriteViewController.tabBarItem.image = UIImage(systemName: "star")
         favoriteViewController.tabBarItem.selectedImage = UIImage(systemName: "star.fill")

@@ -13,10 +13,22 @@ extension NewsViewController: NewsModelDelegate {
     func dataDidLoad(with data: [ArticleDataModel]) {
         contentView.setupNews(data: data)
     }
+    
+    func dataDidUpdated(with data: [ArticleDataModel]) {
+        contentView.setupNews(data: data)
+    }
 }
 
 //NewsViewDelegate
 extension NewsViewController: NewsViewDelegate {
+    
+    func deleteFromFavorite(article: ArticleDataModel) {
+        model.deleteFavorite(article: article)
+    }
+    
+    func addToFavorite(article: ArticleDataModel) {
+        model.addFavorite(article: article)
+    }
     
     func newsRowDidTapAt(_ article: ArticleDataModel) {
         
@@ -36,7 +48,7 @@ extension NewsViewController: NewsViewDelegate {
         currentCategory = item
     }
     
-    func addToFavoriteDidTap() {
-        //code
-    }
+//    func addToFavoriteDidTap() {
+//        //code
+//    }
 }

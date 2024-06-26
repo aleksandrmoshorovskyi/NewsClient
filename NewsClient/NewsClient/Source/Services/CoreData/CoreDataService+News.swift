@@ -9,16 +9,16 @@ import Foundation
 import CoreData
 
 protocol CoreDataNews {
-    func insertArticle(article: DMNewsModel.Article)
+    func insertArticle(article: ArticleDataModel)
     func fetchAllArticles() -> [CDArticle]
-    func deleteArticle(article: DMNewsModel.Article)
+    func deleteArticle(article: ArticleDataModel)
     func deleteAllArticles()
 }
 
 // MARK: - CoreDataNews
 extension CoreDataService: CoreDataNews {
     
-    func insertArticle(article: DMNewsModel.Article) {
+    func insertArticle(article: ArticleDataModel) {
         
         let articleEntityDescription = NSEntityDescription.entity(forEntityName: "CDArticle", in: context)!
         
@@ -28,14 +28,15 @@ extension CoreDataService: CoreDataNews {
             return
         }
         
-        articleCityEntity.id = Int32(article.id)
+        articleCityEntity.id = Int64(article.id)
+        articleCityEntity.idStr = article.idStr
         articleCityEntity.author = article.author
         articleCityEntity.title = article.title
-        articleCityEntity.desc = article.description
+        //articleCityEntity.desc = article.description
         articleCityEntity.url = article.url
         articleCityEntity.urlToImage = article.urlToImage
         articleCityEntity.publishedAt = article.publishedAt
-        articleCityEntity.content = article.content
+        //articleCityEntity.content = article.content
         
         save(context: context)
     }
@@ -43,18 +44,18 @@ extension CoreDataService: CoreDataNews {
     func fetchAllArticles() -> [CDArticle] {
         
         let fetchRequest = CDArticle.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: false)]
         
         let fetchedResult = fetchDataFromEntity(CDArticle.self, fetchRequest: fetchRequest)
         
         return fetchedResult
     }
     
-    func deleteArticle(article: DMNewsModel.Article) {
+    func deleteArticle(article: ArticleDataModel) {
         
         let fetchRequest = CDArticle.fetchRequest()
         fetchRequest.predicate = NSPredicate(
-            format: "id == %d", article.id
+            format: "id == %ld", article.id
         )
         
         deleteRecords(CDArticle.self, fetchRequest: fetchRequest)

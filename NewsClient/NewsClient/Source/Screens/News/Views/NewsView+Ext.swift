@@ -28,3 +28,14 @@ extension NewsView: CategoryViewDelegate {
 //        delegate?.categoryDidChange(item)
 //    }
 }
+
+extension NewsView: ArticleCollectionViewCellDelegate {
+    
+    func deleteFromFavorite(article: ArticleDataModel) {
+        delegate?.deleteFromFavorite(article: article)
+    }
+    
+    func addToFavorite(article: ArticleDataModel) {
+        delegate?.addToFavorite(article: article)
+    }
+}

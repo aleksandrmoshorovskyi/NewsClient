@@ -10,9 +10,11 @@ import Kingfisher
 
 class ArticleCollectionViewCell: UICollectionViewCell {
     
-    //weak var delegate: ArticleCollectionViewCellDelegate?
+    weak var delegate: ArticleCollectionViewCellDelegate?
     
-    var urlToArticle: String!
+    var articleDataSource: ArticleDataModel!
+    
+    //var urlToArticle: String!
     
     var containerView: UIView!
     var imageView: UIImageView!
@@ -81,7 +83,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         dtLabel.alpha = 0.6
         
         //menuButton setup
-        let settingsMenu = generatePullDownMenu()
+        //let settingsMenu = generatePullDownMenu()
 //
 //        menuButton = UIButton(
 //            image: UIImage(systemName: "ellipsis"),
@@ -95,7 +97,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             UIImage.SymbolConfiguration(scale: UIImage.SymbolScale.large),
             forImageIn: .normal
         )
-        menuButton.menu = settingsMenu
+        //menuButton.menu = settingsMenu
         //menuButton.setImage(UIImage(systemName: ""), for: .selected)
         //menuButton.tintColor = .white
         //menuButton.setTitle("BTN", for: .normal)
@@ -257,7 +259,11 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             }
         }
         
-        self.urlToArticle = data.url
+        //self.urlToArticle = data.url
+        self.articleDataSource = data
+        
+        let settingsMenu = generatePullDownMenu()
+        menuButton.menu = settingsMenu
     }
     
     private func shareButtonDidTap() {
@@ -269,7 +275,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         
         //MARK: TODO - add qustion here
         
-        if let urlToArticle = self.urlToArticle {
+        if let urlToArticle = self.articleDataSource.url {
             if let url = URL(string: urlToArticle) {
                 UIApplication.shared.open(url) {_ in
                     //code
@@ -278,20 +284,35 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    ///
+    ///
+    
     private func addToFavoriteButtonDidTap() {
         debugPrint("addToFavoriteButtonDidTap")
+        
+        articleDataSource.isFavorite = true
+        
+        delegate?.addToFavorite(article: articleDataSource)
+        
+        self.menuButton.menu = generatePullDownMenu()
+    }
+    
+    private func deleteFromFavoriteButtonDidTap() {
+        debugPrint("deleteFromFavoriteButtonDidTap")
+        
+        articleDataSource.isFavorite = false
+        
+        delegate?.deleteFromFavorite(article: articleDataSource)
+        
+        self.menuButton.menu = generatePullDownMenu()
     }
     
     private func generatePullDownMenu() -> UIMenu {
         
-        /*
-        let shareAction = UIAction(
-            title: "Share",
-            image: UIImage(systemName: "square.and.arrow.up")
-        ) { _ in
-            self.shareButtonDidTap()
-        }
-         */
+        let isFavorite = articleDataSource.isFavorite
+//        if let isFavorite = articleDataSource.isFavorite {
+//            <#statements#>
+//        }
         
         let safariAction = UIAction(
             title: "Open in Safari",
@@ -301,10 +322,14 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         }
         
         let saveAction = UIAction(
-            title: "Save",
-            image: UIImage(systemName: "bookmark")
+            title: isFavorite ? "Unsave" : "Save",
+            image: UIImage(systemName: isFavorite ? "bookmark.fill" : "bookmark")
         ) { _ in
-            self.addToFavoriteButtonDidTap()
+            if isFavorite {
+                self.deleteFromFavoriteButtonDidTap()
+            } else {
+                self.addToFavoriteButtonDidTap()
+            }
         }
          
         let subMenu = UIMenu(

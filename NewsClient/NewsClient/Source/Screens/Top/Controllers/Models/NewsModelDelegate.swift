@@ -10,4 +10,5 @@ import Foundation
 protocol NewsModelDelegate: AnyObject {
     
     func dataDidLoad(with data: [ArticleDataModel])
+    func dataDidUpdated(with data: [ArticleDataModel])
 }

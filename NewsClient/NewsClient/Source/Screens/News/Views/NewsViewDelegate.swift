@@ -9,7 +9,8 @@ import Foundation
 
 protocol NewsViewDelegate: AnyObject {
     
-    func addToFavoriteDidTap()
+    func addToFavorite(article: ArticleDataModel)
+    func deleteFromFavorite(article: ArticleDataModel)
     //func categoryDidChange(_ item: Category?)
     func categoryDidChange(_ index: Int)
     func newsRowDidTapAt(_ article: ArticleDataModel)

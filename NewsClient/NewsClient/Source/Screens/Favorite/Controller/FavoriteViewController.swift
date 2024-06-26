@@ -1,29 +1,26 @@
 //
-//  HomeViewController.swift
+//  FavoriteViewController.swift
 //  NewsClient
 //
-//  Created by Aleksandr Moroshovskyi on 17.06.2024.
+//  Created by Aleksandr Moroshovskyi on 23.06.2024.
 //
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+class FavoriteViewController: BaseViewController {
     
     //weak var delegate: HomeViewControllerDelegate?
     
-    var resultsTableController: UITableViewController!
-    var currentCategory: Category? // = nil
-    
-    var model: HomeModelProtocol!
-    var contentView: HomeViewProtocol!
+    var model: FavoriteModelProtocol!
+    var contentView: NewsViewProtocol!
     
     override func loadView() {
         
-        let homeView = HomeView()
-        homeView.delegate = self
+        let favoriteView = NewsView()
+        favoriteView.delegate = self
         
-        contentView = homeView
-        view = homeView
+        contentView = favoriteView
+        view = favoriteView
     }
     
     override func viewDidLoad() {
@@ -31,20 +28,20 @@ class HomeViewController: BaseViewController {
         
         setupInitialState()
         setupUI()
-        model.loadDataFor(self) //For(currentCategory)
+        model.loadData()
     }
     
     private func setupInitialState() {
-        let homeModel = HomeModel(delegate: self)
-        model = homeModel
+        let favoriteModel = FavoriteModel(delegate: self)
+        model = favoriteModel
         
-        currentCategory = nil
+        //currentCategory = nil
     }
     
     private func setupUI() {
         if let nc = navigationController {
             nc.navigationBar.prefersLargeTitles = false
-            navigationItem.title = "NEWS"
+            navigationItem.title = "Favorite"
             
             let nsAttributedString = [NSAttributedString.Key.foregroundColor: UIColor.red]
             nc.navigationBar.titleTextAttributes = nsAttributedString
@@ -64,6 +61,6 @@ class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        debugPrint("HomeViewController - viewWillAppear")
+        model.loadData()
     }
 }

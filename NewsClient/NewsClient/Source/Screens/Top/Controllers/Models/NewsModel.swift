@@ -11,6 +11,8 @@ class NewsModel {
     
     weak var delegate: NewsModelDelegate?
     
+    //var articles: [ArticleDataModel]!
+    
     let networkService: NetworkServiceProtocol
     let storageService: CoreDataServiceProtocol
     

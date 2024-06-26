@@ -58,6 +58,7 @@ extension NewsView: UICollectionViewDataSource {
 //        }
         
         cell.configure(with: dataSource[indexPath.row])
+        cell.delegate = self
         
         return cell
     }
