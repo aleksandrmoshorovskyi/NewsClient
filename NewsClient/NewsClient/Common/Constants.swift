@@ -10,6 +10,9 @@ import UIKit
 
 enum Constants {
     
+    //Notifications
+    static let deleteFromFavoriteNotification = Notification.Name("DeleteFromFavoriteNotification")
+    
     static let pageSizeDefaultValue: Int = 20
     
     //Main Tab Bar

@@ -25,7 +25,8 @@ extension CategoryView: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.configure(with: dataSource[indexPath.row].descriptionString)
+        //cell.configure(with: dataSource[indexPath.row].descriptionString)
+        cell.configure(with: dataSource[indexPath.row])
         
 //        if selectedIndex == indexPath {
 //            cell.backgroundColor = UIColor.black

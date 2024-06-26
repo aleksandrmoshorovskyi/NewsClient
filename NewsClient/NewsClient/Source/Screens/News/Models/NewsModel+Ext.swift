@@ -9,8 +9,31 @@ import Foundation
 
 extension NewsModel: NewsModelProtocol {
     
+    func articleDidDeleteFromFavorite(notification: Notification) {
+        //
+    }
+    
     func updateFavorites() {
-        //update
+        
+        if let data = articles {
+            let articles = updateFavoritesFor(articles: data)
+            
+            self.delegate?.dataDidUpdated(with: articles)
+        }
+    }
+    
+    func updateFavoritesFor(articles: [ArticleDataModel]) -> [ArticleDataModel] {
+        
+        let storedArticles = self.storageService.fetchAllArticles()
+        var articlesArray = articles
+        
+        articlesArray.enumerated().forEach { index, item in
+            if !storedArticles.filter({ item.idStr == $0.idStr }).isEmpty {
+                articlesArray[index].isFavorite = true
+            }
+        }
+        
+        return articlesArray
     }
     
     func addFavorite(article: ArticleDataModel) {
@@ -27,7 +50,7 @@ extension NewsModel: NewsModelProtocol {
         
         //debugPrint("\(category)")
         
-        var articles: [ArticleDataModel] = []
+        //var articles: [ArticleDataModel] = []
         
         //networkService.loadSearchedNewsFor(keyword: "Intel", pageSize: 10, page: 1) { [weak self] newsData, error in
         networkService.loadTopNewsFor(country: Country.Ukraine, category: category, keyword: nil, pageSize: nil, page: nil) { [weak self] newsData, error in
@@ -46,7 +69,7 @@ extension NewsModel: NewsModelProtocol {
                     //converte to local data model
                     
                     if let dataArticles = data.articles {
-                        articles = dataArticles.compactMap() {
+                        self?.articles = dataArticles.compactMap() {
                             ArticleDataModel(
                                 id: $0.id,
                                 idStr: ($0.author ?? "") + ($0.title ?? "") + ($0.url ?? ""),
@@ -60,8 +83,14 @@ extension NewsModel: NewsModelProtocol {
                                 //content: $0.content)
                         }
                     }
+                    
+                    if let articlesData = self?.articles {
+                        let articlesWithFavorite = self?.updateFavoritesFor(articles: articlesData)
+                        
+                        self?.delegate?.dataDidLoad(with: articlesWithFavorite ?? [])
+                    }
                 
-                    self?.delegate?.dataDidLoad(with: articles)
+                    //self?.delegate?.dataDidLoad(with: self?.articles)
                 }
             }
         }

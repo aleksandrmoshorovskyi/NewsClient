@@ -25,6 +25,12 @@ extension FavoriteViewController: NewsViewDelegate {
     func deleteFromFavorite(article: ArticleDataModel) {
         model.deleteFavorite(article: article)
         model.loadData()
+        
+        NotificationCenter.default.post(
+            name: Constants.deleteFromFavoriteNotification,
+            object: article,
+            userInfo: nil //["message": "Hello World"]
+        )
     }
     
     func categoryDidChange(_ index: Int) {

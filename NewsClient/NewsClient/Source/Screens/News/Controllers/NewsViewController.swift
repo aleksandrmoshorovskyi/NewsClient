@@ -13,6 +13,7 @@ class NewsViewController: BaseViewController {
     
     //var resultsTableController: UITableViewController!
     var currentCategory: Category? // = nil
+    //let observer: NSObjectProtocol
     
     var model: NewsModelProtocol!
     var contentView: NewsViewProtocol!
@@ -39,6 +40,19 @@ class NewsViewController: BaseViewController {
         model = newsModel
         
         //currentCategory = nil
+//      
+//        NotificationCenter.default.addObserver(
+//            self,
+//            selector: #selector(notificationReceiver),
+//            name: Constants.deleteFromFavoriteNotification,
+//            object: nil)
+        NotificationCenter.default.addObserver(
+            forName: Constants.deleteFromFavoriteNotification,
+            object: nil,
+            queue: nil) { [self] (notification) in
+                //print(notification.userInfo?["message"] ?? "")
+                notificationReceiver(notification)
+            }
     }
     
     private func setupUI() {
@@ -65,5 +79,17 @@ class NewsViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         model.updateFavorites()
+    }
+    
+//    @objc func notificationReceiver() {
+//        debugPrint("notificationReceiver")
+//    }
+    
+    func notificationReceiver(_ notification: Notification) {
+        
+        if let object = notification.object as? ArticleDataModel {
+            debugPrint("\(object.idStr ?? "")")
+            model.updateFavorites()
+        }
     }
 }

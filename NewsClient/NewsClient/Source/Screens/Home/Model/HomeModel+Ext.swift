@@ -13,21 +13,23 @@ extension HomeModel: HomeModelProtocol {
         
         var categoryVC: [NewsViewController] = []
         
-        var dataSource: [(descriptionString: String, category: Category?)] = []
+        var categories: [Category] = Category.allCases
         
-        dataSource.append((descriptionString: "all", category: nil))
+        //var dataSource: [(descriptionString: String, category: Category?)] = []
         
-        Category.allCases.forEach() {
-            dataSource.append((descriptionString: $0.rawValue, category: $0))
-        }
+        //dataSource.append((descriptionString: "all", category: nil))
+        
+//        Category.allCases.forEach() {
+//            dataSource.append((descriptionString: $0.rawValue, category: $0))
+//        }
         
         //sorted
         
-        if dataSource.count > 0 {
-            dataSource.forEach() {//_ in 
+        if categories.count > 0 {
+            categories.forEach() {//_ in
                 
                 let VC = NewsViewController()
-                VC.currentCategory = $0.category
+                VC.currentCategory = $0
                 VC.delegate = vc
                 
                 //VC.loadWeatherData(for: $0)
@@ -35,7 +37,8 @@ extension HomeModel: HomeModelProtocol {
                 categoryVC.append(VC)
             }
             
-            self.delegate?.dataDidLoad(with: categoryVC)
+            //self.delegate?.dataDidLoad(with: categoryVC, for categories: categories)
+            self.delegate?.dataDidLoad(with: categoryVC, for: categories)
             
         } else {
             //debugPrint("no data (cities)")

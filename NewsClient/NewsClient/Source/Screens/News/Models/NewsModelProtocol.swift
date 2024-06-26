@@ -13,4 +13,5 @@ protocol NewsModelProtocol {
     func loadDataFor(_ category: Category?)
     func addFavorite(article: ArticleDataModel)
     func deleteFavorite(article: ArticleDataModel)
+    func articleDidDeleteFromFavorite(notification: Notification)
 }

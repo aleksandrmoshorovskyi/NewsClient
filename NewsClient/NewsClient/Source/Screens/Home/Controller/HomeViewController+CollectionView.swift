@@ -9,10 +9,21 @@ import UIKit
 
 extension HomeViewController: HomeModelDelegate {
     
-    func dataDidLoad(with viewControllers: [NewsViewController]) {
+    func dataDidLoad(with viewControllers: [NewsViewController], for categories: [Category]) {
         
-        contentView.setupViewControllers(data: viewControllers)
+        //contentView.setupViewControllers(data: viewControllers)
+        contentView.setupViewControllers(data: viewControllers, and: categories)
     }
+    
+    
+//    func dataDidLoad(with viewControllers: [NewsViewController]) {
+//        
+////        viewControllers.forEach() {viewController in
+////            self.delegate = viewController
+////        }
+//        
+//        contentView.setupViewControllers(data: viewControllers)
+//    }
 }
 
 extension HomeViewController: HomeViewDelegate {

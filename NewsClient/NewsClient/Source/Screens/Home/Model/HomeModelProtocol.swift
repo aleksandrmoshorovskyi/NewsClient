@@ -9,6 +9,8 @@ import UIKit
 
 protocol HomeModelProtocol {
     
+    //func loadDataFor(_ vc: NewsViewControllerDelegate)
     func loadDataFor(_ vc: NewsViewControllerDelegate)
+    //func setDelegateFor(_ vc: Vie)
 }
 

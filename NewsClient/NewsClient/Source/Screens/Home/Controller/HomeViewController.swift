@@ -61,9 +61,17 @@ class HomeViewController: BaseViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        debugPrint("HomeViewController - viewWillAppear")
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        debugPrint("HomeViewController - viewWillAppear)")
+//        delegate?.homeViewWillAppear()
+//    }
+//    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        
+//        debugPrint("HomeViewController - viewWillDisappear")
+//        delegate?.homeViewWillDisappear()
+//    }
 }

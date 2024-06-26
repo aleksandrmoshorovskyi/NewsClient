@@ -95,9 +95,16 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 //        return layoutAttributes
 //    }
     
-    func configure(with data: String) {
+//    func configure(with data: String) {
+//        
+//        self.titleLabel.text = data.capitalized
+//        
+//        //configureUI()
+//    }
+    
+    func configure(with data: Category) {
         
-        self.titleLabel.text = data.capitalized
+        self.titleLabel.text = data.rawValue.capitalized
         
         //configureUI()
     }

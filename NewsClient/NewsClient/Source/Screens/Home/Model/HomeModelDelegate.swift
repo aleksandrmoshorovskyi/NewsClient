@@ -9,5 +9,5 @@ import Foundation
 
 protocol HomeModelDelegate: AnyObject {
     
-    func dataDidLoad(with viewControllers: [NewsViewController])
+    func dataDidLoad(with viewControllers: [NewsViewController], for categories: [Category])
 }

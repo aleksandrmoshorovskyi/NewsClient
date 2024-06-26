@@ -9,7 +9,7 @@ import Foundation
 
 protocol HomeViewProtocol {
     
-    func setupViewControllers(data: [NewsViewController])
+    func setupViewControllers(data: [NewsViewController], and categories: [Category])
     
     func scrollToViewController(index: Int)
 }

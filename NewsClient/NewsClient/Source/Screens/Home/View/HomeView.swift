@@ -12,6 +12,8 @@ class HomeView: UIView {
     weak var delegate: HomeViewDelegate?
     
     var dataSource: [NewsViewController] = []
+    var categoriesSource: [Category] = []
+    
     var categoryView: CategoryView!
     
     var collectionView: UICollectionView!
@@ -43,8 +45,15 @@ class HomeView: UIView {
         backgroundColor = Constants.BaseViewBG
         
         //categoryView setup
-        categoryView = CategoryView()
+        //categoryView = CategoryView()
+        //categoryView = CategoryView(customParamArg: categoriesSource)
+        
+        //MARK: TO DO !!!
+        //TO CHANGE - Must work with any categoriesSource in init
+        categoryView = CategoryView(customParamArg: Category.allCases)
+        
         categoryView.delegate = self
+        //categoryView.dataSource = categoriesSource
         
         //collectionView setup
         let layout = UICollectionViewFlowLayout()

@@ -7,6 +7,18 @@
 
 import UIKit
 
+//extension NewsViewController: HomeViewControllerDelegate {
+//   
+//    func homeViewWillAppear() {
+//        debugPrint("Here must be Update")
+//        //debugPrint("\(String(describing: self.currentCategory))")
+//    }
+//    
+//    func homeViewWillDisappear() {
+//        debugPrint("Here must be SaveIfNeeded")
+//    }
+//}
+
 //NewsModelDelegate
 extension NewsViewController: NewsModelDelegate {
     

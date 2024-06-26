@@ -11,6 +11,8 @@ class FavoriteViewController: BaseViewController {
     
     //weak var delegate: HomeViewControllerDelegate?
     
+    //let myNotification = Notification.Name("MyNotification")
+    
     var model: FavoriteModelProtocol!
     var contentView: NewsViewProtocol!
     

@@ -47,7 +47,7 @@ class TopView: UIView {
         backgroundColor = Constants.BaseViewBG
         
         //categoryView setup
-        categoryView = CategoryView()
+        categoryView = CategoryView(customParamArg: Category.allCases)
         categoryView.delegate = self
         
         //collectionView setup

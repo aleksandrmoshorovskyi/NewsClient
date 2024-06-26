@@ -346,7 +346,6 @@
 			children = (
 				A823EEB32C10AC07001BF6A6 /* TopViewController+Ext.swift */,
 				A823EEB12C10AB60001BF6A6 /* TopViewController.swift */,
-				A85AB7252C2015C400FE1829 /* Models */,
 				A85AB6E92C19F00500FE1829 /* TopViewControllerDelegate.swift */,
 			);
 			path = Controllers;
@@ -479,6 +478,7 @@
 			isa = PBXGroup;
 			children = (
 				A85AB7242C2015BD00FE1829 /* Cells */,
+				A85AB7252C2015C400FE1829 /* Models */,
 				A85AB7262C2015CA00FE1829 /* Views */,
 				A85AB7272C2015CF00FE1829 /* Controllers */,
 			);

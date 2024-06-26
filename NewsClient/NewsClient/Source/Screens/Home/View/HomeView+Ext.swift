@@ -9,18 +9,19 @@ import UIKit
 
 extension HomeView: HomeViewProtocol {
     
+    func setupViewControllers(data: [NewsViewController], and categories: [Category]) {
+        
+        dataSource = data
+        categoriesSource = categories
+        
+        collectionView.reloadData()
+    }
+    
     func scrollToViewController(index: Int) {
         
         let indexPath = IndexPath(row: index, section: 0)
         
         collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
-    }
-
-    func setupViewControllers(data: [NewsViewController]) {
-        
-        dataSource = data
-        
-        collectionView.reloadData()
     }
 }
 

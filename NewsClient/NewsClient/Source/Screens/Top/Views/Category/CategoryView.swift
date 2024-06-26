@@ -7,13 +7,14 @@
 
 import UIKit
 
-typealias dataSourceCategory = (descriptionString: String, category: Category?)
+//typealias dataSourceCategory = (descriptionString: String, category: Category?)
 
 class CategoryView: UIView {
     
     weak var delegate: CategoryViewDelegate?
     
-    var dataSource: [(descriptionString: String, category: Category?)] = []
+    var dataSource: [Category] = []
+    //var dataSource: [(descriptionString: String, category: Category?)] = []
     //["All", "Business", "Entertainment", "General", "Health", "Science", "Sports", "Technology"]
     
     var collectionView: UICollectionView!
@@ -21,10 +22,24 @@ class CategoryView: UIView {
     //var selectedIndex = IndexPath(row: 0, section: 0)
     var selectedIndex: Int = 0
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        
+//        //setupDataSource()
+//        setupUI()
+//        setupLayout()
+//        
+//        collectionView.register(
+//            CategoryCollectionViewCell.self,
+//            forCellWithReuseIdentifier: CategoryCollectionViewCell.idintifier
+//        )
+//    }
+    
+    required init(customParamArg: [Category]) {
+        self.dataSource =  customParamArg
+        super.init(frame: .zero)
         
-        setupDataSource()
+        // Setting up the view can be done here
         setupUI()
         setupLayout()
         
@@ -38,14 +53,18 @@ class CategoryView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupDataSource() {
-        
-        dataSource.append((descriptionString: "all", category: nil))
-        
-        Category.allCases.forEach() {
-            dataSource.append((descriptionString: $0.rawValue, category: $0))
-        }
-    }
+//    func setupDataSource() {
+//        
+//        //dataSource.append((descriptionString: "all", category: nil))
+//        
+////        Category.allCases.forEach() {
+////            dataSource.append((descriptionString: $0.rawValue, category: $0))
+////        }
+//        
+//        Category.allCases.forEach() {
+//            dataSource.append($0)
+//        }
+//    }
     
     func setupUI() {
         
