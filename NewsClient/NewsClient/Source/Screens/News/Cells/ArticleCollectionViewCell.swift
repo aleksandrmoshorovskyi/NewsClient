@@ -284,10 +284,6 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    ///
-    ///
-    ///
-    
     private func addToFavoriteButtonDidTap() {
         debugPrint("addToFavoriteButtonDidTap")
         

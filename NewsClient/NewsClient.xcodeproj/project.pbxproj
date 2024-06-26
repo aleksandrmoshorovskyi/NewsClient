@@ -191,6 +191,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A80469922C2C7A0A00178BEE /* toDELETE */ = {
+			isa = PBXGroup;
+			children = (
+				A823EEA12C10A705001BF6A6 /* Top */,
+			);
+			path = toDELETE;
+			sourceTree = "<group>";
+		};
 		A823EE652C10651E001BF6A6 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +218,7 @@
 		A823EE702C10651E001BF6A6 /* NewsClient */ = {
 			isa = PBXGroup;
 			children = (
+				A80469922C2C7A0A00178BEE /* toDELETE */,
 				A85AB6F02C19F51900FE1829 /* Extensions */,
 				A823EEA92C10A838001BF6A6 /* Common */,
 				A823EE8C2C107207001BF6A6 /* Resource */,
@@ -244,7 +253,7 @@
 			children = (
 				A823EE8F2C1072CE001BF6A6 /* App */,
 				A823EE902C1072D7001BF6A6 /* Main */,
-				A823EEA12C10A705001BF6A6 /* Top */,
+				A85AB6FD2C1EF58800FE1829 /* Category */,
 				A85AB7232C20158200FE1829 /* News */,
 				A85AB7062C200B4100FE1829 /* Home */,
 				A85AB7592C285E4E00FE1829 /* Search */,
@@ -313,12 +322,13 @@
 		A823EEA12C10A705001BF6A6 /* Top */ = {
 			isa = PBXGroup;
 			children = (
-				A85AB6ED2C19F31900FE1829 /* Cells */,
+				A85AB6FC2C1EF58200FE1829 /* Top */,
 				A823EEA22C10A72C001BF6A6 /* Models */,
 				A85AB6E02C19E8C900FE1829 /* Views */,
 				A823EEB02C10AB41001BF6A6 /* Controllers */,
 			);
-			path = Top;
+			name = Top;
+			path = ../Source/Screens/Top;
 			sourceTree = "<group>";
 		};
 		A823EEA22C10A72C001BF6A6 /* Models */ = {
@@ -327,7 +337,6 @@
 				A823EEAC2C10A8B0001BF6A6 /* TopModel+Ext.swift */,
 				A823EEA32C10A73F001BF6A6 /* TopModel.swift */,
 				A823EEA52C10A787001BF6A6 /* TopModelDelegate.swift */,
-				A823EEA72C10A796001BF6A6 /* MainModelProtocol.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -372,8 +381,11 @@
 		A85AB6E02C19E8C900FE1829 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A85AB6FC2C1EF58200FE1829 /* Top */,
-				A85AB6FD2C1EF58800FE1829 /* Category */,
+				A85AB6EB2C19F17900FE1829 /* TopView+CollectionView.swift */,
+				A85AB6E72C19EBF100FE1829 /* TopView+Ext.swift */,
+				A85AB6E12C19EB2700FE1829 /* TopView.swift */,
+				A85AB6E32C19EB5D00FE1829 /* TopViewDelegate.swift */,
+				A85AB6E52C19EB6800FE1829 /* TopViewProtocol.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -381,8 +393,6 @@
 		A85AB6ED2C19F31900FE1829 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				A85AB6EE2C19F35B00FE1829 /* ArticleCollectionViewCell.swift */,
-				A85AB7572C2851C400FE1829 /* ArticleCollectionViewCellDelegate.swift */,
 				A85AB6F82C1EF27F00FE1829 /* CategoryCollectionViewCell.swift */,
 			);
 			path = Cells;
@@ -400,11 +410,7 @@
 		A85AB6FC2C1EF58200FE1829 /* Top */ = {
 			isa = PBXGroup;
 			children = (
-				A85AB6EB2C19F17900FE1829 /* TopView+CollectionView.swift */,
-				A85AB6E72C19EBF100FE1829 /* TopView+Ext.swift */,
-				A85AB6E12C19EB2700FE1829 /* TopView.swift */,
-				A85AB6E32C19EB5D00FE1829 /* TopViewDelegate.swift */,
-				A85AB6E52C19EB6800FE1829 /* TopViewProtocol.swift */,
+				A823EEA72C10A796001BF6A6 /* MainModelProtocol.swift */,
 			);
 			path = Top;
 			sourceTree = "<group>";
@@ -412,6 +418,7 @@
 		A85AB6FD2C1EF58800FE1829 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A85AB6ED2C19F31900FE1829 /* Cells */,
 				A85AB7042C1EFA4700FE1829 /* CategoryView+CollectionView.swift */,
 				A85AB6FA2C1EF52B00FE1829 /* CategoryView.swift */,
 				A85AB7022C1EFA3A00FE1829 /* CategoryView+Ext.swift */,
@@ -488,6 +495,8 @@
 		A85AB7242C2015BD00FE1829 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				A85AB6EE2C19F35B00FE1829 /* ArticleCollectionViewCell.swift */,
+				A85AB7572C2851C400FE1829 /* ArticleCollectionViewCellDelegate.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
