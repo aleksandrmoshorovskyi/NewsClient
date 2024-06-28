@@ -30,7 +30,7 @@ class MainTabBarController: UITabBarController {
         
         //SEARCH
         let searchNavigationController = UINavigationController()
-        let searchViewController = UIViewController()
+        let searchViewController = SearchViewController()
         searchViewController.tabBarItem.title = "Search"
         searchViewController.tabBarItem.image = UIImage(systemName: "magnifyingglass.circle")
         searchViewController.tabBarItem.selectedImage = UIImage(systemName: "magnifyingglass.circle.fill")
