@@ -5,7 +5,30 @@
   Created by Aleksandr Moroshovskyi on 29.06.2024.
   
 */
-"News" = "Новини";
+"NEWS" = "НОВИНИ";
 "Search" = "Пошук";
 "Favorites" = "Збережені";
 "Settings" = "Налаштування";
+"Home" = "Головна";
+
+"Open in Safari" = "Відкрити у Safari";
+"Save" = "Зберегти";
+"Unsave" = "Вилучити";
+
+"now" = "зараз";
+"m ago" = " хв. тому";
+"h ago" = " гд. тому";
+"d ago" = " дн. тому";
+"w ago" = " тиж. тому";
+"ancient" = "дуже давно";
+
+//Mode
+"Mode" = "Тема";
+"light" = "світла";
+"dark" = "темна";
+"system" = "системна";
+
+//Language
+"Language" = "Мова";
+"Ukrainian" = "Українська";
+"default" = "за замовчуванням";

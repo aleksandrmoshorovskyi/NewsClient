@@ -43,7 +43,7 @@ class FavoriteViewController: BaseViewController {
     private func setupUI() {
         if let nc = navigationController {
             //nc.navigationBar.prefersLargeTitles = false
-            navigationItem.title = "Favorites"
+            navigationItem.title = "Favorites".localized()
             debugPrint("\(String(describing: nc.navigationBar.isHidden))")
             
             //nc.navigationBar.hidesNavigationBarDuringPresentation = false

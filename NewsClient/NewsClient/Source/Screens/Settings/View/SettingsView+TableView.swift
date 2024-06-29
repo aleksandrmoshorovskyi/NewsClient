@@ -26,21 +26,26 @@ extension SettingsView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        /*
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: " ") as? CityTableViewCell
-        else {
-            assertionFailure()
-            return UITableViewCell()
-        }
-         */
         
         let cell = UITableViewCell()
         
-        //let currentData = dataSource[indexPath.section].items[indexPath.row]
+        switch indexPath.section {
+            
+        case 0:
+            cell.textLabel?.text = dataSource[indexPath.section].items[indexPath.row].title
+            cell.accessoryType = dataSource[indexPath.section].items[indexPath.row].isOn ? .checkmark : .none
+            
+        case 1: 
+            cell.textLabel?.text = dataSource[indexPath.section].items[indexPath.row].title
+            cell.accessoryType = dataSource[indexPath.section].items[indexPath.row].isOn ? .checkmark : .none
+            
+        default: break
+            //
+        }
         
-        cell.textLabel?.text = dataSource[indexPath.section].items[indexPath.row].title
+        //cell.textLabel?.text = dataSource[indexPath.section].items[indexPath.row].title
         
-        cell.accessoryType = dataSource[indexPath.section].items[indexPath.row].isOn ? .checkmark : .none
+        //cell.accessoryType = dataSource[indexPath.section].items[indexPath.row].isOn ? .checkmark : .none
         
         return cell
     }
@@ -52,18 +57,43 @@ extension SettingsView: UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        //var currentData = dataSource[indexPath.section].items[indexPath.row]
-        
-        if !dataSource[indexPath.section].items[indexPath.row].isOn {
-            dataSource[indexPath.section].items.enumerated().forEach() {index, item in
-                dataSource[indexPath.section].items[index].isOn = false
+        switch indexPath.section {
+            
+        case 0:
+            if !dataSource[indexPath.section].items[indexPath.row].isOn {
+                dataSource[indexPath.section].items.enumerated().forEach() {index, item in
+                    dataSource[indexPath.section].items[index].isOn = false
+                }
+                dataSource[indexPath.section].items[indexPath.row].isOn = true
+                tableView.reloadData()
+                UserDefaults.standard.setValue(
+                    dataSource[indexPath.section].items[indexPath.row].title,
+                    forKey: "theme"
+                )
             }
-            dataSource[indexPath.section].items[indexPath.row].isOn = true
-            tableView.reloadData()
-            UserDefaults.standard.setValue(
-                dataSource[indexPath.section].items[indexPath.row].title,
-                forKey: "theme"
-            )
+            
+        case 1:
+            if !dataSource[indexPath.section].items[indexPath.row].isOn {
+                dataSource[indexPath.section].items.enumerated().forEach() {index, item in
+                    dataSource[indexPath.section].items[index].isOn = false
+                }
+                dataSource[indexPath.section].items[indexPath.row].isOn = true
+                tableView.reloadData()
+//                UserDefaults.standard.setValue(
+//                    dataSource[indexPath.section].items[indexPath.row].title,
+//                    forKey: "theme"
+//                )
+                
+                if indexPath.row <= 1 {
+                    DefaultManager.setAppLanguage(ver: indexPath.row)
+                } else {
+                    DefaultManager.removeAppLanguage()
+                }
+            }
+            
+        default: break
+            //
         }
+        
     }
 }

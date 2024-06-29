@@ -198,21 +198,25 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         
         switch timeInt {
         case 0...minute:
-            str = "now"
+            str = "now".localized()
         case minute...hour:
-            str = "\(timeInt/minute)m ago"
+            let localizedStr = "m ago".localized()
+            str = "\(timeInt/minute)\(localizedStr)"//m ago".localized()
         case hour...threeDays:
-            str = "\(timeInt/hour)h ago"
+            let localizedStr = "h ago".localized()
+            str = "\(timeInt/hour)\(localizedStr)"//h ago".localized()
 //        case day...twoDays:
 //            str = "1d \((timeInt - day)/hour)h ago"
 //        case twoDays...threeDays:
 //            str = "2d \((timeInt - twoDays)/hour)h ago"
         case threeDays...week:
-            str = "\(timeInt/day)d ago"
+            let localizedStr = "d ago".localized()
+            str = "\(timeInt/day)\(localizedStr)"//d ago".localized()
         case week...weeksInYear:
-            str = "\(timeInt/week)w ago"
+            let localizedStr = "w ago".localized()
+            str = "\(timeInt/week)\(localizedStr)"//w ago".localized()
         default:
-            str = "ancient"
+            str = "ancient".localized()
         }
         
         return str
@@ -327,14 +331,14 @@ class ArticleCollectionViewCell: UICollectionViewCell {
 //        }
         
         let safariAction = UIAction(
-            title: "Open in Safari",
+            title: "Open in Safari".localized(),
             image: UIImage(systemName: "safari")
         ) { _ in
             self.openInSafariButtonDidTap()
         }
         
         let saveAction = UIAction(
-            title: isFavorite ? "Unsave" : "Save",
+            title: isFavorite ? "Unsave".localized() : "Save".localized(),
             image: UIImage(systemName: isFavorite ? "bookmark.fill" : "bookmark")
         ) { _ in
             if isFavorite {

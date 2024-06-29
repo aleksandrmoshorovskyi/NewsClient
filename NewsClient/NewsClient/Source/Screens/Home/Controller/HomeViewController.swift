@@ -44,7 +44,7 @@ class HomeViewController: BaseViewController {
     private func setupUI() {
         if let nc = navigationController {
             nc.navigationBar.prefersLargeTitles = false
-            navigationItem.title = "NEWS"
+            navigationItem.title = "NEWS".localized()
             
             let nsAttributedString = [NSAttributedString.Key.foregroundColor: UIColor.red]
             nc.navigationBar.titleTextAttributes = nsAttributedString

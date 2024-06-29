@@ -51,6 +51,8 @@
 		A824BF8B2C30558D00B436F9 /* SettingsViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824BF8A2C30558D00B436F9 /* SettingsViewController+Ext.swift */; };
 		A824BF8D2C30578C00B436F9 /* SettingsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824BF8C2C30578C00B436F9 /* SettingsDataModel.swift */; };
 		A824BF912C306F6700B436F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A824BF8F2C306F6700B436F9 /* Localizable.strings */; };
+		A824BF942C3070D900B436F9 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824BF932C3070D900B436F9 /* String+Ext.swift */; };
+		A824BF962C30710A00B436F9 /* DefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824BF952C30710A00B436F9 /* DefaultManager.swift */; };
 		A85AB6DD2C19E04100FE1829 /* ArticleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6DC2C19E04100FE1829 /* ArticleDataModel.swift */; };
 		A85AB6DF2C19E6D100FE1829 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6DE2C19E6D100FE1829 /* Constants.swift */; };
 		A85AB6E22C19EB2700FE1829 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6E12C19EB2700FE1829 /* TopView.swift */; };
@@ -161,6 +163,8 @@
 		A824BF8E2C306E6C00B436F9 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A824BF902C306F6700B436F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A824BF922C306F9E00B436F9 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A824BF932C3070D900B436F9 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		A824BF952C30710A00B436F9 /* DefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultManager.swift; sourceTree = "<group>"; };
 		A85AB6DC2C19E04100FE1829 /* ArticleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDataModel.swift; sourceTree = "<group>"; };
 		A85AB6DE2C19E6D100FE1829 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A85AB6E12C19EB2700FE1829 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
@@ -391,6 +395,7 @@
 				A823EEAA2C10A84D001BF6A6 /* ServiceProvider.swift */,
 				A85AB6DE2C19E6D100FE1829 /* Constants.swift */,
 				A824BF752C30408400B436F9 /* Theme.swift */,
+				A824BF952C30710A00B436F9 /* DefaultManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -511,6 +516,7 @@
 			children = (
 				A85AB6F12C19F53300FE1829 /* UICollectionViewCell+Idintifier.swift */,
 				A85AB6F32C1C8DA500FE1829 /* UIImageView+Ext.swift */,
+				A824BF932C3070D900B436F9 /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -808,6 +814,7 @@
 				A823EE722C10651E001BF6A6 /* AppDelegate.swift in Sources */,
 				A823EEAB2C10A84D001BF6A6 /* ServiceProvider.swift in Sources */,
 				A85AB7432C2360D800FE1829 /* NewsDetailsView.swift in Sources */,
+				A824BF942C3070D900B436F9 /* String+Ext.swift in Sources */,
 				A85AB6DD2C19E04100FE1829 /* ArticleDataModel.swift in Sources */,
 				A823EEB62C10B041001BF6A6 /* DMNewsError.swift in Sources */,
 				A85AB6E82C19EBF100FE1829 /* TopView+Ext.swift in Sources */,
@@ -849,6 +856,7 @@
 				A85AB6F92C1EF27F00FE1829 /* CategoryCollectionViewCell.swift in Sources */,
 				A824BF7B2C3051ED00B436F9 /* SettingsModelDelegate.swift in Sources */,
 				A824BF792C3051E000B436F9 /* SettingsModel.swift in Sources */,
+				A824BF962C30710A00B436F9 /* DefaultManager.swift in Sources */,
 				A85AB7632C285EEE00FE1829 /* FavoriteModelProtocol.swift in Sources */,
 				A85AB73B2C2018DD00FE1829 /* NewsView+CollectionView.swift in Sources */,
 				A85AB7692C28616500FE1829 /* FavoriteViewController.swift in Sources */,

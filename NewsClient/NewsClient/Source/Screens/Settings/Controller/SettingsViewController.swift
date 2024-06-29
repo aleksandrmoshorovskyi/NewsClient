@@ -36,7 +36,7 @@ class SettingsViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
-        title = "Settings"
+        title = "Settings".localized()
         
         //UserDefaults.standard.setValue(Theme.dark.rawValue, forKey: "theme")
     }

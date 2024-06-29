@@ -22,8 +22,8 @@ class MainTabBarController: UITabBarController {
         
         //HOME
         let homeNavigationController = UINavigationController()
-        let homeViewController = UIViewController()//HomeViewController()
-        homeViewController.tabBarItem.title = "Home"
+        let homeViewController = HomeViewController()
+        homeViewController.tabBarItem.title = "Home".localized()
         homeViewController.tabBarItem.image = UIImage(systemName: "house")
         homeViewController.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
         homeNavigationController.setViewControllers([homeViewController], animated: false)
@@ -31,7 +31,7 @@ class MainTabBarController: UITabBarController {
         //SEARCH
         let searchNavigationController = UINavigationController()
         let searchViewController = SearchViewController()
-        searchViewController.tabBarItem.title = "Search"
+        searchViewController.tabBarItem.title = "Search".localized()
         searchViewController.tabBarItem.image = UIImage(systemName: "magnifyingglass.circle")
         searchViewController.tabBarItem.selectedImage = UIImage(systemName: "magnifyingglass.circle.fill")
         searchNavigationController.setViewControllers([searchViewController], animated: false)
@@ -39,7 +39,7 @@ class MainTabBarController: UITabBarController {
         //FAVORITE
         let favoriteNavigationController = UINavigationController()
         let favoriteViewController = FavoriteViewController()
-        favoriteViewController.tabBarItem.title = "Favorite"
+        favoriteViewController.tabBarItem.title = "Favorites".localized()
         favoriteViewController.tabBarItem.image = UIImage(systemName: "star")
         favoriteViewController.tabBarItem.selectedImage = UIImage(systemName: "star.fill")
         favoriteNavigationController.setViewControllers([favoriteViewController], animated: false)
@@ -47,7 +47,7 @@ class MainTabBarController: UITabBarController {
         //SETTINGS
         let settingsNavigationController = UINavigationController()
         let settingsViewController = SettingsViewController()
-        settingsViewController.tabBarItem.title = "Settings"
+        settingsViewController.tabBarItem.title = "Settings".localized()
         settingsViewController.tabBarItem.image = UIImage(systemName: "gearshape")
         settingsViewController.tabBarItem.selectedImage = UIImage(systemName: "gearshape.fill")
         settingsNavigationController.setViewControllers([settingsViewController], animated: false)
