@@ -28,6 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
         
         self.window = window
+        
+        UserDefaults.standard.addObserver(self, forKeyPath: "theme", options: [.new], context: nil)
+        setTheme(Theme(rawValue: UserDefaults.standard.string(forKey: "theme") ?? "")?.uiInterfaceStyle)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -58,5 +61,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    deinit {
+        UserDefaults.standard.removeObserver(self, forKeyPath: "theme", context: nil)
+    }
 
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        guard
+            let change = change,
+            object != nil,
+            keyPath == "theme",
+            let themeValue = change[.newKey] as? String,
+            let theme = Theme(rawValue: themeValue)?.uiInterfaceStyle
+        else { return }
+        
+        setTheme(theme)
+    }
+    
+    private func setTheme(_ theme: UIUserInterfaceStyle?) {
+        guard let theme = theme else { return }
+        
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: { [weak self] in
+            self?.window?.overrideUserInterfaceStyle = theme
+        }, completion: .none)
+    }
 }
