@@ -18,6 +18,10 @@ extension FavoriteViewController: FavoriteModelDelegate {
 //MARK: NewsViewDelegate
 extension FavoriteViewController: NewsViewDelegate {
     
+    func loadNextPageIfExists() {
+        //
+    }
+    
     func addToFavorite(article: ArticleDataModel) {
         model.addToFavorite(article: article)
         model.loadData()

@@ -13,6 +13,7 @@ class NewsView: UIView {
     
     //var dataSourceCategory: [String] = ["All", "Science", "Health"]
     var dataSource: [ArticleDataModel] = []
+    var maxIndexPathRow: Int = 0
     
     //var collectionViewCategory: UICollectionView!
     

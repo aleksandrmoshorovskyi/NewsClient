@@ -11,7 +11,7 @@ extension FavoriteModel: FavoriteModelProtocol {
     
     func loadData() {
     
-        var articles: [ArticleDataModel] = []
+        //var articles: [ArticleDataModel] = []
         
         let storedArticles = storageService.fetchAllArticles()
         
@@ -31,6 +31,19 @@ extension FavoriteModel: FavoriteModelProtocol {
         }
         
         self.delegate?.dataDidLoad(with: articles)
+    }
+    
+    func filterDataWith(predicate: String?) {
+        
+        if let predicate = predicate {
+            
+            if predicate.count >= 1 {
+                let filteredData = articles.filter() { $0.title?.contains(predicate) ?? false }
+                self.delegate?.dataDidLoad(with: filteredData)
+            } else {
+                self.delegate?.dataDidLoad(with: articles)
+            }
+        }
     }
     
     func deleteFavorite(article: ArticleDataModel) {

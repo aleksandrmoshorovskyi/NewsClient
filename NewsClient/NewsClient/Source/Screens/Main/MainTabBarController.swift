@@ -22,7 +22,7 @@ class MainTabBarController: UITabBarController {
         
         //HOME
         let homeNavigationController = UINavigationController()
-        let homeViewController = HomeViewController()
+        let homeViewController = UIViewController()//HomeViewController()
         homeViewController.tabBarItem.title = "Home"
         homeViewController.tabBarItem.image = UIImage(systemName: "house")
         homeViewController.tabBarItem.selectedImage = UIImage(systemName: "house.fill")

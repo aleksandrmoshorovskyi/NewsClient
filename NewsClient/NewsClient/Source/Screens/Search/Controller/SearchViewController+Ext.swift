@@ -18,9 +18,14 @@ extension SearchViewController: SearchModelDelegate {
 //MARK: NewsViewDelegate
 extension SearchViewController: NewsViewDelegate {
     
+    func loadNextPageIfExists() {
+        model.prefetchDataFor(keyword: keywordStr)
+    }
+    
+    
     func addToFavorite(article: ArticleDataModel) {
         model.addFavorite(article: article)
-        model.loadDataFor(keyword: "Apple")
+        //model.loadDataFor(keyword: "Apple")
         
         NotificationCenter.default.post(
             name: Constants.addedToFavoriteNotification,
@@ -31,7 +36,7 @@ extension SearchViewController: NewsViewDelegate {
     
     func deleteFromFavorite(article: ArticleDataModel) {
         model.deleteFavorite(article: article)
-        model.loadDataFor(keyword: "Apple")
+        //model.loadDataFor(keyword: "Apple")
         
         NotificationCenter.default.post(
             name: Constants.deletedFromFavoriteNotification,

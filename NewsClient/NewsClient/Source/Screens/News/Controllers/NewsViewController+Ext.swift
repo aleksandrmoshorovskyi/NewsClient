@@ -34,6 +34,10 @@ extension NewsViewController: NewsModelDelegate {
 //NewsViewDelegate
 extension NewsViewController: NewsViewDelegate {
     
+    func loadNextPageIfExists() {
+        //
+    }
+    
     func deleteFromFavorite(article: ArticleDataModel) {
         model.deleteFavorite(article: article)
     }

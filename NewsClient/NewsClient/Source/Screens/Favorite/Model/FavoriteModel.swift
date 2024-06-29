@@ -11,6 +11,8 @@ class FavoriteModel {
     
     weak var delegate: FavoriteModelDelegate?
     
+    var articles: [ArticleDataModel]!
+    
     let storageService: CoreDataServiceProtocol
     
     init(delegate: FavoriteModelDelegate? = nil) {

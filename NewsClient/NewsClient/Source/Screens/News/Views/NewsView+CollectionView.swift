@@ -78,11 +78,45 @@ extension NewsView: UICollectionViewDelegate {
         //print("\(indexPath.row)")
         
         let indexPathRow = indexPath.row
+        //var tempindexPathRow = 0
         
         if indexPathRow > 0 {
-            if Double(Constants.pageSizeDefaultValue) / Double(indexPath.row) <= 2.0 {
-                print("\(indexPath.row)")
-                //add next page
+//            if Double(Constants.pageSizeDefaultValue) / Double(indexPath.row) <= 2.0 {
+//                print("\(indexPath.row)")
+//                //add next page
+//                //delegate.
+//            }
+            
+//            if Double(dataSource.count) / Double(indexPath.row) >= 2.0 &&
+//                Double(dataSource.count) / Double(indexPath.row) < 3.0 {
+//                print("\(indexPath.row)")
+//                //add next page
+//                //delegate.
+//            }
+            
+            //if indexPathRow > tempindexPathRow {
+            //    print("\(indexPath.row)")
+            //}
+            
+            //tempindexPathRow = indexPathRow
+//            if indexPathRow > maxIndexPathRow {
+//                debugPrint("\(indexPathRow)")
+//                maxIndexPathRow = indexPathRow
+//            }
+//            
+//            if maxIndexPathRow >= dataSource.count/2 {
+//                debugPrint("here we have to prefetchdata")
+//            }
+            
+            if indexPathRow == dataSource.count/2 {
+                if indexPathRow > maxIndexPathRow {
+                    debugPrint("dataSource - \(dataSource.count)")
+                    debugPrint("dataSource/2 - \(dataSource.count/2)")
+                    debugPrint("indexPathRow - \(indexPathRow)")
+                    maxIndexPathRow = indexPathRow
+                    debugPrint("here we have to prefetchdata")
+                    delegate?.loadNextPageIfExists()
+                }
             }
         }
         

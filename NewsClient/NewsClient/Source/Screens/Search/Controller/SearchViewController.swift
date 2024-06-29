@@ -10,6 +10,7 @@ import UIKit
 class SearchViewController: BaseViewController {
 
     //weak var delegate: HomeViewControllerDelegate?
+    var keywordStr: String!
     
     var model: SearchModelProtocol!
     var contentView: NewsViewProtocol!
@@ -28,7 +29,7 @@ class SearchViewController: BaseViewController {
         
         setupInitialState()
         setupUI()
-        model.loadDataFor(keyword: "Apple")
+        //model.loadDataFor(keyword: "Apple")
     }
     
     private func setupInitialState() {
@@ -40,9 +41,7 @@ class SearchViewController: BaseViewController {
     
     private func setupUI() {
         if let nc = navigationController {
-            nc.navigationBar.prefersLargeTitles = true//false
-            //nc.navigationItem.title = ".Search."
-            //nc.navigationBar.isHidden = false
+            nc.navigationBar.prefersLargeTitles = false
             navigationItem.title = "Search"
             
             //let nsAttributedString = [NSAttributedString.Key.foregroundColor: UIColor.red]
@@ -59,7 +58,7 @@ class SearchViewController: BaseViewController {
             //nc.navigationBar.shadowImage = UIImage()
             
             //nc.navigationItem.preferredSearchBarPlacement = .automatic
-            nc.navigationItem.hidesSearchBarWhenScrolling = false
+            //nc.navigationItem.hidesSearchBarWhenScrolling = false
             //definesPresentationContext = true
             
             let searchController = UISearchController(searchResultsController: UITableViewController())
@@ -69,14 +68,14 @@ class SearchViewController: BaseViewController {
             searchController.searchBar.delegate = self // Monitor when the search button is tapped.
             
             navigationItem.searchController = searchController
-            //navigationItem.hidesSearchBarWhenScrolling = false
+            navigationItem.hidesSearchBarWhenScrolling = false
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        model.loadDataFor(keyword: "Apple")
+        //model.loadDataFor(keyword: "Apple")
     }
 }
 
@@ -109,34 +108,10 @@ extension SearchViewController: UISearchBarDelegate {
         //debugPrint("searchBarSearchButtonClicked")
         
         let searchString = searchBar.searchTextField.text!
+        keywordStr = searchString
         
-        model.loadDataFor(keyword: searchString)
+        model.loadDataFor(keyword: keywordStr)
         navigationItem.searchController?.searchBar.searchTextField.text = ""
         navigationItem.searchController?.dismiss(animated: true)
     }
 }
-
-/*
- extension SettingsViewController: UISearchResultsUpdating {
-     
-     func updateSearchResults(for searchController: UISearchController) {
-         
-         //searchController.searchBar.text! = ""
-         
-         let searchString = searchController.searchBar.text!
-         
-         debugPrint("searchString - \(searchString)")
-         
-         if searchString.count >= 3 {
-             model.loadSearchData(for: searchString)
-         }
-     }
- }
-
- extension SettingsViewController: UISearchBarDelegate {
-     
-     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-         searchBar.searchTextField.text = ""
-     }
- }
- */

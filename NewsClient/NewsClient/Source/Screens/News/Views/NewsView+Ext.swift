@@ -14,6 +14,7 @@ extension NewsView: NewsViewProtocol {
         dataSource = data
         
         collectionView.reloadData()
+        maxIndexPathRow = 0
     }
 }
 

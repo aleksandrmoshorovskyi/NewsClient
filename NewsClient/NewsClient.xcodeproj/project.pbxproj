@@ -270,6 +270,7 @@
 				A85AB7062C200B4100FE1829 /* Home */,
 				A85AB7592C285E4E00FE1829 /* Search */,
 				A85AB75A2C285E6C00FE1829 /* Favorite */,
+				A824BF6F2C303DD200B436F9 /* Settings */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -398,6 +399,37 @@
 			children = (
 				A824BF6D2C2EE28300B436F9 /* SearchViewController+Ext.swift */,
 				A824BF6B2C2EE27900B436F9 /* SearchViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A824BF6F2C303DD200B436F9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A824BF702C303DED00B436F9 /* Model */,
+				A824BF712C303DF300B436F9 /* View */,
+				A824BF722C303DF800B436F9 /* Controller */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A824BF702C303DED00B436F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A824BF712C303DF300B436F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A824BF722C303DF800B436F9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Controller;
 			sourceTree = "<group>";
