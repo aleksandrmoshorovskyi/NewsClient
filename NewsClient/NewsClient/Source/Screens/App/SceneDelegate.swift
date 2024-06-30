@@ -19,7 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let mainNavigationController = UINavigationController(
-            rootViewController: MainTabBarController()
+            //rootViewController: MainTabBarController()
+            //rootViewController: WelcomeViewController()
+            rootViewController: DefaultManager.getAppCountry() == nil ? WelcomeViewController() : MainTabBarController()
         )
         mainNavigationController.navigationBar.isHidden = true
         
@@ -29,8 +31,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = window
         
-        UserDefaults.standard.addObserver(self, forKeyPath: "theme", options: [.new], context: nil)
-        setTheme(Theme(rawValue: UserDefaults.standard.string(forKey: "theme") ?? "")?.uiInterfaceStyle)
+        UserDefaults.standard.addObserver(self, forKeyPath: DefaultManager.KEY_Theme, options: [.new], context: nil)
+        //setTheme(Theme(rawValue: UserDefaults.standard.string(forKey: "theme") ?? "")?.uiInterfaceStyle)
+        setTheme(DefaultManager.getAppTheme()?.uiInterfaceStyle)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -69,7 +72,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard
             let change = change,
             object != nil,
-            keyPath == "theme",
+            keyPath == DefaultManager.KEY_Theme,
             let themeValue = change[.newKey] as? String,
             let theme = Theme(rawValue: themeValue)?.uiInterfaceStyle
         else { return }

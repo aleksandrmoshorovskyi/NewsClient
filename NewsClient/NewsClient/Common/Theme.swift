@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Theme: String {
+enum Theme: String, CaseIterable {
     case light, dark, system
 
     // Utility var to pass directly to window.overrideUserInterfaceStyle
@@ -19,6 +19,17 @@ enum Theme: String {
             return .dark
         case .system:
             return .unspecified
+        }
+    }
+    
+    var icon: String {
+        switch self {
+        case .light:
+            return "◻️"
+        case .dark:
+            return "◼️"
+        case .system:
+            return "⚙️"
         }
     }
 }

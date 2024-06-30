@@ -52,6 +52,13 @@ class NewsViewController: BaseViewController {
             queue: nil) { [self] (notification) in
                 notificationReceiver(notification)
             }
+        
+        NotificationCenter.default.addObserver(
+            forName: Notification.Name(DefaultManager.KEY_Country),
+            object: nil,
+            queue: nil) { [self] (notification) in
+                notificationReceiver(notification)
+            }
     }
     
     private func setupUI() {
@@ -89,6 +96,11 @@ class NewsViewController: BaseViewController {
         if let object = notification.object as? ArticleDataModel {
             debugPrint("\(object.id)")
             model.updateFavorites()
+        }
+        
+        if let object = notification.object as? Country {
+            debugPrint("\(object.rawValue)")
+            model.loadDataFor(currentCategory)
         }
     }
 }

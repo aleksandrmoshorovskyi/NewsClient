@@ -61,12 +61,15 @@ extension NewsModel: NewsModelProtocol {
     
     func loadDataFor(_ category: Category? = nil) {
         
-        //debugPrint("\(category)")
+        var currentCountry: Country!
         
-        //var articles: [ArticleDataModel] = []
+        if let appCountry = DefaultManager.getAppCountry() {
+            currentCountry = appCountry
+        } else {
+            currentCountry = Country.Ukraine
+        }
         
-        //networkService.loadSearchedNewsFor(keyword: "Intel", pageSize: 10, page: 1) { [weak self] newsData, error in
-        networkService.loadTopNewsFor(country: Country.Ukraine, category: category, keyword: nil, pageSize: nil, page: nil) { [weak self] newsData, error in
+        networkService.loadTopNewsFor(country: currentCountry, category: category, keyword: nil, pageSize: nil, page: nil) { [weak self] newsData, error in
 
             if let err = error {
                 debugPrint("\(err.localizedDescription)")

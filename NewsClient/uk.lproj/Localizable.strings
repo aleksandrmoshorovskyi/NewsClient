@@ -6,10 +6,12 @@
   
 */
 "NEWS" = "НОВИНИ";
+
+"Home" = "Головна";
 "Search" = "Пошук";
 "Favorites" = "Збережені";
 "Settings" = "Налаштування";
-"Home" = "Головна";
+
 
 "Open in Safari" = "Відкрити у Safari";
 "Save" = "Зберегти";
@@ -22,13 +24,20 @@
 "w ago" = " тиж. тому";
 "ancient" = "дуже давно";
 
-//Mode
-"Mode" = "Тема";
+//Theme
+"mode" = "тема";
 "light" = "світла";
 "dark" = "темна";
 "system" = "системна";
 
 //Language
-"Language" = "Мова";
+"interface language" = "мова інтерфейсу";
 "Ukrainian" = "Українська";
 "default" = "за замовчуванням";
+
+//Country
+"country" = "країна";
+"Poland" = "Польша";
+"Ukraine" = "Україна";
+"UK" = "Великобританія";
+"USA" = "США";

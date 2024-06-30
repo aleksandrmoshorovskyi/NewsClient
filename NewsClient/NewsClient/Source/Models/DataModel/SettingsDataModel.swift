@@ -22,4 +22,5 @@ struct SettingItem {
     
     let title: String
     var isOn: Bool
+    var valueForDefault: Any?
 }

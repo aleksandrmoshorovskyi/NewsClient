@@ -35,6 +35,12 @@ enum Constants {
     static let newsTitleFont: UIFont = .boldSystemFont(ofSize: 17)
     static let dtTitleFont: UIFont = .systemFont(ofSize: 13)
     //static let dtTitleTextColor: UIColor = UI
+    
+    //welcome
+    static let pageTitleFont: UIFont = .boldSystemFont(ofSize: 34)
+    static let pageSecondTitleFont: UIFont = .systemFont(ofSize: 17)
+    static let saveButtonColor = UIColor(named: "customControlColor")
+    static let saveButtonTextColor = UIColor(named: "customControlTextColor")
 }
 
 /*

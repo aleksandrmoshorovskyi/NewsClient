@@ -21,7 +21,7 @@ extension SettingsView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        return dataSource[section].setting.title
+        return dataSource[section].setting.title.uppercased()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -29,23 +29,8 @@ extension SettingsView: UITableViewDataSource {
         
         let cell = UITableViewCell()
         
-        switch indexPath.section {
-            
-        case 0:
-            cell.textLabel?.text = dataSource[indexPath.section].items[indexPath.row].title
-            cell.accessoryType = dataSource[indexPath.section].items[indexPath.row].isOn ? .checkmark : .none
-            
-        case 1: 
-            cell.textLabel?.text = dataSource[indexPath.section].items[indexPath.row].title
-            cell.accessoryType = dataSource[indexPath.section].items[indexPath.row].isOn ? .checkmark : .none
-            
-        default: break
-            //
-        }
-        
-        //cell.textLabel?.text = dataSource[indexPath.section].items[indexPath.row].title
-        
-        //cell.accessoryType = dataSource[indexPath.section].items[indexPath.row].isOn ? .checkmark : .none
+        cell.textLabel?.text = dataSource[indexPath.section].items[indexPath.row].title
+        cell.accessoryType = dataSource[indexPath.section].items[indexPath.row].isOn ? .checkmark : .none
         
         return cell
     }
@@ -66,10 +51,15 @@ extension SettingsView: UITableViewDelegate {
                 }
                 dataSource[indexPath.section].items[indexPath.row].isOn = true
                 tableView.reloadData()
-                UserDefaults.standard.setValue(
-                    dataSource[indexPath.section].items[indexPath.row].title,
-                    forKey: "theme"
-                )
+//                UserDefaults.standard.setValue(
+//                    dataSource[indexPath.section].items[indexPath.row].valueForDefault as? String,
+//                    forKey: "theme"
+//                )
+                if let themeForDefault = dataSource[indexPath.section].items[indexPath.row].valueForDefault as? Theme {
+                    
+                    DefaultManager.setAppTheme(themeForDefault)
+                }
+                
             }
             
         case 1:
@@ -88,6 +78,26 @@ extension SettingsView: UITableViewDelegate {
                     DefaultManager.setAppLanguage(ver: indexPath.row)
                 } else {
                     DefaultManager.removeAppLanguage()
+                }
+            }
+            
+        case 2:
+            if !dataSource[indexPath.section].items[indexPath.row].isOn {
+                dataSource[indexPath.section].items.enumerated().forEach() {index, item in
+                    dataSource[indexPath.section].items[index].isOn = false
+                }
+                dataSource[indexPath.section].items[indexPath.row].isOn = true
+                tableView.reloadData()
+                
+                if let countryForDefault = dataSource[indexPath.section].items[indexPath.row].valueForDefault as? Country {
+                    
+                    DefaultManager.setAppCountry(countryForDefault)
+                    
+                    NotificationCenter.default.post(
+                        name: Notification.Name(DefaultManager.KEY_Country),
+                        object: countryForDefault,
+                        userInfo: nil
+                    )
                 }
             }
             
