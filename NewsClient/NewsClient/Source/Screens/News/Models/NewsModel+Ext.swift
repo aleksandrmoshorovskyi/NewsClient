@@ -58,8 +58,26 @@ extension NewsModel: NewsModelProtocol {
         )
     }
     
+    func loadDataFor(category: Category? = nil) {
+        
+        articles = []
+        page = 1
+        
+        loadDataFor(category: category, page: page)
+    }
     
-    func loadDataFor(_ category: Category? = nil) {
+    func prefetchDataFor(category: Category) {
+        
+        page += 1
+        let notWholePage = totalResults % Constants.pageSizeDefaultValue == 0 ? 0 : 1
+        
+        if (totalResults / Constants.pageSizeDefaultValue) + notWholePage >= page {
+            loadDataFor(category: category, page: page)
+        }
+    }
+    
+    //func loadDataFor(_ category: Category? = nil) {
+    func loadDataFor(category: Category? = nil, page: Int?) {
         
         var currentCountry: Country!
         
@@ -69,7 +87,13 @@ extension NewsModel: NewsModelProtocol {
             currentCountry = Country.Ukraine
         }
         
-        networkService.loadTopNewsFor(country: currentCountry, category: category, keyword: nil, pageSize: nil, page: nil) { [weak self] newsData, error in
+        if let p = page {
+            debugPrint("page - \(p)")
+        }
+        
+        let pageSize = Constants.pageSizeDefaultValue
+        
+        networkService.loadTopNewsFor(country: currentCountry, category: category, keyword: nil, pageSize: pageSize, page: page) { [weak self] newsData, error in
 
             if let err = error {
                 debugPrint("\(err.localizedDescription)")
@@ -83,9 +107,11 @@ extension NewsModel: NewsModelProtocol {
                 
                 if data.status == "ok" {
                     //converte to local data model
+                    debugPrint("totalResults - \(data.totalResults ?? 0)")
+                    self?.totalResults = data.totalResults
                     
                     if let dataArticles = data.articles {
-                        self?.articles = dataArticles.compactMap() {
+                        self?.articles += dataArticles.compactMap() {
                             ArticleDataModel(
                                 isFavorite: false,
                                 id: $0.id,
@@ -114,6 +140,63 @@ extension NewsModel: NewsModelProtocol {
         }
     }
 }
+
+/*
+ func loadDataFor(_ category: Category? = nil) {
+     
+     var currentCountry: Country!
+     
+     if let appCountry = DefaultManager.getAppCountry() {
+         currentCountry = appCountry
+     } else {
+         currentCountry = Country.Ukraine
+     }
+     
+     networkService.loadTopNewsFor(country: currentCountry, category: category, keyword: nil, pageSize: nil, page: nil) { [weak self] newsData, error in
+
+         if let err = error {
+             debugPrint("\(err.localizedDescription)")
+         }
+         
+         if let data = newsData  {
+             
+             if data.status == "error" {
+                 debugPrint("\(String(describing: data.code))")
+             }
+             
+             if data.status == "ok" {
+                 //converte to local data model
+                 
+                 if let dataArticles = data.articles {
+                     self?.articles = dataArticles.compactMap() {
+                         ArticleDataModel(
+                             isFavorite: false,
+                             id: $0.id,
+                             author: $0.author,
+                             title: $0.title,
+                             descriptionString: $0.description,
+                             url: $0.url,
+                             urlToImage: $0.urlToImage,
+                             publishedAt: $0.publishedAt,
+                             content: $0.content,
+                             addToFavoriteActionCompletion: self?.addFavorite,
+                             deleteFromFavoriteActionCompletion: self?.deleteFavorite
+                         )
+                     }
+                 }
+                 
+                 if let articlesData = self?.articles {
+                     let articlesWithFavorite = self?.updateFavoritesFor(articles: articlesData)
+                     
+                     self?.delegate?.dataDidLoad(with: articlesWithFavorite ?? [])
+                 }
+             
+                 //self?.delegate?.dataDidLoad(with: self?.articles)
+             }
+         }
+     }
+ }
+ */
 
 /*
 import Foundation

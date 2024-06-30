@@ -42,7 +42,7 @@ class SearchViewController: BaseViewController {
     private func setupUI() {
         if let nc = navigationController {
             nc.navigationBar.prefersLargeTitles = false
-            navigationItem.title = "Search".localized()
+            navigationItem.title = "search".localized().capitalized
             
             //let nsAttributedString = [NSAttributedString.Key.foregroundColor: UIColor.red]
             //nc.navigationBar.titleTextAttributes = nsAttributedString
@@ -66,9 +66,11 @@ class SearchViewController: BaseViewController {
             searchController.searchResultsUpdater = self
             //searchController.searchBar.autocapitalizationType = .none
             searchController.searchBar.delegate = self // Monitor when the search button is tapped.
+            searchController.hidesNavigationBarDuringPresentation = false
             
             navigationItem.searchController = searchController
             navigationItem.hidesSearchBarWhenScrolling = false
+            //navigationItem.titleView?.isHidden = false
         }
     }
     
@@ -100,8 +102,7 @@ extension SearchViewController: UISearchResultsUpdating {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        //searchBar.becomeFirstResponder()
-        searchBar.searchTextField.text = ""
+        //searchBar.searchTextField.text = ""
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -111,7 +112,7 @@ extension SearchViewController: UISearchBarDelegate {
         keywordStr = searchString
         
         model.loadDataFor(keyword: keywordStr)
-        navigationItem.searchController?.searchBar.searchTextField.text = ""
+        //navigationItem.searchController?.searchBar.searchTextField.text = ""
         navigationItem.searchController?.dismiss(animated: true)
     }
 }

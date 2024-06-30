@@ -5,17 +5,25 @@
   Created by Aleksandr Moroshovskyi on 29.06.2024.
   
 */
-"NEWS" = "НОВИНИ";
+"news" = "новини";
 
-"Home" = "Головна";
-"Search" = "Пошук";
-"Favorites" = "Збережені";
-"Settings" = "Налаштування";
+"home" = "головна";
+"search" = "пошук";
+"favorites" = "збережені";
+"settings" = "налаштування";
 
+"general" = "загальні";
+"business" = "бізнес";
+"entertainment" = "розваги";
+"health" = "здоров'я";
+"science" = "наука";
+"sports" = "спорт";
+"technology" = "технології";
 
 "Open in Safari" = "Відкрити у Safari";
 "Save" = "Зберегти";
 "Unsave" = "Вилучити";
+"Search" = "Пошук";
 
 "now" = "зараз";
 "m ago" = " хв. тому";
@@ -41,3 +49,10 @@
 "Ukraine" = "Україна";
 "UK" = "Великобританія";
 "USA" = "США";
+"Japan" = "Японія";
+
+//Welcome
+"Get the most relevant to you" = "Отримайте найбільш актуальне для вас";
+"Please select country which news do you prefer:" = "Будь ласка, виберіть країну, новинам якої ви надаєте перевагу:";
+"You can change it anytime from your settings screen." = "Ви можете будь-коли змінити це на екрані налаштувань.";
+"Save and continue" = "Зберегти та продовжити";

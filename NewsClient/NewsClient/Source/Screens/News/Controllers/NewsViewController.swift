@@ -32,7 +32,8 @@ class NewsViewController: BaseViewController {
         
         setupInitialState()
         setupUI()
-        model.loadDataFor(currentCategory)
+        //model.loadDataFor(currentCategory)
+        model.loadDataFor(category: currentCategory)
     }
     
     private func setupInitialState() {
@@ -100,7 +101,8 @@ class NewsViewController: BaseViewController {
         
         if let object = notification.object as? Country {
             debugPrint("\(object.rawValue)")
-            model.loadDataFor(currentCategory)
+            //model.loadDataFor(currentCategory)
+            model.loadDataFor(category: currentCategory)
         }
     }
 }

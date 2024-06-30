@@ -104,7 +104,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     func configure(with data: Category) {
         
-        self.titleLabel.text = data.rawValue.capitalized
+        self.titleLabel.text = data.rawValue.localized().capitalized
         
         //configureUI()
     }
@@ -113,8 +113,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         
         if self.isSelected {
             self.backgroundColor = .systemRed
+            //self.titleLabel.font = .boldSystemFont(ofSize: 17.0)
         } else {
             self.backgroundColor = .systemBackground
+            //self.titleLabel.font = .boldSystemFont(ofSize: 17.0)
         }
     }
 }

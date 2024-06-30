@@ -34,8 +34,10 @@ extension CategoryView: UICollectionViewDataSource {
         
         if selectedIndex == indexPath.row {
             cell.controlView.backgroundColor = .systemRed
+            //cell.titleLabel.font = .boldSystemFont(ofSize: 17.0)
         } else {
             cell.controlView.backgroundColor = .systemBackground
+            //cell.titleLabel.font = .systemFont(ofSize: 17.0)
         }
         
         return cell

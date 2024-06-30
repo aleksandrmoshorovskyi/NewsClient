@@ -35,7 +35,9 @@ extension NewsViewController: NewsModelDelegate {
 extension NewsViewController: NewsViewDelegate {
     
     func loadNextPageIfExists() {
-        //
+        if let currentCategory = currentCategory {
+            model.prefetchDataFor(category: currentCategory)
+        }
     }
     
     func deleteFromFavorite(article: ArticleDataModel) {
@@ -58,7 +60,8 @@ extension NewsViewController: NewsViewDelegate {
     func categoryDidChange(_ item: Category?) {
         
         if currentCategory != item {
-            model.loadDataFor(item)
+            //model.loadDataFor(item)
+            model.loadDataFor(category: item)
         }
         
         currentCategory = item

@@ -43,7 +43,7 @@ class FavoriteViewController: BaseViewController {
     private func setupUI() {
         if let nc = navigationController {
             //nc.navigationBar.prefersLargeTitles = false
-            navigationItem.title = "Favorites".localized()
+            navigationItem.title = "favorites".localized().capitalized
             debugPrint("\(String(describing: nc.navigationBar.isHidden))")
             
             //nc.navigationBar.hidesNavigationBarDuringPresentation = false
@@ -84,6 +84,7 @@ class FavoriteViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationItem.searchController?.searchBar.searchTextField.text = ""
         model.loadData()
     }
 }

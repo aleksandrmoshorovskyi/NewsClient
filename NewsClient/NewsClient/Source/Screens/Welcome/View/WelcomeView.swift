@@ -57,7 +57,7 @@ class WelcomeView: UIView {
         containerView = UIView()
         
         titleLabel = UILabel()
-        titleLabel.numberOfLines = 2
+        titleLabel.numberOfLines = 3
         titleLabel.font = Constants.pageTitleFont
         titleLabel.text = "Get the most relevant to you".localized()
         titleLabel.textAlignment = .center
