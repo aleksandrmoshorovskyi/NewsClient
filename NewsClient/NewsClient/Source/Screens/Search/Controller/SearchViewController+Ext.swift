@@ -18,6 +18,14 @@ extension SearchViewController: SearchModelDelegate {
 //MARK: NewsViewDelegate
 extension SearchViewController: NewsViewDelegate {
     
+    func refreshData() {
+        if let keywordStr = keywordStr {
+            model.loadDataFor(keyword: keywordStr)
+        } else {
+            contentView.stopRefreshing()
+        }
+    }
+    
     func loadNextPageIfExists() {
         model.prefetchDataFor(keyword: keywordStr)
     }

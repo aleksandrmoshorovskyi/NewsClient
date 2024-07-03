@@ -33,6 +33,8 @@ class NewsViewController: BaseViewController {
         setupInitialState()
         setupUI()
         //model.loadDataFor(currentCategory)
+        
+        contentView.activityIndicatorStartAnimating()
         model.loadDataFor(category: currentCategory)
     }
     

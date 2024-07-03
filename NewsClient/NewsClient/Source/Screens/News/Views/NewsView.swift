@@ -11,6 +11,13 @@ class NewsView: UIView {
     
     weak var delegate: NewsViewDelegate?
     
+    //private
+    let refreshControl = UIRefreshControl()
+    
+    //@IBOutlet
+    //weak
+    var activityIndicator: UIActivityIndicatorView!
+    
     //var dataSourceCategory: [String] = ["All", "Science", "Health"]
     var dataSource: [ArticleDataModel] = []
     var maxIndexPathRow: Int = 0
@@ -25,6 +32,14 @@ class NewsView: UIView {
     @objc func addToFavoriteButtonClicked() {
         //delegate?.addToFavoriteDidTap()
         //delegate?.addToFavorite(article: T##ArticleDataModel)
+    }
+    
+    @objc func refreshNewsData() {
+        debugPrint("It's pulled to refresh")
+        //self.updateView()
+        //self.refreshControl.endRefreshing()
+        //self.activityIndicatorView.stopAnimating()
+        delegate?.refreshData()
     }
     
     override init(frame: CGRect) {
@@ -44,6 +59,16 @@ class NewsView: UIView {
     }
     
     func setupUI() {
+        
+        // Configure Refresh Control
+        //refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshNewsData), for: .valueChanged)
+        
+        //activityIndicator
+        activityIndicator = UIActivityIndicatorView()
+        activityIndicator.hidesWhenStopped = true
+        //activityIndicator.startAnimating()
+        //activityIndicator.stopAnimating()
         
         //self setup
         backgroundColor = Constants.BaseViewBG
@@ -75,15 +100,18 @@ class NewsView: UIView {
         (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).sectionInsetReference = .fromLayoutMargins
          */
+        collectionView.refreshControl = refreshControl
     }
     
     func setupLayout() {
 
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         //categoryView.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(collectionView)
         //addSubview(categoryView)
+        addSubview(activityIndicator)
 
         NSLayoutConstraint.activate([
             //categoryView constraints
@@ -97,7 +125,11 @@ class NewsView: UIView {
             collectionView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: .zero),
             collectionView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: .zero),
             collectionView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: .zero),
-            collectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: .zero)
+            collectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: .zero),
+            
+            //activityIndicator constraints
+            activityIndicator.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor)
         ])
     }
 }

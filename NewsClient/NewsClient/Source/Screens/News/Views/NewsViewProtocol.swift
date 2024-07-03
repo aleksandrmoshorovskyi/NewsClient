@@ -10,4 +10,8 @@ import Foundation
 protocol NewsViewProtocol {
     
     func setupNews(data: [ArticleDataModel])
+    func stopRefreshing()
+    
+    func activityIndicatorStartAnimating()
+    func activityIndicatorStopAnimating()
 }

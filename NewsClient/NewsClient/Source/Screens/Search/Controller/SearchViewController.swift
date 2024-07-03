@@ -11,6 +11,9 @@ class SearchViewController: BaseViewController {
 
     //weak var delegate: HomeViewControllerDelegate?
     var keywordStr: String!
+    var serchDataSource: [String] = []
+    
+    var resultsTableController: UITableViewController!
     
     var model: SearchModelProtocol!
     var contentView: NewsViewProtocol!
@@ -61,12 +64,22 @@ class SearchViewController: BaseViewController {
             //nc.navigationItem.hidesSearchBarWhenScrolling = false
             //definesPresentationContext = true
             
-            let searchController = UISearchController(searchResultsController: UITableViewController())
+            serchDataSource = DefaultManager.getSearchKeywords() ?? []
+            
+            // MARK: resultsTableController
+            //let
+            resultsTableController = UITableViewController()
+            resultsTableController.tableView.delegate = self
+            resultsTableController.tableView.dataSource = self
+            
+            let searchController = UISearchController(searchResultsController: resultsTableController)
+            //searchController.data
             searchController.delegate = self
             searchController.searchResultsUpdater = self
             //searchController.searchBar.autocapitalizationType = .none
             searchController.searchBar.delegate = self // Monitor when the search button is tapped.
             searchController.hidesNavigationBarDuringPresentation = false
+            searchController.showsSearchResultsController = true
             
             navigationItem.searchController = searchController
             navigationItem.hidesSearchBarWhenScrolling = false
@@ -103,6 +116,7 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         //searchBar.searchTextField.text = ""
+        //searchController.showsSearchResultsController
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -110,9 +124,56 @@ extension SearchViewController: UISearchBarDelegate {
         
         let searchString = searchBar.searchTextField.text!
         keywordStr = searchString
+        //resultsTableController.tableView.reloadData()
+        //searchController.searchResultsController?.reloadInputViews()
+        
+        //serchDataSource.append(searchString)
+        serchDataSource.insert(searchString, at: 0)
+        DefaultManager.setSearchKeywords(serchDataSource)
+        //resultsTableController.tableView.reloadData()
+        
+        if serchDataSource.count > 10 {
+            serchDataSource.removeLast()
+        }
         
         model.loadDataFor(keyword: keywordStr)
         //navigationItem.searchController?.searchBar.searchTextField.text = ""
         navigationItem.searchController?.dismiss(animated: true)
+        resultsTableController.tableView.reloadData()
+        contentView.activityIndicatorStartAnimating()
+    }
+}
+
+//MARK: UITableViewDelegate
+extension SearchViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let searchString = serchDataSource[indexPath.row]
+        keywordStr = searchString
+        
+        model.loadDataFor(keyword: keywordStr)
+        //navigationItem.searchController?.searchBar.searchTextField.text = ""
+        navigationItem.searchController?.dismiss(animated: true)
+        contentView.activityIndicatorStartAnimating()
+    }
+}
+
+//MARK: UITableViewDataSource
+extension SearchViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        serchDataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        let cell = UITableViewCell()
+        
+        cell.textLabel?.text = serchDataSource[indexPath.row]
+         
+        return cell
     }
 }

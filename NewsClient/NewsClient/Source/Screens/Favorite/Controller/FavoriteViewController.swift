@@ -85,6 +85,7 @@ class FavoriteViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         navigationItem.searchController?.searchBar.searchTextField.text = ""
+        contentView.activityIndicatorStartAnimating()
         model.loadData()
     }
 }

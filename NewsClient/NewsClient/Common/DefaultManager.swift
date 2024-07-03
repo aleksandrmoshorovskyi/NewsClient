@@ -12,6 +12,8 @@ class DefaultManager: NSObject {
     static let KEY_AppLanguage = "appLanguage"
     static let KEY_Country = "appCountry"
     
+    static let KEY_Keywords = "searchKeywords"
+    
     //MARK: appTheme
     static func setAppTheme(_ theme: Theme) {
         UserDefaults.standard.set(theme.rawValue, forKey: KEY_Theme)
@@ -71,6 +73,39 @@ class DefaultManager: NSObject {
     
     static func removeAppCountry() {
         UserDefaults.standard.removeObject(forKey: KEY_Country)
+        UserDefaults.standard.synchronize()
+    }
+    
+    //MARK: searchKeywords
+    static func setSearchKeywords(_ keywords: [String]?) {
+        
+        if let keywords = keywords {
+            let keywordsStr = keywords.joined(separator: ";")
+            debugPrint(keywords)
+            UserDefaults.standard.set(keywordsStr, forKey: KEY_Keywords)
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    static func getSearchKeywords() -> [String]? {
+        
+        var keywords: [String]? = nil
+        
+        if let rawValue = UserDefaults.standard.value(forKey: KEY_Keywords) as? String {
+            //country = Country(rawValue: rawValue)
+            //let string = "1;2;3"
+            //let array = string.components(separatedBy: ";")
+            keywords = rawValue.components(separatedBy: ";")
+            //debugPrint(keywords ?? "")
+        }
+        
+        debugPrint(keywords ?? "")
+        
+        return keywords
+    }
+    
+    static func removeSearchKeywords() {
+        UserDefaults.standard.removeObject(forKey: KEY_Keywords)
         UserDefaults.standard.synchronize()
     }
 }

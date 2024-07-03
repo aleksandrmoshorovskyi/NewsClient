@@ -9,12 +9,27 @@ import Foundation
 
 extension NewsView: NewsViewProtocol {
     
+    func activityIndicatorStartAnimating() {
+        activityIndicator.startAnimating()
+    }
+    
+    func activityIndicatorStopAnimating() {
+        activityIndicator.stopAnimating()
+    }
+    
+    func stopRefreshing() {
+        refreshControl.endRefreshing()
+    }
+    
     func setupNews(data: [ArticleDataModel]) {
         
         dataSource = data
         
         collectionView.reloadData()
         maxIndexPathRow = 0
+        
+        refreshControl.endRefreshing()
+        activityIndicator.stopAnimating()
     }
 }
 

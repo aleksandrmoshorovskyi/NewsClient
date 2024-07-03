@@ -34,6 +34,14 @@ extension NewsViewController: NewsModelDelegate {
 //NewsViewDelegate
 extension NewsViewController: NewsViewDelegate {
     
+    func refreshData() {
+        if let currentCategory = currentCategory {
+            model.loadDataFor(category: currentCategory)
+        } else {
+            contentView.stopRefreshing()
+        }
+    }
+    
     func loadNextPageIfExists() {
         if let currentCategory = currentCategory {
             model.prefetchDataFor(category: currentCategory)
