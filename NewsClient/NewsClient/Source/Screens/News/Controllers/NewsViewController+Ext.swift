@@ -21,6 +21,35 @@ import UIKit
 
 //NewsModelDelegate
 extension NewsViewController: NewsModelDelegate {
+   
+    func presentAlertWith(_ title: String, _ message: String) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        
+        let okAletalertAction = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: { _ in
+                //NSLog("The \"OK\" alert occured.")
+                //let sceneDelegate = SceneDelegate()
+                //sceneDelegate.resetApp()
+                //exit(0)
+            })
+        
+//        let cancelAletalertAction = UIAlertAction(
+//            title: "Cancel",
+//            style: .cancel) { (action) in
+//            // ...
+//        }
+        
+        alertController.addAction(okAletalertAction)
+        //alertController.addAction(cancelAletalertAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
     
     func dataDidLoad(with data: [ArticleDataModel]) {
         contentView.setupNews(data: data)
@@ -33,6 +62,10 @@ extension NewsViewController: NewsModelDelegate {
 
 //NewsViewDelegate
 extension NewsViewController: NewsViewDelegate {
+    
+//    func presentAlert() {
+//        //
+//    }
     
     func refreshData() {
         if let currentCategory = currentCategory {

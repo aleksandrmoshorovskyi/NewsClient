@@ -53,4 +53,49 @@ class SettingsView: UIView {
             tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: .zero)
         ])
     }
+    
+    func alertBeforeChangeLanguage() {
+        /*
+         let alert = UIAlertController(title: "Clear cash", message: "All saved weather information will be deleted from the device! (except saved locations)", preferredStyle: .alert)
+         
+         let aletalertAction = UIAlertAction(
+             title: "OK",
+             style: .destructive,
+             handler: { _ in NSLog("The \"OK\" alert occured.")})
+         
+         let cancelAction = UIAlertAction(
+             title: "Cancel",
+             style: .cancel) { (action) in
+             // ...
+         }
+         
+         alert.addAction(aletalertAction)
+         alert.addAction(cancelAction)
+         
+         self.present(alert, animated: true, completion: nil)
+         */
+        
+//        let alertController = UIAlertController(title: "Language".localized(), message: "To change language you need to restart the application. Do you want to restart?".localized(), preferredStyle: .alert)
+//
+//        let okAction = UIAlertAction(title: "Yes".localized(), style: UIAlertAction.Style.default) {
+//            UIAlertAction in
+//            // Change update / refresh rootview controller here...
+//        }
+//        
+//        let okAletalertAction = UIAlertAction(
+//            title: "OK",
+//            style: .destructive,
+//            handler: { _ in NSLog("The \"OK\" alert occured.")})
+//        
+//        let cancelAletalertAction = UIAlertAction(
+//            title: "Cancel",
+//            style: .cancel) { (action) in
+//            // ...
+//        }
+//        
+//        alertController.addAction(okAletalertAction)
+//        alertController.addAction(cancelAletalertAction)
+//        
+//        self.present(alertController, animated: true, completion: nil)
+    }
 }

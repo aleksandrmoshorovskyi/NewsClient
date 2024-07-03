@@ -18,6 +18,10 @@ extension FavoriteViewController: FavoriteModelDelegate {
 //MARK: NewsViewDelegate
 extension FavoriteViewController: NewsViewDelegate {
     
+    func presentAlert() {
+        //
+    }
+    
     func refreshData() {
         model.loadData()
     }

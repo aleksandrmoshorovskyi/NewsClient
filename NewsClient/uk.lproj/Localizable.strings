@@ -56,3 +56,8 @@
 "Please select country which news do you prefer:" = "Будь ласка, виберіть країну, новинам якої ви надаєте перевагу:";
 "You can change it anytime from your settings screen." = "Ви можете будь-коли змінити це на екрані налаштувань.";
 "Save and continue" = "Зберегти та продовжити";
+
+//Alerts
+"error" = "помилка";
+"language" = "мова";
+"To change language you need to restart the application. Do you want to restart?" = "Щоб змінити мову, потрібно перезапустити програму. Ви хочете перезапустити?";

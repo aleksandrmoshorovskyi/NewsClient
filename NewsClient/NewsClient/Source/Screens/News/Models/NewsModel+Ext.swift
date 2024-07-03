@@ -97,12 +97,14 @@ extension NewsModel: NewsModelProtocol {
 
             if let err = error {
                 debugPrint("\(err.localizedDescription)")
+                self?.delegate?.presentAlertWith("error".localized().capitalized, err.localizedDescription)
             }
             
             if let data = newsData  {
                 
                 if data.status == "error" {
                     debugPrint("\(String(describing: data.code))")
+                    self?.delegate?.presentAlertWith("error".localized().capitalized, "\(String(describing: data.code))")
                 }
                 
                 if data.status == "ok" {

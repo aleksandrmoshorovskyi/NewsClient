@@ -18,6 +18,10 @@ extension SearchViewController: SearchModelDelegate {
 //MARK: NewsViewDelegate
 extension SearchViewController: NewsViewDelegate {
     
+    func presentAlert() {
+        //
+    }
+    
     func refreshData() {
         if let keywordStr = keywordStr {
             model.loadDataFor(keyword: keywordStr)

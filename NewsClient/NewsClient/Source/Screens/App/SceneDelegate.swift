@@ -90,4 +90,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self?.window?.overrideUserInterfaceStyle = theme
         }, completion: .none)
     }
+    
+    func resetApp() {
+        //???
+    }
 }

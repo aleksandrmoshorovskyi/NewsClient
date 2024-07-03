@@ -64,20 +64,39 @@ extension SettingsView: UITableViewDelegate {
             
         case 1:
             if !dataSource[indexPath.section].items[indexPath.row].isOn {
-                dataSource[indexPath.section].items.enumerated().forEach() {index, item in
-                    dataSource[indexPath.section].items[index].isOn = false
-                }
-                dataSource[indexPath.section].items[indexPath.row].isOn = true
-                tableView.reloadData()
+//                dataSource[indexPath.section].items.enumerated().forEach() {index, item in
+//                    dataSource[indexPath.section].items[index].isOn = false
+//                }
+//                dataSource[indexPath.section].items[indexPath.row].isOn = true
+//                tableView.reloadData()
 //                UserDefaults.standard.setValue(
 //                    dataSource[indexPath.section].items[indexPath.row].title,
 //                    forKey: "theme"
 //                )
                 
                 if indexPath.row <= 1 {
-                    DefaultManager.setAppLanguage(ver: indexPath.row)
+                    //DefaultManager.setAppLanguage(ver: indexPath.row)
+                    //alertBeforeChangeLanguage()
+                    //delegate?.presentAlert()
+                    delegate?.presentAlertWith {
+                        self.dataSource[indexPath.section].items.enumerated().forEach() {index, item in
+                            self.dataSource[indexPath.section].items[index].isOn = false
+                        }
+                        self.dataSource[indexPath.section].items[indexPath.row].isOn = true
+                        self.tableView.reloadData()
+                        DefaultManager.setAppLanguage(ver: indexPath.row)
+                    }
                 } else {
-                    DefaultManager.removeAppLanguage()
+                    //DefaultManager.removeAppLanguage()
+                    //delegate?.presentAlert()
+                    delegate?.presentAlertWith {
+                        self.dataSource[indexPath.section].items.enumerated().forEach() {index, item in
+                            self.dataSource[indexPath.section].items[index].isOn = false
+                        }
+                        self.dataSource[indexPath.section].items[indexPath.row].isOn = true
+                        self.tableView.reloadData()
+                        DefaultManager.removeAppLanguage()
+                    }
                 }
             }
             

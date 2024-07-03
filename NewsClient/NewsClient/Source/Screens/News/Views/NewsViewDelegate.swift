@@ -16,4 +16,5 @@ protocol NewsViewDelegate: AnyObject {
     func newsRowDidTapAt(_ article: ArticleDataModel)
     func loadNextPageIfExists()
     func refreshData()
+   // func presentAlert()
 }
