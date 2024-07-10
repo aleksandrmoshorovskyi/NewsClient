@@ -96,7 +96,9 @@ class FavoritePlaceholderView: UIView {
     private func getTextForDescriptionLabel() -> NSAttributedString {
         
         let imageAttachment = NSTextAttachment()
-        imageAttachment.image = UIImage(systemName: "bookmark")
+        imageAttachment.image = UIImage(systemName: "bookmark")?.withTintColor(.systemBlue)
+        //imageAttachment.image?.withTintColor(.systemBlue)
+        //imageAttachment.image?.withTintColor(.systemBlue)
         
         let attributedText = NSMutableAttributedString()
         attributedText.append(NSAttributedString(string: "When reading an article, tap the ".localized()))

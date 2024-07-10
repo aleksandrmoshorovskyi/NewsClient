@@ -41,6 +41,10 @@ enum Constants {
     static let pageSecondTitleFont: UIFont = .systemFont(ofSize: 17)
     static let saveButtonColor = UIColor(named: "customControlColor")
     static let saveButtonTextColor = UIColor(named: "customControlTextColor")
+    
+    //settings
+    static let systemSettingsImage: UIImage? = UIImage(systemName: "gearshape")
+    static let systemLanguageImage: UIImage? = UIImage(systemName: "textformat.abc")
 }
 
 /*

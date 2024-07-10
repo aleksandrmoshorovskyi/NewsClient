@@ -32,4 +32,15 @@ enum Theme: String, CaseIterable {
             return "⚙️"
         }
     }
+    
+    var image: UIImage? {
+        switch self {
+        case .light:
+            return UIImage(systemName: "sun.max")
+        case .dark:
+            return UIImage(systemName: "moon")
+        case .system:
+            return UIImage(systemName: "gearshape")
+        }
+    }
 }

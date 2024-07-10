@@ -35,7 +35,8 @@ extension SettingsModel: SettingsModelProtocol {
         Theme.allCases.forEach() {//_ in
             itemsMode.append(SettingItem(
                 title: $0.rawValue.localized(),
-                icon: $0.icon.textToImage(),
+                //icon: $0.icon.textToImage(),
+                icon: $0.image,
                 isOn: currentTheme == $0 ? true : false,
                 valueForDefault: $0
             ))
@@ -60,18 +61,22 @@ extension SettingsModel: SettingsModelProtocol {
         var languages: [SettingItem] = []
         languages.append(SettingItem(
             title: "\("English".localized())",
-            icon: "🔤".textToImage(),
+            //icon: "🔤".textToImage(),
+            //icon: Constants.systemLanguageImage,
+            icon: " en".textToImage()?.withTintColor(.systemBlue),
             isOn: currentLanguage == 0 ? true : false
         ))
         languages.append(SettingItem(
             title: "\("Ukrainian".localized())",
-            icon: "🇺🇦".textToImage(),
+            //icon: "🇺🇦".textToImage(),
+            icon: " uk".textToImage()?.withTintColor(.systemBlue),
             isOn: currentLanguage == 1 ? true : false
         ))
         languages.append(SettingItem(
             //title: "\("⚙️") \("default".localized())",
             title: "\("system".localized())",
-            icon: "⚙️".textToImage(),
+            //icon: "⚙️".textToImage(),
+            icon: Constants.systemSettingsImage,
             isOn: currentLanguage == nil ? true : false
         ))
         
