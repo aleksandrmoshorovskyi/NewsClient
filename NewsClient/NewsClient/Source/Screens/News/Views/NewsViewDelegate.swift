@@ -17,4 +17,5 @@ protocol NewsViewDelegate: AnyObject {
     func loadNextPageIfExists()
     func refreshData()
    // func presentAlert()
+    func share(article: ArticleDataModel)
 }

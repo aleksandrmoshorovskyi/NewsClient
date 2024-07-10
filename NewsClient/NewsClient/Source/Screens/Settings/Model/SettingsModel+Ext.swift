@@ -34,7 +34,8 @@ extension SettingsModel: SettingsModelProtocol {
         var itemsMode: [SettingItem] = []
         Theme.allCases.forEach() {//_ in
             itemsMode.append(SettingItem(
-                title: "\($0.icon) \($0.rawValue.localized())",//"light".localized(),
+                title: $0.rawValue.localized(),
+                icon: $0.icon.textToImage(),
                 isOn: currentTheme == $0 ? true : false,
                 valueForDefault: $0
             ))
@@ -58,16 +59,19 @@ extension SettingsModel: SettingsModelProtocol {
         
         var languages: [SettingItem] = []
         languages.append(SettingItem(
-            title: "\("🔤") \("English".localized())",
+            title: "\("English".localized())",
+            icon: "🔤".textToImage(),
             isOn: currentLanguage == 0 ? true : false
         ))
         languages.append(SettingItem(
-            title: "\("🇺🇦") \("Ukrainian".localized())",
+            title: "\("Ukrainian".localized())",
+            icon: "🇺🇦".textToImage(),
             isOn: currentLanguage == 1 ? true : false
         ))
         languages.append(SettingItem(
             //title: "\("⚙️") \("default".localized())",
-            title: "\("⚙️") \("system".localized())",
+            title: "\("system".localized())",
+            icon: "⚙️".textToImage(),
             isOn: currentLanguage == nil ? true : false
         ))
         
@@ -87,7 +91,8 @@ extension SettingsModel: SettingsModelProtocol {
         var countries: [SettingItem] = []
         Country.allCases.forEach() {
             countries.append(SettingItem(
-                title: "\($0.countryFlag) \($0.countryName.localized())",
+                title: $0.countryName.localized(),
+                icon: $0.countryFlag.textToImage(),
                 isOn: currentCountry == $0.rawValue ? true : false,
                 valueForDefault: $0
             ))

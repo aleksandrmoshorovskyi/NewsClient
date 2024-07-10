@@ -284,7 +284,32 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     }
     
     private func shareButtonDidTap() {
-        debugPrint("shareButtonDidTap")
+        //debugPrint("shareButtonDidTap")
+        
+        /*
+        let text = "This is the text...."
+        let image = UIImage(named: "Product")
+        let myWebsite = NSURL(string:"https://stackoverflow.com/users/4600136/mr-javed-multani?tab=profile")
+        let shareAll = [text, image!, myWebsite]
+        let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+          */
+        
+//        if let urlToArticle = self.articleDataSource.url {
+//            if let url = URL(string: urlToArticle) {
+//                let urlToShare = [url]
+//                
+//                let activityViewController = UIActivityViewController(
+//                    activityItems: urlToShare,
+//                    applicationActivities: nil
+//                )
+//                
+//                //activityViewController.popoverPresentationController?.sourceView = self.view
+//                //self.present(activityViewController, animated: true, completion: nil)
+//            }
+//        }
+        delegate?.share(article: articleDataSource)
     }
     
     private func openInSafariButtonDidTap() {
@@ -330,6 +355,13 @@ class ArticleCollectionViewCell: UICollectionViewCell {
 //            <#statements#>
 //        }
         
+        let shareAction = UIAction(
+            title: "Share".localized(),
+            image: UIImage(systemName: "square.and.arrow.up")
+        ) { _ in
+            self.shareButtonDidTap()
+        }
+        
         let safariAction = UIAction(
             title: "Open in Safari".localized(),
             image: UIImage(systemName: "safari")
@@ -350,7 +382,9 @@ class ArticleCollectionViewCell: UICollectionViewCell {
          
         let subMenu = UIMenu(
             options: .displayInline,
-            children: [safariAction, saveAction]
+            children: [shareAction,
+                       safariAction,
+                       saveAction]
         )
          
         let settingsMenu = UIMenu(

@@ -6,17 +6,35 @@
 //
 
 import Foundation
+import UIKit
 
 //MARK: FavoriteModelDelegate
 extension FavoriteViewController: FavoriteModelDelegate {
     
     func dataDidLoad(with data: [ArticleDataModel]) {
-        contentView.setupNews(data: data)
+        //contentView.setupNews(data: data)
+        
+        if data.count > 0 {
+            for subview in view.subviews {
+                if ((subview as? FavoritePlaceholderView) != nil) {
+                    subview.removeFromSuperview()
+                }
+            }
+            contentView.setupNews(data: data)
+        } else {
+            let favoritePlaceholderView = FavoritePlaceholderView(frame: view.frame)
+            view.addSubview(favoritePlaceholderView)
+        }
     }
 }
 
 //MARK: NewsViewDelegate
 extension FavoriteViewController: NewsViewDelegate {
+    
+    func share(article: ArticleDataModel) {
+        //
+    }
+    
     
     func presentAlert() {
         //

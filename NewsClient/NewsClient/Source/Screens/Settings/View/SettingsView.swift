@@ -33,7 +33,7 @@ class SettingsView: UIView {
     
     func setupUI() {
         
-        tableView = UITableView()
+        tableView = UITableView(frame: .zero, style: .insetGrouped)
         
         tableView.dataSource = self
         tableView.delegate = self

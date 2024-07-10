@@ -18,6 +18,10 @@ extension SearchViewController: SearchModelDelegate {
 //MARK: NewsViewDelegate
 extension SearchViewController: NewsViewDelegate {
     
+    func share(article: ArticleDataModel) {
+        //
+    }
+    
     func presentAlert() {
         //
     }

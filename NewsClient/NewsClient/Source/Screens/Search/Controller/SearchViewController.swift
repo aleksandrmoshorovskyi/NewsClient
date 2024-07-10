@@ -46,6 +46,22 @@ class SearchViewController: BaseViewController {
         if let nc = navigationController {
             nc.navigationBar.prefersLargeTitles = false
             navigationItem.title = "search".localized().capitalized
+            //navigationItem.prompt = "It's prompt: 00"
+            
+            //let myTitleView = UIView()
+            //myTitleView.backgroundColor = .red
+            
+            //self.navigationItem.vi
+            
+            
+            //for no change bg navigationBar color
+            //nc.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            //nc.navigationBar.setBackgroundImage(myTitleView, for: .bottom, barMetrics: .default)
+            //nc.navigationBar.barPosition = .bottom
+            //nc.navigationBar.shadowImage = UIImage()
+            
+            //nc.navigationBar.bo
+            
             
             //let nsAttributedString = [NSAttributedString.Key.foregroundColor: UIColor.red]
             //nc.navigationBar.titleTextAttributes = nsAttributedString

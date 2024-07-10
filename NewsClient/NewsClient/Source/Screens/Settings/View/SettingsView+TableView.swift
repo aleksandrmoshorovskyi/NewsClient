@@ -32,6 +32,11 @@ extension SettingsView: UITableViewDataSource {
         cell.textLabel?.text = dataSource[indexPath.section].items[indexPath.row].title
         cell.accessoryType = dataSource[indexPath.section].items[indexPath.row].isOn ? .checkmark : .none
         
+        //cell.accessoryView = UIImageView(image: UIImage(systemName: "gear"))
+        //cell.imageView?.image = UIImage(systemName: "gear")
+        //cell.imageView?.image = "🇺🇦".textToImage()
+        cell.imageView?.image = dataSource[indexPath.section].items[indexPath.row].icon
+        
         return cell
     }
 }

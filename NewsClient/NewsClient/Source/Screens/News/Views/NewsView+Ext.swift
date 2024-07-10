@@ -47,6 +47,10 @@ extension NewsView: CategoryViewDelegate {
 
 extension NewsView: ArticleCollectionViewCellDelegate {
     
+    func share(article: ArticleDataModel) {
+        delegate?.share(article: article)
+    }
+    
     func deleteFromFavorite(article: ArticleDataModel) {
         delegate?.deleteFromFavorite(article: article)
     }

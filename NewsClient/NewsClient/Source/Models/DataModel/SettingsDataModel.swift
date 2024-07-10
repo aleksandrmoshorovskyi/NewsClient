@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct SettingsDataModel {
     
@@ -21,6 +22,7 @@ struct Setting {
 struct SettingItem {
     
     let title: String
+    let icon: UIImage?
     var isOn: Bool
     var valueForDefault: Any?
 }

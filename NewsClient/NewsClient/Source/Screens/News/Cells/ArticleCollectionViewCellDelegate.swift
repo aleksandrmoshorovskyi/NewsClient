@@ -11,4 +11,6 @@ protocol ArticleCollectionViewCellDelegate: AnyObject {
     
     func addToFavorite(article: ArticleDataModel)
     func deleteFromFavorite(article: ArticleDataModel)
+    
+    func share(article: ArticleDataModel)
 }
