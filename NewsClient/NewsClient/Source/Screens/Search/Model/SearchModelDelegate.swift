@@ -10,4 +10,6 @@ import Foundation
 protocol SearchModelDelegate: AnyObject {
     
     func dataDidLoad(with data: [ArticleDataModel])
+    func totalResult(is count: Int)
+    func presentAlert(with message: String)
 }

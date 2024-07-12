@@ -111,8 +111,10 @@ class SearchViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //model.loadDataFor(keyword: "Apple")
-        model.loadDataFor(keyword: "")
+        if keywordStr == nil {
+            model.loadDataFor(keyword: "")
+            navigationItem.prompt = "No results yet".localized()
+        }
     }
 }
 
@@ -144,17 +146,28 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         //debugPrint("searchBarSearchButtonClicked")
         
-        let searchString = searchBar.searchTextField.text!
+        let searchString = searchBar.searchTextField.text!.trimmingCharacters(in: .whitespaces)
         keywordStr = searchString
         //resultsTableController.tableView.reloadData()
         //searchController.searchResultsController?.reloadInputViews()
         
         //serchDataSource.append(searchString)
-        serchDataSource.insert(searchString, at: 0)
-        DefaultManager.setSearchKeywords(serchDataSource)
+
         //resultsTableController.tableView.reloadData()
         
-        if serchDataSource.count > 10 {
+        if !keywordStr.isEmpty {
+            if serchDataSource.contains(searchString) {
+                if let index = serchDataSource.firstIndex(of: searchString) {
+                    serchDataSource.remove(at: index)
+                }
+            }
+            
+            serchDataSource.insert(searchString, at: 0)
+            
+            DefaultManager.setSearchKeywords(serchDataSource)
+        }
+        
+        if serchDataSource.count >= 10 {
             serchDataSource.removeLast()
         }
         
@@ -168,6 +181,28 @@ extension SearchViewController: UISearchBarDelegate {
 
 //MARK: UITableViewDelegate
 extension SearchViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let viewForHeaderInSection = SearchInfoView()
+        
+        viewForHeaderInSection.delegate = self
+        
+        if serchDataSource.count == 0 {
+            viewForHeaderInSection.setupTitle("No recent searches".localized())
+            viewForHeaderInSection.showClearButton(false)
+        } else {
+            viewForHeaderInSection.setupTitle("Recent searches".localized())
+            viewForHeaderInSection.showClearButton(true)
+        }
+        
+        return viewForHeaderInSection
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 58.0
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

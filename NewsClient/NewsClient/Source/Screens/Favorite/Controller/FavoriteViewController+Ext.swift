@@ -34,7 +34,20 @@ extension FavoriteViewController: FavoriteModelDelegate {
 extension FavoriteViewController: NewsViewDelegate {
     
     func share(article: ArticleDataModel) {
-        //
+        
+        if let urlToArticle = article.url {
+            if let url = URL(string: urlToArticle) {
+                let urlToShare = [url]
+                
+                let activityViewController = UIActivityViewController(
+                    activityItems: urlToShare,
+                    applicationActivities: nil
+                )
+                
+                activityViewController.popoverPresentationController?.sourceView = self.view
+                self.present(activityViewController, animated: true, completion: nil)
+            }
+        }
     }
     
     

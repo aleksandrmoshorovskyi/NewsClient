@@ -6,11 +6,58 @@
 //
 
 import Foundation
+import UIKit
+
+//MARK: SearchInfoViewDelegate
+extension SearchViewController: SearchInfoViewDelegate {
+    
+    func clearButtonDidTap() {
+        //debugPrint("clearButtonDidTap")
+        
+        DefaultManager.removeSearchKeywords()
+        serchDataSource = DefaultManager.getSearchKeywords() ?? []
+        resultsTableController.tableView.reloadData()
+    }
+}
 
 //MARK: SearchModelDelegate
 extension SearchViewController: SearchModelDelegate {
+    func presentAlert(with message: String) {
+        
+        let alertController = UIAlertController(
+            title: "error".localized().capitalized,
+            message: message,
+            preferredStyle: .alert
+        )
+        
+        let okAletalertAction = UIAlertAction(
+            title: "OK",
+            style: .default) { (action) in
+            // ...
+        }
+        
+        alertController.addAction(okAletalertAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func totalResult(is count: Int) {
+        navigationItem.prompt = "\(count) results for - \(keywordStr ?? "")"
+        navigationItem.titleView?.reloadInputViews()
+    }
     
     func dataDidLoad(with data: [ArticleDataModel]) {
+        
+//        if data.count > 0 {
+//            navigationItem.prompt = "\(99) results for - \(keywordStr ?? "")"
+//        } else {
+//            navigationItem.prompt = nil
+//        }
+        
+//        if data.count == 0 {
+//            navigationItem.prompt = nil
+//        }
+        
         contentView.setupNews(data: data)
     }
 }
@@ -19,7 +66,20 @@ extension SearchViewController: SearchModelDelegate {
 extension SearchViewController: NewsViewDelegate {
     
     func share(article: ArticleDataModel) {
-        //
+        
+        if let urlToArticle = article.url {
+            if let url = URL(string: urlToArticle) {
+                let urlToShare = [url]
+                
+                let activityViewController = UIActivityViewController(
+                    activityItems: urlToShare,
+                    applicationActivities: nil
+                )
+                
+                activityViewController.popoverPresentationController?.sourceView = self.view
+                self.present(activityViewController, animated: true, completion: nil)
+            }
+        }
     }
     
     func presentAlert() {

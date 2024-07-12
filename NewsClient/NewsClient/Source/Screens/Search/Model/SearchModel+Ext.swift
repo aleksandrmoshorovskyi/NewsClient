@@ -6,7 +6,7 @@
 //
 
 import Foundation
-//import UIKit
+import UIKit
 
 extension SearchModel: SearchModelProtocol {
     
@@ -64,6 +64,8 @@ extension SearchModel: SearchModelProtocol {
         
         if keyword.isEmpty {
             self.delegate?.dataDidLoad(with: [])
+            self.delegate?.totalResult(is: 0)
+            return
         }
         
         if let p = page {
@@ -76,18 +78,22 @@ extension SearchModel: SearchModelProtocol {
             
             if let err = error {
                 debugPrint("\(err.localizedDescription)")
+                self?.delegate?.presentAlert(with: "\(err.localizedDescription)")
             }
             
             if let data = newsData  {
                 
                 if data.status == "error" {
                     debugPrint("\(String(describing: data.code))")
+                    //self?.delegate?.presentAlert(with: "\(String(describing: data.code))")
+                    self?.delegate?.presentAlert(with: data.code ?? "Somthing went wrong...")
                 }
                 
                 if data.status == "ok" {
                     //converte to local data model
                     debugPrint("totalResults - \(data.totalResults ?? 0)")
                     self?.totalResults = data.totalResults
+                    self?.delegate?.totalResult(is: data.totalResults ?? 0)
                     
                     if let dataArticles = data.articles {
                         self?.articles += dataArticles.compactMap() {
