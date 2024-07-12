@@ -16,6 +16,8 @@ protocol SearchModelProtocol {
     func addFavorite(article: ArticleDataModel)
     
     func deleteFavorite(article: ArticleDataModel)
+    
+    func getPlaceholderData() -> PlaceholderDataModel
 }
 
 //extension SearchModelProtocol {

@@ -9,6 +9,32 @@ import Foundation
 
 extension NewsView: NewsViewProtocol {
     
+    func showPlaceholder() {
+        
+        if let placeholderView = placeholderView {
+            placeholderView.frame = frame
+            addSubview(placeholderView)
+        }
+    }
+    
+    func hidePlaceholder() {
+        
+        if let placeholderView = placeholderView {
+            placeholderView.frame = .zero
+            placeholderView.removeFromSuperview()
+        }
+    }
+    
+    func setupPlaceholderData(data: PlaceholderDataModel) {
+        
+        placeholderData = data
+        
+        if let placeholderData = placeholderData {
+            placeholderView = NewsPlaceholderView(placeholderData: placeholderData)
+            //showPlaceholder()
+        }
+    }
+    
     func activityIndicatorStartAnimating() {
         activityIndicator.startAnimating()
     }
@@ -24,6 +50,12 @@ extension NewsView: NewsViewProtocol {
     func setupNews(data: [ArticleDataModel]) {
         
         dataSource = data
+        
+        if dataSource.count > 0 {
+            hidePlaceholder()
+        } else {
+            showPlaceholder()
+        }
         
         collectionView.reloadData()
         maxIndexPathRow = 0

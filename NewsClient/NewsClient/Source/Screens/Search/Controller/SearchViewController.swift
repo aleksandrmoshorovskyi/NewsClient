@@ -33,13 +33,15 @@ class SearchViewController: BaseViewController {
         setupInitialState()
         setupUI()
         //model.loadDataFor(keyword: "Apple")
+        //model.loadDataFor(keyword: "")
     }
     
     private func setupInitialState() {
         
         let searchModel = SearchModel(delegate: self)
-        
         model = searchModel
+        
+        contentView.setupPlaceholderData(data: model.getPlaceholderData())
     }
     
     private func setupUI() {
@@ -100,6 +102,9 @@ class SearchViewController: BaseViewController {
             navigationItem.searchController = searchController
             navigationItem.hidesSearchBarWhenScrolling = false
             //navigationItem.titleView?.isHidden = false
+            
+            let placeholderColor = NSAttributedString(string: "Find it on NEWS".localized())
+            navigationItem.searchController?.searchBar.searchTextField.attributedPlaceholder = placeholderColor
         }
     }
     
@@ -107,6 +112,7 @@ class SearchViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         //model.loadDataFor(keyword: "Apple")
+        model.loadDataFor(keyword: "")
     }
 }
 

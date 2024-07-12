@@ -14,4 +14,8 @@ protocol NewsViewProtocol {
     
     func activityIndicatorStartAnimating()
     func activityIndicatorStopAnimating()
+    
+    func setupPlaceholderData(data: PlaceholderDataModel)
+    func showPlaceholder()
+    func hidePlaceholder()
 }

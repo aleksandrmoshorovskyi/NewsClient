@@ -18,6 +18,9 @@ class NewsView: UIView {
     //weak
     var activityIndicator: UIActivityIndicatorView!
     
+    var placeholderData: PlaceholderDataModel?
+    var placeholderView: NewsPlaceholderView?
+    
     //var dataSourceCategory: [String] = ["All", "Science", "Health"]
     var dataSource: [ArticleDataModel] = []
     var maxIndexPathRow: Int = 0

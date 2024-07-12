@@ -6,8 +6,17 @@
 //
 
 import Foundation
+//import UIKit
 
 extension SearchModel: SearchModelProtocol {
+    
+    func getPlaceholderData() -> PlaceholderDataModel {
+        return PlaceholderDataModel(
+            imageSystemName: "magnifyingglass",
+            titleText: getTextForTitlePlaceholderLabel(),
+            descriptionText: getTextForDescriptionPlaceholderLabel()
+        )
+    }
     
     func loadDataFor(keyword: String) {
         
@@ -52,6 +61,10 @@ extension SearchModel: SearchModelProtocol {
     }
     
     private func loadDataFor(keyword: String, page: Int?) {
+        
+        if keyword.isEmpty {
+            self.delegate?.dataDidLoad(with: [])
+        }
         
         if let p = page {
             debugPrint("page - \(p)")
@@ -103,6 +116,8 @@ extension SearchModel: SearchModelProtocol {
                         let articlesWithFavorite = self?.updateFavoritesFor(articles: articlesData)
                         
                         self?.delegate?.dataDidLoad(with: articlesWithFavorite ?? [])
+                    } else {
+                        self?.delegate?.dataDidLoad(with: [])
                     }
                 }
             }
@@ -130,6 +145,20 @@ extension SearchModel: SearchModelProtocol {
             object: article,
             userInfo: nil
         )
+    }
+    
+    private func getTextForTitlePlaceholderLabel() -> NSAttributedString {
+        
+        let attributedText = NSAttributedString(string: "Find it on NEWS".localized())
+        
+        return attributedText
+    }
+    
+    private func getTextForDescriptionPlaceholderLabel() -> NSAttributedString {
+        
+        let attributedText = NSAttributedString(string: "Type your query to search from NEWS".localized())
+        
+        return attributedText
     }
 }
 

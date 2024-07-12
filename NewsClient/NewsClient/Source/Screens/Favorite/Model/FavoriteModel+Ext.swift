@@ -6,8 +6,22 @@
 //
 
 import Foundation
+import UIKit
 
 extension FavoriteModel: FavoriteModelProtocol {
+    
+    func getPlaceholderData() -> PlaceholderDataModel {
+//        return PlaceholderDataModel(
+//            imageSystemName: "bookmark",
+//            titleText: NSAttributedString("Hello"),
+//            descriptionText: NSAttributedString("description")
+//        )
+        return PlaceholderDataModel(
+            imageSystemName: "bookmark",
+            titleText: getTextForTitlePlaceholderLabel(),
+            descriptionText: getTextForDescriptionPlaceholderLabel()
+        )
+    }
     
     func loadData() {
     
@@ -54,5 +68,29 @@ extension FavoriteModel: FavoriteModelProtocol {
     func addToFavorite(article: ArticleDataModel) {
         
         self.storageService.insertArticle(article: article)
+    }
+    
+    private func getTextForTitlePlaceholderLabel() -> NSAttributedString {
+        
+        let attributedText = NSAttributedString(string: "Find your saved \n articles here".localized())
+        
+        return attributedText
+    }
+    
+    private func getTextForDescriptionPlaceholderLabel() -> NSAttributedString {
+        
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(systemName: "bookmark")?.withTintColor(.systemBlue)
+        //imageAttachment.image?.withTintColor(.systemBlue)
+        //imageAttachment.image?.withTintColor(.systemBlue)
+        
+        let attributedText = NSMutableAttributedString()
+        attributedText.append(NSAttributedString(string: "When reading an article, tap the ".localized()))
+        attributedText.append(NSAttributedString(attachment: imageAttachment))
+        attributedText.append(NSAttributedString(string: "\n"))
+        attributedText.append(NSAttributedString(string: "icon to save it. ".localized()))
+        attributedText.append(NSAttributedString(string: "You'll be able to come back here to read it later".localized()))
+        
+        return attributedText
     }
 }

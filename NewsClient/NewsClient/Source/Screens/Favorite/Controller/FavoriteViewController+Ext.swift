@@ -12,8 +12,9 @@ import UIKit
 extension FavoriteViewController: FavoriteModelDelegate {
     
     func dataDidLoad(with data: [ArticleDataModel]) {
-        //contentView.setupNews(data: data)
+        contentView.setupNews(data: data)
         
+        /*
         if data.count > 0 {
             for subview in view.subviews {
                 if ((subview as? FavoritePlaceholderView) != nil) {
@@ -25,6 +26,7 @@ extension FavoriteViewController: FavoriteModelDelegate {
             let favoritePlaceholderView = FavoritePlaceholderView(frame: view.frame)
             view.addSubview(favoritePlaceholderView)
         }
+         */
     }
 }
 

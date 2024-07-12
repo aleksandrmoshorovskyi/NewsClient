@@ -38,6 +38,8 @@ class FavoriteViewController: BaseViewController {
         model = favoriteModel
         
         //currentCategory = nil
+        
+        contentView.setupPlaceholderData(data: model.getPlaceholderData())
     }
     
     private func setupUI() {
@@ -78,6 +80,9 @@ class FavoriteViewController: BaseViewController {
             navigationItem.searchController = searchController
             navigationItem.hidesSearchBarWhenScrolling = false
             navigationItem.titleView?.isHidden = false
+            
+            let placeholderColor = NSAttributedString(string: "Search in saved".localized())
+            navigationItem.searchController?.searchBar.searchTextField.attributedPlaceholder = placeholderColor
         }
     }
     

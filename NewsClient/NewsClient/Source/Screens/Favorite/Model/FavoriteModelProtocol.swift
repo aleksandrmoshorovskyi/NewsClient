@@ -13,4 +13,5 @@ protocol FavoriteModelProtocol {
     func filterDataWith(predicate: String?) 
     func deleteFavorite(article: ArticleDataModel)
     func addToFavorite(article: ArticleDataModel)
+    func getPlaceholderData() -> PlaceholderDataModel
 }
