@@ -27,6 +27,13 @@ class SettingsViewController: UIViewController {
         setupInitialState()
         setupUI()
         model.loadData()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateLocalizedUI),
+            name: NSLocale.currentLocaleDidChangeNotification,
+            object: nil
+        )
     }
     
     private func setupInitialState() {
@@ -39,5 +46,15 @@ class SettingsViewController: UIViewController {
         title = "settings".localized().capitalized
         
         //UserDefaults.standard.setValue(Theme.dark.rawValue, forKey: "theme")
+    }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        title = "settings".localized().capitalized
+//    }
+    
+    @objc private func updateLocalizedUI() {
+        title = "settings".localized().capitalized
     }
 }

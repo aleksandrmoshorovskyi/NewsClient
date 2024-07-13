@@ -9,17 +9,40 @@ import Foundation
 import UIKit
 
 extension String {
+    
+    /*
+    var localized: String {
+        return NSLocalizedString(
+            self,
+            tableName: nil,
+            bundle: Bundle.localizedBundle(),
+            value: self,
+            comment: self
+        )
+    }
+     */
+    
+//    func localized() -> String {
+//        if let appLanguage = DefaultManager.getAppLanguage() {
+//            if appLanguage == 1 {
+//                let path = Bundle.main.path(forResource: "uk", ofType: "lproj")
+//                let bundle = Bundle(path: path!)
+//                return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: self, comment: self)
+//            }
+//        }
+//        let path = Bundle.main.path(forResource: "en", ofType: "lproj")
+//        let bundle = Bundle(path: path!)
+//        return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: self, comment: self)
+//    }
+    
     func localized() -> String {
-        if let appLanguage = DefaultManager.getAppLanguage() {
-            if appLanguage == 1 {
-                let path = Bundle.main.path(forResource: "uk", ofType: "lproj")
-                let bundle = Bundle(path: path!)
-                return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: self, comment: self)
-            }
-        }
-        let path = Bundle.main.path(forResource: "en", ofType: "lproj")
-        let bundle = Bundle(path: path!)
-        return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: self, comment: self)
+        return NSLocalizedString(
+            self,
+            tableName: nil,
+            bundle: Bundle.localizedBundle(),
+            value: self,
+            comment: self
+        )
     }
     
     func textToImage() -> UIImage? {

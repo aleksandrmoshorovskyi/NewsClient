@@ -59,24 +59,24 @@ extension SettingsModel: SettingsModelProtocol {
         debugPrint("currentLanguage - \(String(describing: currentLanguage))")
         
         var languages: [SettingItem] = []
-        languages.append(SettingItem(
-            title: "\("English".localized())",
-            //icon: "🔤".textToImage(),
-            //icon: Constants.systemLanguageImage,
-            icon: " en".textToImage()?.withTintColor(.systemBlue),
-            isOn: currentLanguage == 0 ? true : false
-        ))
-        languages.append(SettingItem(
-            title: "\("Ukrainian".localized())",
-            //icon: "🇺🇦".textToImage(),
-            icon: " uk".textToImage()?.withTintColor(.systemBlue),
-            isOn: currentLanguage == 1 ? true : false
-        ))
+//        languages.append(SettingItem(
+//            title: "\("English".localized())",
+//            //icon: "🔤".textToImage(),
+//            //icon: Constants.systemLanguageImage,
+//            icon: " en".textToImage()?.withTintColor(.systemBlue),
+//            isOn: currentLanguage == 0 ? true : false
+//        ))
+//        languages.append(SettingItem(
+//            title: "\("Ukrainian".localized())",
+//            //icon: "🇺🇦".textToImage(),
+//            icon: " uk".textToImage()?.withTintColor(.systemBlue),
+//            isOn: currentLanguage == 1 ? true : false
+//        ))
         languages.append(SettingItem(
             //title: "\("⚙️") \("default".localized())",
-            title: "\("system".localized())",
+            title: "\("change language".localized())",
             //icon: "⚙️".textToImage(),
-            icon: Constants.systemSettingsImage,
+            icon: Constants.changeLanguageImage,
             isOn: currentLanguage == nil ? true : false
         ))
         

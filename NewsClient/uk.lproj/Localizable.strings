@@ -43,6 +43,7 @@
 "interface language" = "мова інтерфейсу";
 "Ukrainian" = "Українська";
 "default" = "за замовчуванням";
+"change language" = "змінити мову";
 
 //Country
 "country" = "країна";
@@ -62,3 +63,21 @@
 "error" = "помилка";
 "language" = "мова";
 "To change language you need to restart the application. Do you want to restart?" = "Щоб змінити мову, потрібно перезапустити програму. Ви хочете перезапустити?";
+
+//Placeholders
+"Find it on NEWS" = "Пошук новин";
+"Search in saved" = "Пошук у збережених";
+
+"Type your query to search from NEWS" = "Введіть запит для пошуку новин";
+"Find your saved \n articles here" = "Знайдіть збережені \n статті тут";
+
+"When reading an article, tap the " = "Під час читання статті торкніться ";
+"icon to save it. " = "щоб зберегти її. ";
+"You'll be able to come back here to read it later" = "Ви зможете повернутися сюди, щоб прочитати статтю пізніше";
+
+//Search screen
+"No results yet" = "Ще відсутні результати";
+"No recent searches" = "Немає останніх пошуків";
+"Recent searches" = "Останній пошук";
+"Clear" = "Очистити";
+"results for" = "результатів для";

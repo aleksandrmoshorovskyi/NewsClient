@@ -45,6 +45,7 @@ enum Constants {
     //settings
     static let systemSettingsImage: UIImage? = UIImage(systemName: "gearshape")
     static let systemLanguageImage: UIImage? = UIImage(systemName: "textformat.abc")
+    static let changeLanguageImage: UIImage? = UIImage(systemName: "a.square")
 }
 
 /*

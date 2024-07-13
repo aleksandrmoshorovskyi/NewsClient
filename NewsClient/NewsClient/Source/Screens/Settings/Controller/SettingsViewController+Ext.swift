@@ -35,7 +35,8 @@ extension SettingsViewController: SettingsViewDelegate {
                 //delay()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     //print("Async after 1 seconds")
-                    exit(0)
+                    //exit(0)
+                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
                 }
                 //exit(0)
             })

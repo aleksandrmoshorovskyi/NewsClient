@@ -42,7 +42,7 @@ extension SearchViewController: SearchModelDelegate {
     }
     
     func totalResult(is count: Int) {
-        navigationItem.prompt = "\(count) results for - \(keywordStr ?? "")"
+        navigationItem.prompt = "\(count)" + " " + "results for".localized() + " - " + "\(keywordStr ?? "")"
         navigationItem.titleView?.reloadInputViews()
     }
     
