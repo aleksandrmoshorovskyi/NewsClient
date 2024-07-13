@@ -12,4 +12,5 @@ protocol NewsModelDelegate: AnyObject {
     func dataDidLoad(with data: [ArticleDataModel])
     func dataDidUpdated(with data: [ArticleDataModel])
     func presentAlertWith(_ title: String, _ message: String)
+    func presentAlert(with message: String)
 }

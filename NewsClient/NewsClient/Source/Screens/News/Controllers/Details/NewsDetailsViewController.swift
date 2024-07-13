@@ -16,23 +16,9 @@ class NewsDetailsViewController: BaseViewController {
     //var model: NewsDetailsModelProtocol!
     var contentView: NewsDetailsViewProtocol!
     
+    var shareBarButtonItem: UIBarButtonItem!
     var openInSafariBarButtonItem: UIBarButtonItem!
     var addToFavoriteBarButtonItem: UIBarButtonItem!
-    
-    @objc func openInSafariBarButtonDidTap() {
-        //debugPrint("openInSafariBarButtonDidTap")
-        
-        //MARK: TO DO - remove code duplication
-        
-        if let urlToArticle = self.dataModel.url {
-            if let url = URL(string: urlToArticle) {
-                UIApplication.shared.open(url) {_ in
-                    //code
-                }
-            }
-        }
-        
-    }
     
     @objc func addToFavoriteBarButtonDidTap() {
         debugPrint("addToFavoriteBarButtonDidTap")
@@ -58,6 +44,38 @@ class NewsDetailsViewController: BaseViewController {
             
             addToFavoriteBarButtonItem.image = UIImage(systemName: "bookmark.fill")
         }
+    }
+    
+    @objc func openInSafariBarButtonDidTap() {
+        //MARK: TO DO - remove code duplication
+        
+        if let urlToArticle = self.dataModel.url {
+            if let url = URL(string: urlToArticle) {
+                UIApplication.shared.open(url) {_ in
+                    //code
+                }
+            }
+        }
+        
+    }
+    
+    @objc func shareBarButtonDidTap() {
+        //MARK: TO DO - remove code duplication
+        
+        if let urlToArticle = self.dataModel.url {
+            if let url = URL(string: urlToArticle) {
+                let urlToShare = [url]
+                
+                let activityViewController = UIActivityViewController(
+                    activityItems: urlToShare,
+                    applicationActivities: nil
+                )
+                
+                activityViewController.popoverPresentationController?.sourceView = self.view
+                self.present(activityViewController, animated: true, completion: nil)
+            }
+        }
+        
     }
     
     override func loadView() {
@@ -116,13 +134,6 @@ class NewsDetailsViewController: BaseViewController {
         
         if let _ = navigationController {
             
-            openInSafariBarButtonItem = UIBarButtonItem(
-                image: UIImage(systemName: "safari"),
-                style: .plain,
-                target: self,
-                action: #selector(openInSafariBarButtonDidTap)
-            )
-            
             addToFavoriteBarButtonItem = UIBarButtonItem(
                 image: UIImage(systemName: dataModel.isFavorite ? "bookmark.fill" : "bookmark"),
                 style: .plain,
@@ -130,9 +141,24 @@ class NewsDetailsViewController: BaseViewController {
                 action: #selector(addToFavoriteBarButtonDidTap)
             )
             
+            openInSafariBarButtonItem = UIBarButtonItem(
+                image: UIImage(systemName: "safari"),
+                style: .plain,
+                target: self,
+                action: #selector(openInSafariBarButtonDidTap)
+            )
+            
+            shareBarButtonItem = UIBarButtonItem(
+                image: UIImage(systemName: "square.and.arrow.up"),
+                style: .plain,
+                target: self,
+                action: #selector(shareBarButtonDidTap)
+            )
+            
             navigationItem.rightBarButtonItems = [
                 addToFavoriteBarButtonItem,
-                openInSafariBarButtonItem
+                openInSafariBarButtonItem,
+                shareBarButtonItem
             ]
         }
     }

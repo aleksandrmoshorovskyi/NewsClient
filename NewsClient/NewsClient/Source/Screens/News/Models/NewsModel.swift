@@ -11,6 +11,7 @@ class NewsModel {
     
     weak var delegate: NewsModelDelegate?
     
+    var currentCategory: Category?
     var articles: [ArticleDataModel]!
     var totalResults: Int!
     var page: Int!

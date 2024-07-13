@@ -19,6 +19,9 @@ class NewsPlaceholderView: UIView {
     var titleLabel: UILabel!
     var descriptionLabel: UILabel!
     
+    //var showButton: Bool = false
+    var actionButton: UIButton!
+    
     var stackView: UIStackView!
     
 //    override init(frame: CGRect) {
@@ -72,6 +75,24 @@ class NewsPlaceholderView: UIView {
         //stackView.addArrangedSubview(titleImage)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(descriptionLabel)
+        
+        actionButton = UIButton()
+        actionButton.isHidden = true
+        if let buttonTitle = dataSource.buttonTitle {
+            actionButton.isHidden = false
+            actionButton.frame.size = CGSize(width: 150.0, height: 35.0)
+            
+            actionButton.setTitle(buttonTitle, for: .normal)
+            
+            actionButton.setTitleColor(.systemBlue, for: .normal)
+            actionButton.setTitleColor(.systemGray, for: .highlighted)
+            
+            //if let buttonAction = dataSource.buttonAction {
+                actionButton.addTarget(self, action: #selector(forBtnAction), for: .touchUpInside)
+            //}
+            
+            stackView.addArrangedSubview(actionButton)
+        }
     }
     
     func setupLayout() {
@@ -121,5 +142,11 @@ class NewsPlaceholderView: UIView {
         attributedText.append(NSAttributedString(string: "You'll be able to come back here to read it later".localized()))
         
         return attributedText
+    }
+    
+    @objc func forBtnAction() {
+        if let buttonActionCompletion = dataSource.buttonActionCompletion {
+            buttonActionCompletion()
+        }
     }
 }

@@ -9,6 +9,17 @@ import Foundation
 
 extension NewsModel: NewsModelProtocol {
     
+    func getPlaceholderData() -> PlaceholderDataModel {
+        return PlaceholderDataModel(
+            imageSystemName: "magnifyingglass",
+            titleText: getTextForTitlePlaceholderLabel(),
+            descriptionText: getTextForDescriptionPlaceholderLabel(),
+            buttonTitle: getButtonTitle(),
+            //buttonAction: #selector(buttonAction),
+            buttonActionCompletion: buttonAction
+        )
+    }
+    
     func articleDidDeleteFromFavorite(notification: Notification) {
         //
     }
@@ -87,6 +98,8 @@ extension NewsModel: NewsModelProtocol {
             currentCountry = Country.Ukraine
         }
         
+        currentCategory = category
+        
         if let p = page {
             debugPrint("page - \(p)")
         }
@@ -97,14 +110,31 @@ extension NewsModel: NewsModelProtocol {
 
             if let err = error {
                 debugPrint("\(err.localizedDescription)")
-                self?.delegate?.presentAlertWith("error".localized().capitalized, err.localizedDescription)
+                
+                //Call must be made on main thread!!!
+                //self?.delegate?.presentAlertWith("error".localized().capitalized, err.localizedDescription)
+                
+                DispatchQueue.main.async {
+                    self?.delegate?.dataDidLoad(with: [])
+                    //self?.delegate?.presentAlert(with: "\(err.localizedDescription)")
+                    //SHOW ON PLACEHOLDER ->
+                }
+    
             }
             
             if let data = newsData  {
                 
                 if data.status == "error" {
                     debugPrint("\(String(describing: data.code))")
-                    self?.delegate?.presentAlertWith("error".localized().capitalized, "\(String(describing: data.code))")
+                    
+                    //Call must be made on main thread!!!
+                    //self?.delegate?.presentAlertWith("error".localized().capitalized, "\(String(describing: data.code))")
+                    //self?.delegate?.dataDidLoad(with: [])
+                    
+                    //DispatchQueue.main.async {
+                        self?.delegate?.dataDidLoad(with: [])
+                        self?.delegate?.presentAlert(with: data.code ?? "Somthing went wrong...")
+                    //}
                 }
                 
                 if data.status == "ok" {
@@ -134,11 +164,45 @@ extension NewsModel: NewsModelProtocol {
                         let articlesWithFavorite = self?.updateFavoritesFor(articles: articlesData)
                         
                         self?.delegate?.dataDidLoad(with: articlesWithFavorite ?? [])
+                    } else {
+                        self?.delegate?.dataDidLoad(with: [])
                     }
                 
                     //self?.delegate?.dataDidLoad(with: self?.articles)
                 }
             }
+        }
+    }
+    
+    private func getTextForTitlePlaceholderLabel() -> NSAttributedString {
+        
+        let attributedText = NSAttributedString(string: "OOOPS...".localized())
+        
+        return attributedText
+    }
+    
+    private func getTextForDescriptionPlaceholderLabel() -> NSAttributedString {
+        
+        let attributedText = NSMutableAttributedString()
+        attributedText.append(NSAttributedString(string: "Something went wrong.".localized()))
+        attributedText.append(NSAttributedString(string: "\n"))
+        attributedText.append(NSAttributedString(string: "Please, try again later.".localized()))
+        
+        return attributedText
+    }
+    
+    private func getButtonTitle() -> String {
+        
+        let str = "Try again".localized()
+        
+        return str
+    }
+    
+    //@objc 
+    func buttonAction() {
+        
+        if let currentCategory = currentCategory {
+            loadDataFor(category: currentCategory)
         }
     }
 }

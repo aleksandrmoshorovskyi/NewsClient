@@ -18,4 +18,6 @@ protocol NewsViewProtocol {
     func setupPlaceholderData(data: PlaceholderDataModel)
     func showPlaceholder()
     func hidePlaceholder()
+    
+    //func getPlaceholderData() -> PlaceholderDataModel
 }

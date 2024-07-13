@@ -18,4 +18,6 @@ protocol NewsModelProtocol {
     func addFavorite(article: ArticleDataModel)
     func deleteFavorite(article: ArticleDataModel)
     func articleDidDeleteFromFavorite(notification: Notification)
+    
+    func getPlaceholderData() -> PlaceholderDataModel
 }

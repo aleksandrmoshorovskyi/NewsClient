@@ -39,6 +39,7 @@ class HomeViewController: BaseViewController {
         model = homeModel
         
         currentCategory = nil
+        //contentView.setupPlaceholderData(data: model.getPlaceholderData())
     }
     
     private func setupUI() {

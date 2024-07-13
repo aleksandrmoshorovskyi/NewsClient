@@ -7,9 +7,15 @@
 
 import Foundation
 
+//typealias buttonAction = ()
+
 struct PlaceholderDataModel {
     
     let imageSystemName: String
     let titleText: NSAttributedString
     let descriptionText: NSAttributedString
+    
+    var buttonTitle: String?
+    //var buttonAction: Selector?
+    var buttonActionCompletion: (() -> ())?
 }

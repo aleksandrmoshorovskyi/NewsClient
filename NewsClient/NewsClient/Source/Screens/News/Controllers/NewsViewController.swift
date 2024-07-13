@@ -62,6 +62,8 @@ class NewsViewController: BaseViewController {
             queue: nil) { [self] (notification) in
                 notificationReceiver(notification)
             }
+        
+        contentView.setupPlaceholderData(data: model.getPlaceholderData())
     }
     
     private func setupUI() {

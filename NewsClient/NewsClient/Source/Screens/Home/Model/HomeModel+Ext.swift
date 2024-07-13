@@ -9,6 +9,16 @@ import UIKit
 
 extension HomeModel: HomeModelProtocol {
     
+//    func getPlaceholderData() -> PlaceholderDataModel {
+//        return PlaceholderDataModel(
+//            imageSystemName: "magnifyingglass",
+//            titleText: getTextForTitlePlaceholderLabel(),
+//            descriptionText: getTextForDescriptionPlaceholderLabel(),
+//            buttonTitle: getButtonTitle(),
+//            buttonAction: buttonAction()
+//        )
+//    }
+    
     func loadDataFor(_ vc: NewsViewControllerDelegate) {
         
         var categoryVC: [NewsViewController] = []
@@ -47,4 +57,32 @@ extension HomeModel: HomeModelProtocol {
             //self.delegate?.dataDidLoad(with: [])
         }
     }
+    
+//    private func getTextForTitlePlaceholderLabel() -> NSAttributedString {
+//        
+//        let attributedText = NSAttributedString(string: "OOOPS...".localized())
+//        
+//        return attributedText
+//    }
+//    
+//    private func getTextForDescriptionPlaceholderLabel() -> NSAttributedString {
+//        
+//        let attributedText = NSMutableAttributedString()
+//        attributedText.append(NSAttributedString(string: "Something went wrong.".localized()))
+//        attributedText.append(NSAttributedString(string: "\n"))
+//        attributedText.append(NSAttributedString(string: "Please, try again later.".localized()))
+//        
+//        return attributedText
+//    }
+//    
+//    private func getButtonTitle() -> NSAttributedString {
+//        
+//        let attributedText = NSAttributedString(string: "Try again".localized())
+//        
+//        return attributedText
+//    }
+//    
+//    private func buttonAction() {
+//        
+//    }
 }
