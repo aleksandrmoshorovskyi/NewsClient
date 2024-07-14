@@ -11,8 +11,6 @@ extension UICollectionViewCell {
     
     static var idintifier: String {
         
-        get {
-            return String(describing: self)
-        }
+        return String(describing: self)
     }
 }

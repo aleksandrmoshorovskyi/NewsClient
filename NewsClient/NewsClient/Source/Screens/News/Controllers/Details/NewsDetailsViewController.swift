@@ -47,35 +47,11 @@ class NewsDetailsViewController: BaseViewController {
     }
     
     @objc func openInSafariBarButtonDidTap() {
-        //MARK: TO DO - remove code duplication
-        
-        if let urlToArticle = self.dataModel.url {
-            if let url = URL(string: urlToArticle) {
-                UIApplication.shared.open(url) {_ in
-                    //code
-                }
-            }
-        }
-        
+        CommonFunctions.openInSafari(article: dataModel)
     }
     
     @objc func shareBarButtonDidTap() {
-        //MARK: TO DO - remove code duplication
-        
-        if let urlToArticle = self.dataModel.url {
-            if let url = URL(string: urlToArticle) {
-                let urlToShare = [url]
-                
-                let activityViewController = UIActivityViewController(
-                    activityItems: urlToShare,
-                    applicationActivities: nil
-                )
-                
-                activityViewController.popoverPresentationController?.sourceView = self.view
-                self.present(activityViewController, animated: true, completion: nil)
-            }
-        }
-        
+        baseShareAction(article: dataModel)
     }
     
     override func loadView() {
@@ -95,11 +71,7 @@ class NewsDetailsViewController: BaseViewController {
     }
     
     private func setupInitialState() {
-        //let newsModel = NewsModel(delegate: self)
-        //model = newsModel
-        
-        //currentCategory = nil
-        
+
         contentView.setupNews(data: dataModel)
         
         NotificationCenter.default.addObserver(
@@ -121,10 +93,8 @@ class NewsDetailsViewController: BaseViewController {
     private func notificationReceiver(_ notification: Notification) {
         
         if let object = notification.object as? ArticleDataModel {
-            debugPrint("\(object.id)")
-           // model.updateFavorites()
+            
             dataModel.isFavorite = object.isFavorite
-            //contentView.setupNews(data: dataModel)
             
             setupUI()
         }

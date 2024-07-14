@@ -70,16 +70,11 @@ extension NewsView: CategoryViewDelegate {
     func categoryAtIndexDidTap(_ index: Int) {
         delegate?.categoryDidChange(index)
     }
-    
-    
-//    func categoryDidTap(_ item: Category?) {
-//        delegate?.categoryDidChange(item)
-//    }
 }
 
 extension NewsView: ArticleCollectionViewCellDelegate {
     
-    func share(article: ArticleDataModel) {
+    func shareAction(article: ArticleDataModel) {
         delegate?.share(article: article)
     }
     

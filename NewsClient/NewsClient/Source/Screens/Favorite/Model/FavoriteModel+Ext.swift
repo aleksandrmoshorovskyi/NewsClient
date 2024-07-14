@@ -11,11 +11,6 @@ import UIKit
 extension FavoriteModel: FavoriteModelProtocol {
     
     func getPlaceholderData() -> PlaceholderDataModel {
-//        return PlaceholderDataModel(
-//            imageSystemName: "bookmark",
-//            titleText: NSAttributedString("Hello"),
-//            descriptionText: NSAttributedString("description")
-//        )
         return PlaceholderDataModel(
             imageSystemName: "bookmark",
             titleText: getTextForTitlePlaceholderLabel(),
@@ -84,21 +79,20 @@ extension FavoriteModel: FavoriteModelProtocol {
         
         let imageAttachment = NSTextAttachment()
         imageAttachment.image = UIImage(systemName: "bookmark")?.withTintColor(.systemBlue)
-        //imageAttachment.image?.withTintColor(.systemBlue)
-        //imageAttachment.image?.withTintColor(.systemBlue)
         
         let attributedText = NSMutableAttributedString()
-        //attributedText.append(NSAttributedString(string: "When reading an article, tap the ".localized()))
+        
         attributedText.append(NSAttributedString(
             string: AppStrings.FavoriteViewController_Placeholder_descriptionText.localized
         ))
         attributedText.append(NSAttributedString(attachment: imageAttachment))
+        
         attributedText.append(NSAttributedString(string: "\n"))
-        //attributedText.append(NSAttributedString(string: "icon to save it. ".localized()))
+        
         attributedText.append(NSAttributedString(
             string: AppStrings.FavoriteViewController_Placeholder_descriptionTextOne.localized
         ))
-        //attributedText.append(NSAttributedString(string: "You'll be able to come back here to read it later".localized()))
+        
         attributedText.append(NSAttributedString(
             string: AppStrings.FavoriteViewController_Placeholder_descriptionTextTwo.localized
         ))

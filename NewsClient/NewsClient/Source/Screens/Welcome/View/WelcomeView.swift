@@ -57,23 +57,20 @@ class WelcomeView: UIView {
         containerView = UIView()
         
         titleLabel = UILabel()
-        titleLabel.numberOfLines = 0//3
-        titleLabel.font = Constants.pageTitleFont
-        //titleLabel.text = "Get the most relevant to you".localized()
+        titleLabel.numberOfLines = .zero
+        titleLabel.font = Constants.welcome_pageTitleFont
         titleLabel.text = AppStrings.WelcomeView_titleLabel.localized
         titleLabel.textAlignment = .center
         
         headerLabel = UILabel()
-        headerLabel.numberOfLines = 0//2
-        headerLabel.font = Constants.pageSecondTitleFont
-        //headerLabel.text = "Please select country which news do you prefer:".localized()
+        headerLabel.numberOfLines = .zero
+        headerLabel.font = Constants.welcome_pageSecondTitleFont
         headerLabel.text = AppStrings.WelcomeView_headerLabel.localized
         headerLabel.textAlignment = .center
         
         footerLabel = UILabel()
-        footerLabel.numberOfLines = 0//2
-        footerLabel.font = Constants.pageSecondTitleFont
-        //footerLabel.text = "You can change it anytime from your settings screen.".localized()
+        footerLabel.numberOfLines = .zero
+        footerLabel.font = Constants.welcome_pageSecondTitleFont
         footerLabel.text = AppStrings.WelcomeView_footerLabel.localized
         footerLabel.textAlignment = .center
         
@@ -83,32 +80,25 @@ class WelcomeView: UIView {
         layout.estimatedItemSize = .zero
     
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        //collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.showsVerticalScrollIndicator = false
-        //collectionView.backgroundColor = .systemGray5
-        //collectionView.isPagingEnabled = true
         
         collectionView.dataSource = self
         collectionView.delegate = self
         
         saveButton = UIButton()
-        saveButton.layer.cornerRadius = 8.0
-//        saveButton.backgroundColor = Constants.saveButtonColor
-//        saveButton.setTitleColor(Constants.saveButtonTextColor, for: .normal)
-//        saveButton.setTitleColor(.gray, for: .highlighted)
-        //saveButton.setTitle("Save and continue".localized(), for: .normal)
+        saveButton.layer.cornerRadius = Constants.welcome_saveButtonCornerRadius
         saveButton.setTitle(AppStrings.WelcomeView_saveButton_title.localized, for: .normal)
         saveButton.addTarget(self, action: #selector(saveButtonClicked), for: .touchUpInside)
         
         headerStackView = UIStackView()
         headerStackView.axis = NSLayoutConstraint.Axis.vertical
-        headerStackView.spacing = 20
+        headerStackView.spacing = Constants.welcome_stackView_spacing
         headerStackView.addArrangedSubview(titleLabel)
         headerStackView.addArrangedSubview(headerLabel)
         
         footerStackView = UIStackView()
         footerStackView.axis = NSLayoutConstraint.Axis.vertical
-        footerStackView.spacing = 20
+        footerStackView.spacing = Constants.welcome_stackView_spacing
         footerStackView.addArrangedSubview(footerLabel)
         footerStackView.addArrangedSubview(saveButton)
     }
@@ -124,35 +114,39 @@ class WelcomeView: UIView {
         containerView.addSubview(collectionView)
         containerView.addSubview(headerStackView)
         containerView.addSubview(footerStackView)
-        //containerView.addSubview(saveButton)
 
         NSLayoutConstraint.activate([
-            //containerView constraints
-            containerView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 30.0),
-            containerView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -30.0),
-            containerView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20.0),
-            containerView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20.0),
+            containerView.leadingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                constant: Constants.welcome_containerView_side_offset
+            ),
+            containerView.trailingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                constant: -Constants.welcome_containerView_side_offset
+            ),
+            containerView.topAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.topAnchor,
+                constant: Constants.welcome_containerView_top_bottom_offset
+            ),
+            containerView.bottomAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.bottomAnchor,
+                constant: -Constants.welcome_containerView_top_bottom_offset
+            ),
             
-            //headerStackView constraints
             headerStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .zero),
             headerStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: .zero),
             headerStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: .zero),
-            //headerStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: .zero),
             
-            //collectionView constraints
             collectionView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .zero),
             collectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: .zero),
             collectionView.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant: .zero),
             collectionView.bottomAnchor.constraint(equalTo: footerStackView.topAnchor, constant: .zero),
             
-            //footerStackView constraints
             footerStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .zero),
             footerStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: .zero),
-            //footerStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: .zero),
             footerStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: .zero),
             
-            //saveButton constraints
-            saveButton.heightAnchor.constraint(equalToConstant: 50.0)
+            saveButton.heightAnchor.constraint(equalToConstant: Constants.welcome_saveButton_heightAnchor)
         ])
     }
     
@@ -161,12 +155,12 @@ class WelcomeView: UIView {
         saveButton.isEnabled = selectedIndex == nil ? false : true
         
         if saveButton.isEnabled {
-            saveButton.backgroundColor = Constants.saveButtonColor
-            saveButton.setTitleColor(Constants.saveButtonTextColor, for: .normal)
-            saveButton.setTitleColor(.gray, for: .highlighted)
+            saveButton.backgroundColor = Constants.welcome_saveButtonBackgroundColorEnabled
+            saveButton.setTitleColor(Constants.welcome_saveButtonTextColorEnabled_normal, for: .normal)
+            saveButton.setTitleColor(Constants.welcome_saveButtonTextColorEnabled_highlighted, for: .highlighted)
         } else {
-            saveButton.backgroundColor = .darkGray
-            saveButton.setTitleColor(.lightGray, for: .normal)
+            saveButton.backgroundColor = Constants.welcome_saveButtonBackgroundColorDisabled
+            saveButton.setTitleColor(Constants.welcome_saveButtonTextColorDisabled_normal, for: .normal)
         }
     }
 }

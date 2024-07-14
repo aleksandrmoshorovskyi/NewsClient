@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension NewsModel: NewsModelProtocol {
     
@@ -18,10 +19,6 @@ extension NewsModel: NewsModelProtocol {
             //buttonAction: #selector(buttonAction),
             buttonActionCompletion: buttonAction
         )
-    }
-    
-    func articleDidDeleteFromFavorite(notification: Notification) {
-        //
     }
     
     func updateFavorites() {
@@ -83,9 +80,9 @@ extension NewsModel: NewsModelProtocol {
     func prefetchDataFor(category: Category) {
         
         page += 1
-        let notWholePage = totalResults % Constants.pageSizeDefaultValue == 0 ? 0 : 1
+        let notWholePage = totalResults % Constants.common_pageSizeDefaultValue == 0 ? 0 : 1
         
-        if (totalResults / Constants.pageSizeDefaultValue) + notWholePage >= page {
+        if (totalResults / Constants.common_pageSizeDefaultValue) + notWholePage >= page {
             loadDataFor(category: category, page: page)
         }
     }
@@ -107,7 +104,7 @@ extension NewsModel: NewsModelProtocol {
             debugPrint("page - \(p)")
         }
         
-        let pageSize = Constants.pageSizeDefaultValue
+        let pageSize = Constants.common_pageSizeDefaultValue
         
         networkService.loadTopNewsFor(country: currentCountry, category: category, keyword: nil, pageSize: pageSize, page: page) { [weak self] newsData, error in
             
@@ -198,7 +195,6 @@ extension NewsModel: NewsModelProtocol {
     
     private func getTextForTitlePlaceholderLabel() -> NSAttributedString {
         
-        //let attributedText = NSAttributedString(string: "OOOPS...".localized())
         let attributedText = NSAttributedString(
             string: AppStrings.NewsViewController_Placeholder_titleText.localized
         )
@@ -208,10 +204,6 @@ extension NewsModel: NewsModelProtocol {
     
     private func getTextForDescriptionPlaceholderLabel() -> NSAttributedString {
         
-//        let attributedText = NSMutableAttributedString()
-//        attributedText.append(NSAttributedString(string: "Something went wrong.".localized()))
-//        attributedText.append(NSAttributedString(string: "\n"))
-//        attributedText.append(NSAttributedString(string: "Please, try again later.".localized()))
         let attributedText = NSAttributedString(
             string: AppStrings.NewsViewController_Placeholder_descriptionText.localized
         )
@@ -221,171 +213,16 @@ extension NewsModel: NewsModelProtocol {
     
     private func getButtonTitle() -> String {
         
-        //let str = "Try again".localized()
         let str = AppStrings.NewsViewController_Placeholder_buttonTitle.localized
         
         return str
     }
     
-    //@objc 
     func buttonAction() {
-        
-        //if let currentCategory = currentCategory {
-            //loadDataFor(category: currentCategory)
-            NotificationCenter.default.post(
-                name: Constants.updateAfterErrorNotification,
-                object: self,
-                userInfo: nil
-            )
-        //}
+        NotificationCenter.default.post(
+            name: Constants.updateAfterErrorNotification,
+            object: self,
+            userInfo: nil
+        )
     }
 }
-
-/*
- func loadDataFor(_ category: Category? = nil) {
-     
-     var currentCountry: Country!
-     
-     if let appCountry = DefaultManager.getAppCountry() {
-         currentCountry = appCountry
-     } else {
-         currentCountry = Country.Ukraine
-     }
-     
-     networkService.loadTopNewsFor(country: currentCountry, category: category, keyword: nil, pageSize: nil, page: nil) { [weak self] newsData, error in
-
-         if let err = error {
-             debugPrint("\(err.localizedDescription)")
-         }
-         
-         if let data = newsData  {
-             
-             if data.status == "error" {
-                 debugPrint("\(String(describing: data.code))")
-             }
-             
-             if data.status == "ok" {
-                 //converte to local data model
-                 
-                 if let dataArticles = data.articles {
-                     self?.articles = dataArticles.compactMap() {
-                         ArticleDataModel(
-                             isFavorite: false,
-                             id: $0.id,
-                             author: $0.author,
-                             title: $0.title,
-                             descriptionString: $0.description,
-                             url: $0.url,
-                             urlToImage: $0.urlToImage,
-                             publishedAt: $0.publishedAt,
-                             content: $0.content,
-                             addToFavoriteActionCompletion: self?.addFavorite,
-                             deleteFromFavoriteActionCompletion: self?.deleteFavorite
-                         )
-                     }
-                 }
-                 
-                 if let articlesData = self?.articles {
-                     let articlesWithFavorite = self?.updateFavoritesFor(articles: articlesData)
-                     
-                     self?.delegate?.dataDidLoad(with: articlesWithFavorite ?? [])
-                 }
-             
-                 //self?.delegate?.dataDidLoad(with: self?.articles)
-             }
-         }
-     }
- }
- */
-
-/*
-import Foundation
-
-extension NewsModel: NewsModelProtocol {
-    
-    func deleteFavorite(article: ArticleDataModel) {
-        self.storageService.deleteArticle(article: article)
-    }
-    
-    func addFavorite(article: ArticleDataModel) {
-        self.storageService.insertArticle(article: article)
-        self.updateFavorites()
-    }
-    
-    func updateFavorites() {
-        
-        if let data = articles {
-            let articles = updateFavoritesFor(articles: data)
-            
-            self.delegate?.dataDidUpdated(with: articles)
-        }
-    }
-    
-    func updateFavoritesFor(articles: [ArticleDataModel]) -> [ArticleDataModel] {
-        
-        let storedArticles = self.storageService.fetchAllArticles()
-        var articlesArray = articles
-        
-        articlesArray.enumerated().forEach { index, item in
-            if !storedArticles.filter({ item.idStr == $0.idStr }).isEmpty {
-                articlesArray[index].isFavorite = true
-            }
-        }
-        
-        return articlesArray
-    }
-    
-    func loadDataFor(_ category: Category? = nil) {
-        
-        //debugPrint("\(category)")
-        
-        //var articles: [ArticleDataModel] = []
-        //articles = []
-        
-        //networkService.loadSearchedNewsFor(keyword: "Intel", pageSize: 10, page: 1) { [weak self] newsData, error in
-        networkService.loadTopNewsFor(country: Country.Ukraine, category: category, keyword: nil, pageSize: nil, page: nil) { [weak self] newsData, error in
-
-            if let err = error {
-                debugPrint("\(err.localizedDescription)")
-            }
-            
-            if let data = newsData  {
-                
-                if data.status == "error" {
-                    debugPrint("\(String(describing: data.code))")
-                }
-                
-                if data.status == "ok" {
-                    //converte to local data model
-                    
-                    if let dataArticles = data.articles {
-                        self?.articles = dataArticles.compactMap() {
-                            ArticleDataModel(
-                                id: $0.id, 
-                                idStr: ($0.author ?? "") + ($0.title ?? "") + ($0.url ?? ""),
-                                isFavorite: false,
-                                author: $0.author,
-                                title: $0.title,
-                                //description: $0.description,
-                                url: $0.url,
-                                urlToImage: $0.urlToImage,
-                                publishedAt: $0.publishedAt)//,
-                                //content: $0.content)
-                        }
-                    }
-                    
-                    if let articlesData = self?.articles {
-                        let articlesWithFavorite = self?.updateFavoritesFor(articles: articlesData)
-                        
-                        self?.delegate?.dataDidLoad(with: articlesWithFavorite ?? [])
-                    }
-                    
-                    //var articles = self?.updateFavoritesFor(articles: self?.articles) ?? self?.articles
-                
-                    //self?.delegate?.dataDidLoad(with: self?.articles ?? [])
-                }
-            }
-        }
-    }
-}
- */

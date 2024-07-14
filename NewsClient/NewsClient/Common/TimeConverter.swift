@@ -22,26 +22,20 @@ class TimeConverter {
         
         switch timeInt {
         case 0...minute:
-            //str = "now".localized()
             str = AppStrings.TimeConverter_now.localized
         case minute...hour:
-            //let localizedStr = "m ago".localized()
             let localizedStr = AppStrings.TimeConverter_m_ago.localized
-            str = "\(timeInt/minute)\(localizedStr)"//m ago".localized()
+            str = "\(timeInt/minute)\(localizedStr)"
         case hour...threeDays:
-            //let localizedStr = "h ago".localized()
             let localizedStr = AppStrings.TimeConverter_h_ago.localized
-            str = "\(timeInt/hour)\(localizedStr)"//h ago".localized()
+            str = "\(timeInt/hour)\(localizedStr)"
         case threeDays...week:
-            //let localizedStr = "d ago".localized()
             let localizedStr = AppStrings.TimeConverter_d_ago.localized
-            str = "\(timeInt/day)\(localizedStr)"//d ago".localized()
+            str = "\(timeInt/day)\(localizedStr)"
         case week...weeksInYear:
-            //let localizedStr = "w ago".localized()
             let localizedStr = AppStrings.TimeConverter_w_ago.localized
-            str = "\(timeInt/week)\(localizedStr)"//w ago".localized()
+            str = "\(timeInt/week)\(localizedStr)"
         default:
-            //str = "ancient".localized()
             str = AppStrings.TimeConverter_ancient.localized
         }
         

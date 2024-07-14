@@ -29,9 +29,9 @@ extension SearchModel: SearchModelProtocol {
     func prefetchDataFor(keyword: String) {
         
         page += 1
-        let notWholePage = totalResults % Constants.pageSizeDefaultValue == 0 ? 0 : 1
+        let notWholePage = totalResults % Constants.common_pageSizeDefaultValue == 0 ? 0 : 1
         
-        if (totalResults / Constants.pageSizeDefaultValue) + notWholePage >= page {
+        if (totalResults / Constants.common_pageSizeDefaultValue) + notWholePage >= page {
             loadDataFor(keyword: keyword, page: page)
         }
     }
@@ -72,7 +72,7 @@ extension SearchModel: SearchModelProtocol {
             debugPrint("page - \(p)")
         }
         
-        let pageSize = Constants.pageSizeDefaultValue
+        let pageSize = Constants.common_pageSizeDefaultValue
         
         networkService.loadSearchedNewsFor(keyword: keyword, pageSize: pageSize, page: page) { [weak self] newsData, error in
             
@@ -173,62 +173,3 @@ extension SearchModel: SearchModelProtocol {
         return attributedText
     }
 }
-
-/*
- private func loadDataFor(keyword: String, page: Int?) {
-     
-     if let p = page {
-         debugPrint("page - \(p)")
-     }
-     
-     networkService.loadSearchedNewsFor(keyword: keyword, pageSize: 20, page: 1) { [weak self] newsData, error in
-         
-         if let err = error {
-             debugPrint("\(err.localizedDescription)")
-         }
-         
-         if let data = newsData  {
-             
-             if data.status == "error" {
-                 debugPrint("\(String(describing: data.code))")
-             }
-             
-             if data.status == "ok" {
-                 //converte to local data model
-                 debugPrint("totalResults - \(data.totalResults ?? 0)")
-                 self?.totalResults = data.totalResults
-                 
-                 if let dataArticles = data.articles {
-                     self?.articles += dataArticles.compactMap() {
-                         ArticleDataModel(
-                             isFavorite: false,
-                             id: $0.id,
-                             author: $0.author,
-                             title: $0.title,
-                             descriptionString: $0.description,
-                             url: $0.url,
-                             urlToImage: $0.urlToImage,
-                             publishedAt: $0.publishedAt,
-                             content: $0.content,
-                             addToFavoriteActionCompletion: self?.addFavorite,
-                             deleteFromFavoriteActionCompletion: self?.deleteFavorite
-                         )
-                     }
-                 }
-                 
-                 if let articlesData = self?.articles {
-                     
-                     //delete Articles with title [Removed]
-                     let filteredArticles = articlesData.filter() { $0.title != "[Removed]" }
-                     let sortedArticles = filteredArticles.sorted() { $0.publishedAt ?? "" > $1.publishedAt ?? "" }
-                     
-                     let articlesWithFavorite = self?.updateFavoritesFor(articles: sortedArticles)
-                     
-                     self?.delegate?.dataDidLoad(with: articlesWithFavorite ?? [])
-                 }
-             }
-         }
-     }
-     
- }
- */

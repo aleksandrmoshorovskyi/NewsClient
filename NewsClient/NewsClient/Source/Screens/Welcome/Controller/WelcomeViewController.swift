@@ -36,7 +36,5 @@ class WelcomeViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
-        //title = "Welcome".localized()
-        //title = AppStrings.WelcomeViewController_title.localized
     }
 }

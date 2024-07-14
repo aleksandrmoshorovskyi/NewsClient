@@ -33,7 +33,6 @@ enum Theme: String, CaseIterable {
     }
     
     var localized: String {
-        //return self.rawValue.localized()
         return self.rawValue.localized
     }
 }

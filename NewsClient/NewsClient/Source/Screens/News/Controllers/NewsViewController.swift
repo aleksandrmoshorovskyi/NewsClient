@@ -11,9 +11,7 @@ class NewsViewController: BaseViewController {
     
     weak var delegate: NewsViewControllerDelegate?
     
-    //var resultsTableController: UITableViewController!
-    var currentCategory: Category? // = nil
-    //let observer: NSObjectProtocol
+    var currentCategory: Category?
     
     var model: NewsModelProtocol!
     var contentView: NewsViewProtocol!
@@ -32,7 +30,6 @@ class NewsViewController: BaseViewController {
         
         setupInitialState()
         setupUI()
-        //model.loadDataFor(currentCategory)
         
         contentView.activityIndicatorStartAnimating()
         model.loadDataFor(category: currentCategory)
@@ -75,23 +72,7 @@ class NewsViewController: BaseViewController {
     }
     
     private func setupUI() {
-//        if let nc = navigationController {
-//            nc.navigationBar.prefersLargeTitles = false
-//            navigationItem.title = "NEWS"
-//            
-//            let nsAttributedString = [NSAttributedString.Key.foregroundColor: UIColor.red]
-//            nc.navigationBar.titleTextAttributes = nsAttributedString
-//            
-//            navigationItem.titleView?.backgroundColor = .systemBackground
-//            
-//            //definesPresentationContext = true
-//            
-//            nc.navigationBar.backgroundColor = .systemBackground
-//            
-//            //for no change bg navigationBar color
-//            nc.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//            nc.navigationBar.shadowImage = UIImage()
-//        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,27 +81,17 @@ class NewsViewController: BaseViewController {
         model.updateFavorites()
     }
     
-//    @objc func notificationReceiver() {
-//        debugPrint("notificationReceiver")
-//    }
-    
     func notificationReceiver(_ notification: Notification) {
         
-        //if let object = notification.object as? NewsModelProtocol {
         if let _ = notification.object as? NewsModelProtocol {
-            debugPrint("\(String(describing: currentCategory))")
-            //model.loadDataFor(currentCategory)
             model.loadDataFor(category: currentCategory)
         }
         
-        if let object = notification.object as? ArticleDataModel {
-            debugPrint("\(object.id)")
+        if let _ = notification.object as? ArticleDataModel {
             model.updateFavorites()
         }
         
-        if let object = notification.object as? Country {
-            debugPrint("\(object.rawValue)")
-            //model.loadDataFor(currentCategory)
+        if let _ = notification.object as? Country {
             model.loadDataFor(category: currentCategory)
         }
     }

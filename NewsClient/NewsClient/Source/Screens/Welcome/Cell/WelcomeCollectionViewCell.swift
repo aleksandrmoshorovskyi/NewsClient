@@ -9,10 +9,7 @@ import UIKit
 
 class WelcomeCollectionViewCell: UICollectionViewCell {
     
-    //weak var delegate: ArticleCollectionViewCellDelegate?
-    
     var containerView: UIView!
-    
     var imageView: UIImageView!
     var titleLabel: UILabel!
     
@@ -29,28 +26,18 @@ class WelcomeCollectionViewCell: UICollectionViewCell {
     
     func setupBaseUI() {
         
-        //contentView.backgroundColor = .gray
-        
         containerView = UIView()
-        containerView.layer.cornerRadius = 8.0
-        containerView.layer.borderWidth = 2.0
+        containerView.layer.cornerRadius = Constants.WelcomeCollectionViewCell_CornerRadius
+        containerView.layer.borderWidth = Constants.WelcomeCollectionViewCell_BorderWidth
         containerView.layer.borderColor = UIColor.black.cgColor
-        //containerView.backgroundColor = .gray
         
-        //imageView
         imageView = UIImageView()
-        imageView.layer.cornerRadius = 8.0
+        imageView.layer.cornerRadius = Constants.WelcomeCollectionViewCell_CornerRadius
         imageView.layer.masksToBounds = true
-        //imageView.backgroundColor = .brown
-        //imageView.contentMode = .scaleAspectFit
-        //imageView.contentMode = .scaleAspectFill
         imageView.contentMode = .scaleAspectFit
-        //imageView.clipsToBounds - ???
         
-        //titleLabel setup
         titleLabel = UILabel()
         titleLabel.textAlignment = .center
-        //titleLabel.font = Constants.newsTitleFont
     }
     
     func setupBaseLayout() {
@@ -64,33 +51,48 @@ class WelcomeCollectionViewCell: UICollectionViewCell {
         containerView.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
-            //containerView constraints
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10.0),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10.0),
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10.0),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10.0),
+            containerView.leadingAnchor.constraint(
+                equalTo: contentView.leadingAnchor,
+                constant: Constants.WelcomeCollectionViewCell_StandartOffsets
+            ),
+            containerView.trailingAnchor.constraint(
+                equalTo: contentView.trailingAnchor,
+                constant: -Constants.WelcomeCollectionViewCell_StandartOffsets
+            ),
+            containerView.topAnchor.constraint(
+                equalTo: contentView.topAnchor,
+                constant: Constants.WelcomeCollectionViewCell_StandartOffsets
+            ),
+            containerView.bottomAnchor.constraint(
+                equalTo: contentView.bottomAnchor,
+                constant: -Constants.WelcomeCollectionViewCell_StandartOffsets
+            ),
             
-            //titleLabel constraints
-            //imageView.leadingAnchor.constraint(greaterThanOrEqualTo: containerView.leadingAnchor, constant: 10.0),
-            //imageView.trailingAnchor.constraint(lessThanOrEqualTo: containerView.trailingAnchor, constant: -10.0),
-            imageView.topAnchor.constraint(greaterThanOrEqualTo: containerView.topAnchor, constant: 10.0),
-            //imageView.bottomAnchor.constraint(lessThanOrEqualTo: titleLabel.topAnchor, constant: -10.0),
-            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1.0),
-            imageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            imageView.topAnchor.constraint(
+                greaterThanOrEqualTo: containerView.topAnchor,
+                constant: Constants.WelcomeCollectionViewCell_StandartOffsets
+            ),
+            imageView.widthAnchor.constraint(
+                equalTo: imageView.heightAnchor,
+                multiplier: Constants.WelcomeCollectionViewCell_StandartMultiplier
+            ),
+            imageView.centerXAnchor.constraint(
+                equalTo: containerView.centerXAnchor
+            ),
             
-            //titleLabel constraints
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .zero),
             titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: .zero),
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: .zero),
             titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: .zero),
-            titleLabel.heightAnchor.constraint(equalToConstant: 20.0)
+            titleLabel.heightAnchor.constraint(
+                equalToConstant: Constants.WelcomeCollectionViewCell_titleLabel_heightAnchor
+            )
         ])
     }
     
     func configure(with data: Country) {
         
         self.imageView.image = UIImage(named: data.rawValue)
-        //self.titleLabel.text = data.countryName.localized()
         self.titleLabel.text = data.countryName
         
         configureUI()

@@ -7,18 +7,6 @@
 
 import UIKit
 
-//extension NewsViewController: HomeViewControllerDelegate {
-//   
-//    func homeViewWillAppear() {
-//        debugPrint("Here must be Update")
-//        //debugPrint("\(String(describing: self.currentCategory))")
-//    }
-//    
-//    func homeViewWillDisappear() {
-//        debugPrint("Here must be SaveIfNeeded")
-//    }
-//}
-
 //NewsModelDelegate
 extension NewsViewController: NewsModelDelegate {
 
@@ -60,12 +48,6 @@ extension NewsViewController: NewsModelDelegate {
                 //exit(0)
             })
         
-//        let cancelAletalertAction = UIAlertAction(
-//            title: "Cancel",
-//            style: .cancel) { (action) in
-//            // ...
-//        }
-        
         alertController.addAction(okAletalertAction)
         //alertController.addAction(cancelAletalertAction)
         
@@ -85,26 +67,8 @@ extension NewsViewController: NewsModelDelegate {
 extension NewsViewController: NewsViewDelegate {
     
     func share(article: ArticleDataModel) {
-        
-        if let urlToArticle = article.url {
-            if let url = URL(string: urlToArticle) {
-                let urlToShare = [url]
-                
-                let activityViewController = UIActivityViewController(
-                    activityItems: urlToShare,
-                    applicationActivities: nil
-                )
-                
-                activityViewController.popoverPresentationController?.sourceView = self.view
-                self.present(activityViewController, animated: true, completion: nil)
-            }
-        }
+        baseShareAction(article: article)
     }
-    
-    
-//    func presentAlert() {
-//        //
-//    }
     
     func refreshData() {
         if let currentCategory = currentCategory {
@@ -140,14 +104,9 @@ extension NewsViewController: NewsViewDelegate {
     func categoryDidChange(_ item: Category?) {
         
         if currentCategory != item {
-            //model.loadDataFor(item)
             model.loadDataFor(category: item)
         }
         
         currentCategory = item
     }
-    
-//    func addToFavoriteDidTap() {
-//        //code
-//    }
 }

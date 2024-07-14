@@ -77,4 +77,4 @@
 "alertController_cancelAletalertAction" = "Cancel";
 "alertController_error_title" = "error";
 "alertController_language_title" = "language";
-"alertController_language_message" = "To change language you need to restart the application. Do you want to restart?";
+"alertController_language_message" = "You will be taken to the application settings. Make a switch?";

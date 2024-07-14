@@ -22,6 +22,7 @@ extension SearchViewController: SearchInfoViewDelegate {
 
 //MARK: SearchModelDelegate
 extension SearchViewController: SearchModelDelegate {
+    
     func presentAlert(with message: String) {
         
         let alertController = UIAlertController(
@@ -55,17 +56,6 @@ extension SearchViewController: SearchModelDelegate {
     }
     
     func dataDidLoad(with data: [ArticleDataModel]) {
-        
-//        if data.count > 0 {
-//            navigationItem.prompt = "\(99) results for - \(keywordStr ?? "")"
-//        } else {
-//            navigationItem.prompt = nil
-//        }
-        
-//        if data.count == 0 {
-//            navigationItem.prompt = nil
-//        }
-        
         contentView.setupNews(data: data)
     }
 }
@@ -74,20 +64,7 @@ extension SearchViewController: SearchModelDelegate {
 extension SearchViewController: NewsViewDelegate {
     
     func share(article: ArticleDataModel) {
-        
-        if let urlToArticle = article.url {
-            if let url = URL(string: urlToArticle) {
-                let urlToShare = [url]
-                
-                let activityViewController = UIActivityViewController(
-                    activityItems: urlToShare,
-                    applicationActivities: nil
-                )
-                
-                activityViewController.popoverPresentationController?.sourceView = self.view
-                self.present(activityViewController, animated: true, completion: nil)
-            }
-        }
+        baseShareAction(article: article)
     }
     
     func presentAlert() {

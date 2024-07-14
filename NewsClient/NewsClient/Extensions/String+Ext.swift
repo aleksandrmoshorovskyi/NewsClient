@@ -5,12 +5,12 @@
 //  Created by Aleksandr Moroshovskyi on 29.06.2024.
 //
 
-import Foundation
 import UIKit
 
 extension String {
     
     var localized: String {
+        
         return NSLocalizedString(
             self,
             tableName: nil,
@@ -19,16 +19,6 @@ extension String {
             comment: self
         )
     }
-    
-//    func localized() -> String {
-//        return NSLocalizedString(
-//            self,
-//            tableName: nil,
-//            bundle: Bundle.localizedBundle(),
-//            value: self,
-//            comment: self
-//        )
-//    }
     
     func textToImage() -> UIImage? {
         

@@ -17,7 +17,6 @@ enum Category: String, CaseIterable {
     case technology = "technology"
     
     var localized: String {
-        //return self.rawValue.localized()
         return self.rawValue.localized
     }
 }

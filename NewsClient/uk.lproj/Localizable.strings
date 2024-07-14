@@ -76,5 +76,5 @@
 "alertController_okAletalertAction" = "Так";
 "alertController_cancelAletalertAction" = "Закрити";
 "alertController_error_title" = "помилка";
-"alertController_language_title" = "Зміна мови";
-"alertController_language_message" = "Щоб змінити мову, потрібно перезапустити програму. Ви хочете перезапустити?";
+"alertController_language_title" = "Mова";
+"alertController_language_message" = "Буде здійснено перехід до налаштувань додатку. Здійснити перехід?";

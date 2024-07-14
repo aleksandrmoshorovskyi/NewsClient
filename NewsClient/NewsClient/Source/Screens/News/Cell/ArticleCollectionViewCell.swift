@@ -14,16 +14,12 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     
     var articleDataSource: ArticleDataModel!
     
-    //var urlToArticle: String!
-    
     var containerView: UIView!
     var imageView: UIImageView!
     var titleLabel: UILabel!
     var controlsView: UIView!
     var dtLabel: UILabel!
     var menuButton: UIButton!
-    
-    //var openInSafariActionCompletion: (() -> ())?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,55 +34,32 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     
     func setupBaseUI() {
         
-        //self setup
-        //self.backgroundColor = Constant.baseCellBackgroundColor
+        contentView.layer.cornerRadius = Constants.ArticleCollectionViewCell_CornerRadius
+        contentView.backgroundColor = Constants.ArticleCollectionViewCell_BackgroundColor
         
-        //contentView setup
-        contentView.layer.cornerRadius = Constants.articleCellCornerRadius
-        contentView.backgroundColor = .systemBackground //.white //Constants.contentViewColor
-        //contentView.alpha = Constants.contentViewAlpha
-        
-        //containerView setup
         containerView = UIView()
-        containerView.layer.cornerRadius = Constants.articleCellCornerRadius
-        containerView.backgroundColor = .systemBackground //.white //Constants.containerViewColor
+        containerView.layer.cornerRadius = Constants.ArticleCollectionViewCell_CornerRadius
+        containerView.backgroundColor = Constants.ArticleCollectionViewCell_BackgroundColor
         
-        //imageView
         imageView = UIImageView()
-        imageView.layer.cornerRadius = Constants.articleCellCornerRadius
+        imageView.layer.cornerRadius = Constants.ArticleCollectionViewCell_CornerRadius
         imageView.layer.masksToBounds = true
-        imageView.backgroundColor = .gray
-        //imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = Constants.ArticleCollectionViewCell_ImageView_BackgroundColor
         imageView.contentMode = .scaleAspectFill
         
-        //titleLabel setup
         titleLabel = UILabel()
-        titleLabel.font = Constants.newsTitleFont
-        titleLabel.numberOfLines = 0
-        //titleLabel.lineBreakMode = .byWordWrapping
-        //titleLabel.lineBreakMode = .byClipping
-        //titleLabel.lineBreakMode = .byTruncatingTail
-        //titleLabel.textAlignment = .justified
-        //titleLabel.lineBreakStrategy = NSParagraphStyle.LineBreakStrategy.hangulWordPriority
-        //titleLabel.hyphenationFactor
-        //titleLabel.sizeToFit()
+        titleLabel.font = Constants.ArticleCollectionViewCell_newsTitleFont
+        titleLabel.numberOfLines = .zero
         
         //controlsView setup
         controlsView = UIView()
         
         //dtLabel setup
         dtLabel = UILabel()
-        dtLabel.font = Constants.dtTitleFont
-        dtLabel.alpha = 0.6
+        dtLabel.font = Constants.ArticleCollectionViewCell_dtTitleFont
+        dtLabel.alpha = Constants.ArticleCollectionViewCell_elementsAlpha
         
-        //menuButton setup
-        //let settingsMenu = generatePullDownMenu()
-//
-//        menuButton = UIButton(
-//            image: UIImage(systemName: "ellipsis"),
-//            menu: settingsMenu
-//        )
-        
+        //menuButton
         menuButton = UIButton()
         menuButton.showsMenuAsPrimaryAction = true
         menuButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)
@@ -94,14 +67,8 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             UIImage.SymbolConfiguration(scale: UIImage.SymbolScale.large),
             forImageIn: .normal
         )
-        //menuButton.menu = settingsMenu
-        //menuButton.setImage(UIImage(systemName: ""), for: .selected)
-        //menuButton.tintColor = .white
-        //menuButton.setTitle("BTN", for: .normal)
-        menuButton.alpha = 0.6
-        menuButton.tintColor = .systemGray
-        //menuButton.backgroundColor = .red
-        //menuButton.addTarget(self, action: #selector(menuButtonDidTap), for: .touchUpInside)
+        menuButton.alpha = Constants.ArticleCollectionViewCell_elementsAlpha
+        menuButton.tintColor = Constants.ArticleCollectionViewCell_menuButtonColor
     }
     
     func setupBaseLayout() {
@@ -123,55 +90,56 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         controlsView.addSubview(menuButton)
         
         NSLayoutConstraint.activate([
-            //collectionView constraints
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10.0),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10.0),
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10.0),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10.0),
+            containerView.leadingAnchor.constraint(
+                equalTo: contentView.leadingAnchor,
+                constant: Constants.ArticleCollectionViewCell_titleLabelSideOffset
+            ),
+            containerView.trailingAnchor.constraint(
+                equalTo: contentView.trailingAnchor,
+                constant: -Constants.ArticleCollectionViewCell_titleLabelSideOffset
+            ),
+            containerView.topAnchor.constraint(
+                equalTo: contentView.topAnchor,
+                constant: Constants.ArticleCollectionViewCell_titleLabelSideOffset
+            ),
+            containerView.bottomAnchor.constraint(
+                equalTo: contentView.bottomAnchor,
+                constant: -Constants.ArticleCollectionViewCell_titleLabelSideOffset
+            ),
             
-            //imageView
             imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .zero),
             imageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: .zero),
             imageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: .zero),
-            //imageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: .zero),
-            imageView.heightAnchor.constraint(equalToConstant: 200.0),
+            imageView.heightAnchor.constraint(
+                equalToConstant: Constants.ArticleCollectionViewCell_ImageView_HeightAnchor
+            ),
             
-            //titleLabel constraints
-//            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10.0),
-//            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10.0),
-//            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10.0),
-//            //titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10.0),
-            
-            //titleLabel constraints
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .zero),
             titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: .zero),
-            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10.0),
-            //titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10.0),
+            titleLabel.topAnchor.constraint(
+                equalTo: imageView.bottomAnchor,
+                constant: Constants.ArticleCollectionViewCell_titleLabelSideOffset
+            ),
             
-            //controlsView constraints/
             controlsView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .zero),
             controlsView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: .zero),
             controlsView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .zero),
             controlsView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: .zero),
-            controlsView.heightAnchor.constraint(equalToConstant: 40.0),
-//            controlsView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10.0),
-//            controlsView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10.0),
-//            controlsView.heightAnchor.constraint(equalToConstant: 20.0),
-            
-            //dtLabel setup
+            controlsView.heightAnchor.constraint(
+                equalToConstant: Constants.ArticleCollectionViewCell_ControlsView_HeightAnchor
+            ),
+
             dtLabel.leadingAnchor.constraint(equalTo: controlsView.leadingAnchor, constant: .zero),
-            //dtLabel.trailingAnchor.constraint(equalTo: controlsView.trailingAnchor, constant: .zero),
             dtLabel.topAnchor.constraint(equalTo: controlsView.topAnchor, constant: .zero),
             dtLabel.bottomAnchor.constraint(equalTo: controlsView.bottomAnchor, constant: .zero),
             
-            //menuButton setup
-            //menuButton.leadingAnchor.constraint(lessThanOrEqualTo: dtLabel.trailingAnchor, constant: 10.0),
-            //menuButton.trailingAnchor.constraint(equalTo: controlsView.trailingAnchor, constant: -10.0),
             menuButton.leadingAnchor.constraint(lessThanOrEqualTo: dtLabel.trailingAnchor, constant: .zero),
             menuButton.trailingAnchor.constraint(equalTo: controlsView.trailingAnchor, constant: .zero),
             menuButton.topAnchor.constraint(equalTo: controlsView.topAnchor, constant: .zero),
             menuButton.bottomAnchor.constraint(equalTo: controlsView.bottomAnchor, constant: .zero),
-            menuButton.widthAnchor.constraint(equalToConstant: 50.0)
+            menuButton.widthAnchor.constraint(
+                equalToConstant: Constants.ArticleCollectionViewCell_MenuButton_HeightAnchor
+            )
         ])
     }
     
@@ -184,83 +152,10 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         return layoutAttributes
     }
     
-    /*
-    private func strFor(_ timeInt: Int) -> String {
-        
-        var str = ""
-        
-        let minute: Int = 60
-        let hour: Int = 60*60
-        let day: Int = 60*60*24
-//        let twoDays: Int = 60*60*24*2
-        let threeDays: Int = 60*60*24*3
-        let week: Int = 60*60*24*7
-        let weeksInYear = 60*60*24*7*52
-        
-        switch timeInt {
-        case 0...minute:
-            str = "now".localized()
-        case minute...hour:
-            let localizedStr = "m ago".localized()
-            str = "\(timeInt/minute)\(localizedStr)"//m ago".localized()
-        case hour...threeDays:
-            let localizedStr = "h ago".localized()
-            str = "\(timeInt/hour)\(localizedStr)"//h ago".localized()
-//        case day...twoDays:
-//            str = "1d \((timeInt - day)/hour)h ago"
-//        case twoDays...threeDays:
-//            str = "2d \((timeInt - twoDays)/hour)h ago"
-        case threeDays...week:
-            let localizedStr = "d ago".localized()
-            str = "\(timeInt/day)\(localizedStr)"//d ago".localized()
-        case week...weeksInYear:
-            let localizedStr = "w ago".localized()
-            str = "\(timeInt/week)\(localizedStr)"//w ago".localized()
-        default:
-            str = "ancient".localized()
-        }
-        
-        return str
-    }
-    
-    private func converteDateToPastTime(_ dateStr: String?) -> String {
-        
-        var strPastTime = ""
-        
-        if let str = dateStr {
-            
-            //2024-06-14T12:09:53Z
-            let isoDate = str//"2016-04-14T10:44:00+0000"
-
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-            //dateFormatter.timeZone = .autoupdatingCurrent
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-            let date = dateFormatter.date(from:isoDate)!
-            
-            //debugPrint("\(date)")
-            //let date = Date(from: str as! Decoder)
-            
-            let timeInterval = date.timeIntervalSinceNow //date.timeIntervalSince1970
-            
-            //debugPrint("\(Int(timeInterval))")
-            
-            let timeIntervalInt = Int(timeInterval)
-            
-            let timeIntervalSinceNow = timeIntervalInt > 0 ? timeIntervalInt : timeIntervalInt * (-1)
-            
-            strPastTime = strFor(timeIntervalSinceNow)
-        }
-        
-        return strPastTime
-    }
-     */
-    
     func configure(with data: ArticleDataModel) {
         
         self.titleLabel.text = data.title
         self.imageView.image = UIImage.init(named: "newsDefaultImg")
-        //self.dtLabel.text = converteDateToPastTime(data.publishedAt)
         self.dtLabel.text = TimeConverter.converteDateToPastTime(data.publishedAt)
         
         if let urlToImage = data.urlToImage {
@@ -269,66 +164,18 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             }
         }
         
-        //self.urlToArticle = data.url
         self.articleDataSource = data
-        
-//        self.openInSafariActionCompletion = {
-//            if let urlToArticle = self.articleDataSource.url {
-//                if let url = URL(string: urlToArticle) {
-//                    UIApplication.shared.open(url) {_ in
-//                        //code
-//                    }
-//                }
-//            }
-//        }
         
         let settingsMenu = generatePullDownMenu()
         menuButton.menu = settingsMenu
     }
     
     private func shareButtonDidTap() {
-        //debugPrint("shareButtonDidTap")
-        
-        /*
-        let text = "This is the text...."
-        let image = UIImage(named: "Product")
-        let myWebsite = NSURL(string:"https://stackoverflow.com/users/4600136/mr-javed-multani?tab=profile")
-        let shareAll = [text, image!, myWebsite]
-        let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        self.present(activityViewController, animated: true, completion: nil)
-          */
-        
-//        if let urlToArticle = self.articleDataSource.url {
-//            if let url = URL(string: urlToArticle) {
-//                let urlToShare = [url]
-//                
-//                let activityViewController = UIActivityViewController(
-//                    activityItems: urlToShare,
-//                    applicationActivities: nil
-//                )
-//                
-//                //activityViewController.popoverPresentationController?.sourceView = self.view
-//                //self.present(activityViewController, animated: true, completion: nil)
-//            }
-//        }
-        delegate?.share(article: articleDataSource)
+        delegate?.shareAction(article: articleDataSource)
     }
     
     private func openInSafariButtonDidTap() {
-        //debugPrint("openInSafariButtonDidTap")
-        
-        //MARK: TODO - add qustion here
-        
-        if let urlToArticle = self.articleDataSource.url {
-            if let url = URL(string: urlToArticle) {
-                UIApplication.shared.open(url) {_ in
-                    //code
-                }
-            }
-        }
-        
-        //openInSafariActionCompletion?()
+        CommonFunctions.openInSafari(article: articleDataSource)
     }
     
     private func addToFavoriteButtonDidTap() {
@@ -354,12 +201,8 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     private func generatePullDownMenu() -> UIMenu {
         
         let isFavorite = articleDataSource.isFavorite
-//        if let isFavorite = articleDataSource.isFavorite {
-//            <#statements#>
-//        }
         
         let shareAction = UIAction(
-            //title: "Share".localized(),
             title: AppStrings.ArticleCollectionViewCell_shareAction_title.localized,
             image: UIImage(systemName: "square.and.arrow.up")
         ) { _ in
@@ -367,7 +210,6 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         }
         
         let safariAction = UIAction(
-            //title: "Open in Safari".localized(),
             title: AppStrings.ArticleCollectionViewCell_safariAction_title.localized,
             image: UIImage(systemName: "safari")
         ) { _ in
@@ -375,7 +217,6 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         }
         
         let saveAction = UIAction(
-            //title: isFavorite ? "Unsave".localized() : "Save".localized(),
             title: isFavorite ?
                 AppStrings.ArticleCollectionViewCell_unsaveAction_title.localized :
                 AppStrings.ArticleCollectionViewCell_saveAction_title.localized,
