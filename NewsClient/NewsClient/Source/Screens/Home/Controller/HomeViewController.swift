@@ -43,10 +43,13 @@ class HomeViewController: BaseViewController {
     }
     
     private func setupUI() {
+        //title = AppStrings.HomeViewController_title.localized.capitalized
+        
         if let nc = navigationController {
             nc.navigationBar.prefersLargeTitles = false
             //navigationItem.title = "NEWS".localized()
-            navigationItem.title = "news".localized().uppercased()
+            //navigationItem.title = "news".localized().uppercased()
+            navigationItem.title = AppStrings.HomeViewController_navigationItem_title.localized.uppercased()
             
             let nsAttributedString = [
                 NSAttributedString.Key.foregroundColor: UIColor.red,

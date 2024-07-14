@@ -22,13 +22,16 @@ extension SettingsViewController: SettingsViewDelegate {
     func presentAlertWith(completion: @escaping () -> Void) {
         
         let alertController = UIAlertController(
-            title: "language".localized().capitalized,
-            message: "To change language you need to restart the application. Do you want to restart?".localized(),
+            //title: "language".localized().capitalized,
+            //message: "To change language you need to restart the application. Do you want to restart?".localized(),
+            title: AppStrings.AlertController_language_title.localized.capitalized,
+            message: AppStrings.AlertController_language_message.localized,
             preferredStyle: .alert
         )
         
         let okAletalertAction = UIAlertAction(
-            title: "OK",
+            //title: "OK",
+            title: AppStrings.AlertController_okAletalertAction.localized,
             style: .destructive,
             handler: { _ in
                 completion()
@@ -42,7 +45,8 @@ extension SettingsViewController: SettingsViewDelegate {
             })
         
         let cancelAletalertAction = UIAlertAction(
-            title: "Cancel",
+            //title: "Cancel",
+            title: AppStrings.AlertController_cancelAletalertAction.localized,
             style: .cancel) { (action) in
             // ...
         }
@@ -55,8 +59,10 @@ extension SettingsViewController: SettingsViewDelegate {
     
     func presentAlert() {
         let alertController = UIAlertController(
-            title: "language".localized().capitalized,
-            message: "To change language you need to restart the application. Do you want to restart?".localized(),
+//            title: "language".localized().capitalized,
+//            message: "To change language you need to restart the application. Do you want to restart?".localized(),
+            title: AppStrings.AlertController_language_title.localized.capitalized,
+            message: AppStrings.AlertController_language_message.localized,
             preferredStyle: .alert
         )
 
@@ -68,7 +74,8 @@ extension SettingsViewController: SettingsViewDelegate {
 //        }
         
         let okAletalertAction = UIAlertAction(
-            title: "OK",
+            //title: "OK",
+            title: AppStrings.AlertController_okAletalertAction.localized,
             style: .destructive,
             handler: { _ in
                 //NSLog("The \"OK\" alert occured.")
@@ -78,7 +85,8 @@ extension SettingsViewController: SettingsViewDelegate {
             })
         
         let cancelAletalertAction = UIAlertAction(
-            title: "Cancel",
+            //title: "Cancel",
+            title: AppStrings.AlertController_cancelAletalertAction.localized,
             style: .cancel) { (action) in
             // ...
         }

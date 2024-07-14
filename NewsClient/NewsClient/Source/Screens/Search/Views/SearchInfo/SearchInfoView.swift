@@ -43,7 +43,11 @@ class SearchInfoView: UIView {
         
         clearButton = UIButton()
         clearButton.titleLabel?.font = .systemFont(ofSize: 13)
-        clearButton.setTitle("Clear".localized(), for: .normal)
+        //clearButton.setTitle("Clear".localized(), for: .normal)
+        clearButton.setTitle(
+            AppStrings.SearchInfoView_clearButton_title.localized,
+            for: .normal
+        )
         clearButton.setTitleColor(.systemRed, for: .normal)
         clearButton.setTitleColor(.systemGray, for: .highlighted)
         clearButton.addTarget(self, action: #selector(clearButtonDidTap), for: .touchUpInside)

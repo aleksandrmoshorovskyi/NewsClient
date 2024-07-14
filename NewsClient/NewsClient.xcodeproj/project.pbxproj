@@ -69,6 +69,7 @@
 		A83A172B2C415CFE0032A03C /* SearchInfoView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83A172A2C415CFE0032A03C /* SearchInfoView+Ext.swift */; };
 		A83A178B2C42D9F60032A03C /* Bundle+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83A178A2C42D9F60032A03C /* Bundle+Ext.swift */; };
 		A83A178D2C43C1A60032A03C /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83A178C2C43C1A60032A03C /* AppStrings.swift */; };
+		A83A17912C43E0970032A03C /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83A17902C43E0970032A03C /* TimeConverter.swift */; };
 		A85AB6DD2C19E04100FE1829 /* ArticleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6DC2C19E04100FE1829 /* ArticleDataModel.swift */; };
 		A85AB6DF2C19E6D100FE1829 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6DE2C19E6D100FE1829 /* Constants.swift */; };
 		A85AB6EF2C19F35B00FE1829 /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6EE2C19F35B00FE1829 /* ArticleCollectionViewCell.swift */; };
@@ -190,6 +191,7 @@
 		A83A172A2C415CFE0032A03C /* SearchInfoView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchInfoView+Ext.swift"; sourceTree = "<group>"; };
 		A83A178A2C42D9F60032A03C /* Bundle+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Ext.swift"; sourceTree = "<group>"; };
 		A83A178C2C43C1A60032A03C /* AppStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
+		A83A17902C43E0970032A03C /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
 		A85AB6DC2C19E04100FE1829 /* ArticleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDataModel.swift; sourceTree = "<group>"; };
 		A85AB6DE2C19E6D100FE1829 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A85AB6EE2C19F35B00FE1829 /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 		A80469922C2C7A0A00178BEE /* toDELETE */ = {
 			isa = PBXGroup;
 			children = (
+				A823EE9B2C10A004001BF6A6 /* APIParametrs.swift */,
 				A85AB6F32C1C8DA500FE1829 /* UIImageView+Ext.swift */,
 			);
 			path = toDELETE;
@@ -361,7 +364,6 @@
 				A823EE932C109651001BF6A6 /* NetworkService.swift */,
 				A823EE972C109AE7001BF6A6 /* NetworkServiceProtocol.swift */,
 				A823EE952C1096BE001BF6A6 /* APIConstant.swift */,
-				A823EE9B2C10A004001BF6A6 /* APIParametrs.swift */,
 				A823EE992C109B23001BF6A6 /* NetworkService+News.swift */,
 			);
 			path = Network;
@@ -389,12 +391,13 @@
 			isa = PBXGroup;
 			children = (
 				A83A178C2C43C1A60032A03C /* AppStrings.swift */,
-				A824BF952C30710A00B436F9 /* DefaultManager.swift */,
-				A823EEAA2C10A84D001BF6A6 /* ServiceProvider.swift */,
 				A824BFB42C31512300B436F9 /* Category.swift */,
 				A85AB6DE2C19E6D100FE1829 /* Constants.swift */,
 				A824BFB62C31515100B436F9 /* Country.swift */,
+				A824BF952C30710A00B436F9 /* DefaultManager.swift */,
+				A823EEAA2C10A84D001BF6A6 /* ServiceProvider.swift */,
 				A824BF752C30408400B436F9 /* Theme.swift */,
+				A83A17902C43E0970032A03C /* TimeConverter.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -916,6 +919,7 @@
 				A823EEB92C19989B001BF6A6 /* CoreDataService.swift in Sources */,
 				A824BFB72C31515100B436F9 /* Country.swift in Sources */,
 				A823EEBB2C19992C001BF6A6 /* CoreDataServiceProtocol.swift in Sources */,
+				A83A17912C43E0970032A03C /* TimeConverter.swift in Sources */,
 				A85AB7392C2018C700FE1829 /* NewsView+Ext.swift in Sources */,
 				A823EE9C2C10A004001BF6A6 /* APIParametrs.swift in Sources */,
 				A85AB7522C23698100FE1829 /* NewsDetailsViewControllerDelegate.swift in Sources */,

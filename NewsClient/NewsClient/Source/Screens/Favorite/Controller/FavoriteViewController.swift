@@ -45,8 +45,9 @@ class FavoriteViewController: BaseViewController {
     private func setupUI() {
         if let nc = navigationController {
             //nc.navigationBar.prefersLargeTitles = false
-            navigationItem.title = "favorites".localized().capitalized
-            debugPrint("\(String(describing: nc.navigationBar.isHidden))")
+            //navigationItem.title = "favorites".localized().capitalized
+            navigationItem.title = AppStrings.FavoriteViewController_title.localized.capitalized
+            //debugPrint("\(String(describing: nc.navigationBar.isHidden))")
             
             //nc.navigationBar.hidesNavigationBarDuringPresentation = false
             //let navBar = nc.navigationBar
@@ -81,7 +82,10 @@ class FavoriteViewController: BaseViewController {
             navigationItem.hidesSearchBarWhenScrolling = false
             navigationItem.titleView?.isHidden = false
             
-            let placeholderColor = NSAttributedString(string: "Search in saved".localized())
+            //let placeholderColor = NSAttributedString(string: "Search in saved".localized())
+            let placeholderColor = NSAttributedString(
+                string: AppStrings.FavoriteViewController_searchBar_placeholder.localized
+            )
             navigationItem.searchController?.searchBar.searchTextField.attributedPlaceholder = placeholderColor
         }
     }

@@ -47,7 +47,8 @@ class SearchViewController: BaseViewController {
     private func setupUI() {
         if let nc = navigationController {
             nc.navigationBar.prefersLargeTitles = false
-            navigationItem.title = "search".localized().capitalized
+            //navigationItem.title = "search".localized().capitalized
+            navigationItem.title = AppStrings.SearchViewController_title.localized.capitalized
             //navigationItem.prompt = "It's prompt: 00"
             
             //let myTitleView = UIView()
@@ -103,7 +104,10 @@ class SearchViewController: BaseViewController {
             navigationItem.hidesSearchBarWhenScrolling = false
             //navigationItem.titleView?.isHidden = false
             
-            let placeholderColor = NSAttributedString(string: "Find it on NEWS".localized())
+            //let placeholderColor = NSAttributedString(string: "Find it on NEWS".localized())
+            let placeholderColor = NSAttributedString(
+                string: AppStrings.SearchViewController_searchBar_placeholder.localized
+            )
             navigationItem.searchController?.searchBar.searchTextField.attributedPlaceholder = placeholderColor
         }
     }
@@ -113,7 +117,8 @@ class SearchViewController: BaseViewController {
         
         if keywordStr == nil {
             model.loadDataFor(keyword: "")
-            navigationItem.prompt = "No results yet".localized()
+            //navigationItem.prompt = "No results yet".localized()
+            navigationItem.prompt = AppStrings.SearchViewController_navigationItem_prompt_empty.localized
         }
     }
 }
@@ -189,10 +194,16 @@ extension SearchViewController: UITableViewDelegate {
         viewForHeaderInSection.delegate = self
         
         if serchDataSource.count == 0 {
-            viewForHeaderInSection.setupTitle("No recent searches".localized())
+            //viewForHeaderInSection.setupTitle("No recent searches".localized())
+            viewForHeaderInSection.setupTitle(
+                AppStrings.SearchViewController_HeaderView_No_recent_searches.localized
+            )
             viewForHeaderInSection.showClearButton(false)
         } else {
-            viewForHeaderInSection.setupTitle("Recent searches".localized())
+            //viewForHeaderInSection.setupTitle("Recent searches".localized())
+            viewForHeaderInSection.setupTitle(
+                AppStrings.SearchViewController_HeaderView_Recent_searches.localized
+            )
             viewForHeaderInSection.showClearButton(true)
         }
         

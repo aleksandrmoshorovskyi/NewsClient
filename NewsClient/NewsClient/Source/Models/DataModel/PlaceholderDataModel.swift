@@ -7,7 +7,7 @@
 
 import Foundation
 
-//typealias buttonAction = ()
+typealias buttonAction = () -> ()
 
 struct PlaceholderDataModel {
     
@@ -16,6 +16,5 @@ struct PlaceholderDataModel {
     let descriptionText: NSAttributedString
     
     var buttonTitle: String?
-    //var buttonAction: Selector?
-    var buttonActionCompletion: (() -> ())?
+    var buttonActionCompletion: (buttonAction)?
 }

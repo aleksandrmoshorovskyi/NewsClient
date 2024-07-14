@@ -104,8 +104,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     func configure(with data: Category) {
         
-        self.titleLabel.text = data.rawValue.localized().capitalized
-        
+        //self.titleLabel.text = data.rawValue.localized().capitalized
+        self.titleLabel.text = data.localized.capitalized
         //configureUI()
     }
     

@@ -25,13 +25,15 @@ extension SearchViewController: SearchModelDelegate {
     func presentAlert(with message: String) {
         
         let alertController = UIAlertController(
-            title: "error".localized().capitalized,
+            //title: "error".localized().capitalized,
+            title: AppStrings.AlertController_error_title.localized,
             message: message,
             preferredStyle: .alert
         )
         
         let okAletalertAction = UIAlertAction(
-            title: "OK",
+            //title: "OK",
+            title: AppStrings.AlertController_okAletalertAction.localized,
             style: .default) { (action) in
             // ...
         }
@@ -42,7 +44,13 @@ extension SearchViewController: SearchModelDelegate {
     }
     
     func totalResult(is count: Int) {
-        navigationItem.prompt = "\(count)" + " " + "results for".localized() + " - " + "\(keywordStr ?? "")"
+        //navigationItem.prompt = "\(count)" + " " + "results for".localized() + " - " + "\(keywordStr ?? "")"
+        navigationItem.prompt = ""
+        navigationItem.prompt?.append("\(count)")
+        navigationItem.prompt?.append(" ")
+        navigationItem.prompt?.append(AppStrings.SearchViewController_navigationItem_prompt_result.localized)
+        navigationItem.prompt?.append(" - ")
+        navigationItem.prompt?.append("\(keywordStr ?? "")")
         navigationItem.titleView?.reloadInputViews()
     }
     

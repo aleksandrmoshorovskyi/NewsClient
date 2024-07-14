@@ -37,22 +37,22 @@ class DefaultManager: NSObject {
     }
     
     //MARK: AppLanguage
-    static func setAppLanguage(ver: Int) {
-        UserDefaults.standard.set(ver, forKey: KEY_AppLanguage)
-        UserDefaults.standard.synchronize()
-    }
-    
-    static func getAppLanguage() -> Int? {
-        if let ver = UserDefaults.standard.value(forKey: KEY_AppLanguage) as? Int {
-            return ver
-        }
-        return nil
-    }
-    
-    static func removeAppLanguage() {
-        UserDefaults.standard.removeObject(forKey: KEY_AppLanguage)
-        UserDefaults.standard.synchronize()
-    }
+//    static func setAppLanguage(ver: Int) {
+//        UserDefaults.standard.set(ver, forKey: KEY_AppLanguage)
+//        UserDefaults.standard.synchronize()
+//    }
+//    
+//    static func getAppLanguage() -> Int? {
+//        if let ver = UserDefaults.standard.value(forKey: KEY_AppLanguage) as? Int {
+//            return ver
+//        }
+//        return nil
+//    }
+//    
+//    static func removeAppLanguage() {
+//        UserDefaults.standard.removeObject(forKey: KEY_AppLanguage)
+//        UserDefaults.standard.synchronize()
+//    }
     
     //MARK: Country
     static func setAppCountry(_ country: Country) {

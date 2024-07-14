@@ -10,7 +10,6 @@ import UIKit
 enum Theme: String, CaseIterable {
     case light, dark, system
 
-    // Utility var to pass directly to window.overrideUserInterfaceStyle
     var uiInterfaceStyle: UIUserInterfaceStyle {
         switch self {
         case .light:
@@ -19,17 +18,6 @@ enum Theme: String, CaseIterable {
             return .dark
         case .system:
             return .unspecified
-        }
-    }
-    
-    var icon: String {
-        switch self {
-        case .light:
-            return "◻️"
-        case .dark:
-            return "◼️"
-        case .system:
-            return "⚙️"
         }
     }
     
@@ -42,5 +30,10 @@ enum Theme: String, CaseIterable {
         case .system:
             return UIImage(systemName: "gearshape")
         }
+    }
+    
+    var localized: String {
+        //return self.rawValue.localized()
+        return self.rawValue.localized
     }
 }

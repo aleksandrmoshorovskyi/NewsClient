@@ -25,13 +25,15 @@ extension NewsViewController: NewsModelDelegate {
     func presentAlert(with message: String) {
         
         let alertController = UIAlertController(
-            title: "error".localized().capitalized,
+            //title: "error".localized().capitalized,
+            title: AppStrings.AlertController_error_title.localized,
             message: message,
             preferredStyle: .alert
         )
         
         let okAletalertAction = UIAlertAction(
-            title: "OK",
+            //title: "OK",
+            title: AppStrings.AlertController_okAletalertAction.localized,
             style: .default) { (action) in
             // ...
         }

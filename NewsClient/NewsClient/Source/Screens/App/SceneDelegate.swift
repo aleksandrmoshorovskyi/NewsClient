@@ -72,6 +72,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        
         guard
             let change = change,
             object != nil,
@@ -84,14 +85,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func setTheme(_ theme: UIUserInterfaceStyle?) {
+        
         guard let theme = theme else { return }
         
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: { [weak self] in
             self?.window?.overrideUserInterfaceStyle = theme
         }, completion: .none)
-    }
-    
-    func resetApp() {
-        //???
     }
 }

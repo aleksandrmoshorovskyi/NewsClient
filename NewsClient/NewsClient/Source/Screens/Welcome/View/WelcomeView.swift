@@ -57,21 +57,24 @@ class WelcomeView: UIView {
         containerView = UIView()
         
         titleLabel = UILabel()
-        titleLabel.numberOfLines = 3
+        titleLabel.numberOfLines = 0//3
         titleLabel.font = Constants.pageTitleFont
-        titleLabel.text = "Get the most relevant to you".localized()
+        //titleLabel.text = "Get the most relevant to you".localized()
+        titleLabel.text = AppStrings.WelcomeView_titleLabel.localized
         titleLabel.textAlignment = .center
         
         headerLabel = UILabel()
-        headerLabel.numberOfLines = 2
+        headerLabel.numberOfLines = 0//2
         headerLabel.font = Constants.pageSecondTitleFont
-        headerLabel.text = "Please select country which news do you prefer:".localized()
+        //headerLabel.text = "Please select country which news do you prefer:".localized()
+        headerLabel.text = AppStrings.WelcomeView_headerLabel.localized
         headerLabel.textAlignment = .center
         
         footerLabel = UILabel()
-        footerLabel.numberOfLines = 2
+        footerLabel.numberOfLines = 0//2
         footerLabel.font = Constants.pageSecondTitleFont
-        footerLabel.text = "You can change it anytime from your settings screen.".localized()
+        //footerLabel.text = "You can change it anytime from your settings screen.".localized()
+        footerLabel.text = AppStrings.WelcomeView_footerLabel.localized
         footerLabel.textAlignment = .center
         
         //collectionView setup
@@ -93,7 +96,8 @@ class WelcomeView: UIView {
 //        saveButton.backgroundColor = Constants.saveButtonColor
 //        saveButton.setTitleColor(Constants.saveButtonTextColor, for: .normal)
 //        saveButton.setTitleColor(.gray, for: .highlighted)
-        saveButton.setTitle("Save and continue".localized(), for: .normal)
+        //saveButton.setTitle("Save and continue".localized(), for: .normal)
+        saveButton.setTitle(AppStrings.WelcomeView_saveButton_title.localized, for: .normal)
         saveButton.addTarget(self, action: #selector(saveButtonClicked), for: .touchUpInside)
         
         headerStackView = UIStackView()

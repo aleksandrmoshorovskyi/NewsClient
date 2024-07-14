@@ -12,21 +12,20 @@ enum Country: String, CaseIterable {
     case Ukraine = "ua"
     case UnitedKingdom = "gb"
     case UnitedStates = "us"
-    //case Japan = "jp"
+//    case Japan = "jp"
     
     var countryName: String {
         switch self {
         case .Poland:
-            return "Poland"
+            return AppStrings.Country_countryName_Poland.localized
         case .Ukraine:
-            return "Ukraine"
+            return AppStrings.Country_countryName_Ukraine.localized
         case .UnitedKingdom:
-            //return "United Kingdom"
-            return "UK"
+            return AppStrings.Country_countryName_UK.localized
         case .UnitedStates:
-            return "USA"
+            return AppStrings.Country_countryName_USA.localized
 //        case .Japan:
-//            return "Japan"
+//            return AppStrings.Country_countryName_Japan.localized
         }
     }
     
@@ -37,7 +36,6 @@ enum Country: String, CaseIterable {
         case .Ukraine:
             return "🇺🇦"
         case .UnitedKingdom:
-            //return "United Kingdom"
             return "🇬🇧"
         case .UnitedStates:
             return "🇺🇸"

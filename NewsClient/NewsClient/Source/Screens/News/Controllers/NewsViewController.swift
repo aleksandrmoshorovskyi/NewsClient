@@ -106,7 +106,8 @@ class NewsViewController: BaseViewController {
     
     func notificationReceiver(_ notification: Notification) {
         
-        if let object = notification.object as? NewsModelProtocol {
+        //if let object = notification.object as? NewsModelProtocol {
+        if let _ = notification.object as? NewsModelProtocol {
             debugPrint("\(String(describing: currentCategory))")
             //model.loadDataFor(currentCategory)
             model.loadDataFor(category: currentCategory)

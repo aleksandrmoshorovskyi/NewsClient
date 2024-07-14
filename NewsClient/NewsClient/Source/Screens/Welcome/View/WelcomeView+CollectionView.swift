@@ -54,24 +54,9 @@ extension WelcomeView: UICollectionViewDelegate {
 extension WelcomeView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    
-        //let referenceHeight: CGFloat = 58.0 // Approximate height of your cell
-        //let referenceWidth: CGFloat = 200.0 // Approximate width of your cell
         
         return CGSize(width: collectionView.bounds.width/2, height: collectionView.bounds.width/2)
     }
-    
-    /*
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
-        return UIEdgeInsets(
-            top: .zero,
-            left: 10.0,
-            bottom: .zero,
-            right: 10.0
-        )
-    }
-     */
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         

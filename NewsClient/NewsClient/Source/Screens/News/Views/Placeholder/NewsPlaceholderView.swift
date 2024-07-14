@@ -127,22 +127,22 @@ class NewsPlaceholderView: UIView {
         ])
     }
     
-    private func getTextForDescriptionLabel() -> NSAttributedString {
-        
-        let imageAttachment = NSTextAttachment()
-        imageAttachment.image = UIImage(systemName: "bookmark")?.withTintColor(.systemBlue)
-        //imageAttachment.image?.withTintColor(.systemBlue)
-        //imageAttachment.image?.withTintColor(.systemBlue)
-        
-        let attributedText = NSMutableAttributedString()
-        attributedText.append(NSAttributedString(string: "When reading an article, tap the ".localized()))
-        attributedText.append(NSAttributedString(attachment: imageAttachment))
-        attributedText.append(NSAttributedString(string: "\n"))
-        attributedText.append(NSAttributedString(string: "icon to save it. ".localized()))
-        attributedText.append(NSAttributedString(string: "You'll be able to come back here to read it later".localized()))
-        
-        return attributedText
-    }
+//    private func getTextForDescriptionLabel() -> NSAttributedString {
+//        
+//        let imageAttachment = NSTextAttachment()
+//        imageAttachment.image = UIImage(systemName: "bookmark")?.withTintColor(.systemBlue)
+//        //imageAttachment.image?.withTintColor(.systemBlue)
+//        //imageAttachment.image?.withTintColor(.systemBlue)
+//        
+//        let attributedText = NSMutableAttributedString()
+//        attributedText.append(NSAttributedString(string: "When reading an article, tap the ".localized()))
+//        attributedText.append(NSAttributedString(attachment: imageAttachment))
+//        attributedText.append(NSAttributedString(string: "\n"))
+//        attributedText.append(NSAttributedString(string: "icon to save it. ".localized()))
+//        attributedText.append(NSAttributedString(string: "You'll be able to come back here to read it later".localized()))
+//        
+//        return attributedText
+//    }
     
     @objc func forBtnAction() {
         if let buttonActionCompletion = dataSource.buttonActionCompletion {

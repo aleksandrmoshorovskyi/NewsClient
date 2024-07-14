@@ -72,7 +72,10 @@ extension FavoriteModel: FavoriteModelProtocol {
     
     private func getTextForTitlePlaceholderLabel() -> NSAttributedString {
         
-        let attributedText = NSAttributedString(string: "Find your saved \n articles here".localized())
+        //let attributedText = NSAttributedString(string: "Find your saved \n articles here".localized())
+        let attributedText = NSAttributedString(
+            string: AppStrings.FavoriteViewController_Placeholder_titleText.localized
+        )
         
         return attributedText
     }
@@ -85,11 +88,20 @@ extension FavoriteModel: FavoriteModelProtocol {
         //imageAttachment.image?.withTintColor(.systemBlue)
         
         let attributedText = NSMutableAttributedString()
-        attributedText.append(NSAttributedString(string: "When reading an article, tap the ".localized()))
+        //attributedText.append(NSAttributedString(string: "When reading an article, tap the ".localized()))
+        attributedText.append(NSAttributedString(
+            string: AppStrings.FavoriteViewController_Placeholder_descriptionText.localized
+        ))
         attributedText.append(NSAttributedString(attachment: imageAttachment))
         attributedText.append(NSAttributedString(string: "\n"))
-        attributedText.append(NSAttributedString(string: "icon to save it. ".localized()))
-        attributedText.append(NSAttributedString(string: "You'll be able to come back here to read it later".localized()))
+        //attributedText.append(NSAttributedString(string: "icon to save it. ".localized()))
+        attributedText.append(NSAttributedString(
+            string: AppStrings.FavoriteViewController_Placeholder_descriptionTextOne.localized
+        ))
+        //attributedText.append(NSAttributedString(string: "You'll be able to come back here to read it later".localized()))
+        attributedText.append(NSAttributedString(
+            string: AppStrings.FavoriteViewController_Placeholder_descriptionTextTwo.localized
+        ))
         
         return attributedText
     }

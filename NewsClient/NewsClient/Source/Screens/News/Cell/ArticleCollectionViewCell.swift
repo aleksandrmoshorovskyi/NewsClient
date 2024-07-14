@@ -184,6 +184,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         return layoutAttributes
     }
     
+    /*
     private func strFor(_ timeInt: Int) -> String {
         
         var str = ""
@@ -253,12 +254,14 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         
         return strPastTime
     }
+     */
     
     func configure(with data: ArticleDataModel) {
         
         self.titleLabel.text = data.title
         self.imageView.image = UIImage.init(named: "newsDefaultImg")
-        self.dtLabel.text = converteDateToPastTime(data.publishedAt)
+        //self.dtLabel.text = converteDateToPastTime(data.publishedAt)
+        self.dtLabel.text = TimeConverter.converteDateToPastTime(data.publishedAt)
         
         if let urlToImage = data.urlToImage {
             if let url = URL(string: urlToImage) {
@@ -356,21 +359,26 @@ class ArticleCollectionViewCell: UICollectionViewCell {
 //        }
         
         let shareAction = UIAction(
-            title: "Share".localized(),
+            //title: "Share".localized(),
+            title: AppStrings.ArticleCollectionViewCell_shareAction_title.localized,
             image: UIImage(systemName: "square.and.arrow.up")
         ) { _ in
             self.shareButtonDidTap()
         }
         
         let safariAction = UIAction(
-            title: "Open in Safari".localized(),
+            //title: "Open in Safari".localized(),
+            title: AppStrings.ArticleCollectionViewCell_safariAction_title.localized,
             image: UIImage(systemName: "safari")
         ) { _ in
             self.openInSafariButtonDidTap()
         }
         
         let saveAction = UIAction(
-            title: isFavorite ? "Unsave".localized() : "Save".localized(),
+            //title: isFavorite ? "Unsave".localized() : "Save".localized(),
+            title: isFavorite ?
+                AppStrings.ArticleCollectionViewCell_unsaveAction_title.localized :
+                AppStrings.ArticleCollectionViewCell_saveAction_title.localized,
             image: UIImage(systemName: isFavorite ? "bookmark.fill" : "bookmark")
         ) { _ in
             if isFavorite {

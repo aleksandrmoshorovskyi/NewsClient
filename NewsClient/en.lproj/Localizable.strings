@@ -5,4 +5,76 @@
   Created by Aleksandr Moroshovskyi on 29.06.2024.
   
 */
-"Ukrainian" = "Українська";
+
+
+
+"welcomeViewController_title" = "Welcome";
+"welcomeView_titleLabel" = "Get the most relevant to you";
+"welcomeView_headerLabel" = "Please select country which news do you prefer:";
+"welcomeView_footerLabel" = "You can change it anytime from your settings screen.";
+"welcomeView_saveButton_title" = "Save and continue";
+
+"country_countryName_Poland" = "Poland";
+"country_countryName_Ukraine" = "Ukraine";
+"country_countryName_UK" = "UK";
+"country_countryName_USA" = "USA";
+"country_countryName_Japan" = "Japan";
+
+"general" = "general";
+"business" = "business";
+"entertainment" = "entertainment";
+"health" = "health";
+"science" = "science";
+"sports" = "sports";
+"technology" = "technology";
+
+"light" = "light";
+"dark" = "dark";
+"system" = "system";
+
+"homeViewController_title" = "home";
+"homeViewController_navigationItem_title" = "news";
+"newsViewController_Placeholder_titleText" = "OOOPS...";
+"newsViewController_Placeholder_descriptionText" = "Something went wrong. \n Please, try again later.";
+"newsViewController_Placeholder_buttonTitle" = "Try again";
+
+"searchViewController_title" = "search";
+"searchViewController_searchBar_placeholder" = "Find it on NEWS";
+"searchViewController_navigationItem_prompt_empty" = "No results yet";
+"searchViewController_navigationItem_prompt_result" = "results for";
+"searchViewController_HeaderView_No_recent_searches" = "No recent searches";
+"searchViewController_HeaderView_Recent_searches" = "Recent searches";
+"searchInfoView_clearButton_title" = "Clear";
+"searchViewController_Placeholder_titleText" = "Find it on NEWS";
+"searchViewController_Placeholder_descriptionText" = "Type your query to search from NEWS";
+
+"favoriteViewController_title" = "favorites";
+"favoriteViewController_searchBar_placeholder" = "Search in saved";
+"favoriteViewController_Placeholder_titleText" = "Find your saved \n articles here";
+"favoriteViewController_Placeholder_descriptionText" = "When reading an article, tap the ";
+"favoriteViewController_Placeholder_descriptionTextOne" = "icon to save it. ";
+"favoriteViewController_Placeholder_descriptionTextTwo" = "You'll be able to come back here to read it later";
+
+"settingsViewController_title" = "settings";
+"settingsViewController_mode_title" = "mode";
+"settingsViewController_interface_language_title" = "interface language";
+"settingsViewController_change_language_title" = "change language";
+"settingsViewController_country_title" = "country";
+
+"articleCollectionViewCell_shareAction_title" = "Share";
+"articleCollectionViewCell_safariAction_title" = "Open in Safari";
+"articleCollectionViewCell_unsaveAction_title" = "Unsave";
+"articleCollectionViewCell_saveAction_title" = "Save";
+
+"timeConverter_now" = "now";
+"timeConverter_m_ago" = "m ago";
+"timeConverter_h_ago" = "h ago";
+"timeConverter_d_ago" = "d ago";
+"timeConverter_w_ago" = "w ago";
+"timeConverter_ancient" = "ancient";
+ 
+"alertController_okAletalertAction" = "OK";
+"alertController_cancelAletalertAction" = "Cancel";
+"alertController_error_title" = "error";
+"alertController_language_title" = "language";
+"alertController_language_message" = "To change language you need to restart the application. Do you want to restart?";

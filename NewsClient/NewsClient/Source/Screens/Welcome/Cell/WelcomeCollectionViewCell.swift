@@ -90,7 +90,8 @@ class WelcomeCollectionViewCell: UICollectionViewCell {
     func configure(with data: Country) {
         
         self.imageView.image = UIImage(named: data.rawValue)
-        self.titleLabel.text = data.countryName.localized()
+        //self.titleLabel.text = data.countryName.localized()
+        self.titleLabel.text = data.countryName
         
         configureUI()
     }

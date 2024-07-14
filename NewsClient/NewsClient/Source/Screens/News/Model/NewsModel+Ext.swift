@@ -198,24 +198,31 @@ extension NewsModel: NewsModelProtocol {
     
     private func getTextForTitlePlaceholderLabel() -> NSAttributedString {
         
-        let attributedText = NSAttributedString(string: "OOOPS...".localized())
+        //let attributedText = NSAttributedString(string: "OOOPS...".localized())
+        let attributedText = NSAttributedString(
+            string: AppStrings.NewsViewController_Placeholder_titleText.localized
+        )
         
         return attributedText
     }
     
     private func getTextForDescriptionPlaceholderLabel() -> NSAttributedString {
         
-        let attributedText = NSMutableAttributedString()
-        attributedText.append(NSAttributedString(string: "Something went wrong.".localized()))
-        attributedText.append(NSAttributedString(string: "\n"))
-        attributedText.append(NSAttributedString(string: "Please, try again later.".localized()))
+//        let attributedText = NSMutableAttributedString()
+//        attributedText.append(NSAttributedString(string: "Something went wrong.".localized()))
+//        attributedText.append(NSAttributedString(string: "\n"))
+//        attributedText.append(NSAttributedString(string: "Please, try again later.".localized()))
+        let attributedText = NSAttributedString(
+            string: AppStrings.NewsViewController_Placeholder_descriptionText.localized
+        )
         
         return attributedText
     }
     
     private func getButtonTitle() -> String {
         
-        let str = "Try again".localized()
+        //let str = "Try again".localized()
+        let str = AppStrings.NewsViewController_Placeholder_buttonTitle.localized
         
         return str
     }
@@ -223,14 +230,14 @@ extension NewsModel: NewsModelProtocol {
     //@objc 
     func buttonAction() {
         
-        if let currentCategory = currentCategory {
+        //if let currentCategory = currentCategory {
             //loadDataFor(category: currentCategory)
             NotificationCenter.default.post(
                 name: Constants.updateAfterErrorNotification,
                 object: self,
                 userInfo: nil
             )
-        }
+        //}
     }
 }
 

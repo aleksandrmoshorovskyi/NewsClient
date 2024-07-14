@@ -155,14 +155,20 @@ extension SearchModel: SearchModelProtocol {
     
     private func getTextForTitlePlaceholderLabel() -> NSAttributedString {
         
-        let attributedText = NSAttributedString(string: "Find it on NEWS".localized())
+        //let attributedText = NSAttributedString(string: "Find it on NEWS".localized())
+        let attributedText = NSAttributedString(
+            string: AppStrings.SearchViewController_Placeholder_titleText.localized
+        )
         
         return attributedText
     }
     
     private func getTextForDescriptionPlaceholderLabel() -> NSAttributedString {
         
-        let attributedText = NSAttributedString(string: "Type your query to search from NEWS".localized())
+        //let attributedText = NSAttributedString(string: "Type your query to search from NEWS".localized())
+        let attributedText = NSAttributedString(
+            string: AppStrings.SearchViewController_Placeholder_descriptionText.localized
+        )
         
         return attributedText
     }

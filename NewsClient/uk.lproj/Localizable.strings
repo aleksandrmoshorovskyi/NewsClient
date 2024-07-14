@@ -5,12 +5,20 @@
   Created by Aleksandr Moroshovskyi on 29.06.2024.
   
 */
-"news" = "новини";
 
-"home" = "головна";
-"search" = "пошук";
-"favorites" = "збережені";
-"settings" = "налаштування";
+
+
+"welcomeViewController_title" = "Вітаємо";
+"welcomeView_titleLabel" = "Отримайте найбільш актуальне для вас";
+"welcomeView_headerLabel" = "Будь ласка, виберіть країну, новинам якої ви надаєте перевагу:";
+"welcomeView_footerLabel" = "Ви можете будь-коли змінити це на екрані налаштувань.";
+"welcomeView_saveButton_title" = "Зберегти та продовжити";
+
+"country_countryName_Poland" = "Польша";
+"country_countryName_Ukraine" = "Україна";
+"country_countryName_UK" = "Великобританія";
+"country_countryName_USA" = "США";
+"country_countryName_Japan" = "Японія";
 
 "general" = "загальні";
 "business" = "бізнес";
@@ -20,64 +28,53 @@
 "sports" = "спорт";
 "technology" = "технології";
 
-"Share" = "Поділитися";
-"Open in Safari" = "Відкрити у Safari";
-"Save" = "Зберегти";
-"Unsave" = "Вилучити";
-"Search" = "Пошук";
-
-"now" = "зараз";
-"m ago" = " хв. тому";
-"h ago" = " гд. тому";
-"d ago" = " дн. тому";
-"w ago" = " тиж. тому";
-"ancient" = "дуже давно";
-
-//Theme
-"mode" = "тема";
 "light" = "світла";
 "dark" = "темна";
 "system" = "системна";
 
-//Language
-"interface language" = "мова інтерфейсу";
-"Ukrainian" = "Українська";
-"default" = "за замовчуванням";
-"change language" = "змінити мову";
+"homeViewController_title" = "головний";
+"homeViewController_navigationItem_title" = "новини";
+"newsViewController_Placeholder_titleText" = "От лихо...";
+"newsViewController_Placeholder_descriptionText" = "Щось пішло не так. \n Будь ласка, спробуйте пізніше.";
+"newsViewController_Placeholder_buttonTitle" = "Спробувати знову";
 
-//Country
-"country" = "країна";
-"Poland" = "Польша";
-"Ukraine" = "Україна";
-"UK" = "Великобританія";
-"USA" = "США";
-"Japan" = "Японія";
+"searchViewController_title" = "пошук";
+"searchViewController_searchBar_placeholder" = "Пошук новин";
+"searchViewController_navigationItem_prompt_empty" = "Ще відсутні результати";
+"searchViewController_navigationItem_prompt_result" = "результатів для";
+"searchViewController_HeaderView_No_recent_searches" = "Немає останніх пошуків";
+"searchViewController_HeaderView_Recent_searches" = "Останній пошук";
+"searchInfoView_clearButton_title" = "Очистити";
+"searchViewController_Placeholder_titleText" = "Пошук новин";
+"searchViewController_Placeholder_descriptionText" = "Введіть запит для пошуку новин";
 
-//Welcome
-"Get the most relevant to you" = "Отримайте найбільш актуальне для вас";
-"Please select country which news do you prefer:" = "Будь ласка, виберіть країну, новинам якої ви надаєте перевагу:";
-"You can change it anytime from your settings screen." = "Ви можете будь-коли змінити це на екрані налаштувань.";
-"Save and continue" = "Зберегти та продовжити";
+"favoriteViewController_title" = "збережені";
+"favoriteViewController_searchBar_placeholder" = "Пошук у збережених";
+"favoriteViewController_Placeholder_titleText" = "Знайдіть збережені \n статті тут";
+"favoriteViewController_Placeholder_descriptionText" = "Під час читання статті торкніться ";
+"favoriteViewController_Placeholder_descriptionTextOne" = "щоб зберегти її. ";
+"favoriteViewController_Placeholder_descriptionTextTwo" = "Ви зможете повернутися сюди, щоб прочитати статтю пізніше";
 
-//Alerts
-"error" = "помилка";
-"language" = "мова";
-"To change language you need to restart the application. Do you want to restart?" = "Щоб змінити мову, потрібно перезапустити програму. Ви хочете перезапустити?";
+"settingsViewController_title" = "налаштування";
+"settingsViewController_mode_title" = "тема";
+"settingsViewController_interface_language_title" = "мова інтерфейсу";
+"settingsViewController_change_language_title" = "змінити мову";
+"settingsViewController_country_title" = "країна";
 
-//Placeholders
-"Find it on NEWS" = "Пошук новин";
-"Search in saved" = "Пошук у збережених";
+"articleCollectionViewCell_shareAction_title" = "Поділитися";
+"articleCollectionViewCell_safariAction_title" = "Відкрити у Safari";
+"articleCollectionViewCell_unsaveAction_title" = "Вилучити";
+"articleCollectionViewCell_saveAction_title" = "Зберегти";
 
-"Type your query to search from NEWS" = "Введіть запит для пошуку новин";
-"Find your saved \n articles here" = "Знайдіть збережені \n статті тут";
-
-"When reading an article, tap the " = "Під час читання статті торкніться ";
-"icon to save it. " = "щоб зберегти її. ";
-"You'll be able to come back here to read it later" = "Ви зможете повернутися сюди, щоб прочитати статтю пізніше";
-
-//Search screen
-"No results yet" = "Ще відсутні результати";
-"No recent searches" = "Немає останніх пошуків";
-"Recent searches" = "Останній пошук";
-"Clear" = "Очистити";
-"results for" = "результатів для";
+"timeConverter_now" = "зараз";
+"timeConverter_m_ago" = " хв. тому";
+"timeConverter_h_ago" = " гд. тому";
+"timeConverter_d_ago" = " дн. тому";
+"timeConverter_w_ago" = " тиж. тому";
+"timeConverter_ancient" = "дуже давно";
+ 
+"alertController_okAletalertAction" = "Так";
+"alertController_cancelAletalertAction" = "Закрити";
+"alertController_error_title" = "помилка";
+"alertController_language_title" = "Зміна мови";
+"alertController_language_message" = "Щоб змінити мову, потрібно перезапустити програму. Ви хочете перезапустити?";

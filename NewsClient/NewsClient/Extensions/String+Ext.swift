@@ -10,7 +10,6 @@ import UIKit
 
 extension String {
     
-    /*
     var localized: String {
         return NSLocalizedString(
             self,
@@ -20,35 +19,21 @@ extension String {
             comment: self
         )
     }
-     */
     
 //    func localized() -> String {
-//        if let appLanguage = DefaultManager.getAppLanguage() {
-//            if appLanguage == 1 {
-//                let path = Bundle.main.path(forResource: "uk", ofType: "lproj")
-//                let bundle = Bundle(path: path!)
-//                return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: self, comment: self)
-//            }
-//        }
-//        let path = Bundle.main.path(forResource: "en", ofType: "lproj")
-//        let bundle = Bundle(path: path!)
-//        return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: self, comment: self)
+//        return NSLocalizedString(
+//            self,
+//            tableName: nil,
+//            bundle: Bundle.localizedBundle(),
+//            value: self,
+//            comment: self
+//        )
 //    }
     
-    func localized() -> String {
-        return NSLocalizedString(
-            self,
-            tableName: nil,
-            bundle: Bundle.localizedBundle(),
-            value: self,
-            comment: self
-        )
-    }
-    
     func textToImage() -> UIImage? {
+        
         let nsString = (self as NSString)
-        //let font = UIFont.systemFont(ofSize: 1024) // you can change your font size here
-        let font = UIFont.systemFont(ofSize: 17)
+        let font = UIFont.systemFont(ofSize: 17) // you can change your font size here
         let stringAttributes = [NSAttributedString.Key.font: font]
         let imageSize = nsString.size(withAttributes: stringAttributes)
 
