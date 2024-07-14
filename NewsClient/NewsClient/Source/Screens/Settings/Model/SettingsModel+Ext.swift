@@ -15,11 +15,7 @@ extension SettingsModel: SettingsModelProtocol {
         
         //MARK: dark/light Mode
         var currentTheme = DefaultManager.getAppTheme()
-//        if currentTheme == nil {
-//            currentTheme = Theme.system
-//        }
         currentTheme = currentTheme != nil ? currentTheme : Theme.system
-        debugPrint("currentTheme - \(String(describing: currentTheme))")
         
         var itemsMode: [SettingItem] = []
         Theme.allCases.forEach() {//_ in
@@ -43,14 +39,12 @@ extension SettingsModel: SettingsModelProtocol {
         var languages: [SettingItem] = []
 
         languages.append(SettingItem(
-            //title: "\("change language".localized())",
             title: AppStrings.SettingsViewController_change_language_title.localized,
             icon: Constants.changeLanguageImage,
             isOn: false
         ))
         
         let language: SettingsDataModel = SettingsDataModel(
-            //setting: Setting(title: "interface language".localized()),
             setting: Setting(title: AppStrings.SettingsViewController_interface_language_title.localized),
             items: languages
         )
@@ -60,8 +54,6 @@ extension SettingsModel: SettingsModelProtocol {
         
         //MARK: app Country
         let currentCountry = DefaultManager.getAppCountry()?.rawValue
-        
-        debugPrint("currentCountry - \(String(describing: currentCountry))")
         
         var countries: [SettingItem] = []
         Country.allCases.forEach() {
@@ -74,7 +66,6 @@ extension SettingsModel: SettingsModelProtocol {
         }
         
         let country: SettingsDataModel = SettingsDataModel(
-            //setting: Setting(title: "country".localized()),
             setting: Setting(title: AppStrings.SettingsViewController_country_title.localized),
             items: countries
         )

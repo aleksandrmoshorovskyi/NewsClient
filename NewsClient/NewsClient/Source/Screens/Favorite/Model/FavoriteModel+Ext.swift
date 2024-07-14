@@ -19,8 +19,6 @@ extension FavoriteModel: FavoriteModelProtocol {
     }
     
     func loadData() {
-    
-        //var articles: [ArticleDataModel] = []
         
         let storedArticles = storageService.fetchAllArticles()
         
@@ -34,9 +32,7 @@ extension FavoriteModel: FavoriteModelProtocol {
                 url: $0.url,
                 urlToImage: $0.urlToImage,
                 publishedAt: $0.publishedAt,
-                content: $0.content)//,
-                //addToFavoriteActionCompletion: nil,
-                //deleteFromFavoriteActionCompletion: deleteFavorite)
+                content: $0.content)
         }
         
         self.delegate?.dataDidLoad(with: articles)
@@ -67,7 +63,6 @@ extension FavoriteModel: FavoriteModelProtocol {
     
     private func getTextForTitlePlaceholderLabel() -> NSAttributedString {
         
-        //let attributedText = NSAttributedString(string: "Find your saved \n articles here".localized())
         let attributedText = NSAttributedString(
             string: AppStrings.FavoriteViewController_Placeholder_titleText.localized
         )

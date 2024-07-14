@@ -9,7 +9,6 @@ import UIKit
 
 class SearchViewController: BaseViewController {
 
-    //weak var delegate: HomeViewControllerDelegate?
     var keywordStr: String!
     var serchDataSource: [String] = []
     
@@ -32,8 +31,6 @@ class SearchViewController: BaseViewController {
         
         setupInitialState()
         setupUI()
-        //model.loadDataFor(keyword: "Apple")
-        //model.loadDataFor(keyword: "")
     }
     
     private func setupInitialState() {
@@ -45,66 +42,30 @@ class SearchViewController: BaseViewController {
     }
     
     private func setupUI() {
+        
         if let nc = navigationController {
+            
             nc.navigationBar.prefersLargeTitles = false
-            //navigationItem.title = "search".localized().capitalized
             navigationItem.title = AppStrings.SearchViewController_title.localized.capitalized
-            //navigationItem.prompt = "It's prompt: 00"
-            
-            //let myTitleView = UIView()
-            //myTitleView.backgroundColor = .red
-            
-            //self.navigationItem.vi
-            
-            
-            //for no change bg navigationBar color
-            //nc.navigationBar.setBackgroundImage(UIImage(), for: .default)
-            //nc.navigationBar.setBackgroundImage(myTitleView, for: .bottom, barMetrics: .default)
-            //nc.navigationBar.barPosition = .bottom
-            //nc.navigationBar.shadowImage = UIImage()
-            
-            //nc.navigationBar.bo
-            
-            
-            //let nsAttributedString = [NSAttributedString.Key.foregroundColor: UIColor.red]
-            //nc.navigationBar.titleTextAttributes = nsAttributedString
-            
-            //navigationItem.titleView?.backgroundColor = .systemBackground
-            
-            //definesPresentationContext = true
-            
-            //nc.navigationBar.backgroundColor = .systemBackground
-            
-            //for no change bg navigationBar color
-            //nc.navigationBar.setBackgroundImage(UIImage(), for: .default)
-            //nc.navigationBar.shadowImage = UIImage()
-            
-            //nc.navigationItem.preferredSearchBarPlacement = .automatic
-            //nc.navigationItem.hidesSearchBarWhenScrolling = false
-            //definesPresentationContext = true
             
             serchDataSource = DefaultManager.getSearchKeywords() ?? []
             
             // MARK: resultsTableController
-            //let
             resultsTableController = UITableViewController()
             resultsTableController.tableView.delegate = self
             resultsTableController.tableView.dataSource = self
             
             let searchController = UISearchController(searchResultsController: resultsTableController)
-            //searchController.data
+
             searchController.delegate = self
-            searchController.searchResultsUpdater = self
-            //searchController.searchBar.autocapitalizationType = .none
+
             searchController.searchBar.delegate = self // Monitor when the search button is tapped.
             searchController.hidesNavigationBarDuringPresentation = false
             searchController.showsSearchResultsController = true
             
             navigationItem.searchController = searchController
             navigationItem.hidesSearchBarWhenScrolling = false
-            //navigationItem.titleView?.isHidden = false
             
-            //let placeholderColor = NSAttributedString(string: "Find it on NEWS".localized())
             let placeholderColor = NSAttributedString(
                 string: AppStrings.SearchViewController_searchBar_placeholder.localized
             )
@@ -117,7 +78,6 @@ class SearchViewController: BaseViewController {
         
         if keywordStr == nil {
             model.loadDataFor(keyword: "")
-            //navigationItem.prompt = "No results yet".localized()
             navigationItem.prompt = AppStrings.SearchViewController_navigationItem_prompt_empty.localized
         }
     }
@@ -127,26 +87,26 @@ extension SearchViewController: UISearchControllerDelegate {
     
 }
 
-extension SearchViewController: UISearchResultsUpdating {
-   
-    func updateSearchResults(for searchController: UISearchController) {
-        
-//        let searchString = searchController.searchBar.text!
+//extension SearchViewController: UISearchResultsUpdating {
+//   
+//    func updateSearchResults(for searchController: UISearchController) {
 //        
-//        //debugPrint("searchString - \(searchString)")
-//        
-//        if searchString.count >= 3 {
-//            model.loadDataFor(keyword: searchString)
-//        }
-    }
-}
+////        let searchString = searchController.searchBar.text!
+////        
+////        //debugPrint("searchString - \(searchString)")
+////        
+////        if searchString.count >= 3 {
+////            model.loadDataFor(keyword: searchString)
+////        }
+//    }
+//}
 
 extension SearchViewController: UISearchBarDelegate {
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        //searchBar.searchTextField.text = ""
-        //searchController.showsSearchResultsController
-    }
+//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//        //searchBar.searchTextField.text = ""
+//        //searchController.showsSearchResultsController
+//    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         //debugPrint("searchBarSearchButtonClicked")
@@ -172,7 +132,7 @@ extension SearchViewController: UISearchBarDelegate {
             DefaultManager.setSearchKeywords(serchDataSource)
         }
         
-        if serchDataSource.count >= 10 {
+        if serchDataSource.count > 10 {
             serchDataSource.removeLast()
         }
         

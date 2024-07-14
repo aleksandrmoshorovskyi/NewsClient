@@ -10,8 +10,11 @@ import Foundation
 protocol FavoriteModelProtocol {
     
     func loadData()
-    func filterDataWith(predicate: String?) 
+    
+    func filterDataWith(predicate: String?)
+    
     func deleteFavorite(article: ArticleDataModel)
     func addToFavorite(article: ArticleDataModel)
+    
     func getPlaceholderData() -> PlaceholderDataModel
 }

@@ -9,6 +9,5 @@ import Foundation
 
 protocol CategoryViewDelegate: AnyObject {
     
-    //func categoryDidTap(_ item: Category?)
     func categoryAtIndexDidTap(_ index: Int)
 }

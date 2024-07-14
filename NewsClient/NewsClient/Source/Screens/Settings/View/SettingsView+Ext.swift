@@ -10,7 +10,9 @@ import Foundation
 extension SettingsView: SettingsViewProtocol {
     
     func setupData(data: [SettingsDataModel]) {
+        
         dataSource = data
+        
         tableView.reloadData()
     }
 }

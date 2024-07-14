@@ -9,9 +9,5 @@ import Foundation
 
 protocol HomeViewDelegate: AnyObject {
     
-    //func addToFavoriteDidTap()
-    
-    //func categoryDidChange(_ item: Category?)
-    
     func categoryDidChange(_ index: Int)
 }

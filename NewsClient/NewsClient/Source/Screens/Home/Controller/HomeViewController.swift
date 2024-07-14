@@ -9,8 +9,6 @@ import UIKit
 
 class HomeViewController: BaseViewController {
     
-    //weak var delegate: HomeViewControllerDelegate?
-    
     var resultsTableController: UITableViewController!
     var currentCategory: Category? // = nil
     
@@ -31,7 +29,7 @@ class HomeViewController: BaseViewController {
         
         setupInitialState()
         setupUI()
-        model.loadDataFor(self) //For(currentCategory)
+        model.loadDataFor(self)
     }
     
     private func setupInitialState() {
@@ -39,16 +37,14 @@ class HomeViewController: BaseViewController {
         model = homeModel
         
         currentCategory = nil
-        //contentView.setupPlaceholderData(data: model.getPlaceholderData())
     }
     
     private func setupUI() {
         //title = AppStrings.HomeViewController_title.localized.capitalized
         
         if let nc = navigationController {
+            
             nc.navigationBar.prefersLargeTitles = false
-            //navigationItem.title = "NEWS".localized()
-            //navigationItem.title = "news".localized().uppercased()
             navigationItem.title = AppStrings.HomeViewController_navigationItem_title.localized.uppercased()
             
             let nsAttributedString = [
@@ -58,9 +54,6 @@ class HomeViewController: BaseViewController {
             nc.navigationBar.titleTextAttributes = nsAttributedString
             
             navigationItem.titleView?.backgroundColor = .systemBackground
-            
-            //definesPresentationContext = true
-            
             nc.navigationBar.backgroundColor = .systemBackground
             
             //for no change bg navigationBar color
@@ -68,18 +61,4 @@ class HomeViewController: BaseViewController {
             nc.navigationBar.shadowImage = UIImage()
         }
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//        debugPrint("HomeViewController - viewWillAppear)")
-//        delegate?.homeViewWillAppear()
-//    }
-//    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        
-//        debugPrint("HomeViewController - viewWillDisappear")
-//        delegate?.homeViewWillDisappear()
-//    }
 }

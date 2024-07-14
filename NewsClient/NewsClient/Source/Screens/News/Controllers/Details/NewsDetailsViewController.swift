@@ -51,7 +51,7 @@ class NewsDetailsViewController: BaseViewController {
     }
     
     @objc func shareBarButtonDidTap() {
-        baseShareAction(article: dataModel)
+        CommonFunctions.share(article: dataModel, for: self)
     }
     
     override func loadView() {

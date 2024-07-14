@@ -12,10 +12,11 @@ import UIKit
 extension SearchViewController: SearchInfoViewDelegate {
     
     func clearButtonDidTap() {
-        //debugPrint("clearButtonDidTap")
         
         DefaultManager.removeSearchKeywords()
+        
         serchDataSource = DefaultManager.getSearchKeywords() ?? []
+        
         resultsTableController.tableView.reloadData()
     }
 }
@@ -64,11 +65,7 @@ extension SearchViewController: SearchModelDelegate {
 extension SearchViewController: NewsViewDelegate {
     
     func share(article: ArticleDataModel) {
-        baseShareAction(article: article)
-    }
-    
-    func presentAlert() {
-        //
+        CommonFunctions.share(article: article, for: self)
     }
     
     func refreshData() {
@@ -83,10 +80,9 @@ extension SearchViewController: NewsViewDelegate {
         model.prefetchDataFor(keyword: keywordStr)
     }
     
-    
     func addToFavorite(article: ArticleDataModel) {
+        
         model.addFavorite(article: article)
-        //model.loadDataFor(keyword: "Apple")
         
         NotificationCenter.default.post(
             name: Constants.addedToFavoriteNotification,
@@ -96,8 +92,8 @@ extension SearchViewController: NewsViewDelegate {
     }
     
     func deleteFromFavorite(article: ArticleDataModel) {
+        
         model.deleteFavorite(article: article)
-        //model.loadDataFor(keyword: "Apple")
         
         NotificationCenter.default.post(
             name: Constants.deletedFromFavoriteNotification,

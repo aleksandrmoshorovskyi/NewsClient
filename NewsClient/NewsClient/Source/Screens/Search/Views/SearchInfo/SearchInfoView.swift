@@ -39,11 +39,9 @@ class SearchInfoView: UIView {
         titleLabel = UILabel()
         titleLabel.font = .systemFont(ofSize: 13)
         titleLabel.textColor = .darkGray
-        //titleLabel.backgroundColor = .systemBlue
         
         clearButton = UIButton()
         clearButton.titleLabel?.font = .systemFont(ofSize: 13)
-        //clearButton.setTitle("Clear".localized(), for: .normal)
         clearButton.setTitle(
             AppStrings.SearchInfoView_clearButton_title.localized,
             for: .normal
@@ -52,7 +50,6 @@ class SearchInfoView: UIView {
         clearButton.setTitleColor(.systemGray, for: .highlighted)
         clearButton.addTarget(self, action: #selector(clearButtonDidTap), for: .touchUpInside)
         clearButton.isHidden = false
-        //clearButton.backgroundColor = .systemBlue
     }
     
     func setupLayout() {
@@ -66,23 +63,17 @@ class SearchInfoView: UIView {
         addSubview(clearButton)
 
         NSLayoutConstraint.activate([
-            //self
             self.heightAnchor.constraint(equalToConstant: 58.0),
             
-            //containerView containerView
             containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: .zero),
             containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: .zero),
             containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: .zero),
             containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: .zero),
             
-            //titleLabel
-            //titleLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: .zero),
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20.0),
             titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: clearButton.leadingAnchor, constant: -10.0),
             
-            //clearButton
-            //clearButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             clearButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: .zero),
             clearButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20.0),
             clearButton.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, multiplier: 1.0)

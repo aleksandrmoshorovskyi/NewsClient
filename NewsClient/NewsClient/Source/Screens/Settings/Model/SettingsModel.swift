@@ -11,14 +11,12 @@ class SettingsModel {
     
     weak var delegate: SettingsModelDelegate?
     
-    //var settings: [SettingsDataModel]!
-    
-    let networkService: NetworkServiceProtocol
-    let storageService: CoreDataServiceProtocol
+//    let networkService: NetworkServiceProtocol
+//    let storageService: CoreDataServiceProtocol
     
     init(delegate: SettingsModelDelegate? = nil) {
         self.delegate = delegate
-        self.networkService = ServiceProvider.networkService()
-        self.storageService = ServiceProvider.coreDataService()
+//        self.networkService = ServiceProvider.networkService()
+//        self.storageService = ServiceProvider.coreDataService()
     }
 }

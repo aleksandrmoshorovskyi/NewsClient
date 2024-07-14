@@ -262,6 +262,8 @@
 		A80469922C2C7A0A00178BEE /* toDELETE */ = {
 			isa = PBXGroup;
 			children = (
+				A85AB71F2C200CE200FE1829 /* HomeViewController+CollectionView.swift */,
+				A85AB74F2C2368DD00FE1829 /* HomeViewControllerDelegate.swift */,
 				A823EE9B2C10A004001BF6A6 /* APIParametrs.swift */,
 				A85AB6F32C1C8DA500FE1829 /* UIImageView+Ext.swift */,
 			);
@@ -651,9 +653,7 @@
 			isa = PBXGroup;
 			children = (
 				A85AB7552C23709000FE1829 /* HomeViewController+Ext.swift */,
-				A85AB71F2C200CE200FE1829 /* HomeViewController+CollectionView.swift */,
 				A85AB71D2C200CC700FE1829 /* HomeViewController.swift */,
-				A85AB74F2C2368DD00FE1829 /* HomeViewControllerDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

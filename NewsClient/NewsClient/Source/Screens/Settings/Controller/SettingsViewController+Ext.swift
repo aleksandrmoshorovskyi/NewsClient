@@ -19,77 +19,24 @@ extension SettingsViewController: SettingsModelDelegate {
 //MARK: SettingsViewDelegate
 extension SettingsViewController: SettingsViewDelegate {
     
-    func presentAlertWith(completion: @escaping () -> Void) {
+    func presentAlert(title: String, message: String) {
         
         let alertController = UIAlertController(
-            //title: "language".localized().capitalized,
-            //message: "To change language you need to restart the application. Do you want to restart?".localized(),
-            title: AppStrings.AlertController_language_title.localized.capitalized,
-            message: AppStrings.AlertController_language_message.localized,
+            title: title,
+            message: message,
             preferredStyle: .alert
         )
         
         let okAletalertAction = UIAlertAction(
-            //title: "OK",
             title: AppStrings.AlertController_okAletalertAction.localized,
             style: .destructive,
-            handler: { _ in
-                completion()
-                //delay()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    //print("Async after 1 seconds")
-                    //exit(0)
-                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-                }
-                //exit(0)
+            handler: {_ in
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
             })
         
         let cancelAletalertAction = UIAlertAction(
-            //title: "Cancel",
             title: AppStrings.AlertController_cancelAletalertAction.localized,
-            style: .cancel) { (action) in
-            // ...
-        }
-        
-        alertController.addAction(okAletalertAction)
-        alertController.addAction(cancelAletalertAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    func presentAlert() {
-        let alertController = UIAlertController(
-//            title: "language".localized().capitalized,
-//            message: "To change language you need to restart the application. Do you want to restart?".localized(),
-            title: AppStrings.AlertController_language_title.localized.capitalized,
-            message: AppStrings.AlertController_language_message.localized,
-            preferredStyle: .alert
-        )
-
-//        let okAction = UIAlertAction(title: "Yes".localized(), style: UIAlertAction.Style.default) {
-//            UIAlertAction in
-//            // Change update / refresh rootview controller here...
-//            //let sceneDelegate = SceneDelegate()
-//            //sceneDelegate.resetApp()
-//        }
-        
-        let okAletalertAction = UIAlertAction(
-            //title: "OK",
-            title: AppStrings.AlertController_okAletalertAction.localized,
-            style: .destructive,
-            handler: { _ in
-                //NSLog("The \"OK\" alert occured.")
-                //let sceneDelegate = SceneDelegate()
-                //sceneDelegate.resetApp()
-                exit(0)
-            })
-        
-        let cancelAletalertAction = UIAlertAction(
-            //title: "Cancel",
-            title: AppStrings.AlertController_cancelAletalertAction.localized,
-            style: .cancel) { (action) in
-            // ...
-        }
+            style: .cancel) {_ in }
         
         alertController.addAction(okAletalertAction)
         alertController.addAction(cancelAletalertAction)

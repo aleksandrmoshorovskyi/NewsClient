@@ -9,10 +9,6 @@ import UIKit
 
 class FavoriteViewController: BaseViewController {
     
-    //weak var delegate: HomeViewControllerDelegate?
-    
-    //let myNotification = Notification.Name("MyNotification")
-    
     var model: FavoriteModelProtocol!
     var contentView: NewsViewProtocol!
     
@@ -43,26 +39,12 @@ class FavoriteViewController: BaseViewController {
     }
     
     private func setupUI() {
+        
         if let nc = navigationController {
-            //nc.navigationBar.prefersLargeTitles = false
-            //navigationItem.title = "favorites".localized().capitalized
+
             navigationItem.title = AppStrings.FavoriteViewController_title.localized.capitalized
-            //debugPrint("\(String(describing: nc.navigationBar.isHidden))")
-            
-            //nc.navigationBar.hidesNavigationBarDuringPresentation = false
-            //let navBar = nc.navigationBar
-            //navBar.topItem?.searchBarPlacement = .stacked
-            
-            //nc.navigationBar.isHidden = true
-            //navigationItem.titleView = UIView()
-            //navigationItem.style = .editor
-            
-            //let nsAttributedString = [NSAttributedString.Key.foregroundColor: UIColor.red]
-            //nc.navigationBar.titleTextAttributes = nsAttributedString
             
             navigationItem.titleView?.backgroundColor = .systemBackground
-            
-            //definesPresentationContext = true
             
             nc.navigationBar.backgroundColor = .systemBackground
             
@@ -73,8 +55,7 @@ class FavoriteViewController: BaseViewController {
             let searchController = UISearchController(searchResultsController: UITableViewController())
             searchController.delegate = self
             searchController.searchResultsUpdater = self
-            //searchController.searchBar.autocapitalizationType = .none
-            searchController.searchBar.delegate = self // Monitor when the search button is tapped.
+
             searchController.hidesNavigationBarDuringPresentation = false
             searchController.showsSearchResultsController = false
             
@@ -82,11 +63,12 @@ class FavoriteViewController: BaseViewController {
             navigationItem.hidesSearchBarWhenScrolling = false
             navigationItem.titleView?.isHidden = false
             
-            //let placeholderColor = NSAttributedString(string: "Search in saved".localized())
             let placeholderColor = NSAttributedString(
                 string: AppStrings.FavoriteViewController_searchBar_placeholder.localized
             )
+            
             navigationItem.searchController?.searchBar.searchTextField.attributedPlaceholder = placeholderColor
+            
         }
     }
     
@@ -106,29 +88,24 @@ extension FavoriteViewController: UISearchControllerDelegate {
 extension FavoriteViewController: UISearchResultsUpdating {
    
     func updateSearchResults(for searchController: UISearchController) {
-        
-        //let searchString = searchController.searchBar.text!
-        
-        //if searchString.count >= 1 {
-            model.filterDataWith(predicate: searchController.searchBar.text)
-        //}
+        model.filterDataWith(predicate: searchController.searchBar.text)
     }
 }
 
-extension FavoriteViewController: UISearchBarDelegate {
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        //searchBar.searchTextField.text = ""
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //debugPrint("searchBarSearchButtonClicked")
-        
-        //let searchString = searchBar.searchTextField.text!
-        //keywordStr = searchString
-        
-        //model.loadDataFor(keyword: keywordStr)
-        //navigationItem.searchController?.searchBar.searchTextField.text = ""
-        //navigationItem.searchController?.dismiss(animated: true)
-    }
-}
+//extension FavoriteViewController: UISearchBarDelegate {
+//    
+//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//        //searchBar.searchTextField.text = ""
+//    }
+//    
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        //debugPrint("searchBarSearchButtonClicked")
+//        
+//        //let searchString = searchBar.searchTextField.text!
+//        //keywordStr = searchString
+//        
+//        //model.loadDataFor(keyword: keywordStr)
+//        //navigationItem.searchController?.searchBar.searchTextField.text = ""
+//        //navigationItem.searchController?.dismiss(animated: true)
+//    }
+//}

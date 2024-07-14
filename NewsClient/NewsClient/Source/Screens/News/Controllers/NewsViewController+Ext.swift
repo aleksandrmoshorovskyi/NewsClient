@@ -9,29 +9,9 @@ import UIKit
 
 //NewsModelDelegate
 extension NewsViewController: NewsModelDelegate {
-
-    func presentAlert(with message: String) {
+    
+    func presentAlert(title: String, message: String) {
         
-        let alertController = UIAlertController(
-            //title: "error".localized().capitalized,
-            title: AppStrings.AlertController_error_title.localized,
-            message: message,
-            preferredStyle: .alert
-        )
-        
-        let okAletalertAction = UIAlertAction(
-            //title: "OK",
-            title: AppStrings.AlertController_okAletalertAction.localized,
-            style: .default) { (action) in
-            // ...
-        }
-        
-        alertController.addAction(okAletalertAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-   
-    func presentAlertWith(_ title: String, _ message: String) {
         let alertController = UIAlertController(
             title: title,
             message: message,
@@ -39,20 +19,58 @@ extension NewsViewController: NewsModelDelegate {
         )
         
         let okAletalertAction = UIAlertAction(
-            title: "OK",
-            style: .default,
-            handler: { _ in
-                //NSLog("The \"OK\" alert occured.")
-                //let sceneDelegate = SceneDelegate()
-                //sceneDelegate.resetApp()
-                //exit(0)
-            })
+            title: AppStrings.AlertController_okAletalertAction.localized,
+            style: .default) {_ in }
         
         alertController.addAction(okAletalertAction)
-        //alertController.addAction(cancelAletalertAction)
         
         self.present(alertController, animated: true, completion: nil)
     }
+    
+
+//    func presentAlert(with message: String) {
+//        
+//        let alertController = UIAlertController(
+//            //title: "error".localized().capitalized,
+//            title: AppStrings.AlertController_error_title.localized,
+//            message: message,
+//            preferredStyle: .alert
+//        )
+//        
+//        let okAletalertAction = UIAlertAction(
+//            //title: "OK",
+//            title: AppStrings.AlertController_okAletalertAction.localized,
+//            style: .default) { (action) in
+//            // ...
+//        }
+//        
+//        alertController.addAction(okAletalertAction)
+//        
+//        self.present(alertController, animated: true, completion: nil)
+//    }
+//   
+//    func presentAlertWith(_ title: String, _ message: String) {
+//        let alertController = UIAlertController(
+//            title: title,
+//            message: message,
+//            preferredStyle: .alert
+//        )
+//        
+//        let okAletalertAction = UIAlertAction(
+//            title: "OK",
+//            style: .default,
+//            handler: { _ in
+//                //NSLog("The \"OK\" alert occured.")
+//                //let sceneDelegate = SceneDelegate()
+//                //sceneDelegate.resetApp()
+//                //exit(0)
+//            })
+//        
+//        alertController.addAction(okAletalertAction)
+//        //alertController.addAction(cancelAletalertAction)
+//        
+//        self.present(alertController, animated: true, completion: nil)
+//    }
     
     func dataDidLoad(with data: [ArticleDataModel]) {
         contentView.setupNews(data: data)
@@ -67,7 +85,7 @@ extension NewsViewController: NewsModelDelegate {
 extension NewsViewController: NewsViewDelegate {
     
     func share(article: ArticleDataModel) {
-        baseShareAction(article: article)
+        CommonFunctions.share(article: article, for: self)
     }
     
     func refreshData() {

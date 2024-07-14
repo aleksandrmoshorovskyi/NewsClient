@@ -124,14 +124,22 @@ extension NewsModel: NewsModelProtocol {
                     //SHOW ON PLACEHOLDER ->
                     
                     if category == Category.allCases.first {
-                        self?.delegate?.presentAlert(with: "\(err.localizedDescription)")
+                        //self?.delegate?.presentAlert(with: "\(err.localizedDescription)")
+                        self?.delegate?.presentAlert(
+                            title: AppStrings.AlertController_error_title.localized,
+                            message: err.localizedDescription
+                        )
                     }
                     
                     if let p = page {
                         if p == 1 {
                             self?.delegate?.dataDidLoad(with: [])
                         } else {
-                            self?.delegate?.presentAlert(with: "\(err.localizedDescription)")
+                            //self?.delegate?.presentAlert(with: "\(err.localizedDescription)")
+                            self?.delegate?.presentAlert(
+                                title: AppStrings.AlertController_error_title.localized,
+                                message: err.localizedDescription
+                            )
                         }
                     }
                     
@@ -152,7 +160,11 @@ extension NewsModel: NewsModelProtocol {
                     
                     //DispatchQueue.main.async {
                         self?.delegate?.dataDidLoad(with: [])
-                        self?.delegate?.presentAlert(with: data.code ?? "Somthing went wrong...")
+                        //self?.delegate?.presentAlert(with: data.code ?? "Somthing went wrong...")
+                        self?.delegate?.presentAlert(
+                            title: AppStrings.AlertController_error_title.localized,
+                            message: data.code ?? "Somthing went wrong..."
+                        )
                     //}
                 }
                 

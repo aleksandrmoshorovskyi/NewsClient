@@ -20,7 +20,7 @@ extension FavoriteViewController: FavoriteModelDelegate {
 extension FavoriteViewController: NewsViewDelegate {
     
     func share(article: ArticleDataModel) {
-        baseShareAction(article: article)
+        CommonFunctions.share(article: article, for: self)
     }
     
     
@@ -29,6 +29,7 @@ extension FavoriteViewController: NewsViewDelegate {
     }
     
     func refreshData() {
+        navigationItem.searchController?.searchBar.searchTextField.text = ""
         model.loadData()
     }
     

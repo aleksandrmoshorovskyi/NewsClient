@@ -34,9 +34,7 @@ extension SettingsView: UITableViewDataSource {
         cell.imageView?.image = dataSource[indexPath.section].items[indexPath.row].icon
         
         if indexPath.section == 1 {
-            //cell.accessoryType = .detailButton //"i" - info
-            //cell.accessoryType = .detailDisclosureButton //"i" - info + //">" - gray
-            cell.accessoryType = .disclosureIndicator //">" - gray
+            cell.accessoryType = .disclosureIndicator
         }
         
         return cell
@@ -58,10 +56,7 @@ extension SettingsView: UITableViewDelegate {
                 }
                 dataSource[indexPath.section].items[indexPath.row].isOn = true
                 tableView.reloadData()
-//                UserDefaults.standard.setValue(
-//                    dataSource[indexPath.section].items[indexPath.row].valueForDefault as? String,
-//                    forKey: "theme"
-//                )
+
                 if let themeForDefault = dataSource[indexPath.section].items[indexPath.row].valueForDefault as? Theme {
                     
                     DefaultManager.setAppTheme(themeForDefault)
@@ -70,43 +65,10 @@ extension SettingsView: UITableViewDelegate {
             }
             
         case 1:
-//            if !dataSource[indexPath.section].items[indexPath.row].isOn {
-////                dataSource[indexPath.section].items.enumerated().forEach() {index, item in
-////                    dataSource[indexPath.section].items[index].isOn = false
-////                }
-////                dataSource[indexPath.section].items[indexPath.row].isOn = true
-////                tableView.reloadData()
-////                UserDefaults.standard.setValue(
-////                    dataSource[indexPath.section].items[indexPath.row].title,
-////                    forKey: "theme"
-////                )
-//                
-//                if indexPath.row <= 1 {
-//                    //DefaultManager.setAppLanguage(ver: indexPath.row)
-//                    //alertBeforeChangeLanguage()
-//                    //delegate?.presentAlert()
-//                    delegate?.presentAlertWith {
-//                        self.dataSource[indexPath.section].items.enumerated().forEach() {index, item in
-//                            self.dataSource[indexPath.section].items[index].isOn = false
-//                        }
-//                        self.dataSource[indexPath.section].items[indexPath.row].isOn = true
-//                        self.tableView.reloadData()
-//                        DefaultManager.setAppLanguage(ver: indexPath.row)
-//                    }
-//                } else {
-//                    //DefaultManager.removeAppLanguage()
-//                    //delegate?.presentAlert()
-//                    delegate?.presentAlertWith {
-//                        self.dataSource[indexPath.section].items.enumerated().forEach() {index, item in
-//                            self.dataSource[indexPath.section].items[index].isOn = false
-//                        }
-//                        self.dataSource[indexPath.section].items[indexPath.row].isOn = true
-//                        self.tableView.reloadData()
-//                        DefaultManager.removeAppLanguage()
-//                    }
-//                }
-//            }
-            delegate?.presentAlertWith { }
+            delegate?.presentAlert(
+                title: AppStrings.AlertController_language_title.localized.capitalized,
+                message: AppStrings.AlertController_language_message.localized
+            )
             
         case 2:
             if !dataSource[indexPath.section].items[indexPath.row].isOn {

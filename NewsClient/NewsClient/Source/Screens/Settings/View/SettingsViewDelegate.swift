@@ -8,6 +8,6 @@
 import Foundation
 
 protocol SettingsViewDelegate: AnyObject {
-    func presentAlert()
-    func presentAlertWith(completion: @escaping () -> Void)
+    
+    func presentAlert(title: String, message: String)
 }

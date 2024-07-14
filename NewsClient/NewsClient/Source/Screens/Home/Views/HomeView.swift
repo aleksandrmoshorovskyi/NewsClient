@@ -19,9 +19,9 @@ class HomeView: UIView {
     var collectionView: UICollectionView!
     var addToFavoriteButton: UIButton!
     
-    @objc func addToFavoriteButtonClicked() {
-        //delegate?.addToFavoriteDidTap()
-    }
+//    @objc func addToFavoriteButtonClicked() {
+//        //delegate?.addToFavoriteDidTap()
+//    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,20 +40,13 @@ class HomeView: UIView {
     }
     
     func setupUI() {
-        
-        //self setup
+
         backgroundColor = Constants.BaseViewBG
-        
-        //categoryView setup
-        //categoryView = CategoryView()
-        //categoryView = CategoryView(customParamArg: categoriesSource)
         
         //MARK: TO DO !!!
         //TO CHANGE - Must work with any categoriesSource in init
         categoryView = CategoryView(customParamArg: Category.allCases)
-        
         categoryView.delegate = self
-        //categoryView.dataSource = categoriesSource
         
         //collectionView setup
         let layout = UICollectionViewFlowLayout()
@@ -61,9 +54,7 @@ class HomeView: UIView {
         layout.estimatedItemSize = .zero
     
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        //collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.showsHorizontalScrollIndicator = false
-        //collectionView.backgroundColor = .systemGray5
         collectionView.isPagingEnabled = true
         
         collectionView.dataSource = self
@@ -79,14 +70,12 @@ class HomeView: UIView {
         addSubview(categoryView)
 
         NSLayoutConstraint.activate([
-            //categoryView constraints
             categoryView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: .zero),
             categoryView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: .zero),
             categoryView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: .zero),
             categoryView.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: .zero),
             categoryView.heightAnchor.constraint(equalToConstant: 58.0),
             
-            //collectionView constraints
             collectionView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: .zero),
             collectionView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: .zero),
             collectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: .zero)
