@@ -19,14 +19,8 @@
 		A823EE9A2C109B23001BF6A6 /* NetworkService+News.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EE992C109B23001BF6A6 /* NetworkService+News.swift */; };
 		A823EE9C2C10A004001BF6A6 /* APIParametrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EE9B2C10A004001BF6A6 /* APIParametrs.swift */; };
 		A823EEA02C10A34E001BF6A6 /* DMNewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EE9F2C10A34E001BF6A6 /* DMNewsModel.swift */; };
-		A823EEA42C10A73F001BF6A6 /* TopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEA32C10A73F001BF6A6 /* TopModel.swift */; };
-		A823EEA62C10A787001BF6A6 /* TopModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEA52C10A787001BF6A6 /* TopModelDelegate.swift */; };
-		A823EEA82C10A796001BF6A6 /* MainModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEA72C10A796001BF6A6 /* MainModelProtocol.swift */; };
 		A823EEAB2C10A84D001BF6A6 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEAA2C10A84D001BF6A6 /* ServiceProvider.swift */; };
-		A823EEAD2C10A8B0001BF6A6 /* TopModel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEAC2C10A8B0001BF6A6 /* TopModel+Ext.swift */; };
 		A823EEAF2C10AB03001BF6A6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEAE2C10AB03001BF6A6 /* BaseViewController.swift */; };
-		A823EEB22C10AB60001BF6A6 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEB12C10AB60001BF6A6 /* TopViewController.swift */; };
-		A823EEB42C10AC07001BF6A6 /* TopViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEB32C10AC07001BF6A6 /* TopViewController+Ext.swift */; };
 		A823EEB62C10B041001BF6A6 /* DMNewsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEB52C10B041001BF6A6 /* DMNewsError.swift */; };
 		A823EEB92C19989B001BF6A6 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEB82C19989B001BF6A6 /* CoreDataService.swift */; };
 		A823EEBB2C19992C001BF6A6 /* CoreDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823EEBA2C19992C001BF6A6 /* CoreDataServiceProtocol.swift */; };
@@ -78,12 +72,6 @@
 		A83A178D2C43C1A60032A03C /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83A178C2C43C1A60032A03C /* AppStrings.swift */; };
 		A85AB6DD2C19E04100FE1829 /* ArticleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6DC2C19E04100FE1829 /* ArticleDataModel.swift */; };
 		A85AB6DF2C19E6D100FE1829 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6DE2C19E6D100FE1829 /* Constants.swift */; };
-		A85AB6E22C19EB2700FE1829 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6E12C19EB2700FE1829 /* TopView.swift */; };
-		A85AB6E42C19EB5D00FE1829 /* TopViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6E32C19EB5D00FE1829 /* TopViewDelegate.swift */; };
-		A85AB6E62C19EB6800FE1829 /* TopViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6E52C19EB6800FE1829 /* TopViewProtocol.swift */; };
-		A85AB6E82C19EBF100FE1829 /* TopView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6E72C19EBF100FE1829 /* TopView+Ext.swift */; };
-		A85AB6EA2C19F00500FE1829 /* TopViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6E92C19F00500FE1829 /* TopViewControllerDelegate.swift */; };
-		A85AB6EC2C19F17900FE1829 /* TopView+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6EB2C19F17900FE1829 /* TopView+CollectionView.swift */; };
 		A85AB6EF2C19F35B00FE1829 /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6EE2C19F35B00FE1829 /* ArticleCollectionViewCell.swift */; };
 		A85AB6F22C19F53300FE1829 /* UICollectionViewCell+Idintifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6F12C19F53300FE1829 /* UICollectionViewCell+Idintifier.swift */; };
 		A85AB6F42C1C8DA500FE1829 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB6F32C1C8DA500FE1829 /* UIImageView+Ext.swift */; };
@@ -132,7 +120,6 @@
 		A85AB7612C285EC400FE1829 /* FavoriteModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7602C285EC400FE1829 /* FavoriteModelDelegate.swift */; };
 		A85AB7632C285EEE00FE1829 /* FavoriteModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7622C285EEE00FE1829 /* FavoriteModelProtocol.swift */; };
 		A85AB7652C285EFF00FE1829 /* FavoriteModel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7642C285EFF00FE1829 /* FavoriteModel+Ext.swift */; };
-		A85AB7672C28610C00FE1829 /* FavoritePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7662C28610C00FE1829 /* FavoritePlaceholderView.swift */; };
 		A85AB7692C28616500FE1829 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7682C28616500FE1829 /* FavoriteViewController.swift */; };
 		A85AB76B2C28626100FE1829 /* FavoriteViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB76A2C28626100FE1829 /* FavoriteViewController+Ext.swift */; };
 /* End PBXBuildFile section */
@@ -152,14 +139,8 @@
 		A823EE992C109B23001BF6A6 /* NetworkService+News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService+News.swift"; sourceTree = "<group>"; };
 		A823EE9B2C10A004001BF6A6 /* APIParametrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParametrs.swift; sourceTree = "<group>"; };
 		A823EE9F2C10A34E001BF6A6 /* DMNewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMNewsModel.swift; sourceTree = "<group>"; };
-		A823EEA32C10A73F001BF6A6 /* TopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopModel.swift; sourceTree = "<group>"; };
-		A823EEA52C10A787001BF6A6 /* TopModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopModelDelegate.swift; sourceTree = "<group>"; };
-		A823EEA72C10A796001BF6A6 /* MainModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModelProtocol.swift; sourceTree = "<group>"; };
 		A823EEAA2C10A84D001BF6A6 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
-		A823EEAC2C10A8B0001BF6A6 /* TopModel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopModel+Ext.swift"; sourceTree = "<group>"; };
 		A823EEAE2C10AB03001BF6A6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		A823EEB12C10AB60001BF6A6 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
-		A823EEB32C10AC07001BF6A6 /* TopViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopViewController+Ext.swift"; sourceTree = "<group>"; };
 		A823EEB52C10B041001BF6A6 /* DMNewsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMNewsError.swift; sourceTree = "<group>"; };
 		A823EEB82C19989B001BF6A6 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		A823EEBA2C19992C001BF6A6 /* CoreDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceProtocol.swift; sourceTree = "<group>"; };
@@ -213,12 +194,6 @@
 		A83A178C2C43C1A60032A03C /* AppStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
 		A85AB6DC2C19E04100FE1829 /* ArticleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDataModel.swift; sourceTree = "<group>"; };
 		A85AB6DE2C19E6D100FE1829 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		A85AB6E12C19EB2700FE1829 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
-		A85AB6E32C19EB5D00FE1829 /* TopViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewDelegate.swift; sourceTree = "<group>"; };
-		A85AB6E52C19EB6800FE1829 /* TopViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewProtocol.swift; sourceTree = "<group>"; };
-		A85AB6E72C19EBF100FE1829 /* TopView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopView+Ext.swift"; sourceTree = "<group>"; };
-		A85AB6E92C19F00500FE1829 /* TopViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewControllerDelegate.swift; sourceTree = "<group>"; };
-		A85AB6EB2C19F17900FE1829 /* TopView+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopView+CollectionView.swift"; sourceTree = "<group>"; };
 		A85AB6EE2C19F35B00FE1829 /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		A85AB6F12C19F53300FE1829 /* UICollectionViewCell+Idintifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Idintifier.swift"; sourceTree = "<group>"; };
 		A85AB6F32C1C8DA500FE1829 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
@@ -266,7 +241,6 @@
 		A85AB7602C285EC400FE1829 /* FavoriteModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModelDelegate.swift; sourceTree = "<group>"; };
 		A85AB7622C285EEE00FE1829 /* FavoriteModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModelProtocol.swift; sourceTree = "<group>"; };
 		A85AB7642C285EFF00FE1829 /* FavoriteModel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteModel+Ext.swift"; sourceTree = "<group>"; };
-		A85AB7662C28610C00FE1829 /* FavoritePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaceholderView.swift; sourceTree = "<group>"; };
 		A85AB7682C28616500FE1829 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		A85AB76A2C28626100FE1829 /* FavoriteViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteViewController+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -287,19 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				A83A171E2C3EDE710032A03C /* SearchPlaceholderView.swift */,
-				A85AB7662C28610C00FE1829 /* FavoritePlaceholderView.swift */,
-				A823EEA72C10A796001BF6A6 /* MainModelProtocol.swift */,
-				A823EEAC2C10A8B0001BF6A6 /* TopModel+Ext.swift */,
-				A823EEA32C10A73F001BF6A6 /* TopModel.swift */,
-				A823EEA52C10A787001BF6A6 /* TopModelDelegate.swift */,
-				A85AB6EB2C19F17900FE1829 /* TopView+CollectionView.swift */,
-				A85AB6E72C19EBF100FE1829 /* TopView+Ext.swift */,
-				A85AB6E12C19EB2700FE1829 /* TopView.swift */,
-				A85AB6E32C19EB5D00FE1829 /* TopViewDelegate.swift */,
-				A85AB6E52C19EB6800FE1829 /* TopViewProtocol.swift */,
-				A823EEB32C10AC07001BF6A6 /* TopViewController+Ext.swift */,
-				A823EEB12C10AB60001BF6A6 /* TopViewController.swift */,
-				A85AB6E92C19F00500FE1829 /* TopViewControllerDelegate.swift */,
 			);
 			path = toDELETE;
 			sourceTree = "<group>";
@@ -896,7 +857,6 @@
 				A824BF692C2EE25000B436F9 /* SearchModel+Ext.swift in Sources */,
 				A824BFB12C31468700B436F9 /* WelcomeCollectionViewCell.swift in Sources */,
 				A824BF7D2C3051FB00B436F9 /* SettingsModelProtocol.swift in Sources */,
-				A85AB6E22C19EB2700FE1829 /* TopView.swift in Sources */,
 				A85AB7142C200C7000FE1829 /* HomeView.swift in Sources */,
 				A83A17212C4124D40032A03C /* PlaceholderDataModel.swift in Sources */,
 				A823EE722C10651E001BF6A6 /* AppDelegate.swift in Sources */,
@@ -905,7 +865,6 @@
 				A824BF942C3070D900B436F9 /* String+Ext.swift in Sources */,
 				A85AB6DD2C19E04100FE1829 /* ArticleDataModel.swift in Sources */,
 				A823EEB62C10B041001BF6A6 /* DMNewsError.swift in Sources */,
-				A85AB6E82C19EBF100FE1829 /* TopView+Ext.swift in Sources */,
 				A824BF6C2C2EE27900B436F9 /* SearchViewController.swift in Sources */,
 				A85AB6EF2C19F35B00FE1829 /* ArticleCollectionViewCell.swift in Sources */,
 				A85AB7452C2360EB00FE1829 /* NewsDetailsViewDelegate.swift in Sources */,
@@ -914,18 +873,15 @@
 				A823EE962C1096BE001BF6A6 /* APIConstant.swift in Sources */,
 				A85AB7542C236A0600FE1829 /* NewsViewControllerDelegate.swift in Sources */,
 				A85AB71C2C200CAD00FE1829 /* HomeView+CollectionView.swift in Sources */,
-				A85AB6E42C19EB5D00FE1829 /* TopViewDelegate.swift in Sources */,
 				A824BF852C30524A00B436F9 /* SettingsViewProtocol.swift in Sources */,
 				A85AB7332C20186700FE1829 /* NewsView.swift in Sources */,
 				A824BFA42C3134E000B436F9 /* WelcomeModel+Ext.swift in Sources */,
-				A823EEA82C10A796001BF6A6 /* MainModelProtocol.swift in Sources */,
 				A85AB74C2C2362CD00FE1829 /* NewsDetailsViewController.swift in Sources */,
 				A83A17292C415C5C0032A03C /* SearchInfoViewDelegate.swift in Sources */,
 				A85AB73D2C2018F400FE1829 /* NewsViewController.swift in Sources */,
 				A83A178D2C43C1A60032A03C /* AppStrings.swift in Sources */,
 				A85AB7562C23709000FE1829 /* HomeViewController+Ext.swift in Sources */,
 				A85AB71A2C200C9A00FE1829 /* HomeView+Ext.swift in Sources */,
-				A823EEA42C10A73F001BF6A6 /* TopModel.swift in Sources */,
 				A83A171F2C3EDE710032A03C /* SearchPlaceholderView.swift in Sources */,
 				A824BF9C2C3134A800B436F9 /* WelcomeViewController.swift in Sources */,
 				A85AB7472C2360F500FE1829 /* NewsDetailsViewProtocol.swift in Sources */,
@@ -933,21 +889,16 @@
 				A824BF9E2C3134BE00B436F9 /* WelcomeModel.swift in Sources */,
 				A85AB7492C23610500FE1829 /* NewsDetailsView+Ext.swift in Sources */,
 				A824BFA82C31351300B436F9 /* WelcomeViewDelegate.swift in Sources */,
-				A85AB7672C28610C00FE1829 /* FavoritePlaceholderView.swift in Sources */,
 				A824BF7F2C30520700B436F9 /* SettingsModel+Ext.swift in Sources */,
 				A824BFAC2C31353500B436F9 /* WelcomeView+Ext.swift in Sources */,
 				A85AB7612C285EC400FE1829 /* FavoriteModelDelegate.swift in Sources */,
 				A823EEBD2C1999CB001BF6A6 /* CoreDataService+News.swift in Sources */,
 				A85AB7182C200C8B00FE1829 /* HomeViewProtocol.swift in Sources */,
-				A823EEAD2C10A8B0001BF6A6 /* TopModel+Ext.swift in Sources */,
 				A824BF632C2EE22800B436F9 /* SearchModel.swift in Sources */,
-				A85AB6EC2C19F17900FE1829 /* TopView+CollectionView.swift in Sources */,
 				A824BF6E2C2EE28300B436F9 /* SearchViewController+Ext.swift in Sources */,
-				A823EEA62C10A787001BF6A6 /* TopModelDelegate.swift in Sources */,
 				A83A178B2C42D9F60032A03C /* Bundle+Ext.swift in Sources */,
 				A824BFB52C31512300B436F9 /* Category.swift in Sources */,
 				A824BF652C2EE23900B436F9 /* SearchModelDelegate.swift in Sources */,
-				A823EEB42C10AC07001BF6A6 /* TopViewController+Ext.swift in Sources */,
 				A823EEA02C10A34E001BF6A6 /* DMNewsModel.swift in Sources */,
 				A85AB7032C1EFA3A00FE1829 /* CategoryView+Ext.swift in Sources */,
 				A83A172B2C415CFE0032A03C /* SearchInfoView+Ext.swift in Sources */,
@@ -971,7 +922,6 @@
 				A823EEBB2C19992C001BF6A6 /* CoreDataServiceProtocol.swift in Sources */,
 				A85AB7392C2018C700FE1829 /* NewsView+Ext.swift in Sources */,
 				A823EE9C2C10A004001BF6A6 /* APIParametrs.swift in Sources */,
-				A85AB6E62C19EB6800FE1829 /* TopViewProtocol.swift in Sources */,
 				A85AB7522C23698100FE1829 /* NewsDetailsViewControllerDelegate.swift in Sources */,
 				A85AB7312C20184900FE1829 /* NewsModel+Ext.swift in Sources */,
 				A824BF832C30524000B436F9 /* SettingsViewDelegate.swift in Sources */,
@@ -982,12 +932,10 @@
 				A85AB76B2C28626100FE1829 /* FavoriteViewController+Ext.swift in Sources */,
 				A85AB70E2C200C2700FE1829 /* HomeModelDelegate.swift in Sources */,
 				A85AB6F22C19F53300FE1829 /* UICollectionViewCell+Idintifier.swift in Sources */,
-				A85AB6EA2C19F00500FE1829 /* TopViewControllerDelegate.swift in Sources */,
 				A823EE742C10651E001BF6A6 /* SceneDelegate.swift in Sources */,
 				A85AB71E2C200CC700FE1829 /* HomeViewController.swift in Sources */,
 				A824BF892C30547D00B436F9 /* SettingsView+TableView.swift in Sources */,
 				A824BF8B2C30558D00B436F9 /* SettingsViewController+Ext.swift in Sources */,
-				A823EEB22C10AB60001BF6A6 /* TopViewController.swift in Sources */,
 				A824BFB32C31480C00B436F9 /* WelcomeView+CollectionView.swift in Sources */,
 				A85AB6FB2C1EF52B00FE1829 /* CategoryView.swift in Sources */,
 				A85AB72F2C20183F00FE1829 /* NewsModelProtocol.swift in Sources */,
