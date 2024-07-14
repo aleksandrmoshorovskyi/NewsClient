@@ -13,6 +13,7 @@ enum Constants {
     //Notifications
     static let addedToFavoriteNotification = Notification.Name("AddedToFavoriteNotification")
     static let deletedFromFavoriteNotification = Notification.Name("DeleteFromFavoriteNotification")
+    static let updateAfterErrorNotification = Notification.Name("UpdateAfterErrorNotification")
     
     static let pageSizeDefaultValue: Int = 20
     

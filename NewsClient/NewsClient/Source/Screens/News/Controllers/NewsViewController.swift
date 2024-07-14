@@ -63,7 +63,15 @@ class NewsViewController: BaseViewController {
                 notificationReceiver(notification)
             }
         
+        NotificationCenter.default.addObserver(
+            forName: Constants.updateAfterErrorNotification,
+            object: nil,
+            queue: nil) { [self] (notification) in
+                notificationReceiver(notification)
+            }
+        
         contentView.setupPlaceholderData(data: model.getPlaceholderData())
+        contentView.hidePlaceholder()
     }
     
     private func setupUI() {
@@ -97,6 +105,12 @@ class NewsViewController: BaseViewController {
 //    }
     
     func notificationReceiver(_ notification: Notification) {
+        
+        if let object = notification.object as? NewsModelProtocol {
+            debugPrint("\(String(describing: currentCategory))")
+            //model.loadDataFor(currentCategory)
+            model.loadDataFor(category: currentCategory)
+        }
         
         if let object = notification.object as? ArticleDataModel {
             debugPrint("\(object.id)")

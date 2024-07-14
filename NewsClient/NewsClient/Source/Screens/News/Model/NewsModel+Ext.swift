@@ -27,9 +27,12 @@ extension NewsModel: NewsModelProtocol {
     func updateFavorites() {
         
         if let data = articles {
-            let articles = updateFavoritesFor(articles: data)
             
-            self.delegate?.dataDidUpdated(with: articles)
+            if data.count > 0 {
+                let articles = updateFavoritesFor(articles: data)
+                
+                self.delegate?.dataDidUpdated(with: articles)
+            }
         }
     }
     
@@ -107,6 +110,8 @@ extension NewsModel: NewsModelProtocol {
         let pageSize = Constants.pageSizeDefaultValue
         
         networkService.loadTopNewsFor(country: currentCountry, category: category, keyword: nil, pageSize: pageSize, page: page) { [weak self] newsData, error in
+            
+            self?.currentError = nil
 
             if let err = error {
                 debugPrint("\(err.localizedDescription)")
@@ -114,10 +119,27 @@ extension NewsModel: NewsModelProtocol {
                 //Call must be made on main thread!!!
                 //self?.delegate?.presentAlertWith("error".localized().capitalized, err.localizedDescription)
                 
+                self?.currentError = err
+                
                 DispatchQueue.main.async {
-                    self?.delegate?.dataDidLoad(with: [])
+                    //self?.delegate?.dataDidLoad(with: [])
                     //self?.delegate?.presentAlert(with: "\(err.localizedDescription)")
                     //SHOW ON PLACEHOLDER ->
+                    
+                    if category == Category.allCases.first {
+                        self?.delegate?.presentAlert(with: "\(err.localizedDescription)")
+                    }
+                    
+                    if let p = page {
+                        if p == 1 {
+                            self?.delegate?.dataDidLoad(with: [])
+                        } else {
+                            self?.delegate?.presentAlert(with: "\(err.localizedDescription)")
+                        }
+                    }
+                    
+                    //TO DO - Some error
+                    //currentError = err
                 }
     
             }
@@ -202,7 +224,12 @@ extension NewsModel: NewsModelProtocol {
     func buttonAction() {
         
         if let currentCategory = currentCategory {
-            loadDataFor(category: currentCategory)
+            //loadDataFor(category: currentCategory)
+            NotificationCenter.default.post(
+                name: Constants.updateAfterErrorNotification,
+                object: self,
+                userInfo: nil
+            )
         }
     }
 }
