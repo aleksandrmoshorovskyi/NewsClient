@@ -1,30 +1,30 @@
+////
+////  TopView+Ext.swift
+////  NewsClient
+////
+////  Created by Aleksandr Moroshovskyi on 12.06.2024.
+////
 //
-//  TopView+Ext.swift
-//  NewsClient
+//import Foundation
 //
-//  Created by Aleksandr Moroshovskyi on 12.06.2024.
+//extension TopView: TopViewProtocol {
+//    
+//    func setupNews(data: [ArticleDataModel]) {
+//        
+//        dataSource = data
+//        
+//        collectionView.reloadData()
+//    }
+//}
 //
-
-import Foundation
-
-extension TopView: TopViewProtocol {
-    
-    func setupNews(data: [ArticleDataModel]) {
-        
-        dataSource = data
-        
-        collectionView.reloadData()
-    }
-}
-
-extension TopView: CategoryViewDelegate {
-    
-    func categoryAtIndexDidTap(_ index: Int) {
-        //code
-    }
-    
-    
-    func categoryDidTap(_ item: Category?) {
-        delegate?.categoryDidChange(item)
-    }
-}
+//extension TopView: CategoryViewDelegate {
+//    
+//    func categoryAtIndexDidTap(_ index: Int) {
+//        //code
+//    }
+//    
+//    
+//    func categoryDidTap(_ item: Category?) {
+//        delegate?.categoryDidChange(item)
+//    }
+//}

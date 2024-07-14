@@ -300,8 +300,6 @@
 				A823EEB32C10AC07001BF6A6 /* TopViewController+Ext.swift */,
 				A823EEB12C10AB60001BF6A6 /* TopViewController.swift */,
 				A85AB6E92C19F00500FE1829 /* TopViewControllerDelegate.swift */,
-				A85AB75C2C285E8E00FE1829 /* Views */,
-				A823EEA12C10A705001BF6A6 /* Top */,
 			);
 			path = toDELETE;
 			sourceTree = "<group>";
@@ -428,25 +426,6 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		A823EEA12C10A705001BF6A6 /* Top */ = {
-			isa = PBXGroup;
-			children = (
-				A85AB6FC2C1EF58200FE1829 /* Top */,
-				A823EEA22C10A72C001BF6A6 /* Models */,
-				A85AB6E02C19E8C900FE1829 /* Views */,
-				A823EEB02C10AB41001BF6A6 /* Controllers */,
-			);
-			name = Top;
-			path = ../Source/Screens/Top;
-			sourceTree = "<group>";
-		};
-		A823EEA22C10A72C001BF6A6 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		A823EEA92C10A838001BF6A6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,13 +438,6 @@
 				A824BF752C30408400B436F9 /* Theme.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		A823EEB02C10AB41001BF6A6 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		A823EEB72C19987A001BF6A6 /* CoreData */ = {
@@ -628,13 +600,6 @@
 			path = DataModel;
 			sourceTree = "<group>";
 		};
-		A85AB6E02C19E8C900FE1829 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		A85AB6ED2C19F31900FE1829 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,13 +617,6 @@
 				A824BF932C3070D900B436F9 /* String+Ext.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		A85AB6FC2C1EF58200FE1829 /* Top */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Top;
 			sourceTree = "<group>";
 		};
 		A85AB6FD2C1EF58800FE1829 /* Category */ = {
@@ -833,13 +791,6 @@
 				A85AB7622C285EEE00FE1829 /* FavoriteModelProtocol.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		A85AB75C2C285E8E00FE1829 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		A85AB75D2C285E9400FE1829 /* Controller */ = {

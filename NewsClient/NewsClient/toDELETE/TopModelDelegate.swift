@@ -1,13 +1,13 @@
+////
+////  TopModelDelegate.swift
+////  NewsClient
+////
+////  Created by Aleksandr Moroshovskyi on 05.06.2024.
+////
 //
-//  TopModelDelegate.swift
-//  NewsClient
+//import Foundation
 //
-//  Created by Aleksandr Moroshovskyi on 05.06.2024.
-//
-
-import Foundation
-
-protocol TopModelDelegate: AnyObject {
-    
-    func dataDidLoad(with data: [ArticleDataModel])
-}
+//protocol TopModelDelegate: AnyObject {
+//    
+//    func dataDidLoad(with data: [ArticleDataModel])
+//}
