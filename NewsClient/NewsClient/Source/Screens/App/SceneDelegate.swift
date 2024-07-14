@@ -18,15 +18,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
+        //for test
+        //DefaultManager.removeAppCountry()
+        
         let mainNavigationController = UINavigationController(
-            rootViewController: MainTabBarController()
+            //rootViewController: MainTabBarController()
+            //rootViewController: WelcomeViewController()
+            rootViewController: DefaultManager.getAppCountry() == nil ? WelcomeViewController() : MainTabBarController()
         )
+        mainNavigationController.navigationBar.isHidden = true
         
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = mainNavigationController
         window.makeKeyAndVisible()
         
         self.window = window
+        
+        UserDefaults.standard.addObserver(self, forKeyPath: DefaultManager.KEY_Theme, options: [.new], context: nil)
+        //setTheme(Theme(rawValue: UserDefaults.standard.string(forKey: "theme") ?? "")?.uiInterfaceStyle)
+        setTheme(DefaultManager.getAppTheme()?.uiInterfaceStyle)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -57,5 +67,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    deinit {
+        UserDefaults.standard.removeObserver(self, forKeyPath: "theme", context: nil)
+    }
 
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        guard
+            let change = change,
+            object != nil,
+            keyPath == DefaultManager.KEY_Theme,
+            let themeValue = change[.newKey] as? String,
+            let theme = Theme(rawValue: themeValue)?.uiInterfaceStyle
+        else { return }
+        
+        setTheme(theme)
+    }
+    
+    private func setTheme(_ theme: UIUserInterfaceStyle?) {
+        guard let theme = theme else { return }
+        
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: { [weak self] in
+            self?.window?.overrideUserInterfaceStyle = theme
+        }, completion: .none)
+    }
+    
+    func resetApp() {
+        //???
+    }
 }

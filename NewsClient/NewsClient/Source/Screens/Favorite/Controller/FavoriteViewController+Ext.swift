@@ -1,0 +1,104 @@
+//
+//  FavoriteViewController+Ext.swift
+//  NewsClient
+//
+//  Created by Aleksandr Moroshovskyi on 23.06.2024.
+//
+
+import Foundation
+import UIKit
+
+//MARK: FavoriteModelDelegate
+extension FavoriteViewController: FavoriteModelDelegate {
+    
+    func dataDidLoad(with data: [ArticleDataModel]) {
+        contentView.setupNews(data: data)
+        
+        /*
+        if data.count > 0 {
+            for subview in view.subviews {
+                if ((subview as? FavoritePlaceholderView) != nil) {
+                    subview.removeFromSuperview()
+                }
+            }
+            contentView.setupNews(data: data)
+        } else {
+            let favoritePlaceholderView = FavoritePlaceholderView(frame: view.frame)
+            view.addSubview(favoritePlaceholderView)
+        }
+         */
+    }
+}
+
+//MARK: NewsViewDelegate
+extension FavoriteViewController: NewsViewDelegate {
+    
+    func share(article: ArticleDataModel) {
+        
+        if let urlToArticle = article.url {
+            if let url = URL(string: urlToArticle) {
+                let urlToShare = [url]
+                
+                let activityViewController = UIActivityViewController(
+                    activityItems: urlToShare,
+                    applicationActivities: nil
+                )
+                
+                activityViewController.popoverPresentationController?.sourceView = self.view
+                self.present(activityViewController, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    
+    func presentAlert() {
+        //
+    }
+    
+    func refreshData() {
+        model.loadData()
+    }
+    
+    func loadNextPageIfExists() {
+        //
+    }
+    
+    func addToFavorite(article: ArticleDataModel) {
+        model.addToFavorite(article: article)
+        model.loadData()
+        
+        NotificationCenter.default.post(
+            name: Constants.addedToFavoriteNotification,
+            object: article,
+            userInfo: nil
+        )
+    }
+    
+    func deleteFromFavorite(article: ArticleDataModel) {
+        model.deleteFavorite(article: article)
+        model.loadData()
+        
+        NotificationCenter.default.post(
+            name: Constants.deletedFromFavoriteNotification,
+            object: article,
+            userInfo: nil
+        )
+    }
+    
+    func categoryDidChange(_ index: Int) {
+        //
+    }
+    
+    func newsRowDidTapAt(_ article: ArticleDataModel) {
+        
+        if let nc = navigationController {
+            
+            let newsDetailsViewController = NewsDetailsViewController()
+            newsDetailsViewController.dataModel = article
+            newsDetailsViewController.dataModel.addToFavoriteActionCompletion = addToFavorite
+            newsDetailsViewController.dataModel.deleteFromFavoriteActionCompletion = deleteFromFavorite
+              
+            nc.pushViewController(newsDetailsViewController, animated: true)
+        }
+    }
+}
