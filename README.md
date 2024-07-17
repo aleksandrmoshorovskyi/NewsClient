@@ -10,10 +10,6 @@ Never miss a breaking news story or important update again. See news by categori
 
 Stay informed with NEWS:
 
-Get daily news, in-depth reporting, expert commentary and more.
-
-Read articles and save them for later.
-
-Data rates may apply.
-
-API: https://newsapi.org/
+Get daily news, in-depth reporting, expert commentary and more
+Read articles and save them for later
+Data rates may apply
