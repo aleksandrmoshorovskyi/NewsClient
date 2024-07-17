@@ -44,9 +44,9 @@ class FavoriteViewController: BaseViewController {
 
             navigationItem.title = AppStrings.FavoriteViewController_title.localized.capitalized
             
-            navigationItem.titleView?.backgroundColor = .systemBackground
+            navigationItem.titleView?.backgroundColor = Constants.FavoriteViewController_BackgroundColor
             
-            nc.navigationBar.backgroundColor = .systemBackground
+            nc.navigationBar.backgroundColor = Constants.FavoriteViewController_BackgroundColor
             
             //for no change bg navigationBar color
             nc.navigationBar.setBackgroundImage(UIImage(), for: .default)

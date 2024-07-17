@@ -57,7 +57,7 @@ class CategoryView: UIView {
         addSubview(collectionView)
 
         NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 58.0),
+            self.heightAnchor.constraint(equalToConstant: Constants.CategoryView_Height),
             
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: .zero),
             collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: .zero),

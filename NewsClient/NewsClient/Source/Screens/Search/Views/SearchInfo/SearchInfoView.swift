@@ -11,8 +11,7 @@ class SearchInfoView: UIView {
     
     weak var delegate: SearchInfoViewDelegate?
     
-    var containerView: UIView!
-    
+    var containerView: UIView!    
     var titleLabel: UILabel!
     var clearButton: UIButton!
     
@@ -34,20 +33,20 @@ class SearchInfoView: UIView {
     func setupUI() {
         
         containerView = UIView()
-        containerView.backgroundColor = .systemBackground
+        containerView.backgroundColor = Constants.SearchInfoView_BackgroundColor
         
         titleLabel = UILabel()
-        titleLabel.font = .systemFont(ofSize: 13)
-        titleLabel.textColor = .darkGray
+        titleLabel.font = Constants.common_TertiaryTextFont
+        titleLabel.textColor = Constants.common_TertiaryTextColor
         
         clearButton = UIButton()
-        clearButton.titleLabel?.font = .systemFont(ofSize: 13)
+        clearButton.titleLabel?.font = Constants.common_TertiaryTextFont
         clearButton.setTitle(
             AppStrings.SearchInfoView_clearButton_title.localized,
             for: .normal
         )
-        clearButton.setTitleColor(.systemRed, for: .normal)
-        clearButton.setTitleColor(.systemGray, for: .highlighted)
+        clearButton.setTitleColor(Constants.SearchInfoView_clearButton_normal_Color, for: .normal)
+        clearButton.setTitleColor(Constants.SearchInfoView_clearButton_highlighted_Color, for: .highlighted)
         clearButton.addTarget(self, action: #selector(clearButtonDidTap), for: .touchUpInside)
         clearButton.isHidden = false
     }
@@ -63,7 +62,7 @@ class SearchInfoView: UIView {
         addSubview(clearButton)
 
         NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 58.0),
+            self.heightAnchor.constraint(equalToConstant: Constants.SearchInfoView_Height),
             
             containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: .zero),
             containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: .zero),
@@ -71,12 +70,12 @@ class SearchInfoView: UIView {
             containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: .zero),
             
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: .zero),
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20.0),
-            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: clearButton.leadingAnchor, constant: -10.0),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: Constants.SearchInfoView_SideOffset),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: clearButton.leadingAnchor, constant: -Constants.Common_Offset),
             
             clearButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: .zero),
-            clearButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20.0),
-            clearButton.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, multiplier: 1.0)
+            clearButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -Constants.SearchInfoView_SideOffset),
+            clearButton.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, multiplier: Constants.common_Multiplier)
         ])
     }
 }

@@ -25,19 +25,12 @@ extension CategoryView: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        //cell.configure(with: dataSource[indexPath.row].descriptionString)
         cell.configure(with: dataSource[indexPath.row])
         
-//        if selectedIndex == indexPath {
-//            cell.backgroundColor = UIColor.black
-//        }
-        
         if selectedIndex == indexPath.row {
-            cell.controlView.backgroundColor = .systemRed
-            //cell.titleLabel.font = .boldSystemFont(ofSize: 17.0)
+            cell.controlView.backgroundColor = Constants.CategoryCollectionViewCell_Red_BackgroundColor
         } else {
-            cell.controlView.backgroundColor = .systemBackground
-            //cell.titleLabel.font = .systemFont(ofSize: 17.0)
+            cell.controlView.backgroundColor = Constants.CategoryCollectionViewCell_BackgroundColor
         }
         
         return cell
@@ -52,8 +45,6 @@ extension CategoryView: UICollectionViewDelegate {
 
         selectedIndex = indexPath.row
         
-        //delegate?.categoryDidTap(dataSource[indexPath.row].category)
-        
         delegate?.categoryAtIndexDidTap(indexPath.row)
         
         collectionView.reloadData()
@@ -65,8 +56,8 @@ extension CategoryView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     
-        let referenceHeight: CGFloat = 58.0 // Approximate height of your cell
-        let referenceWidth: CGFloat = 200.0 // Approximate width of your cell
+        let referenceHeight: CGFloat = Constants.CategoryView_Height // Approximate height of your cell
+        let referenceWidth: CGFloat = Constants.CategoryView_Width // Approximate width of your cell
         
         return CGSize(width: referenceWidth, height: referenceHeight)
     }
@@ -75,15 +66,15 @@ extension CategoryView: UICollectionViewDelegateFlowLayout {
         
         return UIEdgeInsets(
             top: .zero,
-            left: 10.0,
+            left: Constants.Common_Offset,
             bottom: .zero,
-            right: 10.0
+            right: Constants.Common_Offset
         )
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-        return 10.0
+        return Constants.Common_Offset
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

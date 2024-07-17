@@ -9,8 +9,6 @@ import UIKit
 
 class HomeCollectionViewCell: UICollectionViewCell {
     
-    //weak var delegate: HomeCollectionViewCellDelegate?
-    
     var containerView: UIView!
     
     override init(frame: CGRect) {
@@ -25,19 +23,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
     
     func setupUI() {
-        
-        //self setup
-        //self.backgroundColor = Constant.baseCellBackgroundColor
-        
-        //contentView setup
-        //contentView.layer.cornerRadius = Constants.articleCellCornerRadius
-        contentView.backgroundColor = .systemBackground //.white //Constants.contentViewColor
-        //contentView.alpha = Constants.contentViewAlpha
-        
-        //containerView setup
+        contentView.backgroundColor = Constants.HomeCollectionViewCell_BackgroundColor
         containerView = UIView()
-        //containerView.layer.cornerRadius = Constants.articleCellCornerRadius
-        containerView.backgroundColor = .systemBackground //.white //Constants.containerViewColor
+        containerView.backgroundColor = Constants.HomeCollectionViewCell_BackgroundColor
     }
     
     func setupLayout() {
@@ -46,7 +34,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(containerView)
         
         NSLayoutConstraint.activate([
-            //collectionView constraints
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .zero),
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: .zero),
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .zero),

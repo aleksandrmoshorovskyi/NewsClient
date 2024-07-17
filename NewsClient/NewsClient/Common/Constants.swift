@@ -23,10 +23,14 @@ enum Constants {
     static let common_TitleFont: UIFont = .boldSystemFont(ofSize: 17)
     static let common_SecondaryTextFont: UIFont = .systemFont(ofSize: 17)
     static let common_TertiaryTextFont: UIFont = .systemFont(ofSize: 13)
+    static let common_TertiaryTextColor: UIColor = .darkGray
+    static let Common_Offset: CGFloat = 10.0
+    static let Common_Height: CGFloat = 35.0
     static let common_CornerRadius: CGFloat = 8.0
     static let common_Multiplier: CGFloat = 1.0
     
     //WelcomeView
+    static let Welcome_SystemBackground: UIColor = common_SystemBackground
     static let welcome_pageTitleFont: UIFont = common_PageTitleFont
     static let welcome_pageSecondTitleFont: UIFont = common_SecondaryTextFont
     
@@ -70,12 +74,46 @@ enum Constants {
     static let NewsViewCollectionView_ApproximateHeight: CGFloat = 250
     static let NewsViewCollectionView_Offset: CGFloat = 10.0
     
+    //HomeViewController
+    static let HomeViewController_Title: CGFloat = 20.0
+    
+    //HomeCollectionViewCell
+    static let HomeCollectionViewCell_BackgroundColor: UIColor = common_SystemBackground
+    
+    //HomeViewController
+    static let HomeViewController_BackgroundColor: UIColor = common_SystemBackground
+    
+    //CategoryCollectionViewCell
+    static let CategoryCollectionViewCell_BackgroundColor: UIColor = common_SystemBackground
+    static let CategoryCollectionViewCell_Red_BackgroundColor: UIColor = .systemRed
+    static let CategoryCollectionViewCell_controlView_heightAnchor: CGFloat = 5.0
+    static let CategoryView_Height: CGFloat = 58.0
+    static let CategoryView_Width: CGFloat = 200.0
+    
+    //SearchInfoView
+    static let SearchInfoView_BackgroundColor: UIColor = common_SystemBackground
+    static let SearchInfoView_clearButton_normal_Color: UIColor = .systemRed
+    static let SearchInfoView_clearButton_highlighted_Color: UIColor = .systemGray
+    static let SearchInfoView_Height: CGFloat = 58.0
+    static let SearchInfoView_SideOffset: CGFloat = 20.0
+    
+    //FavoriteViewController
+    static let FavoriteViewController_BackgroundColor: UIColor = common_SystemBackground
+    
     //Main Tab Bar
     static let MainTabBarViewBG: UIColor = .systemBackground
     static let MainTabBarBG: UIColor = .systemGray
     
     //Base VC
     static let BaseViewBG: UIColor = .systemBackground
+    
+    //NewsPlaceholderView
+    static let NewsPlaceholderView_stackView_spacing: CGFloat = 10.0
+    static let NewsPlaceholderView_actionButton_width: CGFloat = 150.0
+    static let NewsPlaceholderView_actionButton_height: CGFloat = 35.0
+    static let NewsPlaceholderView_containerView_sideOffset: CGFloat = 40.0
+    static let NewsPlaceholderView_containerView_topBottomOffset: CGFloat = 20.0
+    static let NewsPlaceholderView_imageView_heightAnchor: CGFloat = 100.0
     
     //Settings
     static let systemSettingsImage: UIImage? = UIImage(systemName: "gearshape")

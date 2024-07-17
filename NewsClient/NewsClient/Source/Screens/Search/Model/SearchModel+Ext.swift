@@ -77,8 +77,11 @@ extension SearchModel: SearchModelProtocol {
         networkService.loadSearchedNewsFor(keyword: keyword, pageSize: pageSize, page: page) { [weak self] newsData, error in
             
             if let err = error {
-                debugPrint("\(err.localizedDescription)")
-                self?.delegate?.presentAlert(with: "\(err.localizedDescription)")
+
+                DispatchQueue.main.async {
+                    debugPrint("\(err.localizedDescription)")
+                    self?.delegate?.presentAlert(with: "\(err.localizedDescription)")
+                }
             }
             
             if let data = newsData  {

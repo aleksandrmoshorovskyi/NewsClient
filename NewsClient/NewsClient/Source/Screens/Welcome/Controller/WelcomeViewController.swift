@@ -35,6 +35,6 @@ class WelcomeViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = Constants.Welcome_SystemBackground
     }
 }

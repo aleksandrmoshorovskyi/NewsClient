@@ -16,7 +16,6 @@ extension NewsModel: NewsModelProtocol {
             titleText: getTextForTitlePlaceholderLabel(),
             descriptionText: getTextForDescriptionPlaceholderLabel(),
             buttonTitle: getButtonTitle(),
-            //buttonAction: #selector(buttonAction),
             buttonActionCompletion: buttonAction
         )
     }
@@ -87,7 +86,6 @@ extension NewsModel: NewsModelProtocol {
         }
     }
     
-    //func loadDataFor(_ category: Category? = nil) {
     func loadDataFor(category: Category? = nil, page: Int?) {
         
         var currentCountry: Country!
@@ -113,15 +111,9 @@ extension NewsModel: NewsModelProtocol {
             if let err = error {
                 debugPrint("\(err.localizedDescription)")
                 
-                //Call must be made on main thread!!!
-                //self?.delegate?.presentAlertWith("error".localized().capitalized, err.localizedDescription)
-                
                 self?.currentError = err
                 
                 DispatchQueue.main.async {
-                    //self?.delegate?.dataDidLoad(with: [])
-                    //self?.delegate?.presentAlert(with: "\(err.localizedDescription)")
-                    //SHOW ON PLACEHOLDER ->
                     
                     if category == Category.allCases.first {
                         //self?.delegate?.presentAlert(with: "\(err.localizedDescription)")
@@ -142,9 +134,7 @@ extension NewsModel: NewsModelProtocol {
                             )
                         }
                     }
-                    
-                    //TO DO - Some error
-                    //currentError = err
+
                 }
     
             }
@@ -153,10 +143,6 @@ extension NewsModel: NewsModelProtocol {
                 
                 if data.status == "error" {
                     debugPrint("\(String(describing: data.code))")
-                    
-                    //Call must be made on main thread!!!
-                    //self?.delegate?.presentAlertWith("error".localized().capitalized, "\(String(describing: data.code))")
-                    //self?.delegate?.dataDidLoad(with: [])
                     
                     //DispatchQueue.main.async {
                         self?.delegate?.dataDidLoad(with: [])

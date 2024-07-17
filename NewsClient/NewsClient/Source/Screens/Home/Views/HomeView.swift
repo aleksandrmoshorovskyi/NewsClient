@@ -74,7 +74,7 @@ class HomeView: UIView {
             categoryView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: .zero),
             categoryView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: .zero),
             categoryView.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: .zero),
-            categoryView.heightAnchor.constraint(equalToConstant: 58.0),
+            categoryView.heightAnchor.constraint(equalToConstant: Constants.CategoryView_Height),
             
             collectionView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: .zero),
             collectionView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: .zero),

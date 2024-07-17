@@ -49,12 +49,12 @@ class HomeViewController: BaseViewController {
             
             let nsAttributedString = [
                 NSAttributedString.Key.foregroundColor: UIColor.red,
-                NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20.0)
+                NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: Constants.HomeViewController_Title)
             ]
             nc.navigationBar.titleTextAttributes = nsAttributedString
             
-            navigationItem.titleView?.backgroundColor = .systemBackground
-            nc.navigationBar.backgroundColor = .systemBackground
+            navigationItem.titleView?.backgroundColor = Constants.HomeViewController_BackgroundColor
+            nc.navigationBar.backgroundColor = Constants.HomeViewController_BackgroundColor
             
             //for no change bg navigationBar color
             nc.navigationBar.setBackgroundImage(UIImage(), for: .default)
