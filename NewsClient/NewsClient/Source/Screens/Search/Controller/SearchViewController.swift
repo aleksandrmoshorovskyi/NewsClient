@@ -57,7 +57,7 @@ class SearchViewController: BaseViewController {
             
             let searchController = UISearchController(searchResultsController: resultsTableController)
 
-            searchController.delegate = self
+            //searchController.delegate = self
 
             searchController.searchBar.delegate = self // Monitor when the search button is tapped.
             searchController.hidesNavigationBarDuringPresentation = false
@@ -83,125 +83,7 @@ class SearchViewController: BaseViewController {
     }
 }
 
-extension SearchViewController: UISearchControllerDelegate {
-    
-}
-
-//extension SearchViewController: UISearchResultsUpdating {
-//   
-//    func updateSearchResults(for searchController: UISearchController) {
-//        
-////        let searchString = searchController.searchBar.text!
-////        
-////        //debugPrint("searchString - \(searchString)")
-////        
-////        if searchString.count >= 3 {
-////            model.loadDataFor(keyword: searchString)
-////        }
-//    }
+//extension SearchViewController: UISearchControllerDelegate {
+//    
 //}
 
-extension SearchViewController: UISearchBarDelegate {
-    
-//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//        //searchBar.searchTextField.text = ""
-//        //searchController.showsSearchResultsController
-//    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //debugPrint("searchBarSearchButtonClicked")
-        
-        let searchString = searchBar.searchTextField.text!.trimmingCharacters(in: .whitespaces)
-        keywordStr = searchString
-        //resultsTableController.tableView.reloadData()
-        //searchController.searchResultsController?.reloadInputViews()
-        
-        //serchDataSource.append(searchString)
-
-        //resultsTableController.tableView.reloadData()
-        
-        if !keywordStr.isEmpty {
-            if serchDataSource.contains(searchString) {
-                if let index = serchDataSource.firstIndex(of: searchString) {
-                    serchDataSource.remove(at: index)
-                }
-            }
-            
-            serchDataSource.insert(searchString, at: 0)
-            
-            DefaultManager.setSearchKeywords(serchDataSource)
-        }
-        
-        if serchDataSource.count > 10 {
-            serchDataSource.removeLast()
-        }
-        
-        model.loadDataFor(keyword: keywordStr)
-        //navigationItem.searchController?.searchBar.searchTextField.text = ""
-        navigationItem.searchController?.dismiss(animated: true)
-        resultsTableController.tableView.reloadData()
-        contentView.activityIndicatorStartAnimating()
-    }
-}
-
-//MARK: UITableViewDelegate
-extension SearchViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let viewForHeaderInSection = SearchInfoView()
-        
-        viewForHeaderInSection.delegate = self
-        
-        if serchDataSource.count == 0 {
-            //viewForHeaderInSection.setupTitle("No recent searches".localized())
-            viewForHeaderInSection.setupTitle(
-                AppStrings.SearchViewController_HeaderView_No_recent_searches.localized
-            )
-            viewForHeaderInSection.showClearButton(false)
-        } else {
-            //viewForHeaderInSection.setupTitle("Recent searches".localized())
-            viewForHeaderInSection.setupTitle(
-                AppStrings.SearchViewController_HeaderView_Recent_searches.localized
-            )
-            viewForHeaderInSection.showClearButton(true)
-        }
-        
-        return viewForHeaderInSection
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return Constants.SearchInfoView_Height
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        let searchString = serchDataSource[indexPath.row]
-        keywordStr = searchString
-        
-        model.loadDataFor(keyword: keywordStr)
-        //navigationItem.searchController?.searchBar.searchTextField.text = ""
-        navigationItem.searchController?.dismiss(animated: true)
-        contentView.activityIndicatorStartAnimating()
-    }
-}
-
-//MARK: UITableViewDataSource
-extension SearchViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        serchDataSource.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-        let cell = UITableViewCell()
-        
-        cell.textLabel?.text = serchDataSource[indexPath.row]
-         
-        return cell
-    }
-}

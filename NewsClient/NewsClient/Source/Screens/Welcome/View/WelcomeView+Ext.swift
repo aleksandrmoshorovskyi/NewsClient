@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: WelcomeViewProtocol
 extension WelcomeView: WelcomeViewProtocol {
     
     func setupData(data: [Country]) {

@@ -15,13 +15,8 @@ class HomeView: UIView {
     var categoriesSource: [Category] = []
     
     var categoryView: CategoryView!
-    
     var collectionView: UICollectionView!
     var addToFavoriteButton: UIButton!
-    
-//    @objc func addToFavoriteButtonClicked() {
-//        //delegate?.addToFavoriteDidTap()
-//    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

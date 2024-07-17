@@ -10,6 +10,5 @@ import Foundation
 protocol CategoryViewProtocol {
     
     func setupCategory(index: Int)
-    
     func scrollToCategory(indexPath: IndexPath)
 }

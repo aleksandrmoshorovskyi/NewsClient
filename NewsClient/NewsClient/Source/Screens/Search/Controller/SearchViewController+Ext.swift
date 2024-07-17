@@ -27,14 +27,12 @@ extension SearchViewController: SearchModelDelegate {
     func presentAlert(with message: String) {
         
         let alertController = UIAlertController(
-            //title: "error".localized().capitalized,
             title: AppStrings.AlertController_error_title.localized,
             message: message,
             preferredStyle: .alert
         )
         
         let okAletalertAction = UIAlertAction(
-            //title: "OK",
             title: AppStrings.AlertController_okAletalertAction.localized,
             style: .default) { (action) in
             // ...
@@ -46,7 +44,6 @@ extension SearchViewController: SearchModelDelegate {
     }
     
     func totalResult(is count: Int) {
-        //navigationItem.prompt = "\(count)" + " " + "results for".localized() + " - " + "\(keywordStr ?? "")"
         navigationItem.prompt = ""
         navigationItem.prompt?.append("\(count)")
         navigationItem.prompt?.append(" ")
@@ -116,5 +113,107 @@ extension SearchViewController: NewsViewDelegate {
               
             nc.pushViewController(newsDetailsViewController, animated: true)
         }
+    }
+}
+
+//MARK: UISearchBarDelegate
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        let searchString = searchBar.searchTextField.text!.trimmingCharacters(in: .whitespaces)
+        
+        keywordStr = searchString
+        
+        if !keywordStr.isEmpty {
+            
+            if serchDataSource.contains(searchString) {
+                
+                if let index = serchDataSource.firstIndex(of: searchString) {
+                    
+                    serchDataSource.remove(at: index)
+                }
+            }
+            
+            serchDataSource.insert(searchString, at: 0)
+            DefaultManager.setSearchKeywords(serchDataSource)
+        }
+        
+        if serchDataSource.count > 10 {
+            serchDataSource.removeLast()
+        }
+        
+        model.loadDataFor(keyword: keywordStr)
+        
+        navigationItem.searchController?.dismiss(animated: true)
+        
+        resultsTableController.tableView.reloadData()
+        
+        contentView.activityIndicatorStartAnimating()
+    }
+}
+
+//MARK: UITableViewDelegate
+extension SearchViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let viewForHeaderInSection = SearchInfoView()
+        
+        viewForHeaderInSection.delegate = self
+        
+        if serchDataSource.count == 0 {
+
+            viewForHeaderInSection.setupTitle(
+                AppStrings.SearchViewController_HeaderView_No_recent_searches.localized
+            )
+            
+            viewForHeaderInSection.showClearButton(false)
+        } else {
+
+            viewForHeaderInSection.setupTitle(
+                AppStrings.SearchViewController_HeaderView_Recent_searches.localized
+            )
+            
+            viewForHeaderInSection.showClearButton(true)
+        }
+        
+        return viewForHeaderInSection
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return Constants.SearchInfoView_Height
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let searchString = serchDataSource[indexPath.row]
+        keywordStr = searchString
+        
+        model.loadDataFor(keyword: keywordStr)
+
+        navigationItem.searchController?.dismiss(animated: true)
+        
+        contentView.activityIndicatorStartAnimating()
+    }
+}
+
+//MARK: UITableViewDataSource
+extension SearchViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        serchDataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        let cell = UITableViewCell()
+        
+        cell.textLabel?.text = serchDataSource[indexPath.row]
+         
+        return cell
     }
 }

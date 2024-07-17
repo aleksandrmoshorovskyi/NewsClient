@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: CategoryViewProtocol
 extension CategoryView: CategoryViewProtocol {
     
     func scrollToCategory(indexPath: IndexPath) {

@@ -7,8 +7,6 @@
 
 import UIKit
 
-//typealias dataSourceCategory = (descriptionString: String, category: Category?)
-
 class CategoryView: UIView {
     
     weak var delegate: CategoryViewDelegate?

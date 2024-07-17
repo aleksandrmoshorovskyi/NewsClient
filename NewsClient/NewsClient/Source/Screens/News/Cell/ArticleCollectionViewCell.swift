@@ -54,12 +54,10 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         //controlsView setup
         controlsView = UIView()
         
-        //dtLabel setup
         dtLabel = UILabel()
         dtLabel.font = Constants.ArticleCollectionViewCell_dtTitleFont
         dtLabel.alpha = Constants.ArticleCollectionViewCell_elementsAlpha
         
-        //menuButton
         menuButton = UIButton()
         menuButton.showsMenuAsPrimaryAction = true
         menuButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)

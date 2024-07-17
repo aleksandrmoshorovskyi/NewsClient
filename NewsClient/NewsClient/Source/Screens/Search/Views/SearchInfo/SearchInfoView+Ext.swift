@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: SearchInfoViewProtocol
 extension SearchInfoView: SearchInfoViewProtocol {
     
     func showClearButton(_ show: Bool) {

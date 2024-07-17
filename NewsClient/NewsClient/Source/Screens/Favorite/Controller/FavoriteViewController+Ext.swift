@@ -5,7 +5,6 @@
 //  Created by Aleksandr Moroshovskyi on 23.06.2024.
 //
 
-import Foundation
 import UIKit
 
 //MARK: FavoriteModelDelegate
@@ -22,7 +21,6 @@ extension FavoriteViewController: NewsViewDelegate {
     func share(article: ArticleDataModel) {
         CommonFunctions.share(article: article, for: self)
     }
-    
     
     func presentAlert() {
         //
@@ -74,5 +72,13 @@ extension FavoriteViewController: NewsViewDelegate {
               
             nc.pushViewController(newsDetailsViewController, animated: true)
         }
+    }
+}
+
+//MARK: UISearchResultsUpdating
+extension FavoriteViewController: UISearchResultsUpdating {
+   
+    func updateSearchResults(for searchController: UISearchController) {
+        model.filterDataWith(predicate: searchController.searchBar.text)
     }
 }

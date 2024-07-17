@@ -7,7 +7,7 @@
 
 import UIKit
 
-//NewsDetailsViewDelegate
+// MARK: NewsDetailsViewDelegate
 extension NewsDetailsViewController: NewsDetailsViewDelegate {
     
     func addToFavoriteDidTap() {

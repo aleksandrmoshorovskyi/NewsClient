@@ -71,4 +71,3 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         self.titleLabel.text = data.localized.capitalized
     }
 }
-

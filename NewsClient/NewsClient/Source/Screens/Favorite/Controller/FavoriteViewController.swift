@@ -53,7 +53,7 @@ class FavoriteViewController: BaseViewController {
             nc.navigationBar.shadowImage = UIImage()
             
             let searchController = UISearchController(searchResultsController: UITableViewController())
-            searchController.delegate = self
+            //searchController.delegate = self
             searchController.searchResultsUpdater = self
 
             searchController.hidesNavigationBarDuringPresentation = false
@@ -81,31 +81,8 @@ class FavoriteViewController: BaseViewController {
     }
 }
 
-extension FavoriteViewController: UISearchControllerDelegate {
-    
-}
-
-extension FavoriteViewController: UISearchResultsUpdating {
-   
-    func updateSearchResults(for searchController: UISearchController) {
-        model.filterDataWith(predicate: searchController.searchBar.text)
-    }
-}
-
-//extension FavoriteViewController: UISearchBarDelegate {
+//extension FavoriteViewController: UISearchControllerDelegate {
 //    
-//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//        //searchBar.searchTextField.text = ""
-//    }
-//    
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        //debugPrint("searchBarSearchButtonClicked")
-//        
-//        //let searchString = searchBar.searchTextField.text!
-//        //keywordStr = searchString
-//        
-//        //model.loadDataFor(keyword: keywordStr)
-//        //navigationItem.searchController?.searchBar.searchTextField.text = ""
-//        //navigationItem.searchController?.dismiss(animated: true)
-//    }
 //}
+
+

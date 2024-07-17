@@ -40,8 +40,6 @@ class HomeViewController: BaseViewController {
     }
     
     private func setupUI() {
-        //title = AppStrings.HomeViewController_title.localized.capitalized
-        
         if let nc = navigationController {
             
             nc.navigationBar.prefersLargeTitles = false

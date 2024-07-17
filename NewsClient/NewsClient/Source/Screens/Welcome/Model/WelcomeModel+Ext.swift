@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: WelcomeModelProtocol
 extension WelcomeModel: WelcomeModelProtocol {
     
     func loadData() {

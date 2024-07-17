@@ -24,15 +24,12 @@ extension HomeView: UICollectionViewDataSource {
             assertionFailure()
             return UICollectionViewCell()
         }
-        
-        //cell.configure(with: dataSource[indexPath.row])
             
         for subview in cell.contentView.subviews {
             subview.removeFromSuperview()
         }
         
         let VC = dataSource[indexPath.row]
-        
         VC.view.frame = cell.contentView.frame
         
         cell.contentView.addSubview(VC.view)
@@ -47,11 +44,8 @@ extension HomeView: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let scrollPosition = scrollView.contentOffset.x / scrollView.bounds.width
-
         let currentPosition = scrollPosition.isNaN ? 0 : Int(round(scrollPosition))
 
-        //debugPrint("currentPosition - \(currentPosition)")
-        
         categoryView.setupCategory(index: currentPosition)
         categoryView.scrollToCategory(indexPath: IndexPath(row: currentPosition, section: 0))
     }
@@ -85,4 +79,3 @@ extension HomeView: UICollectionViewDelegateFlowLayout {
         return .zero
     }
 }
-

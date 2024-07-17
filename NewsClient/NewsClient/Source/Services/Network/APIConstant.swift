@@ -17,7 +17,6 @@ struct APIConstant {
     private static let dataPathSearch = "/everything"
     
     static let APIkey = "c3494c6294fc41dc8cca8fcf13d5987b"
-    //static let APIkey = "817c11efccfe47fc868cef13599c0e43" //NA
     
     private static func baseNewsUrl() -> String {
         return baseUrl + "/" + apiVersion

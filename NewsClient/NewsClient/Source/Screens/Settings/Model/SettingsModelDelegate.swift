@@ -11,4 +11,3 @@ protocol SettingsModelDelegate: AnyObject {
     
     func dataDidLoad(with data: [SettingsDataModel])
 }
-

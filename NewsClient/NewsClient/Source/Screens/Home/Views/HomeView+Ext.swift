@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: HomeViewProtocol
 extension HomeView: HomeViewProtocol {
     
     func setupViewControllers(data: [NewsViewController], and categories: [Category]) {
@@ -25,12 +26,12 @@ extension HomeView: HomeViewProtocol {
     }
 }
 
+//MARK: CategoryViewDelegate
 extension HomeView: CategoryViewDelegate {
     
     func categoryAtIndexDidTap(_ index: Int) {
         delegate?.categoryDidChange(index)
     }
-    
     
     func categoryDidTap(_ item: Category?) {
         //delegate?.categoryDidChange(item)

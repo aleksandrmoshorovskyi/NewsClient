@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: NewsModelProtocol
 extension NewsModel: NewsModelProtocol {
     
     func getPlaceholderData() -> PlaceholderDataModel {

@@ -11,4 +11,3 @@ protocol HomeModelProtocol {
     
     func loadDataFor(_ vc: NewsViewControllerDelegate)
 }
-

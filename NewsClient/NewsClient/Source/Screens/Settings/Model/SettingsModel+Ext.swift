@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: SettingsModelProtocol
 extension SettingsModel: SettingsModelProtocol {
     
     func loadData() {

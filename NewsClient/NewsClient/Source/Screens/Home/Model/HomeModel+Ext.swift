@@ -15,7 +15,7 @@ extension HomeModel: HomeModelProtocol {
         let categories: [Category] = Category.allCases
         
         if categories.count > 0 {
-            categories.forEach() {//_ in
+            categories.forEach() {
                 
                 let VC = NewsViewController()
                 VC.currentCategory = $0
@@ -26,5 +26,4 @@ extension HomeModel: HomeModelProtocol {
             self.delegate?.dataDidLoad(with: categoryVC, for: categories)
         }
     }
-
 }

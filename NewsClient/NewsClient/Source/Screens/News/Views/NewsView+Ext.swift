@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: NewsViewProtocol
 extension NewsView: NewsViewProtocol {
     
     func showPlaceholder() {

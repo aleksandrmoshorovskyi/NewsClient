@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: NewsDetailsViewProtocol
 extension NewsDetailsView: NewsDetailsViewProtocol {
     
     func setupNews(data: ArticleDataModel) {

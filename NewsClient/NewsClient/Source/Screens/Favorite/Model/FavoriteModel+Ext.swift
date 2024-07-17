@@ -5,9 +5,9 @@
 //  Created by Aleksandr Moroshovskyi on 23.06.2024.
 //
 
-import Foundation
 import UIKit
 
+//MARK: FavoriteModelProtocol
 extension FavoriteModel: FavoriteModelProtocol {
     
     func getPlaceholderData() -> PlaceholderDataModel {

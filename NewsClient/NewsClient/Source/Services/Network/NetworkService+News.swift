@@ -6,7 +6,6 @@
 //
 
 import Foundation
-//import UIKit
 
 typealias NewsCompletion = ((DMNewsModel?, Error?) -> ())
 typealias NewParametrs = (category: Category?, keyword: String?, pageSize: Int?, page: Int?)

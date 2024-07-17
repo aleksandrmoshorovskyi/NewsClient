@@ -11,23 +11,15 @@ class NewsView: UIView {
     
     weak var delegate: NewsViewDelegate?
     
-    let refreshControl = UIRefreshControl()
-    
-    var activityIndicator: UIActivityIndicatorView!
-    
-    var placeholderData: PlaceholderDataModel?
-    var placeholderView: NewsPlaceholderView?
-    
     var dataSource: [ArticleDataModel] = []
     var maxIndexPathRow: Int = 0
     
+    let refreshControl = UIRefreshControl()
+    var activityIndicator: UIActivityIndicatorView!
+    var placeholderData: PlaceholderDataModel?
+    var placeholderView: NewsPlaceholderView?
     var collectionView: UICollectionView!
     var addToFavoriteButton: UIButton!
-    
-//    @objc func addToFavoriteButtonClicked() {
-//        //delegate?.addToFavoriteDidTap()
-//        //delegate?.addToFavorite(article: T##ArticleDataModel)
-//    }
     
     @objc func refreshNewsData() {
         delegate?.refreshData()

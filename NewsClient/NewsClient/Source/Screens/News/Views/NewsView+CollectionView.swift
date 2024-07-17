@@ -12,7 +12,7 @@ import Kingfisher
 extension NewsView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
+        
         return dataSource.count
     }
     
@@ -103,4 +103,3 @@ extension NewsView: UICollectionViewDelegateFlowLayout {
         return .zero
     }
 }
-

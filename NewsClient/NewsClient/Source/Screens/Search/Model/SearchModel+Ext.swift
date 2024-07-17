@@ -5,9 +5,9 @@
 //  Created by Aleksandr Moroshovskyi on 28.06.2024.
 //
 
-import Foundation
 import UIKit
 
+//MARK: SearchModelProtocol
 extension SearchModel: SearchModelProtocol {
     
     func getPlaceholderData() -> PlaceholderDataModel {
@@ -40,8 +40,6 @@ extension SearchModel: SearchModelProtocol {
         
         if let data = articles {
             let articles = updateFavoritesFor(articles: data)
-            
-            //self.delegate?.dataDidUpdated(with: articles)
             self.delegate?.dataDidLoad(with: articles)
         }
     }
@@ -88,7 +86,6 @@ extension SearchModel: SearchModelProtocol {
                 
                 if data.status == "error" {
                     debugPrint("\(String(describing: data.code))")
-                    //self?.delegate?.presentAlert(with: "\(String(describing: data.code))")
                     self?.delegate?.presentAlert(with: data.code ?? "Somthing went wrong...")
                 }
                 
@@ -118,14 +115,11 @@ extension SearchModel: SearchModelProtocol {
                     
                     if let articlesData = self?.articles {
                         
-                        //delete Articles with title [Removed]
-                        //let filteredArticles = articlesData.filter() { $0.title != "[Removed]" }
-                        //let sortedArticles = filteredArticles.sorted() { $0.publishedAt ?? "" > $1.publishedAt ?? "" }
-                        
                         let articlesWithFavorite = self?.updateFavoritesFor(articles: articlesData)
-                        
                         self?.delegate?.dataDidLoad(with: articlesWithFavorite ?? [])
+                        
                     } else {
+                        
                         self?.delegate?.dataDidLoad(with: [])
                     }
                 }
@@ -135,6 +129,7 @@ extension SearchModel: SearchModelProtocol {
     }
     
     func addFavorite(article: ArticleDataModel) {
+        
         self.storageService.insertArticle(article: article)
         self.updateFavorites()
         
@@ -146,6 +141,7 @@ extension SearchModel: SearchModelProtocol {
     }
     
     func deleteFavorite(article: ArticleDataModel) {
+        
         self.storageService.deleteArticle(article: article)
         self.updateFavorites()
         
@@ -158,7 +154,6 @@ extension SearchModel: SearchModelProtocol {
     
     private func getTextForTitlePlaceholderLabel() -> NSAttributedString {
         
-        //let attributedText = NSAttributedString(string: "Find it on NEWS".localized())
         let attributedText = NSAttributedString(
             string: AppStrings.SearchViewController_Placeholder_titleText.localized
         )
@@ -168,7 +163,6 @@ extension SearchModel: SearchModelProtocol {
     
     private func getTextForDescriptionPlaceholderLabel() -> NSAttributedString {
         
-        //let attributedText = NSAttributedString(string: "Type your query to search from NEWS".localized())
         let attributedText = NSAttributedString(
             string: AppStrings.SearchViewController_Placeholder_descriptionText.localized
         )
