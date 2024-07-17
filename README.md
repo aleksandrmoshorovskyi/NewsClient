@@ -39,7 +39,7 @@ Stay informed with NEWS:
 - Light
 
 ## Age Rating
-12+
+- 12+
 
-## API
-https://newsapi.org/
+## 
+API: https://newsapi.org/
