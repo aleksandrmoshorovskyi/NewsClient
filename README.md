@@ -13,3 +13,33 @@ Stay informed with NEWS:
 - Get daily news, in-depth reporting, expert commentary and more
 - Read articles and save them for later
 - Data rates may apply
+
+## News contries
+- Poland
+- Ukraine
+- UnitedKingdom
+- UnitedStates
+- more in the future
+
+## Categories
+- General
+- Business
+- Entertainment
+- Health
+- Science
+- Sports
+- Technology
+
+## Supported interface languages
+- English
+- Ukrainian
+
+## Themes
+- Dark
+- Light
+
+## Age Rating
+12+
+
+## API
+https://newsapi.org/
