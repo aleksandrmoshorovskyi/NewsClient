@@ -1,6 +1,6 @@
 # News
 
-<img src="https://github.com/aleksandrmoshorovskyi/NewsClient/blob/homework/NewAppScreensRedBlackFrame.png" width="125%"></img>
+<img src="https://github.com/aleksandrmoshorovskyi/NewsClient/blob/homework/NewAppScreensRedBlackFrame.png" width="150%"></img>
 
 ## Description
 
