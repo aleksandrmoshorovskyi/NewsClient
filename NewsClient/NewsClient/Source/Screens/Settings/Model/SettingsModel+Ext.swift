@@ -7,14 +7,14 @@
 
 import Foundation
 
-//MARK: SettingsModelProtocol
+// MARK: SettingsModelProtocol
 extension SettingsModel: SettingsModelProtocol {
     
     func loadData() {
         
         var settings: [SettingsDataModel] = []
         
-        //MARK: dark/light Mode
+        // MARK: dark/light Mode
         var currentTheme = DefaultManager.getAppTheme()
         currentTheme = currentTheme != nil ? currentTheme : Theme.system
         
@@ -36,7 +36,7 @@ extension SettingsModel: SettingsModelProtocol {
         settings.append(settingMode)
         
         
-        //MARK: app Language
+        // MARK: app Language
         var languages: [SettingItem] = []
 
         languages.append(SettingItem(
@@ -53,7 +53,7 @@ extension SettingsModel: SettingsModelProtocol {
         settings.append(language)
         
         
-        //MARK: app Country
+        // MARK: app Country
         let currentCountry = DefaultManager.getAppCountry()?.rawValue
         
         var countries: [SettingItem] = []

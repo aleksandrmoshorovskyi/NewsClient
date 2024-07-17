@@ -12,7 +12,7 @@ class DefaultManager: NSObject {
     static let KEY_Country = "appCountry"
     static let KEY_Keywords = "searchKeywords"
     
-    //MARK: appTheme
+    // MARK: appTheme
     static func setAppTheme(_ theme: Theme) {
         
         UserDefaults.standard.set(theme.rawValue, forKey: KEY_Theme)
@@ -37,7 +37,7 @@ class DefaultManager: NSObject {
     }
     
     
-    //MARK: Country
+    // MARK: Country
     static func setAppCountry(_ country: Country) {
         
         UserDefaults.standard.set(country.rawValue, forKey: KEY_Country)
@@ -62,7 +62,7 @@ class DefaultManager: NSObject {
     }
     
     
-    //MARK: searchKeywords
+    // MARK: searchKeywords
     static func setSearchKeywords(_ keywords: [String]?) {
         
         if let keywords = keywords {

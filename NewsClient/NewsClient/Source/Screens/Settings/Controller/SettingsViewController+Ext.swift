@@ -5,10 +5,9 @@
 //  Created by Aleksandr Moroshovskyi on 29.06.2024.
 //
 
-import Foundation
 import UIKit
 
-//MARK: SettingsModelDelegate
+// MARK: SettingsModelDelegate
 extension SettingsViewController: SettingsModelDelegate {
     
     func dataDidLoad(with data: [SettingsDataModel]) {
@@ -16,7 +15,7 @@ extension SettingsViewController: SettingsModelDelegate {
     }
 }
 
-//MARK: SettingsViewDelegate
+// MARK: SettingsViewDelegate
 extension SettingsViewController: SettingsViewDelegate {
     
     func presentAlert(title: String, message: String) {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-//MARK: WelcomeModelDelegate
+// MARK: WelcomeModelDelegate
 extension WelcomeViewController: WelcomeModelDelegate {
     
     func dataDidLoad(with data: [Country]) {
@@ -15,7 +15,7 @@ extension WelcomeViewController: WelcomeModelDelegate {
     }
 }
 
-//MARK: WelcomeViewDelegate
+// MARK: WelcomeViewDelegate
 extension WelcomeViewController: WelcomeViewDelegate {
     
     func saveButtonDidTap() {

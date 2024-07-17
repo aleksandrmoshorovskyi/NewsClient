@@ -7,7 +7,7 @@
 
 import UIKit
 
-//MARK: HomeViewProtocol
+// MARK: HomeViewProtocol
 extension HomeView: HomeViewProtocol {
     
     func setupViewControllers(data: [NewsViewController], and categories: [Category]) {
@@ -26,7 +26,7 @@ extension HomeView: HomeViewProtocol {
     }
 }
 
-//MARK: CategoryViewDelegate
+// MARK: CategoryViewDelegate
 extension HomeView: CategoryViewDelegate {
     
     func categoryAtIndexDidTap(_ index: Int) {

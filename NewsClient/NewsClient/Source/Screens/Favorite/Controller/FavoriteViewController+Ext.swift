@@ -7,7 +7,7 @@
 
 import UIKit
 
-//MARK: FavoriteModelDelegate
+// MARK: FavoriteModelDelegate
 extension FavoriteViewController: FavoriteModelDelegate {
     
     func dataDidLoad(with data: [ArticleDataModel]) {
@@ -15,7 +15,7 @@ extension FavoriteViewController: FavoriteModelDelegate {
     }
 }
 
-//MARK: NewsViewDelegate
+// MARK: NewsViewDelegate
 extension FavoriteViewController: NewsViewDelegate {
     
     func share(article: ArticleDataModel) {
@@ -75,7 +75,7 @@ extension FavoriteViewController: NewsViewDelegate {
     }
 }
 
-//MARK: UISearchResultsUpdating
+// MARK: UISearchResultsUpdating
 extension FavoriteViewController: UISearchResultsUpdating {
    
     func updateSearchResults(for searchController: UISearchController) {

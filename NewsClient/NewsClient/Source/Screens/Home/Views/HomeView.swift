@@ -38,7 +38,7 @@ class HomeView: UIView {
 
         backgroundColor = Constants.BaseViewBG
         
-        //MARK: TO DO !!!
+        // MARK: TO DO !!!
         //TO CHANGE - Must work with any categoriesSource in init
         categoryView = CategoryView(customParamArg: Category.allCases)
         categoryView.delegate = self

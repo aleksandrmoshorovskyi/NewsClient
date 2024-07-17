@@ -7,7 +7,7 @@
 
 import UIKit
 
-//MARK: SearchModelProtocol
+// MARK: SearchModelProtocol
 extension SearchModel: SearchModelProtocol {
     
     func getPlaceholderData() -> PlaceholderDataModel {

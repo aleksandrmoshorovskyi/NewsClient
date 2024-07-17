@@ -7,7 +7,7 @@
 
 import UIKit
 
-//MARK: FavoriteModelProtocol
+// MARK: FavoriteModelProtocol
 extension FavoriteModel: FavoriteModelProtocol {
     
     func getPlaceholderData() -> PlaceholderDataModel {

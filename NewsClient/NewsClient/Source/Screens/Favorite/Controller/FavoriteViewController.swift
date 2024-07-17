@@ -30,10 +30,9 @@ class FavoriteViewController: BaseViewController {
     }
     
     private func setupInitialState() {
+        
         let favoriteModel = FavoriteModel(delegate: self)
         model = favoriteModel
-        
-        //currentCategory = nil
         
         contentView.setupPlaceholderData(data: model.getPlaceholderData())
     }
@@ -53,9 +52,7 @@ class FavoriteViewController: BaseViewController {
             nc.navigationBar.shadowImage = UIImage()
             
             let searchController = UISearchController(searchResultsController: UITableViewController())
-            //searchController.delegate = self
             searchController.searchResultsUpdater = self
-
             searchController.hidesNavigationBarDuringPresentation = false
             searchController.showsSearchResultsController = false
             
@@ -68,7 +65,6 @@ class FavoriteViewController: BaseViewController {
             )
             
             navigationItem.searchController?.searchBar.searchTextField.attributedPlaceholder = placeholderColor
-            
         }
     }
     
@@ -80,9 +76,3 @@ class FavoriteViewController: BaseViewController {
         model.loadData()
     }
 }
-
-//extension FavoriteViewController: UISearchControllerDelegate {
-//    
-//}
-
-

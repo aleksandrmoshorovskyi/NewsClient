@@ -5,10 +5,9 @@
 //  Created by Aleksandr Moroshovskyi on 28.06.2024.
 //
 
-import Foundation
 import UIKit
 
-//MARK: SearchInfoViewDelegate
+// MARK: SearchInfoViewDelegate
 extension SearchViewController: SearchInfoViewDelegate {
     
     func clearButtonDidTap() {
@@ -21,7 +20,7 @@ extension SearchViewController: SearchInfoViewDelegate {
     }
 }
 
-//MARK: SearchModelDelegate
+// MARK: SearchModelDelegate
 extension SearchViewController: SearchModelDelegate {
     
     func presentAlert(with message: String) {
@@ -58,7 +57,7 @@ extension SearchViewController: SearchModelDelegate {
     }
 }
 
-//MARK: NewsViewDelegate
+// MARK: NewsViewDelegate
 extension SearchViewController: NewsViewDelegate {
     
     func share(article: ArticleDataModel) {
@@ -116,7 +115,7 @@ extension SearchViewController: NewsViewDelegate {
     }
 }
 
-//MARK: UISearchBarDelegate
+// MARK: UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -153,7 +152,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
-//MARK: UITableViewDelegate
+// MARK: UITableViewDelegate
 extension SearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -201,7 +200,7 @@ extension SearchViewController: UITableViewDelegate {
     }
 }
 
-//MARK: UITableViewDataSource
+// MARK: UITableViewDataSource
 extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

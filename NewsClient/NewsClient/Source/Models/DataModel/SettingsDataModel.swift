@@ -5,7 +5,6 @@
 //  Created by Aleksandr Moroshovskyi on 29.06.2024.
 //
 
-import Foundation
 import UIKit
 
 struct SettingsDataModel {

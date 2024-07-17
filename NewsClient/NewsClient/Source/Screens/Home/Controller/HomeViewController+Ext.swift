@@ -7,7 +7,7 @@
 
 import UIKit
 
-//MARK: NewsViewControllerDelegate
+// MARK: NewsViewControllerDelegate
 extension HomeViewController: NewsViewControllerDelegate {
     
     func newsDidTap(_ article: ArticleDataModel) {
@@ -22,7 +22,7 @@ extension HomeViewController: NewsViewControllerDelegate {
     }
 }
 
-//MARK: HomeModelDelegate
+// MARK: HomeModelDelegate
 extension HomeViewController: HomeModelDelegate {
     
     func dataDidLoad(with viewControllers: [NewsViewController], for categories: [Category]) {
@@ -30,7 +30,7 @@ extension HomeViewController: HomeModelDelegate {
     }
 }
 
-//MARK: HomeViewDelegate
+// MARK: HomeViewDelegate
 extension HomeViewController: HomeViewDelegate {
    
     func categoryDidChange(_ index: Int) {

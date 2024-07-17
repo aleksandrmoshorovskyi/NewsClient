@@ -50,15 +50,11 @@ class SearchViewController: BaseViewController {
             
             serchDataSource = DefaultManager.getSearchKeywords() ?? []
             
-            // MARK: resultsTableController
             resultsTableController = UITableViewController()
             resultsTableController.tableView.delegate = self
             resultsTableController.tableView.dataSource = self
             
             let searchController = UISearchController(searchResultsController: resultsTableController)
-
-            //searchController.delegate = self
-
             searchController.searchBar.delegate = self // Monitor when the search button is tapped.
             searchController.hidesNavigationBarDuringPresentation = false
             searchController.showsSearchResultsController = true
@@ -69,6 +65,7 @@ class SearchViewController: BaseViewController {
             let placeholderColor = NSAttributedString(
                 string: AppStrings.SearchViewController_searchBar_placeholder.localized
             )
+            
             navigationItem.searchController?.searchBar.searchTextField.attributedPlaceholder = placeholderColor
         }
     }
@@ -82,8 +79,3 @@ class SearchViewController: BaseViewController {
         }
     }
 }
-
-//extension SearchViewController: UISearchControllerDelegate {
-//    
-//}
-
