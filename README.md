@@ -4,24 +4,23 @@
 
 ## Description
 
-Stay informed on breaking news with the global newsgathering power of NEWS.
+Stay ahead with breaking news powered by the global reach of NEWS.
 
-Never miss a breaking news story or important update again. See news by categories: Business, Entertainment, Health, Science and more. Get the news you want, the way you want.
+Keep up with the latest updates and never miss an important story again. Explore news tailored to your interests with categories like Business, Entertainment, Health, Science, and more. Customize your experience and get the news you care about most.
 
-Stay informed with NEWS:
+## Key Features:
+- Access daily news, in-depth reports, and expert commentary.
+- Save articles to read later at your convenience.
+- Stay informed wherever you are with an intuitive and user-friendly design.
 
-- Get daily news, in-depth reporting, expert commentary and more
-- Read articles and save them for later
-- Data rates may apply
-
-## News contries
+## Coverage Areas:
 - Poland
 - Ukraine
-- UnitedKingdom
-- UnitedStates
-- more in the future
+- United Kingdom
+- United States
+- More countries coming soon!
 
-## Categories
+## News Categories:
 - General
 - Business
 - Entertainment
@@ -30,16 +29,18 @@ Stay informed with NEWS:
 - Sports
 - Technology
 
-## Supported interface languages
+## Supported Interface Languages:
 - English
 - Ukrainian
 
-## Themes
-- Dark
-- Light
+## Themes:
+- Dark Mode
+- Light Mode
 
-## Age Rating
-- 12+
+## Age Rating:
+12+
+
+Start exploring the world of news with NEWS today!
 
 ## 
 API: https://newsapi.org/
